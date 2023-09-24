@@ -26,20 +26,14 @@ public class User {
 
     private String password;
 
-
-    public enum Role {
-        ADMIN,
-        USER
-    }
-
-    private final Role role;
-
     @JsonProperty("role")
+    private final ERole role;
+
     public String getRole() {
         return role.toString().toLowerCase();
     }
 
-    public User(String name, String email, String password, Role role) {
+    public User(String name, String email, String password, ERole role) {
         this.name = name;
         this.email = email;
         this.password = password;

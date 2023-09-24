@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.Product;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.ProductRepo;
@@ -31,7 +32,7 @@ public class LetsPlayApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        var user = new User("user", "user@mer.pw", "password", User.Role.USER);
+        var user = new User("user", "user@mer.pw", "password", ERole.USER);
         userRepo.save(user);
         productRepo.save(new Product("New Product", "Description", 100.0, user.getId()));
     }
