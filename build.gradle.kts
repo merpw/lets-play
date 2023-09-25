@@ -21,6 +21,10 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 //	implementation("org.springframework.boot:spring-boot-starter-security")
 //    testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
+    testImplementation("io.rest-assured:rest-assured")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:mongodb:1.18.1")
 }
 
 tasks.withType<Test> {

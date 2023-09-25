@@ -18,8 +18,18 @@ Server will be available on [localhost:8080](http://localhost:8080).
 
 JRE 17 and MongoDB is required.
 
+> You can use dockerized MongoDB by calling `docker compose up db`
+
 ```bash
 ./gradlew bootRun
 ```
 
 Server will be available on [localhost:8080](http://localhost:8080).
+
+## Testing
+
+The database for tests is powered by [testcontainers](https://testcontainers.com/), so Docker is required to run tests.
+
+```bash
+./gradlew test
+```

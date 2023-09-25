@@ -1,7 +1,7 @@
 FROM gradle:latest AS builder
 WORKDIR /usr/app/
 COPY . .
-RUN gradle build --no-daemon
+RUN gradle build --no-daemon -x test
 
 FROM amazoncorretto:17-alpine3.18-jdk
 
