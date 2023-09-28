@@ -23,7 +23,6 @@ public class User {
 
     private final String password;
 
-    @JsonProperty("role")
     private final ERole role;
 
     public String getId() {
@@ -43,8 +42,13 @@ public class User {
         return password;
     }
 
-    public String getRole() {
+    @JsonProperty("role")
+    public String getRoleString() {
         return role.toString().toLowerCase();
+    }
+
+    public ERole getRole() {
+        return role;
     }
 
     public User(String name, String email, String password, ERole role) {
