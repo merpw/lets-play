@@ -1,5 +1,6 @@
 package pw.mer.letsplay.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
@@ -13,10 +14,6 @@ public class User {
     @JsonProperty("id")
     private String id;
 
-    public String getId() {
-        return id;
-    }
-
     @JsonProperty("name")
     private String name;
 
@@ -24,22 +21,37 @@ public class User {
     @JsonProperty("email")
     private String email;
 
-    private String password;
+    private final String password;
 
+    private final ERole role;
 
-    public enum Role {
-        ADMIN,
-        USER
+    public String getId() {
+        return id;
     }
 
-    private final Role role;
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
 
     @JsonProperty("role")
-    public String getRole() {
+    public String getRoleString() {
         return role.toString().toLowerCase();
     }
 
-    public User(String name, String email, String password, Role role) {
+    public ERole getRole() {
+        return role;
+    }
+
+    public User(String name, String email, String password, ERole role) {
         this.name = name;
         this.email = email;
         this.password = password;
