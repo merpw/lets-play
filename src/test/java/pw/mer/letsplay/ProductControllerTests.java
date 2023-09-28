@@ -1,24 +1,14 @@
 package pw.mer.letsplay;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.Product;
 import pw.mer.letsplay.model.User;
-import pw.mer.letsplay.repository.ProductRepo;
-import pw.mer.letsplay.repository.UserRepo;
 
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.is;
 
-public class ProductControllerTests extends LetsPlayApplicationTests {
-    @Autowired
-    ProductRepo productRepo;
-
-    @Autowired
-    UserRepo userRepo;
-
-
+public class ProductControllerTests extends AbstractControllerTests {
     @Test
     public void productsShouldBePublic() {
         when().get("/products").then().statusCode(200);

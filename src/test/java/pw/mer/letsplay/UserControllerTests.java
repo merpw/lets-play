@@ -1,20 +1,14 @@
 package pw.mer.letsplay;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
-import pw.mer.letsplay.repository.UserRepo;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.is;
 
-public class UserControllerTests extends LetsPlayApplicationTests {
-    @Autowired
-    UserRepo userRepo;
-
-
+public class UserControllerTests extends AbstractControllerTests {
     @Test
     void usersShouldBePrivate() {
         when().get("/users").then().statusCode(401);
