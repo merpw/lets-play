@@ -24,6 +24,26 @@ public class Product {
     @JsonProperty("userId")
     private String userId;
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
     public Product(String name, String description, Double price, String userId) {
         this.name = name;
         this.description = description;
