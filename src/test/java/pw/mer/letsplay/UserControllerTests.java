@@ -27,4 +27,17 @@ public class UserControllerTests extends AbstractControllerTests {
                 .statusCode(200)
                 .body("[0].id", is(user.getId()));
     }
+
+    @Test
+    void usersShouldNotBeAccessibleForBasicUser() {
+        var password = "test";
+        var user = new User("test", "test@example.com", "{noop}" + password, ERole.USER);
+        userRepo.save(user);
+
+        given().auth().basic(user.getEmail(), password)
+                .when()
+                .get("/users")
+                .then()
+                .statusCode(403);
+    }
 }

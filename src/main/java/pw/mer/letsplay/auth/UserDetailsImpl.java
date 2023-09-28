@@ -1,13 +1,10 @@
 package pw.mer.letsplay.auth;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import pw.mer.letsplay.model.User;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class UserDetailsImpl implements UserDetails {
     private final User user;
@@ -18,7 +15,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return user.getRole().getAuthorities();
     }
 
     @Override
