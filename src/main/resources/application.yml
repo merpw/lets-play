@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      host: ${MONGO_HOST:localhost}
+
+jwt:
+  private_key: classpath:jwt.key
+  public_key: classpath:jwt.key.pub
