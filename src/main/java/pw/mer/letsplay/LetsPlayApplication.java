@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
+import org.springframework.context.annotation.Bean;
 import pw.mer.letsplay.repository.ProductRepo;
 import pw.mer.letsplay.repository.UserRepo;
 
@@ -29,5 +31,10 @@ public class LetsPlayApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+    }
+
+    @Bean
+    ErrorAttributes errorAttributes() {
+        return new CustomErrorAttributes();
     }
 }
