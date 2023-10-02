@@ -10,7 +10,11 @@ public enum ERole {
     ADMIN,
     USER;
 
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + this));
+    public Collection<String> getScopes() {
+        if (this == ADMIN) {
+            return List.of("users");
+        } else {
+            return List.of();
+        }
     }
 }
