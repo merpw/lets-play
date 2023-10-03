@@ -1,8 +1,6 @@
 package pw.mer.letsplay;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 
@@ -50,21 +48,11 @@ public class UserControllerTests extends AbstractControllerTests {
                 .statusCode(HTTP_FORBIDDEN);
     }
 
-    private Environment env;
-
-    @Autowired
-    public void setEnv(Environment env) {
-        this.env = env;
-    }
-
     @Test
     void usersAddAdmin() {
-        String adminEmail = env.getProperty("initial.admin.email");
-        String adminPassword = env.getProperty("initial.admin.password");
+        String adminToken = getAdminToken();
 
-        String token = getAccessToken(adminEmail, adminPassword);
-
-        given().auth().oauth2(token)
+        given().auth().oauth2(adminToken)
                 .when()
                 .contentType("application/json")
                 .body("""
