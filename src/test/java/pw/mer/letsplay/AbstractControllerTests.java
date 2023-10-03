@@ -39,7 +39,7 @@ abstract class AbstractControllerTests {
     private ProductRepo productRepo;
 
     @Autowired
-    UserRepo userRepo;
+    private UserRepo userRepo;
 
     private Environment env;
 
