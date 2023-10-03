@@ -8,11 +8,14 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import pw.mer.letsplay.model.ERole;
+import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
 
 import java.time.Instant;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -76,5 +79,23 @@ public class AuthController {
     @GetMapping("/profile")
     public String profile(Authentication authentication) {
         return authentication.getName();
+    }
+
+
+    public static class RegisterRequest {
+        public String name;
+        public String email;
+        public String password;
+    }
+
+    @PostMapping("/register")
+    public void register(@RequestBody RegisterRequest request) {
+        var user = userRepo.findByEmail(request.email).stream().findFirst().orElse(null);
+        if (user != null) {
+            throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
+        }
+
+        user = new User(request.name, request.email, passwordEncoder.encode(request.password), ERole.USER);
+        userRepo.save(user);
     }
 }
