@@ -55,7 +55,7 @@ public class AuthController {
             throw new ResponseStatusException(BAD_REQUEST, "Invalid email");
         }
 
-        if (!passwordEncoder.matches(request.password, user.getPassword())) {
+        if (!passwordEncoder.matches(request.password, user.getEncodedPassword())) {
             throw new ResponseStatusException(BAD_REQUEST, "Invalid password");
         }
 
