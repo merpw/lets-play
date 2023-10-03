@@ -28,6 +28,9 @@ dependencies {
     testImplementation("io.rest-assured:rest-assured")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:mongodb:1.18.1")
+
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 }
 
 tasks.withType<Test> {
