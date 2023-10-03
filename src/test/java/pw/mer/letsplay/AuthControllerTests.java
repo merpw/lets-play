@@ -10,7 +10,6 @@ import static java.net.HttpURLConnection.HTTP_OK;
 import static pw.mer.letsplay.auth.WebSecurityConfig.passwordEncoder;
 
 public class AuthControllerTests extends AbstractControllerTests {
-
     public static String getAccessToken(String email, String password) {
         return given()
                 .when()
