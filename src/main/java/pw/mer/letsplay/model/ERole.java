@@ -1,6 +1,5 @@
 package pw.mer.letsplay.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.Collection;
@@ -18,7 +17,7 @@ public enum ERole {
 
     public Collection<String> getScopes() {
         if (this == ADMIN) {
-            return List.of("users");
+            return List.of("users", "products:write");
         } else {
             return List.of();
         }
