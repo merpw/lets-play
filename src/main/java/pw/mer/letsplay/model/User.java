@@ -3,43 +3,43 @@ package pw.mer.letsplay.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("User")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
     @Id
     @JsonProperty("id")
+    @Getter
     private String id;
 
     @JsonProperty("name")
+    @Getter
+    @Setter
     private String name;
 
     @Indexed(unique = true)
     @JsonProperty("email")
+    @Getter
+    @Setter
     private String email;
 
-    private final String password;
+    @Setter
+    private String encodedPassword;
 
-    private final ERole role;
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
+    @Getter
+    @Setter
+    private ERole role;
 
     @JsonIgnore
-    public String getPassword() {
-        return password;
+    @Field("password")
+    public String getEncodedPassword() {
+        return encodedPassword;
     }
 
     @JsonProperty("role")
@@ -47,14 +47,10 @@ public class User {
         return role.toString().toLowerCase();
     }
 
-    public ERole getRole() {
-        return role;
-    }
-
-    public User(String name, String email, String password, ERole role) {
+    public User(String name, String email, String encodedPassword, ERole role) {
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.encodedPassword = encodedPassword;
         this.role = role;
     }
 }
