@@ -51,9 +51,7 @@ public class WebSecurityConfig {
                                 jwt -> jwt.decoder(jwtDecoder())
                         )
                 )
-                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        // TODO: add exception handling
-        ;
+                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
     }

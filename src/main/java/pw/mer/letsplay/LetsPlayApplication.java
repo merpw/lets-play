@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.error.ErrorAttributes;
-import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import pw.mer.letsplay.model.ERole;
@@ -51,11 +49,6 @@ public class LetsPlayApplication implements CommandLineRunner {
                 userRepo.save(admin);
             }
         }
-    }
-
-    @Bean
-    ErrorAttributes errorAttributes() {
-        return new CustomErrorAttributes();
     }
 
     public static void main(String[] args) {
