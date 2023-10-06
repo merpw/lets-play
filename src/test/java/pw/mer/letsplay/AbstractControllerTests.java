@@ -15,10 +15,10 @@ import org.testcontainers.junit.jupiter.Container;
 import pw.mer.letsplay.repository.ProductRepo;
 import pw.mer.letsplay.repository.UserRepo;
 
-import static pw.mer.letsplay.AuthControllerTests.getAccessToken;
+import static pw.mer.letsplay.AuthFactory.getAccessToken;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-abstract class AbstractControllerTests {
+public abstract class AbstractControllerTests {
     @Container
     static MongoDBContainer mongoDB;
 
