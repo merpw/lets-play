@@ -1,5 +1,7 @@
 package pw.mer.letsplay;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.restassured.response.ValidatableResponse;
 import org.testcontainers.shaded.org.apache.commons.lang3.RandomStringUtils;
 
@@ -38,6 +40,13 @@ public class AuthFactory {
                     .body(this)
                     .and()
                     .post("/auth/register").then();
+        }
+
+        public ObjectNode getObjectNode() {
+            return new ObjectMapper().createObjectNode()
+                    .put("name", name)
+                    .put("email", email)
+                    .put("password", password);
         }
 
         public TestUser() {

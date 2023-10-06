@@ -3,9 +3,9 @@ package pw.mer.letsplay.product;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
+import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
-import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
-import static java.net.HttpURLConnection.HTTP_OK;
+import static java.net.HttpURLConnection.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.matchesRegex;
 
@@ -66,6 +66,9 @@ class ProductAddTests extends AbstractControllerTests {
 
         testProduct.name = "a";
         checkInvalidProduct(testProduct, adminToken, "name");
+
+        testProduct.name = "a".repeat(100);
+        checkInvalidProduct(testProduct, adminToken, "name");
     }
 
     @Test
@@ -82,5 +85,23 @@ class ProductAddTests extends AbstractControllerTests {
 
         testProduct.description = "a";
         checkInvalidProduct(testProduct, adminToken, "description");
+
+        testProduct.description = "a".repeat(1001);
+        checkInvalidProduct(testProduct, adminToken, "description");
+    }
+
+    @Test
+    void NotFound() {
+        String adminToken = getAdminToken();
+
+        var req = given().auth().oauth2(adminToken).contentType("application/json").request();
+
+        req.get("/products/12345").then().statusCode(HTTP_NOT_FOUND);
+
+        var testProduct = new TestProductFactory.TestProduct();
+
+        req.body(testProduct).put("/products/12345").then().statusCode(HTTP_NOT_FOUND);
+
+        req.delete("/products/12345").then().statusCode(HTTP_NOT_FOUND);
     }
 }

@@ -4,11 +4,12 @@ import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
 import static io.restassured.RestAssured.given;
+import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_OK;
+import static org.hamcrest.Matchers.matchesRegex;
 
 class ProductUpdateTests extends AbstractControllerTests {
-
-    private static void updateProductRequestValid(String adminToken, String productId, TestProductFactory.TestProduct testProduct) {
+    static void updateProductRequestValid(String adminToken, String productId, TestProductFactory.TestProduct testProduct) {
         given().auth().oauth2(adminToken).contentType("application/json")
                 .when()
                 .body(testProduct)
@@ -18,7 +19,7 @@ class ProductUpdateTests extends AbstractControllerTests {
     }
 
     @Test
-    void updateWholeProduct() {
+    void updateWholeProductValid() {
         String adminToken = getAdminToken();
 
         var testProduct = new TestProductFactory.TestProduct();
@@ -31,7 +32,7 @@ class ProductUpdateTests extends AbstractControllerTests {
     }
 
     @Test
-    void updateProductName() {
+    void updateProductFieldsValid() {
         String adminToken = getAdminToken();
 
         var testProduct = new TestProductFactory.TestProduct();
@@ -39,10 +40,64 @@ class ProductUpdateTests extends AbstractControllerTests {
         String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK)
                 .extract().body().asString();
 
-        var emptyProduct = new TestProductFactory.TestProduct(null, null, null);
+        var emptyProduct = TestProductFactory.TestProduct.Empty();
 
         updateProductRequestValid(adminToken, productId, emptyProduct.toBuilder().name("New name").build());
+        testProduct.name = "New name";
 
-        testProduct.toBuilder().name("New name").build().requestCheck(adminToken, productId);
+        testProduct.requestCheck(adminToken, productId);
+
+
+        updateProductRequestValid(adminToken, productId, emptyProduct.toBuilder().description("New description").build());
+        testProduct.description = "New description";
+
+        testProduct.requestCheck(adminToken, productId);
+
+        updateProductRequestValid(adminToken, productId, emptyProduct.toBuilder().price(100.0).build());
+        testProduct.price = 100.0;
+
+        testProduct.requestCheck(adminToken, productId);
+    }
+
+    static void updateProductRequestInvalid(TestProductFactory.TestProduct testProduct, String adminToken, String invalidField) {
+        given().auth().oauth2(adminToken).contentType("application/json")
+                .when()
+                .body(testProduct)
+                .post("/products/add")
+                .then()
+                .statusCode(HTTP_BAD_REQUEST)
+                .body(matchesRegex("(?i).*" + invalidField + ".*"));
+    }
+
+    @Test
+    void updateProductInvalidName() {
+        String adminToken = getAdminToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+        testProduct.requestAdd(adminToken).statusCode(HTTP_OK);
+
+        var emptyProduct = TestProductFactory.TestProduct.Empty();
+
+        updateProductRequestInvalid(emptyProduct.toBuilder().name(null).build(), adminToken, "name");
+
+        updateProductRequestInvalid(emptyProduct.toBuilder().name("").build(), adminToken, "name");
+
+        updateProductRequestInvalid(emptyProduct.toBuilder().name("a").build(), adminToken, "name");
+
+        updateProductRequestInvalid(emptyProduct.toBuilder().name("a".repeat(100)).build(), adminToken, "name");
+    }
+
+    @Test
+    void updateProductInvalidPrice() {
+        String adminToken = getAdminToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+        testProduct.requestAdd(adminToken).statusCode(HTTP_OK);
+
+        var emptyProduct = TestProductFactory.TestProduct.Empty();
+
+        updateProductRequestInvalid(emptyProduct.toBuilder().price(null).build(), adminToken, "price");
+
+        updateProductRequestInvalid(emptyProduct.toBuilder().price(-1.0).build(), adminToken, "price");
     }
 }
