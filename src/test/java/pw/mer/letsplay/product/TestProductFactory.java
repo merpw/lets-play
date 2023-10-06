@@ -49,5 +49,9 @@ public class TestProductFactory {
             this.description = "Test description" + System.currentTimeMillis();
             this.price = Math.random() * 100;
         }
+
+        public static TestProduct Empty() {
+            return new TestProduct(null, null, null);
+        }
     }
 }
