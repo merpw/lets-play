@@ -7,10 +7,9 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static java.net.HttpURLConnection.*;
 import static org.hamcrest.Matchers.is;
-import static pw.mer.letsplay.AuthControllerTests.TestUser;
-import static pw.mer.letsplay.AuthControllerTests.getAccessToken;
+import static pw.mer.letsplay.AuthFactory.getAccessToken;
 
-public class UserControllerTests extends AbstractControllerTests {
+class UserControllerTests extends AbstractControllerTests {
     @Test
     void usersShouldBePrivate() {
         when().get("/users").then().statusCode(HTTP_UNAUTHORIZED);
@@ -30,7 +29,7 @@ public class UserControllerTests extends AbstractControllerTests {
 
     @Test
     void usersShouldNotBeAccessibleForBasicUser() {
-        var testUser = new TestUser();
+        var testUser = new AuthFactory.TestUser();
         testUser.register();
         String token = getAccessToken(testUser.email, testUser.password);
 
@@ -61,7 +60,7 @@ public class UserControllerTests extends AbstractControllerTests {
     void usersGetId() {
         String adminToken = getAdminToken();
 
-        var testUser = new TestUser();
+        var testUser = new AuthFactory.TestUser();
         testUser.register();
 
         String firstUserId = given().auth().oauth2(adminToken)
@@ -83,7 +82,7 @@ public class UserControllerTests extends AbstractControllerTests {
     void usersAddBasicUser() {
         String adminToken = getAdminToken();
 
-        var testUser = new TestUser();
+        var testUser = new AuthFactory.TestUser();
 
         given().auth().oauth2(adminToken)
                 .when()
@@ -122,7 +121,7 @@ public class UserControllerTests extends AbstractControllerTests {
     void usersAddAdmin() {
         String adminToken = getAdminToken();
 
-        var testUser = new TestUser();
+        var testUser = new AuthFactory.TestUser();
 
         given().auth().oauth2(adminToken)
                 .when()
@@ -161,7 +160,7 @@ public class UserControllerTests extends AbstractControllerTests {
     void updateWholeUser() {
         String adminToken = getAdminToken();
 
-        var testUser = new TestUser();
+        var testUser = new AuthFactory.TestUser();
         testUser.register();
 
         var req = given().auth().oauth2(adminToken).when();
@@ -244,7 +243,7 @@ public class UserControllerTests extends AbstractControllerTests {
     void usersDelete() {
         String adminToken = getAdminToken();
 
-        var testUser = new TestUser();
+        var testUser = new AuthFactory.TestUser();
         testUser.register();
 
         var req = given().auth().oauth2(adminToken).when();
