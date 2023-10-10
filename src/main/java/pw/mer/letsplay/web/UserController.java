@@ -79,13 +79,13 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public void updateById(@PathVariable String id, @RequestBody UpdateUserRequest request) {
+    public void updateById(@PathVariable String id, @Valid @RequestBody UpdateUserRequest request) {
         var user = userRepo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
 
         if (request.email != null && !request.email.equals(user.getEmail())) {
             if (!userRepo.findByEmail(request.email).isEmpty()) {
-                throw new ResponseStatusException(NOT_FOUND, "User with this email already exists");
+                throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
             }
 
             user.setEmail(request.email);
@@ -110,6 +110,7 @@ public class UserController {
     @Setter
     public static class AddUserRequest {
         @NotBlank(message = "Name is mandatory")
+        @UserValidators.Name
         private String name;
 
         @NotBlank(message = "Email is mandatory")
@@ -129,7 +130,7 @@ public class UserController {
     @PostMapping("/add")
     public String add(@Valid @RequestBody AddUserRequest request) {
         if (!userRepo.findByEmail(request.email).isEmpty()) {
-            throw new ResponseStatusException(NOT_FOUND, "User with this email already exists");
+            throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
         }
         String encodedPassword = passwordEncoder.encode(request.rawPassword);
 
