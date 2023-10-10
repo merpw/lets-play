@@ -1,5 +1,6 @@
 package pw.mer.letsplay.product;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
@@ -33,24 +34,24 @@ class ProductUpdateTests extends AbstractControllerTests {
 
         String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
 
-        var emptyProduct = TestProductFactory.TestProduct.Empty();
+        var objectMapper = new ObjectMapper();
 
         updateProductRequestValid(adminToken, productId,
-                emptyProduct.getObjectNode().put("name", "New name")
+                objectMapper.createObjectNode().put("name", "New name")
         );
         testProduct.name = "New name";
 
         testProduct.requestCheck(adminToken, productId);
 
         updateProductRequestValid(adminToken, productId,
-                emptyProduct.getObjectNode().put("description", "New description")
+                objectMapper.createObjectNode().put("description", "New description")
         );
         testProduct.description = "New description";
 
         testProduct.requestCheck(adminToken, productId);
 
         updateProductRequestValid(adminToken, productId,
-                emptyProduct.getObjectNode().put("price", 100.0)
+                objectMapper.createObjectNode().put("price", 100.0)
         );
         testProduct.price = 100.0;
 
@@ -73,15 +74,15 @@ class ProductUpdateTests extends AbstractControllerTests {
 
         String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
 
-        var emptyProduct = TestProductFactory.TestProduct.Empty();
+        var objectMapper = new ObjectMapper();
 
-        updateProductRequestInvalid(adminToken, productId, emptyProduct.getObjectNode().put("name", ""), "name");
+        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("name", ""), "name");
 
-        updateProductRequestInvalid(adminToken, productId, emptyProduct.getObjectNode().put("name", "a"), "name");
+        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("name", "a"), "name");
 
-        updateProductRequestInvalid(adminToken, productId, emptyProduct.getObjectNode().put("name", "a".repeat(100)), "name");
+        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("name", "a".repeat(100)), "name");
 
-        var brokenProduct = emptyProduct.getObjectNode();
+        var brokenProduct = objectMapper.createObjectNode();
         brokenProduct.putObject("name").put("wow", "object as a name!");
 
         updateProductRequestInvalid(adminToken, productId, brokenProduct, "");
@@ -95,10 +96,10 @@ class ProductUpdateTests extends AbstractControllerTests {
 
         String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
 
-        var emptyProduct = TestProductFactory.TestProduct.Empty();
+        var objectMapper = new ObjectMapper();
 
-        updateProductRequestInvalid(adminToken, productId, emptyProduct.getObjectNode().put("price", -1.0), "price");
+        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("price", -1.0), "price");
 
-        updateProductRequestInvalid(adminToken, productId, emptyProduct.getObjectNode().put("price", "wonderful..."), "");
+        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("price", "wonderful..."), "");
     }
 }

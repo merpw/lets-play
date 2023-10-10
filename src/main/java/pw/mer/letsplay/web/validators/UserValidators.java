@@ -39,6 +39,7 @@ public interface UserValidators {
     }
 
     @jakarta.validation.constraints.Email(message = "Email is not valid")
+    @Size(min = 3, message = "Email is not valid") // for some reason, @Email accepts empty strings
     @Constraint(validatedBy = {})
     @Target({FIELD, PARAMETER})
     @Retention(RUNTIME)

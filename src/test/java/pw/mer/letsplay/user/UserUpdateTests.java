@@ -1,50 +1,180 @@
 package pw.mer.letsplay.user;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
-import static io.restassured.RestAssured.given;
-import static java.net.HttpURLConnection.HTTP_OK;
+import static java.net.HttpURLConnection.*;
 import static pw.mer.letsplay.AuthFactory.getAccessToken;
+import static pw.mer.letsplay.RequestHelpers.jsonBodyRequest;
 
 class UserUpdateTests extends AbstractControllerTests {
+    @Test
+    void updateWholeUser() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var newTestUser = new TestUserFactory.TestUser("admin");
+
+        jsonBodyRequest(adminToken, newTestUser.getObjectNode())
+                .put("/users/" + testUserId)
+                .then().statusCode(HTTP_OK);
+    }
+
+    @Test
+    void updateEmailTaken() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var testUser2 = new TestUserFactory.TestUser("user");
+        testUser2.requestAdd(adminToken).statusCode(HTTP_OK);
+
+        var objectMapper = new ObjectMapper();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("email", testUser2.email))
+                .put("/users/" + testUserId)
+                .then().statusCode(HTTP_BAD_REQUEST);
+    }
+
+    @Test
+    void updateIndividualFields() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("name", "New name"))
+                .put("/users/" + testUserId).then().statusCode(HTTP_OK);
+
+        testUser.name = "New name";
+
+        testUser.requestCheck(adminToken, testUserId);
+
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("email", "new@email.com"))
+                .put("/users/" + testUserId).then().statusCode(HTTP_OK);
+
+        testUser.email = "new@email.com";
+
+        testUser.requestCheck(adminToken, testUserId);
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("role", "admin"))
+                .put("/users/" + testUserId).then().statusCode(HTTP_OK);
+
+        testUser.role = "admin";
+
+        testUser.requestCheck(adminToken, testUserId);
+    }
+
     @Test
     void updatePassword() {
         String adminToken = getAdminToken();
 
-        String userId = given().auth().oauth2(adminToken)
-                .when()
-                .contentType("application/json")
-                .body("""
-                        {
-                            "name": "Test name",
-                            "email": "test@email.com",
-                            "password": "testPassword",
-                            "role": "user"
-                        }
-                        """
-                )
-                .and()
-                .post("/users/add")
-                .then()
-                .statusCode(HTTP_OK)
-                .extract().body().asString();
+        var testUser = new TestUserFactory.TestUser("user");
 
-        given().auth().oauth2(adminToken)
-                .when()
-                .contentType("application/json")
-                .body("""
-                        {
-                            "password": "newPassword"
-                        }
-                        """
-                )
-                .and()
-                .put("/users/" + userId)
-                .then()
-                .statusCode(HTTP_OK);
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
 
-        getAccessToken("test@email.com", "newPassword");
+        var objectMapper = new ObjectMapper();
+
+        String newPassword = "newPassword";
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("password", newPassword))
+                .put("/users/" + testUserId).then().statusCode(HTTP_OK);
+
+        getAccessToken(testUser.email, newPassword);
     }
 
+    @Test
+    void updateNameInvalid() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("name", ""))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("name", "a"))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("name", "a".repeat(100)))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+
+        var brokenRequest = objectMapper.createObjectNode();
+        brokenRequest.putObject("name").put("wow", "object as a name!");
+
+        jsonBodyRequest(adminToken, brokenRequest)
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+    }
+
+    @Test
+    void updateEmailInvalid() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("email", ""))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("email", "invalidEmail"))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+    }
+
+    @Test
+    void updateRoleInvalid() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("role", "invalidRole"))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+    }
+
+    @Test
+    void updatePasswordInvalid() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("password", ""))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("password", "a"))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("password", "a".repeat(100)))
+                .put("/users/" + testUserId).then().statusCode(HTTP_BAD_REQUEST);
+    }
+
+    @Test
+    void updateNonExistingUser() {
+        String adminToken = getAdminToken();
+
+        var objectMapper = new ObjectMapper();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("name", "New name"))
+                .put("/users/DoesNotExist").then().statusCode(HTTP_NOT_FOUND);
+    }
 }
