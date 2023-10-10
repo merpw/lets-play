@@ -1,16 +1,17 @@
 package pw.mer.letsplay.product;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.restassured.response.ValidatableResponse;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
-import static io.restassured.RestAssured.given;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.is;
+import static pw.mer.letsplay.RequestHelpers.authRequest;
+import static pw.mer.letsplay.RequestHelpers.jsonBodyRequest;
 
 public class TestProductFactory {
-    @Builder(toBuilder = true)
     @AllArgsConstructor
     @Getter
     public static class TestProduct {
@@ -19,13 +20,7 @@ public class TestProductFactory {
         Double price;
 
         public ValidatableResponse requestAdd(String token) {
-            return given()
-                    .auth().oauth2(token)
-                    .when()
-                    .contentType("application/json")
-                    .body(this)
-                    .and()
-                    .post("/products/add").then();
+            return jsonBodyRequest(token, this.getObjectNode()).post("/products/add").then();
         }
 
         /**
@@ -35,13 +30,19 @@ public class TestProductFactory {
          * @param productId - id of product to check
          */
         public void requestCheck(String token, String productId) {
-            given().auth().oauth2(token)
-                    .when()
+            authRequest(token)
                     .get("/products/" + productId)
                     .then().statusCode(HTTP_OK)
                     .body("name", is(name),
                             "description", is(description),
                             "price", is(price.floatValue()));
+        }
+
+        public ObjectNode getObjectNode() {
+            return new ObjectMapper().createObjectNode()
+                    .put("name", name)
+                    .put("description", description)
+                    .put("price", price);
         }
 
         public TestProduct() {
