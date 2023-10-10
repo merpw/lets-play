@@ -1,6 +1,10 @@
 package pw.mer.letsplay.web;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -11,10 +15,12 @@ import org.springframework.web.server.ResponseStatusException;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
+import pw.mer.letsplay.web.validators.UserValidators;
 
 import java.time.Instant;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
 
 @RestController
@@ -36,9 +42,15 @@ public class AuthController {
         this.userRepo = userRepo;
     }
 
+    @Setter
     public static class LoginRequest {
-        public String email;
-        public String password;
+        @NotBlank(message = "Email is mandatory")
+        @UserValidators.Email
+        private String email;
+
+        @NotBlank(message = "Password is mandatory")
+        @UserValidators.Password
+        private String password;
     }
 
     private PasswordEncoder passwordEncoder;
@@ -49,11 +61,10 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest request) {
-        var user = userRepo.findByEmail(request.email).stream().findFirst().orElse(null);
-        if (user == null) {
-            throw new ResponseStatusException(BAD_REQUEST, "Invalid email");
-        }
+    public String login(@Valid @RequestBody LoginRequest request) {
+        var user = userRepo.findByEmail(request.email).stream().findFirst().orElseThrow(() ->
+                new ResponseStatusException(BAD_REQUEST, "Invalid email")
+        );
 
         if (!passwordEncoder.matches(request.password, user.getEncodedPassword())) {
             throw new ResponseStatusException(BAD_REQUEST, "Invalid password");
@@ -67,7 +78,7 @@ public class AuthController {
                 .issuedAt(now)
                 .expiresAt(now.plusSeconds(expiry))
                 .subject(user.getId())
-                .claims((claimsBuilder) ->
+                .claims(claimsBuilder ->
                         claimsBuilder.put(
                                 "scope", String.join(" ", user.getRole().getScopes())
                         )
@@ -77,19 +88,28 @@ public class AuthController {
     }
 
     @GetMapping("/profile")
-    public String profile(Authentication authentication) {
-        return authentication.getName();
+    @PreAuthorize("isAuthenticated()")
+    public User profile(Authentication authentication) {
+        return userRepo.findById(authentication.getName()).orElseThrow(() ->
+                new ResponseStatusException(UNAUTHORIZED)
+        );
     }
 
 
+    @Setter
     public static class RegisterRequest {
-        public String name;
-        public String email;
-        public String password;
+        @UserValidators.Name
+        private String name;
+
+        @UserValidators.Email
+        private String email;
+
+        @UserValidators.Password
+        private String password;
     }
 
     @PostMapping("/register")
-    public void register(@RequestBody RegisterRequest request) {
+    public void register(@Valid @RequestBody RegisterRequest request) {
         var user = userRepo.findByEmail(request.email).stream().findFirst().orElse(null);
         if (user != null) {
             throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
