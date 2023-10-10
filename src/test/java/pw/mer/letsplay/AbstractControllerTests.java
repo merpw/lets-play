@@ -41,7 +41,7 @@ public abstract class AbstractControllerTests {
     @Autowired
     private UserRepo userRepo;
 
-    private Environment env;
+    protected Environment env;
 
     @Autowired
     public void setEnv(Environment env) {
