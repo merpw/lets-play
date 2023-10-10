@@ -3,7 +3,7 @@ package pw.mer.letsplay;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.restassured.response.ValidatableResponse;
-import org.testcontainers.shaded.org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import static io.restassured.RestAssured.given;
 import static java.net.HttpURLConnection.HTTP_OK;
@@ -14,13 +14,11 @@ public class AuthFactory {
         return given()
                 .when()
                 .contentType("application/json")
-                .body("""
-                        {
-                            "email": "%s",
-                            "password": "%s"
-                        }
-                        """
-                        .formatted(email, password))
+                .body(new ObjectMapper()
+                        .createObjectNode()
+                        .put("email", email)
+                        .put("password", password)
+                )
                 .and()
                 .post("/auth/login")
                 .then()
@@ -49,6 +47,12 @@ public class AuthFactory {
                     .put("password", password);
         }
 
+
+        /**
+         * Generates a basic user with random name, email and password.
+         * <p>
+         * Can be registered with {@link TestUser#register()} using `/auth/register` endpoint.
+         */
         public TestUser() {
             String random = RandomStringUtils.randomAlphanumeric(5);
             this.name = "testUser" + random;
