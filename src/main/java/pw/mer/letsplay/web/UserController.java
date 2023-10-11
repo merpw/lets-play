@@ -2,6 +2,10 @@ package pw.mer.letsplay.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,9 +14,11 @@ import org.springframework.web.server.ResponseStatusException;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
+import pw.mer.letsplay.web.validators.UserValidators;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestController
@@ -20,6 +26,8 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @PreAuthorize("hasAuthority('SCOPE_users')")
 public class UserController {
     private final UserRepo userRepo;
+
+    private static final String NOT_FOUND_MESSAGE = "User not found";
 
     @Autowired
     public UserController(UserRepo productRepo) {
@@ -34,27 +42,33 @@ public class UserController {
     @GetMapping("/{id}")
     public User getById(@PathVariable String id) {
         return userRepo.findById(id).orElseThrow(() ->
-                new ResponseStatusException(NOT_FOUND, "User not found"));
+                new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
     }
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id) {
         if (userRepo.findById(id).isEmpty()) {
-            throw new ResponseStatusException(NOT_FOUND, "User not found");
+            throw new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE);
         }
         userRepo.deleteById(id);
     }
 
+    @Setter
     public static class UpdateUserRequest {
         @Nullable
-        public String name;
+        @UserValidators.Name
+        private String name;
+
         @Nullable
-        public String email;
+        @UserValidators.Email
+        private String email;
+
         @Nullable
         @JsonProperty("password")
-        public String rawPassword;
-        @Nullable
-        public ERole role;
+        @UserValidators.Password
+        private String rawPassword;
+
+        private ERole role;
     }
 
     PasswordEncoder passwordEncoder;
@@ -65,13 +79,13 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public void updateById(@PathVariable String id, @RequestBody UpdateUserRequest request) {
+    public void updateById(@PathVariable String id, @Valid @RequestBody UpdateUserRequest request) {
         var user = userRepo.findById(id).orElseThrow(() ->
-                new ResponseStatusException(NOT_FOUND, "User not found"));
+                new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
 
         if (request.email != null && !request.email.equals(user.getEmail())) {
             if (!userRepo.findByEmail(request.email).isEmpty()) {
-                throw new ResponseStatusException(NOT_FOUND, "User with this email already exists");
+                throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
             }
 
             user.setEmail(request.email);
@@ -93,25 +107,47 @@ public class UserController {
         userRepo.save(user);
     }
 
+    @Setter
     public static class AddUserRequest {
-        public String name;
-        public String email;
+        @NotBlank(message = "Name is mandatory")
+        @UserValidators.Name
+        private String name;
+
+        @NotBlank(message = "Email is mandatory")
+        @UserValidators.Email
+        private String email;
+
         @JsonProperty("password")
-        public String rawPassword;
-        public ERole role;
+        @NotBlank(message = "Password is mandatory")
+        @UserValidators.Password
+        private String rawPassword;
+
+        @NotNull(message = "Role is mandatory")
+        @ERole.Valid
+        private String role;
     }
 
     @PostMapping("/add")
-    public String add(@RequestBody AddUserRequest request) {
+    public String add(@Valid @RequestBody AddUserRequest request) {
         if (!userRepo.findByEmail(request.email).isEmpty()) {
-            throw new ResponseStatusException(NOT_FOUND, "User with this email already exists");
+            throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
         }
         String encodedPassword = passwordEncoder.encode(request.rawPassword);
+
+        ERole role;
+
+        try {
+            role = ERole.fromString(request.role);
+        } catch (IllegalArgumentException e) {
+            // Should be caught by validation, but just in case:
+            throw new ResponseStatusException(BAD_REQUEST);
+        }
+
         var user = new User(
                 request.name,
                 request.email,
                 encodedPassword,
-                request.role
+                role
         );
         userRepo.save(user);
 

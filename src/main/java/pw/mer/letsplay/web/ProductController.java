@@ -1,6 +1,9 @@
 package pw.mer.letsplay.web;
 
 import jakarta.annotation.Nullable;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +21,10 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public class ProductController {
     private final ProductRepo productRepo;
 
+    private static final String NOT_FOUND_MESSAGE = "Product not found";
+
+    private static final String NOT_OWNER_MESSAGE = "You're not an owner of this product";
+
     @Autowired
     public ProductController(ProductRepo productRepo) {
         this.productRepo = productRepo;
@@ -31,17 +38,26 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getById(@PathVariable String id) {
         return productRepo.findById(id).orElseThrow(() ->
-                new ResponseStatusException(NOT_FOUND, "Product not found"));
+                new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
     }
 
+    @Setter
     public static class AddProductRequest {
-        public String name;
-        public String description;
-        public Double price;
+        @NotBlank(message = "Name is mandatory")
+        @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters long")
+        private String name;
+
+        @NotBlank(message = "Description is mandatory")
+        @Size(min = 3, max = 1000, message = "Description must be between 3 and 1000 characters long")
+        private String description;
+
+        @NotNull(message = "Price is mandatory")
+        @PositiveOrZero(message = "Price can not be negative")
+        private Double price;
     }
 
     @PostMapping("/add")
-    public String add(@RequestBody AddProductRequest request, Authentication authentication) {
+    public String add(@Valid @RequestBody AddProductRequest request, Authentication authentication) {
         var product = new Product(request.name, request.description, request.price, authentication.getName());
         productRepo.save(product);
         return product.getId();
@@ -50,32 +66,38 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id, Authentication authentication) {
         var product = productRepo.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Product not found"));
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
 
         if (!product.getUserId().equals(authentication.getName())) {
-            throw new ResponseStatusException(FORBIDDEN, "You're not an owner of this product");
+            throw new ResponseStatusException(FORBIDDEN, NOT_OWNER_MESSAGE);
         }
 
         productRepo.deleteById(id);
     }
 
+    @Setter
     public static class UpdateProductRequest {
         @Nullable
-        public String name;
+        @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters long")
+        private String name;
+
         @Nullable
-        public String description;
+        @Size(min = 3, max = 1000, message = "Description must be between 3 and 1000 characters long")
+        private String description;
+
         @Nullable
-        public Double price;
+        @Min(value = 0, message = "Price must be greater than 0")
+        private Double price;
     }
 
     @PutMapping("/{id}")
-    public void updateById(@PathVariable String id, @RequestBody UpdateProductRequest request, Authentication authentication) {
+    public void updateById(@PathVariable String id, @Valid @RequestBody UpdateProductRequest request, Authentication authentication) {
 
         var product = productRepo.findById(id).orElseThrow(() ->
-                new ResponseStatusException(NOT_FOUND, "Product not found"));
+                new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
 
         if (!product.getUserId().equals(authentication.getName())) {
-            throw new ResponseStatusException(FORBIDDEN, "You're not an owner of this product");
+            throw new ResponseStatusException(FORBIDDEN, NOT_OWNER_MESSAGE);
         }
 
         if (request.name != null) {
