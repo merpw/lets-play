@@ -17,6 +17,7 @@ jobs:
 
     permissions:
       contents: read
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +27,16 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - run: ./gradlew test --no-daemon
+
+      - uses: madrapps/jacoco-report@v1.6.1
+
+        name: Send coverage report to the PR
+        with:
+          paths: |
+            ${{ github.workspace }}/**/build/reports/jacoco/test/*.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 40
+          min-coverage-changed-files: 60
 
   build:
     name: Build the Docker image

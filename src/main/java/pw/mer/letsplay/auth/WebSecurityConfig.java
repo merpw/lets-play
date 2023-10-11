@@ -35,7 +35,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((requests) -> requests
+                .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/auth/**").permitAll()
 
@@ -46,14 +46,12 @@ public class WebSecurityConfig {
 
                         .anyRequest().authenticated()
                 )
-                .csrf((csrf) -> csrf.ignoringRequestMatchers("/auth/**"))
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/auth/**"))
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(
                                 jwt -> jwt.decoder(jwtDecoder())
                         )
                 )
-                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        // TODO: add exception handling
-        ;
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
     }
