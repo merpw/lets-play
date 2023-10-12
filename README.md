@@ -39,6 +39,7 @@ Server will be available on [localhost:8080](http://localhost:8080).
 | `ADMIN_EMAIL`          | Initial admin user email           | `admin@localhost` |
 | `JWT_SECRET`           | JWT secret key                     | `UnsafeSecret`    |
 | `CORS_ALLOWED_ORIGINS` | _(optional)_ CORS allowed origins  |                   |
+| `PASSWORD_SALT`        | _(optional)_ Password salt         |                   |
 
 ### SSL
 
