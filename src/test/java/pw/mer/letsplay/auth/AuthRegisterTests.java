@@ -6,12 +6,24 @@ import pw.mer.letsplay.AuthFactory;
 
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_OK;
+import static org.hamcrest.core.Is.is;
+import static pw.mer.letsplay.RequestHelpers.authRequest;
 
 class AuthRegisterTests extends AbstractControllerTests {
     @Test
     void registerValid() {
         var testUser = new AuthFactory.TestUser();
         testUser.register().statusCode(HTTP_OK);
+    }
+
+    @Test
+    void shouldReturnUserId() {
+        var testUser = new AuthFactory.TestUser();
+        String userId = testUser.register().statusCode(HTTP_OK).extract().asString();
+
+        var token = AuthFactory.getAccessToken(testUser.email, testUser.password);
+
+        authRequest(token).get("/auth/profile").then().statusCode(HTTP_OK).body("id", is(userId));
     }
 
     @Test
@@ -28,6 +40,10 @@ class AuthRegisterTests extends AbstractControllerTests {
     @Test
     void registerInvalidEmail() {
         var testUser = new AuthFactory.TestUser();
+
+        testUser.email = null;
+        testUser.register().statusCode(HTTP_BAD_REQUEST);
+
         testUser.email = "invalidEmail";
         testUser.register().statusCode(HTTP_BAD_REQUEST);
     }
@@ -35,6 +51,9 @@ class AuthRegisterTests extends AbstractControllerTests {
     @Test
     void registerInvalidPassword() {
         var testUser = new AuthFactory.TestUser();
+
+        testUser.password = null;
+        testUser.register().statusCode(HTTP_BAD_REQUEST);
 
         testUser.password = "0";
         testUser.register().statusCode(HTTP_BAD_REQUEST);
@@ -46,6 +65,9 @@ class AuthRegisterTests extends AbstractControllerTests {
     @Test
     void registerInvalidName() {
         var testUser = new AuthFactory.TestUser();
+
+        testUser.name = null;
+        testUser.register().statusCode(HTTP_BAD_REQUEST);
 
         testUser.name = "";
         testUser.register().statusCode(HTTP_BAD_REQUEST);

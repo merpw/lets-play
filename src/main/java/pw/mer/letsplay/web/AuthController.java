@@ -80,18 +80,21 @@ public class AuthController {
 
     @Setter
     public static class RegisterRequest {
+        @NotBlank(message = "Name is mandatory")
         @UserValidators.Name
         private String name;
 
+        @NotBlank(message = "Email is mandatory")
         @UserValidators.Email
         private String email;
 
+        @NotBlank(message = "Password is mandatory")
         @UserValidators.Password
         private String password;
     }
 
     @PostMapping("/register")
-    public void register(@Valid @RequestBody RegisterRequest request) {
+    public String register(@Valid @RequestBody RegisterRequest request) {
         var user = userRepo.findByEmail(request.email).stream().findFirst().orElse(null);
         if (user != null) {
             throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
@@ -99,5 +102,7 @@ public class AuthController {
 
         user = new User(request.name, request.email, passwordEncoder.encode(request.password), ERole.USER);
         userRepo.save(user);
+
+        return user.getId();
     }
 }
