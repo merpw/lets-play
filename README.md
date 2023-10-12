@@ -4,6 +4,8 @@ The 01-edu lets-play task from the Java program. Solved Sep 2023.
 
 ## [Task description and audit questions](https://github.com/01-edu/public/tree/master/subjects/java/projects/lets-play)
 
+### Demo [lets-play.mer.pw](https://lets-play.mer.pw)
+
 ## How to run?
 
 ### Docker compose
