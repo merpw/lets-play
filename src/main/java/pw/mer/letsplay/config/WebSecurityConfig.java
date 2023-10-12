@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 
+import java.security.SecureRandom;
 import java.util.List;
 
 import static org.springframework.http.HttpMethod.GET;
@@ -56,8 +57,11 @@ public class WebSecurityConfig {
         return http.build();
     }
 
+    @Value("${security.password.salt}")
+    private String salt;
+
     @Bean
-    public static PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(10, new SecureRandom(salt.getBytes()));
     }
 }
