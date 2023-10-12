@@ -7,17 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
-import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import pw.mer.letsplay.config.JwtConfig;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
 import pw.mer.letsplay.web.validators.UserValidators;
-
-import java.time.Instant;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
@@ -33,7 +30,6 @@ public class AuthController {
     public void setEncoder(JwtEncoder encoder) {
         this.encoder = encoder;
     }
-
 
     private UserRepo userRepo;
 
@@ -70,21 +66,7 @@ public class AuthController {
             throw new ResponseStatusException(BAD_REQUEST, "Invalid password");
         }
 
-        var now = Instant.now();
-
-        long expiry = 36000L;
-        JwtClaimsSet claims = JwtClaimsSet.builder()
-                .issuer("self")
-                .issuedAt(now)
-                .expiresAt(now.plusSeconds(expiry))
-                .subject(user.getId())
-                .claims(claimsBuilder ->
-                        claimsBuilder.put(
-                                "scope", String.join(" ", user.getRole().getScopes())
-                        )
-                )
-                .build();
-        return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+        return JwtConfig.issueToken(encoder, user);
     }
 
     @GetMapping("/profile")
