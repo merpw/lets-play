@@ -4,7 +4,7 @@ The 01-edu lets-play task from the Java program. Solved Sep 2023.
 
 ## [Task description and audit questions](https://github.com/01-edu/public/tree/master/subjects/java/projects/lets-play)
 
-### Demo [lets-play.mer.pw](https://lets-play.mer.pw)
+### Demo [lets-play.mer.pw](https://lets-play.mer.pw/products)
 
 ## How to run?
 
@@ -14,7 +14,7 @@ The 01-edu lets-play task from the Java program. Solved Sep 2023.
 docker compose up
 ```
 
-Server will be available on [localhost:8080](http://localhost:8080).
+Server will be available on [localhost:80](http://localhost:80/products).
 
 ### Production
 
@@ -33,7 +33,7 @@ JRE 17, Gradle and MongoDB is required.
 gradle bootRun
 ```
 
-Server will be available on [localhost:8080](http://localhost:8080).
+Server will be available on [localhost:8080](http://localhost:8080/products).
 
 ## API
 
@@ -57,15 +57,6 @@ Server will be available on [localhost:8080](http://localhost:8080).
 ### SSL
 
 SSL is handled by nginx, so you can configure it by editing [./nginx.conf](./nginx.conf).
-
-### JWT
-
-JWT is used for authentication. For security reasons, it's highly recommended to generate a custom secret key on
-production:
-
-```bash
-bash ./gen_jwt.sh
-```
 
 ## Testing
 
