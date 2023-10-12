@@ -37,6 +37,7 @@ Server will be available on [localhost:8080](http://localhost:8080).
 | `ADMIN_USERNAME` | Initial admin user name            | `admin`           |
 | `ADMIN_PASSWORD` | Initial admin user password        | `AdminAdmin`      |
 | `ADMIN_EMAIL`    | Initial admin user email           | `admin@localhost` |
+| `JWT_SECRET`     | JWT secret key                     | `UnsafeSecret`    |
 
 ### SSL
 
@@ -44,7 +45,8 @@ SSL is handled by nginx, so you can configure it by editing [./nginx.conf](./ngi
 
 ### JWT
 
-JWT is used for authentication. For security reasons, it's highly recommended to generate a custom secret key on production:
+JWT is used for authentication. For security reasons, it's highly recommended to generate a custom secret key on
+production:
 
 ```bash
 bash ./gen_jwt.sh
