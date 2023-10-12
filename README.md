@@ -16,6 +16,13 @@ docker compose up
 
 Server will be available on [localhost:8080](http://localhost:8080).
 
+### Production
+
+- Open `./prod` directory.
+- Run `./gen_env.sh` to generate`.env` config file with ADMIN_PASSWORD and JWT_SECRET.
+- Edit `.env` and `nginx.cong` files if needed.
+- Run `docker compose up`.
+
 ### Native
 
 JRE 17 and MongoDB is required.
