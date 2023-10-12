@@ -30,14 +30,15 @@ Server will be available on [localhost:8080](http://localhost:8080).
 
 ### Environment variables
 
-| Name             | Description                        | Default value     |
-|------------------|------------------------------------|-------------------|
-| `MONGO_HOST`     | MongoDB host                       | `localhost`       |
-| `ADMIN_ENABLED`  | Enable initial admin user creation | `true`            |
-| `ADMIN_USERNAME` | Initial admin user name            | `admin`           |
-| `ADMIN_PASSWORD` | Initial admin user password        | `AdminAdmin`      |
-| `ADMIN_EMAIL`    | Initial admin user email           | `admin@localhost` |
-| `JWT_SECRET`     | JWT secret key                     | `UnsafeSecret`    |
+| Name                   | Description                        | Default value     |
+|------------------------|------------------------------------|-------------------|
+| `MONGO_HOST`           | MongoDB host                       | `localhost`       |
+| `ADMIN_ENABLED`        | Enable initial admin user creation | `true`            |
+| `ADMIN_USERNAME`       | Initial admin user name            | `admin`           |
+| `ADMIN_PASSWORD`       | Initial admin user password        | `AdminAdmin`      |
+| `ADMIN_EMAIL`          | Initial admin user email           | `admin@localhost` |
+| `JWT_SECRET`           | JWT secret key                     | `UnsafeSecret`    |
+| `CORS_ALLOWED_ORIGINS` | _(optional)_ CORS allowed origins  |                   |
 
 ### SSL
 

@@ -4,6 +4,8 @@ spring:
       host: ${MONGO_HOST:localhost}
 
 security:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:}
   jwt:
     secret: ${JWT_SECRET:UnsafeSecret}
 
