@@ -34,17 +34,13 @@ public class User {
 
     @Getter
     @Setter
+    @JsonProperty("role")
     private ERole role;
 
     @JsonIgnore
     @Field("password")
     public String getEncodedPassword() {
         return encodedPassword;
-    }
-
-    @JsonProperty("role")
-    public String getRoleString() {
-        return role.toString().toLowerCase();
     }
 
     public User(String name, String email, String encodedPassword, ERole role) {
