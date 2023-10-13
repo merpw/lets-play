@@ -1,11 +1,5 @@
-package pw.mer.letsplay.auth;
+package pw.mer.letsplay.config;
 
-import com.nimbusds.jose.jwk.JWK;
-import com.nimbusds.jose.jwk.JWKSet;
-import com.nimbusds.jose.jwk.RSAKey;
-import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
-import com.nimbusds.jose.jwk.source.JWKSource;
-import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,13 +9,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.JwtEncoder;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
-import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
 
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
+import java.security.SecureRandom;
+import java.util.List;
 
 import static org.springframework.http.HttpMethod.GET;
 
@@ -31,9 +23,11 @@ import static org.springframework.http.HttpMethod.GET;
 @Configuration
 @EnableMethodSecurity
 public class WebSecurityConfig {
+    @Value("${security.cors.allowed-origins}")
+    private String allowedOrigins;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtDecoder jwtDecoder) throws Exception {
         http
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/error").permitAll()
@@ -47,8 +41,15 @@ public class WebSecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/auth/**"))
+                .cors(cors -> cors.configurationSource(request -> {
+                    CorsConfiguration configuration = new CorsConfiguration();
+                    if (!allowedOrigins.isEmpty()) {
+                        configuration.setAllowedOrigins(List.of(allowedOrigins));
+                    }
+                    return configuration.applyPermitDefaultValues();
+                }))
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(
-                                jwt -> jwt.decoder(jwtDecoder())
+                                jwt -> jwt.decoder(jwtDecoder)
                         )
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
@@ -56,26 +57,11 @@ public class WebSecurityConfig {
         return http.build();
     }
 
-    @Value("${jwt.public_key}")
-    RSAPublicKey publicKey;
-
-    @Value("${jwt.private_key}")
-    RSAPrivateKey privateKey;
+    @Value("${security.password.salt}")
+    private String salt;
 
     @Bean
-    JwtDecoder jwtDecoder() {
-        return NimbusJwtDecoder.withPublicKey(publicKey).build();
-    }
-
-    @Bean
-    JwtEncoder jwtEncoder() {
-        JWK jwk = new RSAKey.Builder(publicKey).privateKey(privateKey).build();
-        JWKSource<SecurityContext> jwkSource = new ImmutableJWKSet<>(new JWKSet(jwk));
-        return new NimbusJwtEncoder(jwkSource);
-    }
-
-    @Bean
-    public static PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(10, new SecureRandom(salt.getBytes()));
     }
 }
