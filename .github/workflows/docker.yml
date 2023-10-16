@@ -14,6 +14,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: Run tests
+    strategy:
+      matrix:
+        service: [ users ]
 
     permissions:
       contents: read
@@ -26,7 +29,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'gradle'
-      - run: gradle test --no-daemon
+      - run: gradle service:${{ matrix.service }}:test --no-daemon
 
       - uses: madrapps/jacoco-report@v1.6.1
 
@@ -42,6 +45,10 @@ jobs:
     name: Build the Docker image
     runs-on: ubuntu-latest
     needs: test
+
+    strategy:
+      matrix:
+        service: [ users ]
 
     permissions:
       contents: read
@@ -62,7 +69,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-${{ matrix.service }}-service
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -71,6 +78,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          build-args: SERVICE_NAME=${{ matrix.service }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
