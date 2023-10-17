@@ -95,12 +95,12 @@ public class AuthController {
 
     @PostMapping("/register")
     public String register(@Valid @RequestBody RegisterRequest request) {
-        var user = userRepo.findByEmail(request.email).stream().findFirst().orElse(null);
-        if (user != null) {
+        var existingUser = userRepo.findByEmail(request.email).stream().findFirst();
+        if (existingUser.isPresent()) {
             throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
         }
 
-        user = new User(request.name, request.email, passwordEncoder.encode(request.password), ERole.USER);
+        var user = new User(request.name, request.email, passwordEncoder.encode(request.password), ERole.USER);
         userRepo.save(user);
 
         return user.getId();
