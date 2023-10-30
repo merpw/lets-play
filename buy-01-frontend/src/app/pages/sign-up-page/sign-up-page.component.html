@@ -1,1 +1,12 @@
-<p>sign-up-page works!</p>
+<form [formGroup]="form">
+  <mat-form-field>
+    <input matInput placeholder="username" formControlName="username" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="password" formControlName="password" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="email" formControlName="email" />
+  </mat-form-field>
+  <button (click)="submit()">Submit</button>
+</form>
