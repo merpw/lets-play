@@ -4,12 +4,13 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static pw.mer.letsplay.AuthFactory.TestUser;
-import static pw.mer.letsplay.AuthFactory.getAccessToken;
 
 class ProductSecurityTests extends AbstractControllerTests {
     @Test
@@ -20,8 +21,7 @@ class ProductSecurityTests extends AbstractControllerTests {
     @Test
     void writeOperationsShouldNotBeAvailableForBasicUser() {
         var testUser = new TestUser();
-        testUser.register();
-        String token = getAccessToken(testUser.email, testUser.password);
+        String token = getAccessToken(testUser);
 
         RequestSpecification req = given().auth().oauth2(token)
                 .when().contentType("application/json");
@@ -37,15 +37,8 @@ class ProductSecurityTests extends AbstractControllerTests {
     void notOwnerOfTheProduct() {
         var adminToken = getAdminToken();
 
-        var secondAdmin = new TestUser();
-        given().auth().oauth2(adminToken).contentType("application/json")
-                .when()
-                .body(secondAdmin.getObjectNode().put("role", "admin"))
-                .post("/users/add")
-                .then()
-                .statusCode(HTTP_OK);
-
-        var secondAdminToken = getAccessToken(secondAdmin.email, secondAdmin.password);
+        var secondAdmin = new TestUser(List.of("products:write"));
+        var secondAdminToken = getAccessToken(secondAdmin);
 
         var testProduct = new TestProductFactory.TestProduct();
         var productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK)

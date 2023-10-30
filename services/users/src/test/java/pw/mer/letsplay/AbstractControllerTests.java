@@ -4,15 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
-import pw.mer.letsplay.repository.ProductRepo;
 import pw.mer.letsplay.repository.UserRepo;
 import pw.mer.shared.SharedAbstractControllerTests;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class AbstractControllerTests extends SharedAbstractControllerTests {
-
-    @Autowired
-    private ProductRepo productRepo;
 
     @Autowired
     private UserRepo userRepo;
@@ -33,7 +29,6 @@ public abstract class AbstractControllerTests extends SharedAbstractControllerTe
 
     @Override
     public void clean() {
-        productRepo.deleteAll();
         userRepo.deleteAll();
     }
 

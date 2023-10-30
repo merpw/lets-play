@@ -30,8 +30,8 @@ public class UserController {
     private static final String NOT_FOUND_MESSAGE = "User not found";
 
     @Autowired
-    public UserController(UserRepo productRepo) {
-        this.userRepo = productRepo;
+    public UserController(UserRepo userRepo) {
+        this.userRepo = userRepo;
     }
 
     @GetMapping

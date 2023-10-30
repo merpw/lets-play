@@ -27,7 +27,7 @@ class CustomErrorTests extends AbstractControllerTests {
                 .body("title", is(not(emptyOrNullString())),
                         "status", is(HTTP_NOT_FOUND));
 
-        jsonBodyRequest(adminToken, "{}").post("/users/add")
+        jsonBodyRequest(adminToken, "{}").post("/products/add")
                 .then().statusCode(HTTP_BAD_REQUEST)
                 .body("title", is(not(emptyOrNullString())),
                         "status", is(HTTP_BAD_REQUEST),
