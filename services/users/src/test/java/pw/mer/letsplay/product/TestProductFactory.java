@@ -8,8 +8,8 @@ import lombok.Getter;
 
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.is;
-import static pw.mer.letsplay.RequestHelpers.authRequest;
-import static pw.mer.letsplay.RequestHelpers.jsonBodyRequest;
+import static pw.mer.shared.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 
 public class TestProductFactory {
     @AllArgsConstructor

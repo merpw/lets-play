@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.with;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static java.net.HttpURLConnection.HTTP_UNAUTHORIZED;
 import static org.hamcrest.Matchers.*;
-import static pw.mer.letsplay.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.authRequest;
 
 
 class AuthProfileTests extends AbstractControllerTests {

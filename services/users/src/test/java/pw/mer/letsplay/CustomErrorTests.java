@@ -6,8 +6,8 @@ import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.Is.is;
-import static pw.mer.letsplay.RequestHelpers.authRequest;
-import static pw.mer.letsplay.RequestHelpers.jsonBodyRequest;
+import static pw.mer.shared.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 
 class CustomErrorTests extends AbstractControllerTests {
     @Test

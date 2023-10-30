@@ -7,7 +7,7 @@ import pw.mer.letsplay.AuthFactory;
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.core.Is.is;
-import static pw.mer.letsplay.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.authRequest;
 
 class AuthRegisterTests extends AbstractControllerTests {
     @Test

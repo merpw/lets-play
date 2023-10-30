@@ -1,2 +1,2 @@
 rootProject.name = "lets-play"
-include("services:users")
+include("services:users", "shared")

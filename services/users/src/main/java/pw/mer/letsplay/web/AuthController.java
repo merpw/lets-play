@@ -15,6 +15,7 @@ import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
 import pw.mer.letsplay.web.validators.UserValidators;
+import pw.mer.shared.config.SharedJwtConfig;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
@@ -66,7 +67,8 @@ public class AuthController {
             throw new ResponseStatusException(BAD_REQUEST, "Invalid password");
         }
 
-        return JwtConfig.issueToken(encoder, user);
+        var jwtUser = new JwtConfig.JwtUser(user);
+        return SharedJwtConfig.issueToken(encoder, jwtUser);
     }
 
     @GetMapping("/profile")

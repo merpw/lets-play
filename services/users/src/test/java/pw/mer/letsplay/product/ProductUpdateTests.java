@@ -7,7 +7,7 @@ import pw.mer.letsplay.AbstractControllerTests;
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.matchesRegex;
-import static pw.mer.letsplay.RequestHelpers.jsonBodyRequest;
+import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 
 class ProductUpdateTests extends AbstractControllerTests {
     static void updateProductRequestValid(String adminToken, String productId, Object body) {

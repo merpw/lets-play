@@ -6,7 +6,7 @@ import pw.mer.letsplay.AuthFactory;
 
 import static java.net.HttpURLConnection.*;
 import static org.hamcrest.Matchers.is;
-import static pw.mer.letsplay.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.authRequest;
 
 class UserDeleteTests extends AbstractControllerTests {
     @Test

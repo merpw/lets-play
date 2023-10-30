@@ -7,7 +7,6 @@ import jakarta.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import java.util.Collection;
 import java.util.List;
 
 import static java.lang.annotation.ElementType.*;
@@ -23,7 +22,7 @@ public enum ERole {
         return super.toString().toLowerCase();
     }
 
-    public Collection<String> getScopes() {
+    public List<String> getScopes() {
         if (this == ADMIN) {
             return List.of("users", "products:write");
         } else {
