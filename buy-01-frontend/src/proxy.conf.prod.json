@@ -1,0 +1,10 @@
+{
+  "/products": {
+    "target": "http://products:80/",
+    "secure": false
+  },
+  "/users": {
+    "target": "http://users:80/",
+    "secure": false
+  }
+}

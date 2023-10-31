@@ -5,7 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-sign-up-page',
   templateUrl: './sign-up-page.component.html',
-  styleUrls: ['./sign-up-page.component.scss']
+  styleUrls: ['./sign-up-page.component.scss'],
 })
 export class SignUpPageComponent {
   public form: FormGroup = new FormGroup({
@@ -14,14 +14,13 @@ export class SignUpPageComponent {
     email: new FormControl(''),
   });
 
-  constructor(private http: HttpClient) {
-    
-  }
+  constructor(private http: HttpClient) {}
 
-  submit(){
+  submit() {
     console.log(this.form.value);
-    this.http.get('/auth/register', this.form.value).subscribe((resp) => {
+    // just for testing the nginx server
+    this.http.get('/products').subscribe((resp) => {
       console.log(resp);
-    })
+    });
   }
 }
