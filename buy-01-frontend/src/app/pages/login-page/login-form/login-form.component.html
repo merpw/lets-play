@@ -1,6 +1,18 @@
 <form [formGroup]="form">
-  <mat-form-field>
-    <input matInput placeholder="username" formControlName="username" />
-  </mat-form-field>
-  <button (click)="submit()">Submit</button>
+  <div class="login-form-container">
+    <mat-form-field>
+      <input matInput placeholder="username" formControlName="username" />
+      <mat-error *ngIf="form.controls['username'].invalid"
+        >Username is required.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="password" formControlName="password" />
+      <mat-error *ngIf="form.controls['password'].invalid"
+        >Password is required.</mat-error
+      >
+    </mat-form-field>
+    <button mat-raised-button (click)="login()">Login</button>
+    <mat-error *ngIf="invalidLogin">Login credentials are invalid.</mat-error>
+  </div>
 </form>
