@@ -1,15 +1,19 @@
-# FROM node:16-alpine AS build
+FROM node:16.15.0-alpine AS build
 
-# WORKDIR /app
+WORKDIR /app
 
-# COPY package*.json ./
+COPY package*.json ./
 
-# RUN npm install
+RUN npm install
 
-# COPY . .
+RUN npx ngcc --properties es2023 browser module main --first-only --create-ivy-entry-points
 
-# RUN npm run build
+COPY . .
 
-# EXPOSE 4200
+RUN npm run build
 
-# CMD ["npm", "start"]
+FROM nginx:alpine
+
+COPY --from=build /app/dist/buy-01-frontend/ /usr/share/nginx/html
+
+EXPOSE 80
