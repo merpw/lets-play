@@ -1,15 +1,15 @@
-services:
-  buy-01-frontend:
-    container_name: buy-01-frontend-container
-    build: .
-    image: buy-01-frontend:v1
-    ports:
-      - 80:80
-    expose:
-      - 80
-    networks:
-      - internalnet
+# services:
+#   buy-01-frontend:
+#     container_name: buy-01-frontend-container
+#     build: .
+#     image: buy-01-frontend:v1
+#     ports:
+#       - 80:80
+#     expose:
+#       - 80
+#     networks:
+#       - internalnet
 
-networks:
-  internalnet:
-    driver: bridge
+# networks:
+#   internalnet:
+#     driver: bridge
