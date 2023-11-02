@@ -1,0 +1,35 @@
+name: Run Gradle Test
+description: Run integration tests for the affected service
+
+inputs:
+  token:
+    description: "GitHub token"
+    required: true
+  service-name:
+    description: "Service name"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-java@v3
+      with:
+        distribution: "temurin"
+        java-version: "17"
+        cache: "gradle"
+
+    - run: gradle service:${{ inputs.service-name }}:test --no-daemon
+      shell: bash
+      working-directory: backend
+
+    - uses: madrapps/jacoco-report@v1.6.1
+
+      name: Send coverage report to the PR
+      with:
+        paths: |
+          ${{ github.workspace }}/**/build/reports/jacoco/test/*.xml
+        token: ${{ inputs.token }}
+        min-coverage-overall: 40
+        min-coverage-changed-files: 60

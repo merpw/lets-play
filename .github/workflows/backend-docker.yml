@@ -1,0 +1,32 @@
+name: Test and Build Backend Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "backend/**" ]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "backend/**" ]
+
+jobs:
+  test-and-build:
+    strategy:
+      matrix:
+        services: [ users, products ]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/gradle-test
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          service-name: ${{ matrix.services }}
+      - uses: ./.github/actions/docker
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          context: backend
+          build-args: SERVICE_NAME=${{ matrix.services }}
+          image-name: ${{ matrix.services }}-service
