@@ -1,4 +1,4 @@
-name: Run integration tests
+name: Run Gradle Test
 description: Run integration tests for the affected service
 
 inputs:
@@ -22,6 +22,7 @@ runs:
 
     - run: gradle service:${{ inputs.service-name }}:test --no-daemon
       shell: bash
+      working-directory: backend
 
     - uses: madrapps/jacoco-report@v1.6.1
 

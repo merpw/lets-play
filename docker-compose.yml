@@ -12,6 +12,7 @@ services:
   users:
     image: ghcr.io/merpw/lets-play-users-service:${REVISION-main}
     build:
+      context: backend
       args:
         - SERVICE_NAME=users
     environment:
@@ -21,6 +22,7 @@ services:
   products:
     image: ghcr.io/merpw/lets-play-products-service:${REVISION-main}
     build:
+      context: backend
       args:
         - SERVICE_NAME=products
     environment:
