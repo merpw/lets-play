@@ -3,7 +3,7 @@ FROM gradle:latest AS builder
 ARG SERVICE_NAME
 
 WORKDIR /usr/app/
-COPY . .
+COPY .. .
 RUN gradle services:${SERVICE_NAME}:build --no-daemon -x test
 
 FROM amazoncorretto:17-alpine3.18-jdk
