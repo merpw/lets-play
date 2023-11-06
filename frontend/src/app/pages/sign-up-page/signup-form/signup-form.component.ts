@@ -19,7 +19,7 @@ export class SignupFormComponent {
   submit() {
     console.log(this.form.value);
     // just for testing the nginx server
-    this.http.get('/products').subscribe((resp) => {
+    this.http.get('/api/products').subscribe((resp) => {
       console.log(resp);
     });
   }
