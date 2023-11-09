@@ -1,0 +1,17 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > * {
+    padding: 0.5rem;
+  }
+}

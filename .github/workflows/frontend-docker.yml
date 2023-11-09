@@ -1,0 +1,25 @@
+name: Build Frontend Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "frontend/**" ]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "frontend/**" ]
+
+jobs:
+  #  TODO: add tests job
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/docker
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          context: frontend
+          image-name: frontend

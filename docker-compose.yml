@@ -29,6 +29,10 @@ services:
       - MONGO_HOST=db
     depends_on:
       - db
+  frontend:
+    image: ghcr.io/merpw/lets-play-frontend:${REVISION-main}
+    build:
+      context: frontend
   db:
     image: mongo
     ports:
