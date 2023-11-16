@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpStatusCode } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -8,8 +8,10 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./signup-form.component.scss'],
 })
 export class SignupFormComponent {
+  private signUpURL = '/api/auth/register';
+
   public form: FormGroup = new FormGroup({
-    username: new FormControl(''),
+    name: new FormControl(''),
     password: new FormControl(''),
     email: new FormControl(''),
   });
@@ -19,8 +21,20 @@ export class SignupFormComponent {
   submit() {
     console.log(this.form.value);
     // just for testing the nginx server
-    this.http.get('/api/products').subscribe((resp) => {
-      console.log(resp);
-    });
+    this.http
+      .post(this.signUpURL, this.form.value, {
+        observe: 'response',
+        responseType: 'text',
+      })
+      .subscribe({
+        next: (resp: HttpResponse<any>) => {
+          console.log(resp.body);
+          localStorage.setItem('userId', resp.body);
+        },
+        error: (error) => {
+          console.log('error in signing up');
+          console.log(error);
+        },
+      });
   }
 }

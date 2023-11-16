@@ -1,10 +1,15 @@
 <form [formGroup]="form">
   <div class="signup-form-container">
     <mat-form-field>
-      <input matInput placeholder="username" formControlName="username" />
+      <input matInput placeholder="username" formControlName="name" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="password" formControlName="password" />
+      <input
+        matInput
+        placeholder="password"
+        formControlName="password"
+        type="password"
+      />
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="email" formControlName="email" />

@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +12,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
   public form: FormGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
@@ -18,7 +20,11 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form.valueChanges
@@ -36,8 +42,22 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       this.invalidLogin = true;
       return;
     }
-    this.http.get('/api/login', this.form.value).subscribe((resp) => {
-      console.log(resp);
-    });
+    this.http
+      .post('/api/auth/login', this.form.value, {
+        observe: 'response',
+        responseType: 'text',
+      })
+      .subscribe({
+        next: (resp: any) => {
+          console.log(resp);
+          localStorage.setItem('token', resp.body);
+          this.authService.authenticated = true;
+          this.router.navigateByUrl('/');
+        },
+        error: (error) => {
+          console.log('login did not success');
+          console.log(error);
+        },
+      });
   }
 }

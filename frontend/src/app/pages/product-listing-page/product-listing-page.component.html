@@ -1,4 +1,9 @@
-<h2>Product listing</h2>
+<div class="product-listing-page-header">
+  <h2>Product listing</h2>
+  <button mat-raised-button (click)="openAddProductDialog()">
+    Add Product
+  </button>
+</div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>

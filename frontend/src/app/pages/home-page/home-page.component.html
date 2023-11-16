@@ -1,70 +1,9 @@
-<p>
-  Very Long Home Page for Testing -------------- Please click and go to other
-  tabs -------------- Very Long Home Page for Testing -------------- Please
-  click and go to other tabs -------------- Very Long Home Page for Testing
-  -------------- Please click and go to other tabs -------------- Very Long Home
-  Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs --------------
-</p>
+<div *ngIf="authService.isAuthenticated; else notAuthenticatedMessage">
+  You are loggined in!
+  <p>Email: {{ profile.email }}</p>
+  <p>Name: {{ profile.name }}</p>
+  <p>Id: {{ profile.id }}</p>
+  <p>Role: {{ profile.role }}</p>
+</div>
+<ng-template #notAuthenticatedMessage>Please sign up to see</ng-template>
+<div>Products: {{ products }}</div>

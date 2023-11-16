@@ -1,13 +1,18 @@
 <form [formGroup]="form">
   <div class="login-form-container">
     <mat-form-field>
-      <input matInput placeholder="username" formControlName="username" />
-      <mat-error *ngIf="form.controls['username'].invalid"
-        >Username is required.</mat-error
+      <input matInput placeholder="email" formControlName="email" />
+      <mat-error *ngIf="form.controls['email'].invalid"
+        >Email is required.</mat-error
       >
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="password" formControlName="password" />
+      <input
+        matInput
+        placeholder="password"
+        formControlName="password"
+        type="password"
+      />
       <mat-error *ngIf="form.controls['password'].invalid"
         >Password is required.</mat-error
       >

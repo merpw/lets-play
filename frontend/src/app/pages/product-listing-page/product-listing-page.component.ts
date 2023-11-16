@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
 
 @Component({
   selector: 'app-product-listing-page',
@@ -47,8 +49,19 @@ export class ProductListingPageComponent implements OnInit {
   ];
   public dataSource: any;
 
+  constructor(public dialog: MatDialog) {}
+
   ngOnInit(): void {
     // fetch products here
     this.dataSource = this.data;
+  }
+
+  openAddProductDialog(): void {
+    const dialogRef = this.dialog.open(AddProductModalComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
   }
 }

@@ -13,13 +13,15 @@ import { ProductListingPageComponent } from './pages/product-listing-page/produc
 import { MediaManagementPageComponent } from './pages/seller-product-management-page/media-management-page/media-management-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './pages/login-page/login-form/login-form.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { SignupFormComponent } from './pages/sign-up-page/signup-form/signup-form.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthInterceptor } from './shared/auth.interceptor';
+import { AddProductModalComponent } from './pages/product-listing-page/add-product-modal/add-product-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     LoginFormComponent,
     SignupFormComponent,
     HomePageComponent,
+    AddProductModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
