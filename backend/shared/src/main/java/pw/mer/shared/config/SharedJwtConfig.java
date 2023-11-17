@@ -1,15 +1,17 @@
 package pw.mer.shared.config;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.jwt.*;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.time.Instant;
+import java.util.Base64;
 import java.util.List;
 
 @Configuration
@@ -17,9 +19,24 @@ public class SharedJwtConfig {
     @Value("${security.jwt.secret}")
     private String secret;
 
+    private static final Logger logger = LoggerFactory.getLogger(SharedJwtConfig.class);
+
     @Bean
     SecretKey secretKey() {
-        byte[] encodedSecret = new BCryptPasswordEncoder().encode(secret).getBytes();
+        byte[] encodedSecret = Base64.getEncoder().encode(secret.getBytes());
+
+        if (encodedSecret.length < 32) {
+            logger.warn("JWT_SECRET is weak. It should be at least 32 bytes length");
+
+            byte[] prolongedSecret = new byte[32];
+
+            // UnsafeSecret -> UnsafeSecretUnsafeSecret...
+            System.arraycopy(encodedSecret, 0, prolongedSecret, 0, encodedSecret.length);
+            System.arraycopy(encodedSecret, 0, prolongedSecret, encodedSecret.length, 32 - encodedSecret.length);
+
+            encodedSecret = prolongedSecret;
+        }
+
         return new SecretKeySpec(encodedSecret, "HmacSHA256");
     }
 
