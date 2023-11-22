@@ -1,3 +1,6 @@
 security:
   jwt:
     secret: ${JWT_SECRET:UnsafeSecret}
+
+media:
+  storage-dir: ${MEDIA_STORAGE_DIR:./media}

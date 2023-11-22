@@ -23,6 +23,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/error").permitAll()
 
                         .requestMatchers(GET, "/media/**").permitAll()
+                        .requestMatchers("/media/**").hasAuthority("SCOPE_media:write")
 
                         .anyRequest().authenticated()
                 )
