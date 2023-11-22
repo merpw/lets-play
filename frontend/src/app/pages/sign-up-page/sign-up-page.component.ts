@@ -5,4 +5,16 @@ import { Component } from '@angular/core';
   templateUrl: './sign-up-page.component.html',
   styleUrls: ['./sign-up-page.component.scss'],
 })
-export class SignUpPageComponent {}
+export class SignUpPageComponent {
+  isLoading = false;
+  errorMessage = '';
+
+  showSpinner(loading: boolean) {
+    console.log(loading);
+    this.isLoading = loading;
+  }
+
+  showError(errorMessage: string) {
+    this.errorMessage = errorMessage;
+  }
+}

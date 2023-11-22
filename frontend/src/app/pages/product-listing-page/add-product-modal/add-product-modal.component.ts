@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject, finalize, takeUntil } from 'rxjs';
 import { MediaManagementPageComponent } from '../../seller-product-management-page/media-management-page/media-management-page.component';
-import { HttpClient } from '@angular/common/http';
+import { ProductService } from 'src/app/shared/product.service';
 
 @Component({
   selector: 'app-add-product-modal',
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./add-product-modal.component.scss'],
 })
 export class AddProductModalComponent implements OnInit, OnDestroy {
-  private addProductUrl = 'api/products/add';
+  public isLoading = false;
   public form!: FormGroup;
   public invalidForm = false;
 
@@ -19,7 +19,7 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
+    private productService: ProductService,
     public dialogRef: MatDialogRef<AddProductModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -53,18 +53,29 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
       this.invalidForm = true;
       return;
     }
+
+    this.isLoading = true;
     // post request to update product here
     console.log('updating product with the following values');
     console.log(this.form.value);
-    this.http
-      .post(this.addProductUrl, this.form.value, {
-        withCredentials: true,
-        observe: 'response',
-        responseType: 'text',
-      })
-      .pipe(finalize(() => this.dialogRef.close()))
-      .subscribe((resp) => {
-        console.log(resp);
+    this.productService
+      .addProducts(this.form.value)
+      .pipe(finalize(() => (this.isLoading = false)))
+      .subscribe({
+        next: (resp) => {
+          console.log(resp);
+          this.dialogRef.close({
+            type: 'success',
+            message: `${this.form.controls['name'].value} has been added.`,
+          });
+        },
+        error: (error) => {
+          const errorMessage =
+            JSON.parse(error.error)?.detail ??
+            'Add product went wrong. Please try again.';
+          console.log(errorMessage);
+          this.dialogRef.close({ type: 'error', message: errorMessage });
+        },
       });
   }
 }

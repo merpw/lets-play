@@ -1,8 +1,14 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, finalize, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
@@ -11,6 +17,9 @@ import { AuthService } from 'src/app/shared/auth.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
+  @Output() isLoading = new EventEmitter<boolean>();
+  @Output() hasError = new EventEmitter<string>();
+
   public form: FormGroup = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -42,11 +51,14 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       this.invalidLogin = true;
       return;
     }
+    this.isLoading.emit(true);
+
     this.http
       .post('/api/auth/login', this.form.value, {
         observe: 'response',
         responseType: 'text',
       })
+      .pipe(finalize(() => this.isLoading.emit(false)))
       .subscribe({
         next: (resp: any) => {
           console.log(resp);
@@ -55,8 +67,11 @@ export class LoginFormComponent implements OnInit, OnDestroy {
           this.router.navigateByUrl('/');
         },
         error: (error) => {
-          console.log('login did not success');
-          console.log(error);
+          const errorMessage =
+            JSON.parse(error.error)?.detail ??
+            'Log in went wrong. Please try again.';
+          console.log(errorMessage);
+          this.hasError.emit(errorMessage);
         },
       });
   }

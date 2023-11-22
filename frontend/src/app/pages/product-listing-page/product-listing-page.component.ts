@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
+import { HttpClient } from '@angular/common/http';
+import { ProductService } from 'src/app/shared/product.service';
 
 @Component({
   selector: 'app-product-listing-page',
@@ -8,35 +10,7 @@ import { AddProductModalComponent } from './add-product-modal/add-product-modal.
   styleUrls: ['./product-listing-page.component.scss'],
 })
 export class ProductListingPageComponent implements OnInit {
-  private data = [
-    {
-      id: 1,
-      name: 'Apple',
-      description: 'It is an apple',
-      price: 10,
-      quantity: 25,
-      userId: 2,
-      image: 'Image 1',
-    },
-    {
-      id: 3,
-      name: 'Orange',
-      description: 'It is an orange',
-      price: 5,
-      quantity: 100,
-      userId: 5,
-      image: 'Image 2',
-    },
-    {
-      id: 3,
-      name: 'Lemon',
-      description: 'It is an lemon',
-      price: 20,
-      quantity: 30,
-      userId: 2,
-      image: 'Image 3',
-    },
-  ];
+  result: any = {};
 
   public displayedColumns = [
     'id',
@@ -47,21 +21,46 @@ export class ProductListingPageComponent implements OnInit {
     'quantity',
     'userId',
   ];
-  public dataSource: any;
 
-  constructor(public dialog: MatDialog) {}
+  public dataSource: any;
+  public isLoading = false;
+
+  constructor(
+    public dialog: MatDialog,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
     // fetch products here
-    this.dataSource = this.data;
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.productService.getProducts().subscribe({
+      next: (resp) => {
+        const data: Array<any> = resp.body;
+        this.dataSource = data.reverse();
+      },
+      error: (error) => {
+        const errorMessage =
+          JSON.parse(error.error)?.detail ??
+          'Sign up went wrong. Please try again.';
+        console.log(errorMessage);
+        this.result = { type: 'error', message: errorMessage };
+      },
+    });
   }
 
   openAddProductDialog(): void {
+    this.result = {};
+
     const dialogRef = this.dialog.open(AddProductModalComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
+      this.result = result;
+      this.fetchProducts();
     });
   }
 }

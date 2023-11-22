@@ -1,2 +1,8 @@
 <h2>Please sign up here!</h2>
-<app-signup-form> </app-signup-form>
+<app-signup-form
+  (isLoading)="showSpinner($event)"
+  (hasError)="showError($event)"
+>
+</app-signup-form>
+<h4 *ngIf="errorMessage" class="message error">{{ errorMessage }}</h4>
+<app-spinner *ngIf="isLoading"></app-spinner>

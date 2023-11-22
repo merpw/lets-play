@@ -1,6 +1,8 @@
 import { HttpClient, HttpResponse, HttpStatusCode } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-signup-form',
@@ -8,6 +10,9 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./signup-form.component.scss'],
 })
 export class SignupFormComponent {
+  @Output() isLoading = new EventEmitter<boolean>();
+  @Output() hasError = new EventEmitter<string>();
+
   private signUpURL = '/api/auth/register';
 
   public form: FormGroup = new FormGroup({
@@ -16,24 +21,34 @@ export class SignupFormComponent {
     email: new FormControl(''),
   });
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   submit() {
     console.log(this.form.value);
     // just for testing the nginx server
+    this.isLoading.emit(true);
+    this.hasError.emit('');
+
     this.http
       .post(this.signUpURL, this.form.value, {
         observe: 'response',
         responseType: 'text',
       })
+      .pipe(finalize(() => this.isLoading.emit(false)))
       .subscribe({
         next: (resp: HttpResponse<any>) => {
           console.log(resp.body);
           localStorage.setItem('userId', resp.body);
+          this.router.navigate(['/login'], {
+            state: { email: this.form.controls['email'].value },
+          });
         },
         error: (error) => {
-          console.log('error in signing up');
-          console.log(error);
+          const errorMessage =
+            JSON.parse(error.error)?.detail ??
+            'Sign up went wrong. Please try again.';
+          console.log(errorMessage);
+          this.hasError.emit(errorMessage);
         },
       });
   }

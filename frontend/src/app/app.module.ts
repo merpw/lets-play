@@ -22,6 +22,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { AddProductModalComponent } from './pages/product-listing-page/add-product-modal/add-product-modal.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import { AddProductModalComponent } from './pages/product-listing-page/add-produ
     SignupFormComponent,
     HomePageComponent,
     AddProductModalComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { AddProductModalComponent } from './pages/product-listing-page/add-produ
     MatInputModule,
     MatTableModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

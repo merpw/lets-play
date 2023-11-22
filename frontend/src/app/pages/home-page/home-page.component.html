@@ -6,4 +6,8 @@
   <p>Role: {{ profile.role }}</p>
 </div>
 <ng-template #notAuthenticatedMessage>Please sign up to see</ng-template>
-<div>Products: {{ products }}</div>
+<h3>Products:</h3>
+<ng-container *ngFor="let product of products">
+  <p>{{ product.name }} {{ product.description }}</p>
+  <hr />
+</ng-container>

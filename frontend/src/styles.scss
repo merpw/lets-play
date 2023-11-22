@@ -1,4 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.message {
+  padding: 1rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+
+  &.error {
+    background-color: pink;
+    color: red;
+  }
+
+  &.info {
+    background-color: grey;
+    color: black;
+  }
+
+  &.success {
+    background-color: lightgreen;
+    color: green;
+  }
+}
