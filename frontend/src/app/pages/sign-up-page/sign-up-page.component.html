@@ -4,5 +4,9 @@
   (hasError)="showError($event)"
 >
 </app-signup-form>
-<h4 *ngIf="errorMessage" class="message error">{{ errorMessage }}</h4>
+<app-message-box
+  *ngIf="errorMessage"
+  [message]="errorMessage"
+  type="error"
+></app-message-box>
 <app-spinner *ngIf="isLoading"></app-spinner>

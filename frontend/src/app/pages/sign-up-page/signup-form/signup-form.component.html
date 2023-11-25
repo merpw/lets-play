@@ -1,8 +1,12 @@
 <form [formGroup]="form">
   <div class="signup-form-container">
     <mat-form-field>
-      <input matInput placeholder="username" formControlName="name" />
+      <input matInput placeholder="name" formControlName="name" />
+      <mat-error *ngIf="form.controls['name'].invalid"
+        >Name is required.</mat-error
+      >
     </mat-form-field>
+
     <mat-form-field>
       <input
         matInput
@@ -10,10 +14,28 @@
         formControlName="password"
         type="password"
       />
+      <mat-error *ngIf="form.controls['password'].invalid"
+        >Password is required.</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="email" formControlName="email" />
+      <mat-error *ngIf="form.controls['email'].invalid"
+        >Email is required.</mat-error
+      >
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let role of roles" [value]="role">{{
+          role
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.controls['role'].invalid"
+        >Role is required.</mat-error
+      >
+    </mat-form-field>
+
     <button mat-raised-button (click)="submit()">Submit</button>
   </div>
 </form>

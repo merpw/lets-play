@@ -25,8 +25,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     password: new FormControl('', Validators.required),
   });
 
-  public invalidLogin = false;
-
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -38,7 +36,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.form.valueChanges
       .pipe(takeUntil(this.destroy$))
-      .subscribe(() => (this.invalidLogin = false));
+      .subscribe(() => this.hasError.emit(''));
   }
 
   ngOnDestroy(): void {
@@ -48,7 +46,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   login() {
     if (this.form.invalid) {
-      this.invalidLogin = true;
+      this.hasError.emit('Login form is invalid.');
       return;
     }
     this.isLoading.emit(true);

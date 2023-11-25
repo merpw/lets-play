@@ -1,8 +1,16 @@
 <h2>Please login here!</h2>
-<p *ngIf="message" class="message success">{{ message }}</p>
+<app-message-box
+  *ngIf="message"
+  [message]="message"
+  type="success"
+></app-message-box>
 <app-login-form
   (isLoading)="showSpinner($event)"
   (hasError)="showError($event)"
 ></app-login-form>
-<p *ngIf="errorMessage" class="message error">{{ errorMessage }}</p>
+<app-message-box
+  *ngIf="errorMessage"
+  [message]="errorMessage"
+  type="error"
+></app-message-box>
 <app-spinner *ngIf="isLoading"></app-spinner>

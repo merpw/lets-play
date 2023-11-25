@@ -9,7 +9,7 @@ import { AuthGuardService } from './shared/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     title: 'Welcome! :)',
     component: HomePageComponent,
   },
@@ -37,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
 ];

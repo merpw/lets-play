@@ -1,13 +1,43 @@
-<div *ngIf="authService.isAuthenticated; else notAuthenticatedMessage">
-  You are loggined in!
-  <p>Email: {{ profile.email }}</p>
-  <p>Name: {{ profile.name }}</p>
-  <p>Id: {{ profile.id }}</p>
-  <p>Role: {{ profile.role }}</p>
-</div>
-<ng-template #notAuthenticatedMessage>Please sign up to see</ng-template>
-<h3>Products:</h3>
-<ng-container *ngFor="let product of products">
-  <p>{{ product.name }} {{ product.description }}</p>
-  <hr />
+<ng-container *ngIf="authService.isAuthenticated; else notAuthenticatedMessage">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="user-avatar">
+        <img
+          ngSrc="assets/avatar/placeholder.png"
+          alt="Avatar"
+          width="40"
+          height="40"
+        />
+      </div>
+      <mat-card-title class="welcome-header"
+        >Welcome, {{ profile.name }}</mat-card-title
+      >
+      <mat-card-subtitle
+        >You are currently logged in as a
+        {{ profile.role | uppercase }}</mat-card-subtitle
+      >
+      <mat-card-subtitle>Your user ID is {{ profile.id }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions align="end">
+      <button mat-button mat-raised-button routerLink="/product-listing">
+        View products
+      </button>
+      <button
+        *ngIf="profile.role === 'seller' || profile.role === 'admin'"
+        mat-button
+        mat-raised-button
+        routerLink="/seller-product-management"
+      >
+        Manage your products
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </ng-container>
+
+<ng-template #notAuthenticatedMessage>
+  <app-message-box
+    message="Please log in or sign up."
+    type="info"
+  ></app-message-box>
+</ng-template>

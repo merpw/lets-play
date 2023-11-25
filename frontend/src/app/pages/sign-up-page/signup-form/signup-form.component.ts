@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse, HttpStatusCode } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 
@@ -16,10 +16,13 @@ export class SignupFormComponent {
   private signUpURL = '/api/auth/register';
 
   public form: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    password: new FormControl(''),
-    email: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    role: new FormControl('', Validators.required),
   });
+
+  public roles = ['USER', 'SELLER'];
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -28,6 +31,14 @@ export class SignupFormComponent {
     // just for testing the nginx server
     this.isLoading.emit(true);
     this.hasError.emit('');
+
+    if (this.form.invalid) {
+      this.hasError.emit(
+        'Your inputs are invalid. Please verify and try again.'
+      );
+      this.isLoading.emit(false);
+      return;
+    }
 
     this.http
       .post(this.signUpURL, this.form.value, {

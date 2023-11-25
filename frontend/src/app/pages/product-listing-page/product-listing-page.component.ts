@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
 import { HttpClient } from '@angular/common/http';
 import { ProductService } from 'src/app/shared/product.service';
+import { forkJoin, map, mergeMap, firstValueFrom } from 'rxjs';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-product-listing-page',
@@ -27,7 +29,8 @@ export class ProductListingPageComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private productService: ProductService
+    private productService: ProductService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -36,19 +39,29 @@ export class ProductListingPageComponent implements OnInit {
   }
 
   fetchProducts() {
-    this.productService.getProducts().subscribe({
-      next: (resp) => {
-        const data: Array<any> = resp.body;
-        this.dataSource = data.reverse();
-      },
-      error: (error) => {
-        const errorMessage =
-          JSON.parse(error.error)?.detail ??
-          'Sign up went wrong. Please try again.';
-        console.log(errorMessage);
-        this.result = { type: 'error', message: errorMessage };
-      },
-    });
+    this.productService
+      .getProducts()
+      .pipe(
+        map(async (resp) => {
+          const usernames = await firstValueFrom(
+            this.userService.getUsers(resp.body.map((data: any) => data.userId))
+          );
+          return resp.body;
+        })
+      )
+      .subscribe({
+        next: async (products) => {
+          const data: Array<any> = await products;
+          this.dataSource = data.reverse();
+        },
+        error: (error) => {
+          const errorMessage =
+            JSON.parse(error.error)?.detail ??
+            'Sign up went wrong. Please try again.';
+          console.log(errorMessage);
+          this.result = { type: 'error', message: errorMessage };
+        },
+      });
   }
 
   openAddProductDialog(): void {

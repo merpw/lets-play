@@ -4,9 +4,11 @@
     Add Product
   </button>
 </div>
-<h4 *ngIf="result?.message" class="message" [ngClass]="result.type">
-  {{ result.message }}
-</h4>
+<app-message-box
+  *ngIf="result.message"
+  [message]="result.message"
+  [type]="result.type"
+></app-message-box>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
