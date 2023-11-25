@@ -12,7 +12,7 @@ jobs:
   test-and-build:
     strategy:
       matrix:
-        services: [ users, products ]
+        services: [ users, products, media ]
     runs-on: ubuntu-latest
     permissions:
       contents: read
