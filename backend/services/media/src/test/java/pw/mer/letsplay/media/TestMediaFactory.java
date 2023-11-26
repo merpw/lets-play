@@ -2,6 +2,7 @@ package pw.mer.letsplay.media;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.util.MimeType;
 import org.testcontainers.shaded.org.apache.commons.lang3.RandomUtils;
 
 import static io.restassured.RestAssured.when;
@@ -16,10 +17,11 @@ public class TestMediaFactory {
     @Getter
     static class TestMedia {
         private final byte[] data;
+        private final String contentType;
 
         public String upload(String adminToken) {
             return authRequest(adminToken)
-                    .multiPart("file", "test.jpg", data)
+                    .multiPart("file", "file", data, contentType)
                     .post("/media/upload")
                     .then().statusCode(SC_CREATED)
                     .extract().body().asString();
