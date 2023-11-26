@@ -45,6 +45,20 @@ class MediaUploadTests extends AbstractControllerTests {
     }
 
     @Test
+    void validBig() {
+        var adminToken = getAdminToken();
+
+        int size = 2 * 1024 * 1024; // 2 MB
+
+        var mediaData = TestMediaFactory.generateRandomData(size);
+
+        var testMedia = new TestMediaFactory.TestMedia(mediaData, "image/png");
+        var mediaId = testMedia.upload(adminToken);
+
+        testMedia.requestCheck(mediaId);
+    }
+
+    @Test
     void wrongContentType() {
         var adminToken = getAdminToken();
 
@@ -59,6 +73,21 @@ class MediaUploadTests extends AbstractControllerTests {
         authRequest(adminToken)
                 .multiPart("file", "file",
                         mediaData, "text/plain")
+                .post("/media/upload")
+                .then().statusCode(SC_BAD_REQUEST);
+    }
+
+    @Test
+    void tooBig() {
+        var adminToken = getAdminToken();
+
+        int size = 3 * 1024 * 1024; // 3 MB
+
+        var mediaData = TestMediaFactory.generateRandomData(size);
+
+        authRequest(adminToken)
+                .multiPart("file", "file",
+                        mediaData, "image/png")
                 .post("/media/upload")
                 .then().statusCode(SC_BAD_REQUEST);
     }
