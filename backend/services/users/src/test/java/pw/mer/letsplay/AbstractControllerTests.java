@@ -5,10 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import pw.mer.letsplay.repository.UserRepo;
-import pw.mer.shared.SharedAbstractControllerTests;
+import pw.mer.shared.SharedAbstractControllerTestsWithDB;
+import pw.mer.shared.config.SharedJwtConfig;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public abstract class AbstractControllerTests extends SharedAbstractControllerTests {
+public abstract class AbstractControllerTests extends SharedAbstractControllerTestsWithDB {
 
     @Autowired
     private UserRepo userRepo;
@@ -25,6 +25,17 @@ public abstract class AbstractControllerTests extends SharedAbstractControllerTe
         String adminPassword = env.getProperty("initial.admin.password");
 
         return AuthFactory.getAccessToken(adminEmail, adminPassword);
+    }
+
+    /**
+     * @deprecated use {@link #getAccessToken(String email, String password)} instead
+     */
+    public String getAccessToken(SharedJwtConfig.IJwtUser user) {
+        throw new UnsupportedOperationException();
+    }
+
+    public String getAccessToken(String email, String password) {
+        return AuthFactory.getAccessToken(email, password);
     }
 
     @Override
