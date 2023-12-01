@@ -33,7 +33,11 @@
         >Role is required.</mat-error
       >
     </mat-form-field>
-
+    <app-image-upload
+      (upload)="onImageUpload($event)"
+      (delete)="onImageDelete()"
+    ></app-image-upload>
+    <hr />
     <button mat-raised-button (click)="submit()">Submit</button>
   </div>
 </form>

@@ -2,6 +2,8 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject, finalize, takeUntil } from 'rxjs';
+import { FormValidationService } from 'src/app/shared/services/form-validation.service';
+import { MediaService } from 'src/app/shared/services/media.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
@@ -13,12 +15,16 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
   public isLoading = false;
   public form!: FormGroup;
   public invalidForm = false;
+  public uploadAvatarError = '';
+  public imageId = '';
 
   private destroy$ = new Subject<void>();
 
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
+    private mediaService: MediaService,
+    private formValidationService: FormValidationService,
     public dialogRef: MatDialogRef<AddProductModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -45,6 +51,15 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
 
   onCancel(): void {
     this.dialogRef.close();
+  }
+
+  onImageUpload(imageId: string) {
+    console.log(imageId);
+    this.form.controls['image'].setValue(imageId);
+  }
+
+  onImageDelete() {
+    this.form.controls['image'].setValue('');
   }
 
   onUpdate(): void {

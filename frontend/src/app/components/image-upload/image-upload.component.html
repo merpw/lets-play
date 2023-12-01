@@ -1,0 +1,28 @@
+<div class="image-upload-container">
+  <button
+    mat-flat-button
+    type="button"
+    color="primary"
+    (click)="avatarInput.click()"
+  >
+    {{ imageName || "Upload image" }}
+  </button>
+  <input
+    hidden
+    #avatarInput
+    type="file"
+    (change)="onImageUpload(avatarInput.files)"
+  />
+  <div class="image-preview" *ngIf="imagePreviewSrc">
+    <img
+      [ngSrc]="imagePreviewSrc"
+      alt="Product image"
+      width="100"
+      height="100"
+    />
+    <button mat-button color="warn" (click)="openConfirmDialog(imageName)">
+      Delete
+    </button>
+  </div>
+  <mat-error *ngIf="uploadImageError">{{ uploadImageError }}</mat-error>
+</div>

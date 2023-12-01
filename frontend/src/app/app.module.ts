@@ -30,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgOptimizedImage } from '@angular/common';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     SpinnerComponent,
     MessageBoxComponent,
     ConfirmComponent,
+    ImageUploadComponent,
   ],
   imports: [
     BrowserModule,

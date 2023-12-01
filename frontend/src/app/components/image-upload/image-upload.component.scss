@@ -1,0 +1,12 @@
+.image-upload-container {
+    display: flex;
+    flex-direction: column;
+    .image-preview {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}

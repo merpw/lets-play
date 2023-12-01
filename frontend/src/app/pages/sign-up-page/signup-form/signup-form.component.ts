@@ -3,6 +3,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
+import { FormValidationService } from 'src/app/shared/services/form-validation.service';
+import { MediaService } from 'src/app/shared/services/media.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -20,11 +22,35 @@ export class SignupFormComponent {
     password: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     role: new FormControl('', Validators.required),
+    avatar: new FormControl(''),
   });
 
   public roles = ['USER', 'SELLER'];
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  // onAvatarUpload(files: FileList | null) {
+  //   const file = files?.item(0);
+  //   const validAvatarUpload =
+  //     this.formValidationService.validateImageUpload(file);
+  //   if (!validAvatarUpload) {
+  //     this.hasError.emit(validAvatarUpload);
+  //     return;
+  //   }
+
+  //   this.mediaService
+  //     .uploadMedia(<File>file)
+  //     .subscribe((resp) => console.log(resp));
+  // }
+
+  onImageUpload(imageId: string) {
+    console.log(imageId);
+    this.form.controls['avatar'].setValue(imageId);
+  }
+
+  onImageDelete() {
+    this.form.controls['avatar'].setValue('');
+  }
 
   submit() {
     console.log(this.form.value);

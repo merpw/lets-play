@@ -19,11 +19,10 @@
         <mat-label>Quantity</mat-label>
         <input matInput formControlName="quantity" />
       </mat-form-field>
-      <!-- backend not accepting this yet -->
-      <mat-form-field>
-        <mat-label>Image</mat-label>
-        <input matInput formControlName="image" />
-      </mat-form-field>
+      <app-image-upload
+        (upload)="onImageUpload($event)"
+        (delete)="onImageDelete()"
+      ></app-image-upload>
     </div>
   </form>
   <mat-error *ngIf="invalidForm">All fields are required.</mat-error>

@@ -57,8 +57,19 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
   }
 
+  onImageUpload(imageId: string) {
+    console.log(imageId);
+    this.form.controls['image'].setValue(imageId);
+  }
+
+  onImageDelete() {
+    this.form.controls['image'].setValue('');
+  }
+
   openConfirmDialog(product: any): void {
-    const dialogRef = this.dialog.open(ConfirmComponent, { data: { product } });
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: { message: 'You are deleting: ' + product.name },
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The confirm dialog was closed');
