@@ -23,11 +23,8 @@ public class LocalDirStorageService implements StorageService {
 
     public void init() {
         rootLocation = new File(storageDir);
-        if (!rootLocation.exists()) {
-            boolean created = rootLocation.mkdirs();
-            if (!created) {
-                throw new RuntimeException("Cannot create storage directory");
-            }
+        if (!rootLocation.exists() && !rootLocation.mkdirs()) {
+            throw new RuntimeException("Cannot create storage directory");
         }
     }
 
@@ -35,8 +32,8 @@ public class LocalDirStorageService implements StorageService {
         String id = UUID.randomUUID().toString();
 
         var localFile = new File(rootLocation, id);
-        var exists = localFile.createNewFile();
-        if (!exists) {
+
+        if (!localFile.createNewFile()) {
             throw new IOException("File already exists");
         }
 
