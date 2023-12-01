@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
-import { HttpClient } from '@angular/common/http';
-import { ProductService } from 'src/app/shared/product.service';
-import { forkJoin, map, mergeMap, firstValueFrom } from 'rxjs';
-import { UserService } from 'src/app/shared/user.service';
+import { ProductService } from 'src/app/shared/services/product.service';
+import { map } from 'rxjs';
+import { UserService } from 'src/app/shared/services/user.service';
+import { Result } from 'src/app/shared/models/result.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-product-listing-page',
@@ -12,16 +13,16 @@ import { UserService } from 'src/app/shared/user.service';
   styleUrls: ['./product-listing-page.component.scss'],
 })
 export class ProductListingPageComponent implements OnInit {
-  result: any = {};
+  result: Result | null = null;
 
   public displayedColumns = [
-    'id',
+    // 'id', // not showing product id to user
     'image',
     'name',
     'description',
     'price',
     'quantity',
-    'userId',
+    'owner',
   ];
 
   public dataSource: any;
@@ -29,30 +30,37 @@ export class ProductListingPageComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private productService: ProductService,
-    private userService: UserService
+    public authService: AuthService,
+    private productService: ProductService
   ) {}
 
   ngOnInit(): void {
     // fetch products here
-    this.fetchProducts();
+    this.fetchProducts(false);
   }
 
-  fetchProducts() {
+  fetchProducts(clearCache?: boolean) {
     this.productService
-      .getProducts()
+      .getProducts(clearCache)
       .pipe(
         map(async (resp) => {
-          const usernames = await firstValueFrom(
-            this.userService.getUsers(resp.body.map((data: any) => data.userId))
-          );
+          // FIXME: GET /api/users/{id} is returning 401
+          // const usernames = await firstValueFrom(
+          //   this.userService.getUsers(resp.body.map((data: any) => data.userId))
+          // );
           return resp.body;
         })
       )
       .subscribe({
         next: async (products) => {
           const data: Array<any> = await products;
-          this.dataSource = data.reverse();
+          this.dataSource = data.slice().reverse();
+          if (data.length === 0) {
+            this.result = {
+              type: 'info',
+              message: 'The product list is currently empty.',
+            };
+          }
         },
         error: (error) => {
           const errorMessage =
@@ -65,7 +73,7 @@ export class ProductListingPageComponent implements OnInit {
   }
 
   openAddProductDialog(): void {
-    this.result = {};
+    this.result = null;
 
     const dialogRef = this.dialog.open(AddProductModalComponent);
 
@@ -73,7 +81,7 @@ export class ProductListingPageComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result);
       this.result = result;
-      this.fetchProducts();
+      this.fetchProducts(true);
     });
   }
 }

@@ -14,23 +14,29 @@
         <mat-label>Price</mat-label>
         <input matInput formControlName="price" />
       </mat-form-field>
-      <!-- <mat-form-field>
+      <!-- backend not accepting this yet -->
+      <mat-form-field>
         <mat-label>Quantity</mat-label>
         <input matInput formControlName="quantity" />
       </mat-form-field>
+      <!-- backend not accepting this yet -->
       <mat-form-field>
         <mat-label>Image</mat-label>
         <input matInput formControlName="image" />
-      </mat-form-field> -->
+      </mat-form-field>
     </div>
   </form>
   <mat-error *ngIf="invalidForm">All fields are required.</mat-error>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onUpdate()" cdkFocusInitial>
-    <!-- [mat-dialog-close]="form.value" -->
+<div mat-dialog-actions align="center">
+  <button
+    mat-stroked-button
+    color="accent"
+    (click)="onUpdate()"
+    cdkFocusInitial
+  >
     Update
   </button>
+  <button mat-button (click)="onCancel()">Cancel</button>
 </div>
 <app-spinner *ngIf="isLoading"></app-spinner>

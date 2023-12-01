@@ -1,4 +1,6 @@
-<ng-container *ngIf="authService.isAuthenticated; else notAuthenticatedMessage">
+<ng-container
+  *ngIf="profile && authService.isAuthenticated; else notAuthenticatedMessage"
+>
   <mat-card>
     <mat-card-header>
       <div mat-card-avatar class="user-avatar">

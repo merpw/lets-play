@@ -1,18 +1,16 @@
 import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  CanActivateFn,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-} from '@angular/router';
 import { Observable, catchError, map, of } from 'rxjs';
+import { Profile } from '../models/profile';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _isAuthenticated = false;
   private profileUrl = 'api/auth/profile';
+
+  private _isAuthenticated = false;
+  private _profile: Profile | null = null;
   constructor(private http: HttpClient) {}
 
   get isAuthenticated(): boolean {
@@ -23,7 +21,15 @@ export class AuthService {
     this._isAuthenticated = v;
   }
 
-  getAuthenticationStatus(): Observable<boolean> {
+  get profile(): Profile | null {
+    return this._profile;
+  }
+
+  hasSellerRight(): boolean {
+    return this._profile?.role === 'admin' || this._profile?.role === 'seller';
+  }
+
+  getAuthenticationStatus(): Observable<any> {
     if (!localStorage.getItem('token')) {
       return of(false);
     }
@@ -40,7 +46,8 @@ export class AuthService {
             console.log(resp.body);
             this.authenticated = true;
             localStorage.setItem('userId', resp.body.id);
-            return true;
+            this._profile = resp.body;
+            return resp.body;
           }
           return false;
         }),

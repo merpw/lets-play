@@ -20,7 +20,7 @@ import { SignupFormComponent } from './pages/sign-up-page/signup-form/signup-for
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AuthInterceptor } from './shared/auth.interceptor';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { AddProductModalComponent } from './pages/product-listing-page/add-product-modal/add-product-modal.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -29,6 +29,7 @@ import { MessageBoxComponent } from './components/message-box/message-box.compon
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgOptimizedImage } from '@angular/common';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { NgOptimizedImage } from '@angular/common';
     AddProductModalComponent,
     SpinnerComponent,
     MessageBoxComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,11 +71,6 @@ import { NgOptimizedImage } from '@angular/common';
       useClass: AuthInterceptor,
       multi: true,
     },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: CacheInterceptor,
-    //   multi: true,
-    // },
   ],
   bootstrap: [AppComponent],
 })

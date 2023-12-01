@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Result } from 'src/app/shared/models/result.model';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class SignUpPageComponent {
   isLoading = false;
-  errorMessage = '';
+  error: Result = { type: 'error', message: '' };
 
   showSpinner(loading: boolean) {
     console.log(loading);
@@ -15,6 +16,6 @@ export class SignUpPageComponent {
   }
 
   showError(errorMessage: string) {
-    this.errorMessage = errorMessage;
+    this.error.message = errorMessage;
   }
 }

@@ -2,8 +2,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject, finalize, takeUntil } from 'rxjs';
-import { MediaManagementPageComponent } from '../../seller-product-management-page/media-management-page/media-management-page.component';
-import { ProductService } from 'src/app/shared/product.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-add-product-modal',
@@ -28,8 +27,8 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
       description: ['', Validators.required],
       price: ['', Validators.required],
       userId: [localStorage.getItem('userId'), Validators.required],
-      // quantity: ['', Validators.required],
-      // image: ['', Validators.required],
+      quantity: ['', Validators.required],
+      image: [''],
     });
   }
 
@@ -55,7 +54,6 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
     }
 
     this.isLoading = true;
-    // post request to update product here
     console.log('updating product with the following values');
     console.log(this.form.value);
     this.productService

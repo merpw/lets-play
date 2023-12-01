@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   EventEmitter,
@@ -9,7 +9,8 @@ import {
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, finalize, takeUntil } from 'rxjs';
-import { AuthService } from 'src/app/shared/auth.service';
+import { Result } from 'src/app/shared/models/result.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -18,7 +19,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
   @Output() isLoading = new EventEmitter<boolean>();
-  @Output() hasError = new EventEmitter<string>();
+  @Output() hasError = new EventEmitter<Result | null>();
 
   public form: FormGroup = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -36,7 +37,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.form.valueChanges
       .pipe(takeUntil(this.destroy$))
-      .subscribe(() => this.hasError.emit(''));
+      .subscribe(() => this.hasError.emit(null));
   }
 
   ngOnDestroy(): void {
@@ -46,7 +47,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   login() {
     if (this.form.invalid) {
-      this.hasError.emit('Login form is invalid.');
+      this.hasError.emit({ type: 'error', message: 'Login form is invalid.' });
       return;
     }
     this.isLoading.emit(true);
@@ -69,7 +70,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
             JSON.parse(error.error)?.detail ??
             'Log in went wrong. Please try again.';
           console.log(errorMessage);
-          this.hasError.emit(errorMessage);
+          this.hasError.emit({ type: 'error', message: errorMessage });
         },
       });
   }

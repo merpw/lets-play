@@ -5,7 +5,7 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { ProductListingPageComponent } from './pages/product-listing-page/product-listing-page.component';
 import { SellerProductManagementPageComponent } from './pages/seller-product-management-page/seller-product-management-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { AuthGuardService } from './shared/auth-guard.service';
+import { AuthGuardService } from './shared/services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -27,7 +27,7 @@ const routes: Routes = [
     path: 'product-listing',
     title: 'Product Listing',
     component: ProductListingPageComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService], // can everyone see product listing or only registered users?
   },
   {
     path: 'seller-product-management',

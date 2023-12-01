@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Result } from 'src/app/shared/models/result.model';
 
 @Component({
   selector: 'app-login-page',
@@ -7,15 +8,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
-  message = '';
-  errorMessage = '';
-  isLoading = false;
+  public result: Result | null = null;
+  public isLoading = false;
 
   constructor(private router: Router) {
     const state = this.router.getCurrentNavigation()?.extras?.state;
     if (state) {
       console.log(state['email']);
-      this.message = `Welcome, ${state['email']}!`;
+      this.result = {
+        type: 'success',
+        message: `Welcome, ${state['email']}!`,
+      };
     }
   }
 
@@ -23,7 +26,7 @@ export class LoginPageComponent {
     this.isLoading = isLoading;
   }
 
-  showError(errorMessage: string) {
-    this.errorMessage = errorMessage;
+  showError(error: Result | null) {
+    this.result = error;
   }
 }

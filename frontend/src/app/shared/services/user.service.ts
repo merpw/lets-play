@@ -10,6 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  // FIXME: api not working
   getUsers(ids: string[]): Observable<any> {
     return forkJoin(
       ids.map((id) => this.http.get(this.getUserUrl + id), {

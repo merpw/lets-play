@@ -25,12 +25,20 @@
       </mat-form-field>
     </div>
   </form>
-  <mat-error *ngIf="invalidForm">All fields are required.</mat-error>
+  <mat-error *ngIf="invalidForm">Required fields are missing.</mat-error>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onUpdate()" cdkFocusInitial>
-    <!-- [mat-dialog-close]="form.value" -->
+<div mat-dialog-actions align="center">
+  <button
+    mat-stroked-button
+    color="accent"
+    (click)="onUpdate()"
+    cdkFocusInitial
+  >
     Update
   </button>
+  <button mat-button color="warn" (click)="openConfirmDialog(data.product)">
+    Delete
+  </button>
+  <button mat-button (click)="onCancel()">Cancel</button>
 </div>
+<app-spinner *ngIf="isLoading"></app-spinner>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Result } from 'src/app/shared/models/result.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 import { MediaManagementPageComponent } from './media-management-page/media-management-page.component';
 
 @Component({
@@ -8,38 +11,8 @@ import { MediaManagementPageComponent } from './media-management-page/media-mana
   styleUrls: ['./seller-product-management-page.component.scss'],
 })
 export class SellerProductManagementPageComponent implements OnInit {
-  private data = [
-    {
-      id: 1,
-      name: 'Apple',
-      description: 'It is an apple',
-      price: 10,
-      quantity: 25,
-      userId: 2,
-      image: 'Image 1',
-    },
-    {
-      id: 3,
-      name: 'Orange',
-      description: 'It is an orange',
-      price: 5,
-      quantity: 100,
-      userId: 5,
-      image: 'Image 2',
-    },
-    {
-      id: 3,
-      name: 'Lemon',
-      description: 'It is an lemon',
-      price: 20,
-      quantity: 30,
-      userId: 2,
-      image: 'Image 3',
-    },
-  ];
-
   public displayedColumns = [
-    'id',
+    // 'id',
     'image',
     'name',
     'description',
@@ -48,12 +21,38 @@ export class SellerProductManagementPageComponent implements OnInit {
     'manage',
   ];
   public dataSource: any;
+  public result: Result | null = null;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
-    // fetch products here
-    this.dataSource = this.data;
+    this.fetchProductsFilteredByUserId(localStorage.getItem('userId') || '');
+  }
+
+  fetchProductsFilteredByUserId(userId: string, clearCache?: boolean) {
+    this.productService
+      .getProductsFilteredByUserId(userId, clearCache)
+      .subscribe({
+        next: (products) => {
+          this.dataSource = products;
+          if (products.length === 0) {
+            this.result = {
+              type: 'info',
+              message: 'The product list is currently empty.',
+            };
+          }
+        },
+        error: (err) => {
+          console.log(err);
+          this.result = {
+            type: 'error',
+            message: 'Error in fetching your products',
+          };
+        },
+      });
   }
 
   openManageDialog(product: any): void {
@@ -64,6 +63,11 @@ export class SellerProductManagementPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
+      this.result = result;
+      this.fetchProductsFilteredByUserId(
+        localStorage.getItem('userId') || '',
+        true
+      );
     });
   }
 }

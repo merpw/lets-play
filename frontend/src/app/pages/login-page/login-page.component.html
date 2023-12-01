@@ -1,7 +1,7 @@
 <h2>Please login here!</h2>
 <app-message-box
-  *ngIf="message"
-  [message]="message"
+  *ngIf="result && result.type === 'success'"
+  [message]="result.message"
   type="success"
 ></app-message-box>
 <app-login-form
@@ -9,8 +9,8 @@
   (hasError)="showError($event)"
 ></app-login-form>
 <app-message-box
-  *ngIf="errorMessage"
-  [message]="errorMessage"
+  *ngIf="result && result.type === 'error'"
+  [message]="result.message"
   type="error"
 ></app-message-box>
 <app-spinner *ngIf="isLoading"></app-spinner>

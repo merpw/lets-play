@@ -5,8 +5,8 @@
 >
 </app-signup-form>
 <app-message-box
-  *ngIf="errorMessage"
-  [message]="errorMessage"
-  type="error"
+  *ngIf="error.message"
+  [message]="error.message"
+  [type]="error.type"
 ></app-message-box>
 <app-spinner *ngIf="isLoading"></app-spinner>

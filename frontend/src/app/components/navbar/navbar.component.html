@@ -1,9 +1,11 @@
 <div class="navbar-container">
   <div class="navbar">
     <a routerLink="/home">Home</a>
+    <a routerLink="/product-listing">Product Listing</a>
     <ng-container *ngIf="authService.isAuthenticated; else unauthenticated">
-      <a routerLink="/product-listing">Product Listing</a>
-      <a routerLink="/seller-product-management">Seller Product Management</a>
+      <ng-container *ngIf="authService.hasSellerRight()">
+        <a routerLink="/seller-product-management">Seller Product Management</a>
+      </ng-container>
       <a routerLink="/home" (click)="logout()">Logout</a>
     </ng-container>
     <ng-template #unauthenticated>

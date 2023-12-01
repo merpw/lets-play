@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from './shared/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,11 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'buy-01-frontend';
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    public authService: AuthService
-  ) {}
+  constructor(public authService: AuthService) {}
   ngOnInit(): void {
     this.authService.getAuthenticationStatus().subscribe(() => {
       console.log('auth status: ' + this.authService.isAuthenticated);
