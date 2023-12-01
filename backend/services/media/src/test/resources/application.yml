@@ -1,0 +1,12 @@
+security:
+  jwt:
+    secret: ${JWT_SECRET:UnsafeSecret}
+
+media:
+  storage-dir: ./test-media
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB

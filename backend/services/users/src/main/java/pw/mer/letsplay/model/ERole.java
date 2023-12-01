@@ -24,7 +24,7 @@ public enum ERole {
 
     public List<String> getScopes() {
         if (this == ADMIN) {
-            return List.of("users", "products:write");
+            return List.of("users", "products:write", "media:write");
         } else {
             return List.of();
         }

@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 import static java.net.HttpURLConnection.HTTP_OK;
-import static pw.mer.letsplay.AuthFactory.TestUser;
+import static pw.mer.shared.SharedAuthFactory.TestUser;
 
 class ProductSecurityTests extends AbstractControllerTests {
     @Test

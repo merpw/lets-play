@@ -1,14 +1,14 @@
 package pw.mer.shared;
 
-import io.restassured.RestAssured;
-import org.junit.jupiter.api.BeforeEach;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 
-public abstract class SharedAbstractControllerTests {
+/**
+ * Like {@link SharedAbstractControllerTestsBase}, but with a MongoDB container.
+ */
+public abstract class SharedAbstractControllerTestsWithDB extends SharedAbstractControllerTestsBase {
     @Container
     static MongoDBContainer mongoDB;
 
@@ -20,24 +20,5 @@ public abstract class SharedAbstractControllerTests {
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {
         registry.add("spring.data.mongodb.port", mongoDB::getFirstMappedPort);
-    }
-
-    public void clean() {
-    }
-
-    public void init() {
-    }
-
-    @LocalServerPort
-    private Integer port;
-
-    @BeforeEach
-    @SuppressWarnings("java:S2696")
-        // setting RestAssured.port is fine as we execute tests sequentially
-    void beforeEach() {
-        RestAssured.port = port;
-
-        clean();
-        init();
     }
 }

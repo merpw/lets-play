@@ -1,12 +1,14 @@
-package pw.mer.letsplay;
+package pw.mer.shared;
 
 import lombok.Getter;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import pw.mer.shared.config.SharedJwtConfig;
 
 import java.util.List;
 
-public class AuthFactory {
+@UtilityClass
+public class SharedAuthFactory {
     @Getter
     public static class TestUser implements SharedJwtConfig.IJwtUser {
         private final String id;

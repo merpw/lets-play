@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
 import static java.net.HttpURLConnection.*;
-import static pw.mer.letsplay.AuthFactory.getAccessToken;
 import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 
 class UserUpdateTests extends AbstractControllerTests {
