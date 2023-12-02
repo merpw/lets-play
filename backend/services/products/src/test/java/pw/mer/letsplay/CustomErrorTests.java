@@ -12,22 +12,22 @@ import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 class CustomErrorTests extends AbstractControllerTests {
     @Test
     void endpointDoesNotExist() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
-        authRequest(adminToken).get("/no/such/endpoint")
+        authRequest(sellerToken).get("/no/such/endpoint")
                 .then().statusCode(HTTP_NOT_FOUND);
     }
 
     @Test
     void errorsShouldFollowRFC7807() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
-        authRequest(adminToken).get("/no/such/endpoint")
+        authRequest(sellerToken).get("/no/such/endpoint")
                 .then().statusCode(HTTP_NOT_FOUND)
                 .body("title", is(not(emptyOrNullString())),
                         "status", is(HTTP_NOT_FOUND));
 
-        jsonBodyRequest(adminToken, "{}").post("/products/add")
+        jsonBodyRequest(sellerToken, "{}").post("/products/add")
                 .then().statusCode(HTTP_BAD_REQUEST)
                 .body("title", is(not(emptyOrNullString())),
                         "status", is(HTTP_BAD_REQUEST),
@@ -37,15 +37,15 @@ class CustomErrorTests extends AbstractControllerTests {
 
     @Test
     void firewall() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
-        authRequest(adminToken).get("//////this/is/not/allowed///")
+        authRequest(sellerToken).get("//////this/is/not/allowed///")
                 .then().statusCode(HTTP_BAD_REQUEST);
 
-        authRequest(adminToken).get("/products;with=semicolon")
+        authRequest(sellerToken).get("/products;with=semicolon")
                 .then().statusCode(HTTP_BAD_REQUEST);
 
-        authRequest(adminToken).request("TRACE", "/products")
+        authRequest(sellerToken).request("TRACE", "/products")
                 .then().statusCode(HTTP_BAD_REQUEST);
     }
 }

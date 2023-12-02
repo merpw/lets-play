@@ -8,17 +8,19 @@ import static io.restassured.RestAssured.when;
 import static java.net.HttpURLConnection.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.matchesRegex;
+import static pw.mer.shared.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 
 class ProductAddTests extends AbstractControllerTests {
     @Test
     void addProduct() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         when().get("/products").then().statusCode(HTTP_OK).body("$.size()", is(0));
 
         var testProduct = new TestProductFactory.TestProduct();
 
-        String postId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().body().asString();
+        String postId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().body().asString();
 
         when().get("/products").then().statusCode(HTTP_OK).body("$.size()", is(1));
 
@@ -41,67 +43,65 @@ class ProductAddTests extends AbstractControllerTests {
 
     @Test
     void addProductInvalidPrice() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
 
         testProduct.price = null;
-        checkInvalidProduct(testProduct, adminToken, "price");
+        checkInvalidProduct(testProduct, sellerToken, "price");
 
         testProduct.price = -1.0;
-        checkInvalidProduct(testProduct, adminToken, "price");
+        checkInvalidProduct(testProduct, sellerToken, "price");
     }
 
     @Test
     void addProductInvalidName() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
 
         testProduct.name = null;
-        checkInvalidProduct(testProduct, adminToken, "name");
+        checkInvalidProduct(testProduct, sellerToken, "name");
 
         testProduct.name = "";
-        checkInvalidProduct(testProduct, adminToken, "name");
+        checkInvalidProduct(testProduct, sellerToken, "name");
 
         testProduct.name = "a";
-        checkInvalidProduct(testProduct, adminToken, "name");
+        checkInvalidProduct(testProduct, sellerToken, "name");
 
         testProduct.name = "a".repeat(100);
-        checkInvalidProduct(testProduct, adminToken, "name");
+        checkInvalidProduct(testProduct, sellerToken, "name");
     }
 
     @Test
     void addProductInvalidDescription() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
 
         testProduct.description = null;
-        checkInvalidProduct(testProduct, adminToken, "description");
+        checkInvalidProduct(testProduct, sellerToken, "description");
 
         testProduct.description = "";
-        checkInvalidProduct(testProduct, adminToken, "description");
+        checkInvalidProduct(testProduct, sellerToken, "description");
 
         testProduct.description = "a";
-        checkInvalidProduct(testProduct, adminToken, "description");
+        checkInvalidProduct(testProduct, sellerToken, "description");
 
         testProduct.description = "a".repeat(1001);
-        checkInvalidProduct(testProduct, adminToken, "description");
+        checkInvalidProduct(testProduct, sellerToken, "description");
     }
 
     @Test
     void NotFound() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
-        var req = given().auth().oauth2(adminToken).contentType("application/json").request();
-
-        req.get("/products/12345").then().statusCode(HTTP_NOT_FOUND);
+        authRequest(sellerToken).get("/products/12345").then().statusCode(HTTP_NOT_FOUND);
 
         var testProduct = new TestProductFactory.TestProduct();
 
-        req.body(testProduct).put("/products/12345").then().statusCode(HTTP_NOT_FOUND);
+        jsonBodyRequest(sellerToken, testProduct).put("/products/12345").then().statusCode(HTTP_NOT_FOUND);
 
-        req.delete("/products/12345").then().statusCode(HTTP_NOT_FOUND);
+        authRequest(sellerToken).delete("/products/12345").then().statusCode(HTTP_NOT_FOUND);
     }
 }

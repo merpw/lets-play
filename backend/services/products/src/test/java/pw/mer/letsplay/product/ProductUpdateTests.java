@@ -16,46 +16,46 @@ class ProductUpdateTests extends AbstractControllerTests {
 
     @Test
     void updateWholeProductValid() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
 
-        String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+        String productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().asString();
 
         var newTestProduct = new TestProductFactory.TestProduct();
-        updateProductRequestValid(adminToken, productId, newTestProduct);
+        updateProductRequestValid(sellerToken, productId, newTestProduct);
     }
 
     @Test
     void updateProductFieldsValid() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
 
-        String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+        String productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().asString();
 
         var objectMapper = new ObjectMapper();
 
-        updateProductRequestValid(adminToken, productId,
+        updateProductRequestValid(sellerToken, productId,
                 objectMapper.createObjectNode().put("name", "New name")
         );
         testProduct.name = "New name";
 
-        testProduct.requestCheck(adminToken, productId);
+        testProduct.requestCheck(sellerToken, productId);
 
-        updateProductRequestValid(adminToken, productId,
+        updateProductRequestValid(sellerToken, productId,
                 objectMapper.createObjectNode().put("description", "New description")
         );
         testProduct.description = "New description";
 
-        testProduct.requestCheck(adminToken, productId);
+        testProduct.requestCheck(sellerToken, productId);
 
-        updateProductRequestValid(adminToken, productId,
+        updateProductRequestValid(sellerToken, productId,
                 objectMapper.createObjectNode().put("price", 100.0)
         );
         testProduct.price = 100.0;
 
-        testProduct.requestCheck(adminToken, productId);
+        testProduct.requestCheck(sellerToken, productId);
     }
 
     static void updateProductRequestInvalid(String adminToken, String productId, Object body, String errorShouldContain) {
@@ -68,38 +68,38 @@ class ProductUpdateTests extends AbstractControllerTests {
 
     @Test
     void updateProductInvalidName() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
 
-        String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+        String productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().asString();
 
         var objectMapper = new ObjectMapper();
 
-        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("name", ""), "name");
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("name", ""), "name");
 
-        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("name", "a"), "name");
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("name", "a"), "name");
 
-        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("name", "a".repeat(100)), "name");
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("name", "a".repeat(100)), "name");
 
         var brokenProduct = objectMapper.createObjectNode();
         brokenProduct.putObject("name").put("wow", "object as a name!");
 
-        updateProductRequestInvalid(adminToken, productId, brokenProduct, "");
+        updateProductRequestInvalid(sellerToken, productId, brokenProduct, "");
     }
 
     @Test
     void updateProductInvalidPrice() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
 
-        String productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+        String productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().asString();
 
         var objectMapper = new ObjectMapper();
 
-        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("price", -1.0), "price");
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("price", -1.0), "price");
 
-        updateProductRequestInvalid(adminToken, productId, objectMapper.createObjectNode().put("price", "wonderful..."), "");
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("price", "wonderful..."), "");
     }
 }

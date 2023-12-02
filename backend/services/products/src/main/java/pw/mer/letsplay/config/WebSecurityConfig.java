@@ -23,7 +23,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/error").permitAll()
 
                         .requestMatchers(GET, "/products/**").permitAll()
-                        .requestMatchers("/products/**").hasAuthority("SCOPE_products:write")
+                        .requestMatchers("/products/**").hasAnyAuthority("SCOPE_products:write", "SCOPE_products:admin")
 
                         .anyRequest().authenticated()
                 )

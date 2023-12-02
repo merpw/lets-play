@@ -6,6 +6,7 @@ import jakarta.validation.constraints.*;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import pw.mer.letsplay.model.Product;
@@ -65,12 +66,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id, Authentication authentication) {
-        var product = productRepo.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
-
-        if (!product.getUserId().equals(authentication.getName())) {
-            throw new ResponseStatusException(FORBIDDEN, NOT_OWNER_MESSAGE);
-        }
+        getProductIfAdminOrOwner(id, authentication); // throws exception if not admin or owner
 
         productRepo.deleteById(id);
     }
@@ -92,13 +88,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public void updateById(@PathVariable String id, @Valid @RequestBody UpdateProductRequest request, Authentication authentication) {
-
-        var product = productRepo.findById(id).orElseThrow(() ->
-                new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
-
-        if (!product.getUserId().equals(authentication.getName())) {
-            throw new ResponseStatusException(FORBIDDEN, NOT_OWNER_MESSAGE);
-        }
+        var product = getProductIfAdminOrOwner(id, authentication);
 
         if (request.name != null) {
             product.setName(request.name);
@@ -113,5 +103,19 @@ public class ProductController {
         }
 
         productRepo.save(product);
+    }
+
+    Product getProductIfAdminOrOwner(String id, Authentication authentication) throws ResponseStatusException {
+        var product = productRepo.findById(id).orElseThrow(() ->
+                new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
+
+        boolean isAdmin = authentication.getAuthorities().contains(new SimpleGrantedAuthority("SCOPE_products:admin"));
+        boolean isOwner = product.getUserId().equals(authentication.getName());
+
+        if (!isAdmin && !isOwner) {
+            throw new ResponseStatusException(FORBIDDEN, NOT_OWNER_MESSAGE);
+        }
+
+        return product;
     }
 }
