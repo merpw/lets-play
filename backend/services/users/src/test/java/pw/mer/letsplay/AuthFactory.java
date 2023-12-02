@@ -30,6 +30,7 @@ public class AuthFactory {
         public String name;
         public String email;
         public String password;
+        public String role;
 
         public ValidatableResponse register() {
             return given()
@@ -54,10 +55,16 @@ public class AuthFactory {
          * Can be registered with {@link TestUser#register()} using `/auth/register` endpoint.
          */
         public TestUser() {
+            this(null);
+        }
+
+        public TestUser(String role) {
             String random = RandomStringUtils.randomAlphanumeric(5);
             this.name = "testUser" + random;
             this.email = "testUser" + random + "@mer.pw";
             this.password = "testUserPassword" + random;
+
+            this.role = role;
         }
     }
 }

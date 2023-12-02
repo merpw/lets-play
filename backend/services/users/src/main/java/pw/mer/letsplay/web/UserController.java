@@ -7,7 +7,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -23,7 +24,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestController
 @RequestMapping("/users")
-@PreAuthorize("hasAuthority('SCOPE_users')")
 public class UserController {
     private final UserRepo userRepo;
 
@@ -40,9 +40,21 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getById(@PathVariable String id) {
-        return userRepo.findById(id).orElseThrow(() ->
+    public User getById(@PathVariable String id, Authentication authentication) {
+        var user = userRepo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
+
+        if (authentication != null && authentication
+                .getAuthorities()
+                .contains(new SimpleGrantedAuthority("SCOPE_users:admin"))
+        ) {
+            return user;
+        }
+
+        if (user.getRole() != ERole.SELLER) {
+            throw new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE);
+        }
+        return user;
     }
 
     @DeleteMapping("/{id}")

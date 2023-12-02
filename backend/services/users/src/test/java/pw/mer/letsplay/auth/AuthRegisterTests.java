@@ -75,4 +75,18 @@ class AuthRegisterTests extends AbstractControllerTests {
         testUser.name = "a".repeat(100);
         testUser.register().statusCode(HTTP_BAD_REQUEST);
     }
+
+    @Test
+    void registerAsSeller() {
+        var testSeller = new AuthFactory.TestUser("seller");
+
+        testSeller.register().statusCode(HTTP_OK);
+    }
+
+    @Test
+    void invalidRegisterAsAdmin() {
+        var testAdmin = new AuthFactory.TestUser("admin");
+
+        testAdmin.register().statusCode(HTTP_BAD_REQUEST);
+    }
 }

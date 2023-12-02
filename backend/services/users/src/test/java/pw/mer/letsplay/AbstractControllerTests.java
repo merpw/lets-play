@@ -2,7 +2,6 @@ package pw.mer.letsplay;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import pw.mer.letsplay.repository.UserRepo;
 import pw.mer.shared.SharedAbstractControllerTestsWithDB;
@@ -30,6 +29,7 @@ public abstract class AbstractControllerTests extends SharedAbstractControllerTe
     /**
      * @deprecated use {@link #getAccessToken(String email, String password)} instead
      */
+    @Deprecated
     public String getAccessToken(SharedJwtConfig.IJwtUser user) {
         throw new UnsupportedOperationException();
     }

@@ -14,7 +14,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public enum ERole {
     ADMIN,
-    USER;
+    USER,
+    SELLER;
 
     @JsonValue
     @Override
@@ -23,14 +24,17 @@ public enum ERole {
     }
 
     public List<String> getScopes() {
-        if (this == ADMIN) {
-            return List.of("users", "products:write", "media:write");
-        } else {
-            return List.of();
-        }
+        return switch (this) {
+            case ADMIN -> List.of("users:admin", "products:write", "media:write");
+            case SELLER -> List.of("products:write", "media:write");
+            default -> List.of();
+        };
     }
 
     public static ERole fromString(String role) throws IllegalArgumentException {
+        if (role == null) {
+            return null;
+        }
         return ERole.valueOf(role.toUpperCase());
     }
 
@@ -42,7 +46,7 @@ public enum ERole {
     @Documented
     @Constraint(validatedBy = Validator.class)
     public @interface Valid {
-        String message() default "Role must be any of 'admin', 'user'";
+        String message() default "Role must be any of 'admin', 'user' or 'seller'";
 
         Class<?>[] groups() default {};
 
