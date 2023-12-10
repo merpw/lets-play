@@ -6,3 +6,6 @@ spring:
 security:
   jwt:
     secret: ${JWT_SECRET:UnsafeSecret}
+
+docs:
+  api-url: ${DOCS_API_URL:/}

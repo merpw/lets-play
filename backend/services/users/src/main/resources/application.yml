@@ -13,3 +13,6 @@ initial:
     name: ${ADMIN_USERNAME:admin}
     password: ${ADMIN_PASSWORD:AdminAdmin}
     email: ${ADMIN_EMAIL:admin@localhost}
+
+docs:
+  api-url: ${DOCS_API_URL:/}

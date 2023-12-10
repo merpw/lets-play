@@ -10,3 +10,6 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+
+docs:
+  api-url: ${DOCS_API_URL:/}

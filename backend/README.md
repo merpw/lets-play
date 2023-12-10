@@ -24,9 +24,14 @@ gradle services:products:bootRun
 
 Server will be available on [localhost:8080](http://localhost:8080/products).
 
-## API
+## How to use?
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/16966820-8237010b-10e5-47b4-95ba-abb4587e9593?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D16966820-8237010b-10e5-47b4-95ba-abb4587e9593%26entityType%3Dcollection%26workspaceId%3D8e6f6f99-c3c2-4738-b609-a958ed3a626a#?env%5BLETS-PLAY%5D=W3sia2V5IjoiVE9LRU4iLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJzZWNyZXQiLCJzZXNzaW9uVmFsdWUiOiJleUpoYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSnpaV3htSWl3aWMzVmlJam9pTmpVeU9USmxORGxqT1RabE1HTXhZbVExTXpreE16TTJJaXdpWlhod0lqb3hOamszTWpNNU5qUTBMQ0pwWVhRaU9qRTJPVGN5TURNMk5EUXNJbk5qYjNCbC4uLiIsInNlc3Npb25JbmRleCI6MH0seyJrZXkiOiJCQVNFX1VSTCIsInZhbHVlIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2xldHMtcGxheS5tZXIucHciLCJzZXNzaW9uSW5kZXgiOjF9XQ==)
+There's a Swagger UI available for each microservice.
+
+When running using Docker it's available at [/api/docs](http://localhost/api/docs). It contains docs for all services.
+
+When running natively use [localhost:8080/swagger-ui](http://localhost:8080/swagger-ui). It contains docs only for running
+service.
 
 ## Configuration
 

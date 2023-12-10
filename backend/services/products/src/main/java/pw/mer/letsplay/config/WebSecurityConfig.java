@@ -25,6 +25,10 @@ public class WebSecurityConfig {
                         .requestMatchers(GET, "/products/**").permitAll()
                         .requestMatchers("/products/**").hasAnyAuthority("SCOPE_products:write", "SCOPE_products:admin")
 
+                        .requestMatchers("/swagger-ui.html").permitAll()
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(

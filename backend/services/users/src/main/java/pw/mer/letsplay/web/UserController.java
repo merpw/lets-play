@@ -1,10 +1,11 @@
 package pw.mer.letsplay.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nullable;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,9 +16,9 @@ import org.springframework.web.server.ResponseStatusException;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
-import pw.mer.letsplay.web.validators.UserValidators;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -34,11 +35,13 @@ public class UserController {
         this.userRepo = userRepo;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @GetMapping
     public List<User> index() {
         return userRepo.findAll();
     }
 
+    @SecurityRequirement(name = "Authentication")
     @GetMapping("/{id}")
     public User getById(@PathVariable String id, Authentication authentication) {
         var user = userRepo.findById(id).orElseThrow(() ->
@@ -57,6 +60,7 @@ public class UserController {
         return user;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id) {
         if (userRepo.findById(id).isEmpty()) {
@@ -67,20 +71,23 @@ public class UserController {
 
     @Setter
     public static class UpdateUserRequest {
-        @Nullable
-        @UserValidators.Name
-        private String name;
+        @JsonProperty("name")
+        private Optional
+                <@Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
+                        String> name = Optional.empty();
 
-        @Nullable
-        @UserValidators.Email
-        private String email;
+        @JsonProperty("email")
+        private Optional
+                <@Size(min = 3, message = "Email is not valid") @Email(message = "Email is not valid")
+                        String> email = Optional.empty();
 
-        @Nullable
         @JsonProperty("password")
-        @UserValidators.Password
-        private String rawPassword;
+        private Optional
+                <@Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
+                        String> rawPassword = Optional.empty();
 
-        private ERole role;
+        @JsonProperty("role")
+        private Optional<ERole> role = Optional.empty();
     }
 
     PasswordEncoder passwordEncoder;
@@ -90,55 +97,54 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @PutMapping("/{id}")
     public void updateById(@PathVariable String id, @Valid @RequestBody UpdateUserRequest request) {
         var user = userRepo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
 
-        if (request.email != null && !request.email.equals(user.getEmail())) {
-            if (!userRepo.findByEmail(request.email).isEmpty()) {
+        request.email.ifPresent(email -> {
+            if (!email.equals(user.getEmail()) && !userRepo.findByEmail(email).isEmpty()) {
                 throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
             }
+            user.setEmail(email);
+        });
 
-            user.setEmail(request.email);
-        }
+        request.name.ifPresent(user::setName);
+        request.role.ifPresent(user::setRole);
 
-        if (request.name != null) {
-            user.setName(request.name);
-        }
-
-        if (request.role != null) {
-            user.setRole(request.role);
-        }
-
-        if (request.rawPassword != null) {
-            var encodedPassword = passwordEncoder.encode(request.rawPassword);
+        request.rawPassword.ifPresent(rawPassword -> {
+            String encodedPassword = passwordEncoder.encode(rawPassword);
             user.setEncodedPassword(encodedPassword);
-        }
+        });
 
         userRepo.save(user);
     }
 
     @Setter
     public static class AddUserRequest {
+        @JsonProperty("name")
         @NotBlank(message = "Name is mandatory")
-        @UserValidators.Name
+        @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
         private String name;
 
+        @JsonProperty("email")
         @NotBlank(message = "Email is mandatory")
-        @UserValidators.Email
+        @Size(min = 3, max = 320, message = "Email is not valid")
+        @Email(message = "Email is not valid")
         private String email;
 
         @JsonProperty("password")
         @NotBlank(message = "Password is mandatory")
-        @UserValidators.Password
+        @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
         private String rawPassword;
 
-        @NotNull(message = "Role is mandatory")
-        @ERole.Valid
+        @JsonProperty("role")
+        @NotBlank(message = "Role is mandatory")
         private String role;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @PostMapping("/add")
     public String add(@Valid @RequestBody AddUserRequest request) {
         if (!userRepo.findByEmail(request.email).isEmpty()) {
@@ -151,8 +157,7 @@ public class UserController {
         try {
             role = ERole.fromString(request.role);
         } catch (IllegalArgumentException e) {
-            // Should be caught by validation, but just in case:
-            throw new ResponseStatusException(BAD_REQUEST);
+            throw new ResponseStatusException(BAD_REQUEST, ERole.VALIDATION_MESSAGE);
         }
 
         var user = new User(

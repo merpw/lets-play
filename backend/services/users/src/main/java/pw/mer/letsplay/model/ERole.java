@@ -1,16 +1,8 @@
 package pw.mer.letsplay.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
 import java.util.List;
-
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public enum ERole {
     ADMIN,
@@ -38,30 +30,6 @@ public enum ERole {
         return ERole.valueOf(role.toUpperCase());
     }
 
-    // Custom validation annotation (@ERole.Valid) to check if the string is a valid role
-    // https://www.baeldung.com/javax-validations-enums
-
-    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
-    @Retention(RUNTIME)
-    @Documented
-    @Constraint(validatedBy = Validator.class)
-    public @interface Valid {
-        String message() default "Role must be any of 'admin', 'user' or 'seller'";
-
-        Class<?>[] groups() default {};
-
-        Class<? extends Payload>[] payload() default {};
-    }
-
-    public static class Validator implements jakarta.validation.ConstraintValidator<Valid, String> {
-        @Override
-        public boolean isValid(String value, jakarta.validation.ConstraintValidatorContext context) {
-            try {
-                ERole.fromString(value);
-                return true;
-            } catch (Exception e) {
-                return false;
-            }
-        }
-    }
+    public static final String VALIDATION_MESSAGE = "Invalid role. Valid roles are: " +
+            String.join(", ", List.of(ERole.values()).toString());
 }
