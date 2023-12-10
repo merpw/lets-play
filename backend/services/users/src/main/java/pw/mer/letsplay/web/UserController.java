@@ -2,7 +2,6 @@ package pw.mer.letsplay.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.annotation.Nullable;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -19,6 +18,7 @@ import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -72,23 +72,22 @@ public class UserController {
     @Setter
     public static class UpdateUserRequest {
         @JsonProperty("name")
-        @Nullable
-        @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
-        private String name;
+        private Optional
+                <@Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
+                        String> name = Optional.empty();
 
         @JsonProperty("email")
-        @Nullable
-        @Email(message = "Email is not valid")
-        @Size(min = 3, message = "Email is not valid")
-        private String email;
+        private Optional
+                <@Size(min = 3, message = "Email is not valid") @Email(message = "Email is not valid")
+                        String> email = Optional.empty();
 
-        @Nullable
         @JsonProperty("password")
-        @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
-        private String rawPassword;
+        private Optional
+                <@Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
+                        String> rawPassword = Optional.empty();
 
         @JsonProperty("role")
-        private ERole role;
+        private Optional<ERole> role = Optional.empty();
     }
 
     PasswordEncoder passwordEncoder;
@@ -104,26 +103,20 @@ public class UserController {
         var user = userRepo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
 
-        if (request.email != null && !request.email.equals(user.getEmail())) {
-            if (!userRepo.findByEmail(request.email).isEmpty()) {
+        request.email.ifPresent(email -> {
+            if (!email.equals(user.getEmail()) && !userRepo.findByEmail(email).isEmpty()) {
                 throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
             }
+            user.setEmail(email);
+        });
 
-            user.setEmail(request.email);
-        }
+        request.name.ifPresent(user::setName);
+        request.role.ifPresent(user::setRole);
 
-        if (request.name != null) {
-            user.setName(request.name);
-        }
-
-        if (request.role != null) {
-            user.setRole(request.role);
-        }
-
-        if (request.rawPassword != null) {
-            var encodedPassword = passwordEncoder.encode(request.rawPassword);
+        request.rawPassword.ifPresent(rawPassword -> {
+            String encodedPassword = passwordEncoder.encode(rawPassword);
             user.setEncodedPassword(encodedPassword);
-        }
+        });
 
         userRepo.save(user);
     }
