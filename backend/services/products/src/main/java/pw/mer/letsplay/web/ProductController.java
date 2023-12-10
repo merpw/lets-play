@@ -1,6 +1,7 @@
 package pw.mer.letsplay.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.Setter;
@@ -38,6 +39,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
+    @SecurityRequirement(name = "Authentication", scopes = {"products:admin", "products:write"})
     public Product getById(@PathVariable String id) {
         return productRepo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
@@ -45,20 +47,25 @@ public class ProductController {
 
     @Setter
     public static class AddProductRequest {
+        @JsonProperty("name")
         @NotBlank(message = "Name is mandatory")
         @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters long")
         private String name;
 
+        @JsonProperty("description")
         @NotBlank(message = "Description is mandatory")
         @Size(min = 3, max = 1000, message = "Description must be between 3 and 1000 characters long")
         private String description;
 
+        @JsonProperty("price")
         @NotNull(message = "Price is mandatory")
         @PositiveOrZero(message = "Price can not be negative")
         private Double price;
     }
 
+
     @PostMapping("/add")
+    @SecurityRequirement(name = "Authentication", scopes = {"products:admin", "products:write"})
     public String add(@Valid @RequestBody AddProductRequest request, Authentication authentication) {
         var product = new Product(request.name, request.description, request.price, authentication.getName());
         productRepo.save(product);
@@ -66,6 +73,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
+    @SecurityRequirement(name = "Authentication", scopes = {"products:admin", "products:write"})
     public void deleteById(@PathVariable String id, Authentication authentication) {
         getProductIfAdminOrOwner(id, authentication); // throws exception if not admin or owner
 
@@ -91,6 +99,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
+    @SecurityRequirement(name = "Authentication", scopes = {"products:admin", "products:write"})
     public void updateById(@PathVariable String id, @Valid @RequestBody UpdateProductRequest request, Authentication authentication) {
         var product = getProductIfAdminOrOwner(id, authentication);
 
