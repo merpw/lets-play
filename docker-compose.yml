@@ -49,6 +49,11 @@ services:
       - '27017:27017'
     volumes:
       - lets-play-db:/data/db
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    environment:
+      URLS: "[{name:'Users',url:'/api/api-docs-users'}]"
+      BASE_URL: /api/docs
 volumes:
   lets-play-db:
   lets-play-media:

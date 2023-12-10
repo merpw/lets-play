@@ -31,6 +31,10 @@ public class WebSecurityConfig {
 
                         .requestMatchers("/users/**").hasAuthority("SCOPE_users:admin")
 
+                        .requestMatchers("/swagger-ui.html").authenticated()
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/auth/**"))
