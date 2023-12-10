@@ -21,6 +21,8 @@ import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
 import pw.mer.shared.config.SharedJwtConfig;
 
+import java.util.Optional;
+
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
@@ -109,6 +111,10 @@ public class AuthController {
         @JsonProperty("role")
         @Schema(description = "Can be user or seller. Default is user")
         private String role;
+
+        @JsonProperty("image")
+        @Schema(description = "ID of the image to use as profile picture")
+        private Optional<String> image = Optional.empty();
     }
 
     @PostMapping("/register")
@@ -134,6 +140,9 @@ public class AuthController {
         }
 
         var user = new User(request.name, request.email, passwordEncoder.encode(request.password), role);
+
+        request.image.ifPresent(user::setImage);
+
         userRepo.save(user);
 
         return user.getId();
