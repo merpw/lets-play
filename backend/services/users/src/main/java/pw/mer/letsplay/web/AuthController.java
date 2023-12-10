@@ -1,8 +1,12 @@
 package pw.mer.letsplay.web;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,7 +19,6 @@ import pw.mer.letsplay.config.JwtConfig;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
-import pw.mer.letsplay.web.validators.UserValidators;
 import pw.mer.shared.config.SharedJwtConfig;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
@@ -42,12 +45,15 @@ public class AuthController {
 
     @Setter
     public static class LoginRequest {
+        @JsonProperty("email")
         @NotBlank(message = "Email is mandatory")
-        @UserValidators.Email
+        @Size(min = 3, max = 320, message = "Email is not valid")
+        @Email(message = "Email is not valid")
         private String email;
 
+        @JsonProperty("password")
         @NotBlank(message = "Password is mandatory")
-        @UserValidators.Password
+        @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
         private String password;
     }
 
@@ -84,19 +90,24 @@ public class AuthController {
 
     @Setter
     public static class RegisterRequest {
+        @JsonProperty("name")
         @NotBlank(message = "Name is mandatory")
-        @UserValidators.Name
+        @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
         private String name;
 
+        @JsonProperty("email")
         @NotBlank(message = "Email is mandatory")
-        @UserValidators.Email
+        @Size(min = 3, max = 320, message = "Email is not valid")
+        @Email(message = "Email is not valid")
         private String email;
 
+        @JsonProperty("password")
         @NotBlank(message = "Password is mandatory")
-        @UserValidators.Password
+        @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
         private String password;
 
-        @ERole.Valid
+        @JsonProperty("role")
+        @Schema(description = "Can be user or seller. Default is user")
         private String role;
     }
 
@@ -113,8 +124,7 @@ public class AuthController {
             try {
                 role = ERole.fromString(request.role);
             } catch (IllegalArgumentException e) {
-                // Should be caught by validation, but just in case:
-                throw new ResponseStatusException(BAD_REQUEST);
+                throw new ResponseStatusException(BAD_REQUEST, ERole.VALIDATION_MESSAGE);
             }
             if (role == ERole.ADMIN) {
                 throw new ResponseStatusException(BAD_REQUEST, "Can not register as admin");

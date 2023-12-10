@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.annotation.Nullable;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -16,7 +17,6 @@ import org.springframework.web.server.ResponseStatusException;
 import pw.mer.letsplay.model.ERole;
 import pw.mer.letsplay.model.User;
 import pw.mer.letsplay.repository.UserRepo;
-import pw.mer.letsplay.web.validators.UserValidators;
 
 import java.util.List;
 
@@ -71,19 +71,23 @@ public class UserController {
 
     @Setter
     public static class UpdateUserRequest {
+        @JsonProperty("name")
         @Nullable
-        @UserValidators.Name
+        @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
         private String name;
 
+        @JsonProperty("email")
         @Nullable
-        @UserValidators.Email
+        @Email(message = "Email is not valid")
+        @Size(min = 3, message = "Email is not valid")
         private String email;
 
         @Nullable
         @JsonProperty("password")
-        @UserValidators.Password
+        @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
         private String rawPassword;
 
+        @JsonProperty("role")
         private ERole role;
     }
 
@@ -126,21 +130,24 @@ public class UserController {
 
     @Setter
     public static class AddUserRequest {
+        @JsonProperty("name")
         @NotBlank(message = "Name is mandatory")
-        @UserValidators.Name
+        @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
         private String name;
 
+        @JsonProperty("email")
         @NotBlank(message = "Email is mandatory")
-        @UserValidators.Email
+        @Size(min = 3, max = 320, message = "Email is not valid")
+        @Email(message = "Email is not valid")
         private String email;
 
         @JsonProperty("password")
         @NotBlank(message = "Password is mandatory")
-        @UserValidators.Password
+        @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
         private String rawPassword;
 
-        @NotNull(message = "Role is mandatory")
-        @ERole.Valid
+        @JsonProperty("role")
+        @NotBlank(message = "Role is mandatory")
         private String role;
     }
 
@@ -157,8 +164,7 @@ public class UserController {
         try {
             role = ERole.fromString(request.role);
         } catch (IllegalArgumentException e) {
-            // Should be caught by validation, but just in case:
-            throw new ResponseStatusException(BAD_REQUEST);
+            throw new ResponseStatusException(BAD_REQUEST, ERole.VALIDATION_MESSAGE);
         }
 
         var user = new User(
