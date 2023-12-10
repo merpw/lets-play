@@ -17,6 +17,7 @@ services:
         - SERVICE_NAME=users
     environment:
       - MONGO_HOST=db
+      - DOCS_API_URL=/api
     depends_on:
       - db
   products:
@@ -27,6 +28,7 @@ services:
         - SERVICE_NAME=products
     environment:
       - MONGO_HOST=db
+      - DOCS_API_URL=/api
     depends_on:
       - db
   media:
@@ -37,6 +39,7 @@ services:
         - SERVICE_NAME=media
     environment:
       - MEDIA_STORAGE_DIR=/app/media
+      - DOCS_API_URL=/api
     volumes:
       - lets-play-media:/app/media
   frontend:
