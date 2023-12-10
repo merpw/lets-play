@@ -1,5 +1,6 @@
 package pw.mer.letsplay.web;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Setter;
@@ -71,6 +72,7 @@ public class AuthController {
         return SharedJwtConfig.issueToken(encoder, jwtUser);
     }
 
+    @SecurityRequirement(name = "Authentication")
     @GetMapping("/profile")
     @PreAuthorize("isAuthenticated()")
     public User profile(Authentication authentication) {

@@ -1,6 +1,7 @@
 package pw.mer.letsplay.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.annotation.Nullable;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -34,11 +35,13 @@ public class UserController {
         this.userRepo = userRepo;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @GetMapping
     public List<User> index() {
         return userRepo.findAll();
     }
 
+    @SecurityRequirement(name = "Authentication")
     @GetMapping("/{id}")
     public User getById(@PathVariable String id, Authentication authentication) {
         var user = userRepo.findById(id).orElseThrow(() ->
@@ -57,6 +60,7 @@ public class UserController {
         return user;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id) {
         if (userRepo.findById(id).isEmpty()) {
@@ -90,6 +94,7 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @PutMapping("/{id}")
     public void updateById(@PathVariable String id, @Valid @RequestBody UpdateUserRequest request) {
         var user = userRepo.findById(id).orElseThrow(() ->
@@ -139,6 +144,7 @@ public class UserController {
         private String role;
     }
 
+    @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @PostMapping("/add")
     public String add(@Valid @RequestBody AddUserRequest request) {
         if (!userRepo.findByEmail(request.email).isEmpty()) {
