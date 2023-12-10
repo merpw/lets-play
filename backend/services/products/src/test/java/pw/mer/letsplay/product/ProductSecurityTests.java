@@ -10,6 +10,8 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 import static java.net.HttpURLConnection.HTTP_OK;
+import static pw.mer.shared.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 import static pw.mer.shared.SharedAuthFactory.TestUser;
 
 class ProductSecurityTests extends AbstractControllerTests {
@@ -35,20 +37,38 @@ class ProductSecurityTests extends AbstractControllerTests {
 
     @Test
     void notOwnerOfTheProduct() {
-        var adminToken = getAdminToken();
+        var sellerToken = getAccessToken(new TestUser(List.of("products:write")));
 
-        var secondAdmin = new TestUser(List.of("products:write"));
-        var secondAdminToken = getAccessToken(secondAdmin);
+        var secondSellerToken = getAccessToken(new TestUser(List.of("products:write")));
 
         var testProduct = new TestProductFactory.TestProduct();
-        var productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK)
-                .extract().body().asString();
+        var productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK)
+                .extract().asString();
 
-        var req = given().auth().oauth2(secondAdminToken).contentType("application/json")
+        var req = given().auth().oauth2(secondSellerToken).contentType("application/json")
                 .then().statusCode(HTTP_FORBIDDEN).request();
 
-        req.body(testProduct).put("/products/" + productId);
+        req.body(testProduct).put("/products/" + productId).then().statusCode(HTTP_FORBIDDEN);
 
-        req.delete("/products/" + productId);
+        req.delete("/products/" + productId).then().statusCode(HTTP_FORBIDDEN);
+    }
+
+    @Test
+    void adminCanChangeAnyProducts() {
+        var adminToken = getAdminToken();
+
+        var sellerToken = getSellerToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+        var productId = testProduct.requestAdd(sellerToken)
+                .statusCode(HTTP_OK)
+                .extract().asString();
+
+        jsonBodyRequest(adminToken, testProduct)
+                .put("/products/" + productId)
+                .then().statusCode(HTTP_OK);
+
+        authRequest(adminToken).delete("/products/" + productId)
+                .then().statusCode(HTTP_OK);
     }
 }

@@ -93,6 +93,9 @@ public class AuthController {
         @NotBlank(message = "Password is mandatory")
         @UserValidators.Password
         private String password;
+
+        @ERole.Valid
+        private String role;
     }
 
     @PostMapping("/register")
@@ -102,7 +105,23 @@ public class AuthController {
             throw new ResponseStatusException(BAD_REQUEST, "User with this email already exists");
         }
 
-        var user = new User(request.name, request.email, passwordEncoder.encode(request.password), ERole.USER);
+        ERole role;
+
+        if (request.role != null) {
+            try {
+                role = ERole.fromString(request.role);
+            } catch (IllegalArgumentException e) {
+                // Should be caught by validation, but just in case:
+                throw new ResponseStatusException(BAD_REQUEST);
+            }
+            if (role == ERole.ADMIN) {
+                throw new ResponseStatusException(BAD_REQUEST, "Can not register as admin");
+            }
+        } else {
+            role = ERole.USER;
+        }
+
+        var user = new User(request.name, request.email, passwordEncoder.encode(request.password), role);
         userRepo.save(user);
 
         return user.getId();

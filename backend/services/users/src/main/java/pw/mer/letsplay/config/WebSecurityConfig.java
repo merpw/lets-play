@@ -25,10 +25,11 @@ public class WebSecurityConfig {
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/auth/**").permitAll()
 
-                        .requestMatchers(GET, "/products/**").permitAll()
-                        .requestMatchers("/products/**").hasAuthority("SCOPE_products:write")
+                        .requestMatchers(GET, "/users").hasAuthority("SCOPE_users:admin")
 
-                        .requestMatchers("/users/**").hasAuthority("SCOPE_users")
+                        .requestMatchers(GET, "/users/**").permitAll()
+
+                        .requestMatchers("/users/**").hasAuthority("SCOPE_users:admin")
 
                         .anyRequest().authenticated()
                 )

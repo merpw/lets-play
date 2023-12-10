@@ -32,6 +32,19 @@ class UserAddTests extends AbstractControllerTests {
     }
 
     @Test
+    void usersAddSeller() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("seller");
+        testUser.role = "seller";
+
+        var userId = testUser.requestAdd(adminToken).statusCode(HTTP_OK)
+                .extract().asString();
+
+        testUser.requestCheck(adminToken, userId);
+    }
+
+    @Test
     void usersAddEmailTaken() {
         String adminToken = getAdminToken();
 

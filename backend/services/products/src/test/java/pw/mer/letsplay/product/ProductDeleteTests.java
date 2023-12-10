@@ -12,22 +12,22 @@ import static org.hamcrest.Matchers.is;
 class ProductDeleteTests extends AbstractControllerTests {
     @Test
     void deleteProduct() {
-        String adminToken = getAdminToken();
+        String sellerToken = getSellerToken();
 
         var testProduct = new TestProductFactory.TestProduct();
-        var productId = testProduct.requestAdd(adminToken).statusCode(HTTP_OK)
+        var productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK)
                 .extract().body().asString();
 
         when().get("/products").then().statusCode(HTTP_OK).body("$.size()", is(1));
 
-        given().auth().oauth2(adminToken)
+        given().auth().oauth2(sellerToken)
                 .delete("/products/" + productId)
                 .then()
                 .statusCode(HTTP_OK);
 
         when().get("/products").then().statusCode(HTTP_OK).body("$.size()", is(0));
 
-        given().auth().oauth2(adminToken)
+        given().auth().oauth2(sellerToken)
                 .delete("/products/" + productId)
                 .then()
                 .statusCode(HTTP_NOT_FOUND);
