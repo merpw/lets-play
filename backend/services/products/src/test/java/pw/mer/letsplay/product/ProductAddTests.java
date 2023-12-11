@@ -3,7 +3,9 @@ package pw.mer.letsplay.product;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
-import static io.restassured.RestAssured.given;
+import java.util.List;
+import java.util.UUID;
+
 import static io.restassured.RestAssured.when;
 import static java.net.HttpURLConnection.*;
 import static org.hamcrest.Matchers.is;
@@ -93,6 +95,19 @@ class ProductAddTests extends AbstractControllerTests {
     }
 
     @Test
+    void addProductInvalidQuantity() {
+        String sellerToken = getSellerToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+
+        testProduct.quantity = null;
+        checkInvalidProduct(testProduct, sellerToken, "quantity");
+
+        testProduct.quantity = -1;
+        checkInvalidProduct(testProduct, sellerToken, "quantity");
+    }
+
+    @Test
     void NotFound() {
         String sellerToken = getSellerToken();
 
@@ -103,5 +118,25 @@ class ProductAddTests extends AbstractControllerTests {
         jsonBodyRequest(sellerToken, testProduct).put("/products/12345").then().statusCode(HTTP_NOT_FOUND);
 
         authRequest(sellerToken).delete("/products/12345").then().statusCode(HTTP_NOT_FOUND);
+    }
+
+    @Test
+    void addProductWithImages() {
+        String sellerToken = getSellerToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+
+        testProduct.images = List.of(new UUID(0, 0).toString(), new UUID(0, 1).toString());
+
+        String postId = testProduct.requestAdd(sellerToken).extract().body().asString();
+
+        when().get("/products/" + postId).then()
+                .statusCode(HTTP_OK)
+                .body("name", is(testProduct.name),
+                        "description", is(testProduct.description),
+                        "price", is(testProduct.price.floatValue()),
+                        "images.size()", is(2),
+                        "images[0]", is(testProduct.images.get(0)),
+                        "images[1]", is(testProduct.images.get(1)));
     }
 }

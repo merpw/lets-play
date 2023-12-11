@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
+import java.util.List;
+import java.util.UUID;
+
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.matchesRegex;
@@ -56,6 +59,14 @@ class ProductUpdateTests extends AbstractControllerTests {
         testProduct.price = 100.0;
 
         testProduct.requestCheck(sellerToken, productId);
+
+        updateProductRequestValid(sellerToken, productId,
+                objectMapper.createObjectNode().put("quantity", 100)
+        );
+
+        testProduct.quantity = 100;
+
+        testProduct.requestCheck(sellerToken, productId);
     }
 
     static void updateProductRequestInvalid(String adminToken, String productId, Object body, String errorShouldContain) {
@@ -101,5 +112,43 @@ class ProductUpdateTests extends AbstractControllerTests {
         updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("price", -1.0), "price");
 
         updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("price", "wonderful..."), "");
+    }
+
+    @Test
+    void updateProductImages() {
+        String sellerToken = getSellerToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+
+        String productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        testProduct.images = List.of(new UUID(0, 0).toString());
+
+        var node = objectMapper.createObjectNode();
+
+        var images = node.putArray("images");
+
+        testProduct.images.forEach(images::add);
+
+        updateProductRequestValid(sellerToken, productId, node);
+
+        testProduct.requestCheck(sellerToken, productId);
+    }
+
+    @Test
+    void updateProductInvalidQuantity() {
+        String sellerToken = getSellerToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+
+        String productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("quantity", -1), "quantity");
+
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("quantity", "wonderful..."), "");
     }
 }

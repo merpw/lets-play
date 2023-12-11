@@ -3,6 +3,8 @@ package pw.mer.letsplay.user;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
+import java.util.UUID;
+
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_OK;
 
@@ -113,5 +115,18 @@ class UserAddTests extends AbstractControllerTests {
 
         testUser.password = "a".repeat(100);
         testUser.requestAdd(adminToken).statusCode(HTTP_BAD_REQUEST);
+    }
+
+    @Test
+    void usersAddValidImage() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+        testUser.image = new UUID(0, 0).toString();
+
+        var userId = testUser.requestAdd(adminToken).statusCode(HTTP_OK)
+                .extract().body().asString();
+
+        testUser.requestCheck(adminToken, userId);
     }
 }

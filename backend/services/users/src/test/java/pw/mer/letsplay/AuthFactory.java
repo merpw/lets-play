@@ -32,6 +32,8 @@ public class AuthFactory {
         public String password;
         public String role;
 
+        public String image;
+
         public ValidatableResponse register() {
             return given()
                     .when()
@@ -47,7 +49,6 @@ public class AuthFactory {
                     .put("email", email)
                     .put("password", password);
         }
-
 
         /**
          * Generates a basic user with random name, email and password.

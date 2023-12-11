@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Getter
 @Document("Product")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -30,10 +32,20 @@ public class Product {
     @JsonProperty("userId")
     private String userId;
 
-    public Product(String name, String description, Double price, String userId) {
+    @JsonProperty("images")
+    @Setter
+    private List<String> images;
+
+    @JsonProperty("quantity")
+    @Setter
+    private Integer quantity;
+
+    public Product(String name, String description, Double price, String userId, List<String> images, Integer quantity) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.userId = userId;
+        this.images = images;
+        this.quantity = quantity;
     }
 }

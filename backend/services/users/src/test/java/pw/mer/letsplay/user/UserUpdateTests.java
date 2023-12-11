@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
 
+import java.util.UUID;
+
 import static java.net.HttpURLConnection.*;
 import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 
@@ -175,5 +177,25 @@ class UserUpdateTests extends AbstractControllerTests {
 
         jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("name", "New name"))
                 .put("/users/DoesNotExist").then().statusCode(HTTP_NOT_FOUND);
+    }
+
+    @Test
+    void updateImage() {
+        String adminToken = getAdminToken();
+
+        var testUser = new TestUserFactory.TestUser("user");
+
+        String testUserId = testUser.requestAdd(adminToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        String newImage = new UUID(0, 0).toString();
+
+        jsonBodyRequest(adminToken, objectMapper.createObjectNode().put("image", newImage))
+                .put("/users/" + testUserId).then().statusCode(HTTP_OK);
+
+        testUser.image = newImage;
+
+        testUser.requestCheck(adminToken, testUserId);
     }
 }

@@ -1,10 +1,10 @@
 package pw.mer.letsplay.product;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.restassured.response.ValidatableResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.List;
 
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.is;
@@ -19,8 +19,12 @@ public class TestProductFactory {
         String description;
         Double price;
 
+        Number quantity;
+
+        List<String> images;
+
         public ValidatableResponse requestAdd(String token) {
-            return jsonBodyRequest(token, this.getObjectNode()).post("/products/add").then();
+            return jsonBodyRequest(token, this).post("/products/add").then();
         }
 
         /**
@@ -30,25 +34,25 @@ public class TestProductFactory {
          * @param productId - id of product to check
          */
         public void requestCheck(String token, String productId) {
-            authRequest(token)
+            ValidatableResponse response = authRequest(token)
                     .get("/products/" + productId)
                     .then().statusCode(HTTP_OK)
                     .body("name", is(name),
                             "description", is(description),
-                            "price", is(price.floatValue()));
-        }
+                            "price", is(price.floatValue()),
+                            "quantity", is(quantity)
+                    );
 
-        public ObjectNode getObjectNode() {
-            return new ObjectMapper().createObjectNode()
-                    .put("name", name)
-                    .put("description", description)
-                    .put("price", price);
+            if (images != null) {
+                response.body("images", is(images));
+            }
         }
 
         public TestProduct() {
             this.name = "Test product" + System.currentTimeMillis();
             this.description = "Test description" + System.currentTimeMillis();
             this.price = Math.random() * 100;
+            this.quantity = (int) (Math.random() * 100);
         }
     }
 }

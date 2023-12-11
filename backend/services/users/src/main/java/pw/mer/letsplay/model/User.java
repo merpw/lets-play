@@ -2,6 +2,7 @@ package pw.mer.letsplay.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,6 +37,12 @@ public class User {
     @Setter
     @JsonProperty("role")
     private ERole role;
+
+    @Getter
+    @Setter
+    @JsonProperty("image")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String image;
 
     @JsonIgnore
     @Field("password")

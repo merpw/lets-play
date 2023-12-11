@@ -19,6 +19,8 @@ public class TestUserFactory {
 
         String role;
 
+        String image;
+
         public ValidatableResponse requestAdd(String token) {
             return jsonBodyRequest(token, this.getObjectNode()).post("/users/add").then();
         }
@@ -31,19 +33,32 @@ public class TestUserFactory {
          */
         public void requestCheck(String token, String userId) {
 
-            authRequest(token).get("/users/" + userId)
+            ValidatableResponse response = authRequest(token).get("/users/" + userId)
                     .then().statusCode(HTTP_OK)
                     .body("name", is(name),
                             "email", is(email),
                             "role", is(role));
+
+            if (image != null) {
+                response.body("image", is(image));
+            }
         }
 
         public ObjectNode getObjectNode() {
-            return new ObjectMapper().createObjectNode()
+            ObjectNode objectNode = new ObjectMapper().createObjectNode()
                     .put("name", name)
                     .put("email", email)
-                    .put("password", password)
-                    .put("role", role);
+                    .put("password", password);
+
+            if (role != null) {
+                objectNode.put("role", role);
+            }
+
+            if (image != null) {
+                objectNode.put("image", image);
+            }
+
+            return objectNode;
         }
 
         public TestUser(String role) {

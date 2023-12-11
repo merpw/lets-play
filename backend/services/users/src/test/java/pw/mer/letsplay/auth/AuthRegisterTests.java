@@ -89,4 +89,15 @@ class AuthRegisterTests extends AbstractControllerTests {
 
         testAdmin.register().statusCode(HTTP_BAD_REQUEST);
     }
+
+    @Test
+    void registerWithImage() {
+        var testUser = new AuthFactory.TestUser();
+        testUser.image = "imageId";
+        testUser.register().statusCode(HTTP_OK);
+
+        String token = AuthFactory.getAccessToken(testUser.email, testUser.password);
+
+        authRequest(token).get("/auth/profile").then().statusCode(HTTP_OK).body("image", is(testUser.image));
+    }
 }

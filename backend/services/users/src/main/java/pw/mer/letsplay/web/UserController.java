@@ -88,6 +88,9 @@ public class UserController {
 
         @JsonProperty("role")
         private Optional<ERole> role = Optional.empty();
+
+        @JsonProperty("image")
+        private Optional<String> image = Optional.empty();
     }
 
     PasswordEncoder passwordEncoder;
@@ -112,6 +115,8 @@ public class UserController {
 
         request.name.ifPresent(user::setName);
         request.role.ifPresent(user::setRole);
+
+        request.image.ifPresent(user::setImage);
 
         request.rawPassword.ifPresent(rawPassword -> {
             String encodedPassword = passwordEncoder.encode(rawPassword);
@@ -142,6 +147,9 @@ public class UserController {
         @JsonProperty("role")
         @NotBlank(message = "Role is mandatory")
         private String role;
+
+        @JsonProperty("image")
+        private Optional<String> image = Optional.empty();
     }
 
     @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
@@ -166,6 +174,8 @@ public class UserController {
                 encodedPassword,
                 role
         );
+        request.image.ifPresent(user::setImage);
+
         userRepo.save(user);
 
         return user.getId();
