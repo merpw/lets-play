@@ -34,7 +34,7 @@
       >
     </mat-form-field>
     <app-image-upload
-      [images]="[imageUploaded]"
+      [images]="imageUploaded ? [imageUploaded] : []"
       (upload)="onImageUpload($event)"
       (delete)="onImageDelete($event)"
     ></app-image-upload>
