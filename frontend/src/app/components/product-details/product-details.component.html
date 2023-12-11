@@ -1,0 +1,22 @@
+<div class="product-details-container">
+  <img
+    ngSrc="{{
+      product.images?.length
+        ? 'api/media/' + product.images[imageIndex]
+        : 'assets/avatar/placeholder.png'
+    }}"
+    alt="image"
+    width="250"
+    height="250"
+    (click)="nextImage()"
+  />
+  <br />
+  <h2>
+    {{ product.name }}
+    <h3>by {{ product.owner }}</h3>
+  </h2>
+  <p>{{ product.description }}</p>
+  <br />
+  <p>Price: {{ product.price | currency : "EUR" }}</p>
+  <p>{{ product.quantity }} in stock</p>
+</div>

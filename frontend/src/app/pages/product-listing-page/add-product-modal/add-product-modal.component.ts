@@ -16,7 +16,7 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
   public form!: FormGroup;
   public invalidForm = false;
   public uploadAvatarError = '';
-  public imageId = '';
+  private imagesUploaded: any[] = [];
 
   private destroy$ = new Subject<void>();
 
@@ -34,7 +34,7 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
       price: ['', Validators.required],
       userId: [localStorage.getItem('userId'), Validators.required],
       quantity: ['', Validators.required],
-      image: [''],
+      images: [[]],
     });
   }
 
@@ -54,12 +54,13 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
   }
 
   onImageUpload(imageId: string) {
-    console.log(imageId);
-    this.form.controls['image'].setValue(imageId);
+    this.imagesUploaded.push(imageId);
   }
 
-  onImageDelete() {
-    this.form.controls['image'].setValue('');
+  onImageDelete(imageId: string) {
+    this.imagesUploaded = this.imagesUploaded.filter(
+      (image) => image !== imageId
+    );
   }
 
   onUpdate(): void {
@@ -70,6 +71,7 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
 
     this.isLoading = true;
     console.log('updating product with the following values');
+    this.form.controls['images'].setValue(this.imagesUploaded);
     console.log(this.form.value);
     this.productService
       .addProducts(this.form.value)

@@ -1,7 +1,7 @@
 import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
-import { Profile } from '../models/profile';
+import { Profile } from '../models/profile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,9 @@ export class AuthService {
   }
 
   set authenticated(v: boolean) {
+    if (!v) {
+      this._profile = null;
+    }
     this._isAuthenticated = v;
   }
 
@@ -29,8 +32,15 @@ export class AuthService {
     return this._profile?.role === 'admin' || this._profile?.role === 'seller';
   }
 
+  logout() {
+    this.authenticated = false;
+    localStorage.removeItem('userId');
+    localStorage.removeItem('token');
+  }
+
   getAuthenticationStatus(): Observable<any> {
     if (!localStorage.getItem('token')) {
+      this.logout();
       return of(false);
     }
     return this.http
@@ -49,6 +59,7 @@ export class AuthService {
             this._profile = resp.body;
             return resp.body;
           }
+          this.logout();
           return false;
         }),
         catchError(() => of(false))

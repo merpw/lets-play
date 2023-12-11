@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ProductDetailsComponent } from 'src/app/components/product-details/product-details.component';
+import { Product } from 'src/app/shared/models/product.model';
 import { Result } from 'src/app/shared/models/result.model';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
 import { MediaManagementPageComponent } from './media-management-page/media-management-page.component';
 
 @Component({
@@ -12,7 +14,6 @@ import { MediaManagementPageComponent } from './media-management-page/media-mana
 })
 export class SellerProductManagementPageComponent implements OnInit {
   public displayedColumns = [
-    // 'id',
     'image',
     'name',
     'description',
@@ -25,6 +26,7 @@ export class SellerProductManagementPageComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    public screenSizeService: ScreenSizeService,
     private productService: ProductService
   ) {}
 
@@ -32,12 +34,24 @@ export class SellerProductManagementPageComponent implements OnInit {
     this.fetchProductsFilteredByUserId(localStorage.getItem('userId') || '');
   }
 
+  openProductDetailsDialog(product: Product) {
+    console.log(product);
+    const dialogRef = this.dialog.open(ProductDetailsComponent, {
+      data: { product },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+  }
+
   fetchProductsFilteredByUserId(userId: string, clearCache?: boolean) {
     this.productService
       .getProductsFilteredByUserId(userId, clearCache)
       .subscribe({
         next: (products) => {
-          this.dataSource = products;
+          this.dataSource = products.slice().reverse();
           if (products.length === 0) {
             this.result = {
               type: 'info',
@@ -56,6 +70,7 @@ export class SellerProductManagementPageComponent implements OnInit {
   }
 
   openManageDialog(product: any): void {
+    console.log(product);
     const dialogRef = this.dialog.open(MediaManagementPageComponent, {
       data: { product },
     });

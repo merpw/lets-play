@@ -18,73 +18,82 @@ import { ConfirmComponent } from '../confirm/confirm.component';
   styleUrls: ['./image-upload.component.scss'],
 })
 export class ImageUploadComponent implements OnInit {
-  @Input() imageId: string = '';
+  @Input() images: any[] = [];
   @Output() upload = new EventEmitter<string>();
-  @Output() delete = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<string>();
   @ViewChild('avatarInput') avatarInput!: ElementRef;
 
   public uploadImageError = '';
-  public imagePreviewSrc = '';
-  public imageName = '';
+  public imageUploaded: any[] = [];
 
   constructor(
+    public mediaService: MediaService,
     private formValidationService: FormValidationService,
-    private mediaService: MediaService,
     private dialog: MatDialog
   ) {}
 
-  ngOnInit() {
-    if (this.imageId) {
-      this.imagePreviewSrc =
-        this.mediaService.mediaApiBaseURL + '/' + this.imageId;
-    }
+  ngOnInit(): void {
+    this.images.forEach((imageId) => {
+      this.imageUploaded.push({
+        id: imageId,
+        name: 'unnamed',
+      });
+    });
   }
 
-  onDelete() {
-    this.imageName = '';
-    this.imagePreviewSrc = '';
-    this.avatarInput.nativeElement.value = null;
-    this.delete.emit();
+  onDelete(deletedImage: any) {
+    this.imageUploaded = this.imageUploaded.filter(
+      (image) => image.id !== deletedImage.id
+    );
+    this.delete.emit(deletedImage.id);
   }
 
-  openConfirmDialog(imageName: string): void {
+  openConfirmDialog(image: any): void {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { message: 'You are deleting: ' + imageName },
+      data: { message: 'You are deleting: ' + image.name },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The confirm dialog was closed');
       console.log(result);
       if (result) {
-        this.onDelete();
+        this.onDelete(image);
       }
     });
   }
 
   onImageUpload(files: FileList | null) {
     this.uploadImageError = '';
-    const file = files?.item(0);
-    const invalidAvatarUpload =
-      this.formValidationService.validateImageUpload(file);
-    if (invalidAvatarUpload) {
-      this.uploadImageError = invalidAvatarUpload;
+    if (!files) {
       return;
     }
 
-    this.mediaService.uploadMedia(<File>file).subscribe({
-      next: (resp) => {
-        const imageId = resp.body;
-        this.imageName = file?.name || 'unnamed image uploaded';
-        console.log(this.imageName + ' successful, media id ' + imageId);
-        this.imagePreviewSrc =
-          this.mediaService.mediaApiBaseURL + '/' + imageId;
-        this.upload.emit(imageId);
-      },
-      error: (err) => {
-        console.log(err);
-        this.delete.emit();
-        this.uploadImageError = 'Upload image error';
-      },
-    });
+    for (let i = 0; i < files.length; i++) {
+      const file = files.item(i);
+      const invalidAvatarUpload =
+        this.formValidationService.validateImageUpload(file);
+      if (invalidAvatarUpload) {
+        this.uploadImageError = invalidAvatarUpload;
+        return;
+      }
+    }
+
+    for (let i = 0; i < files.length; i++) {
+      this.mediaService.uploadMedia(<File>files.item(i)).subscribe({
+        next: (resp) => {
+          const imageId = resp.body;
+          this.imageUploaded.push({
+            id: imageId,
+            name: files.item(i)?.name || 'unnamed image',
+          });
+          this.upload.emit(imageId);
+        },
+        error: (err) => {
+          console.log(err);
+          this.delete.emit('error');
+          this.uploadImageError = 'Upload image error';
+        },
+      });
+    }
   }
 }

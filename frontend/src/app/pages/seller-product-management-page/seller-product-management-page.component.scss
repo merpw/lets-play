@@ -1,0 +1,6 @@
+tr[mat-row] {
+    transition: 0.1s;
+    &:hover {
+    background-color: rgb(60, 60, 60);
+    }
+}

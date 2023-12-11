@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, map, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +15,22 @@ export class UserService {
     return forkJoin(
       ids.map((id) => this.http.get(this.getUserUrl + id), {
         observe: 'response',
-        responseType: 'text',
+        responseType: 'json',
       })
+    );
+  }
+
+  getUser(id: string): Observable<any> {
+    return this.http.get(this.getUserUrl + id, {
+      observe: 'response',
+      responseType: 'json',
+    });
+  }
+
+  getUserNameById(id: string): Observable<string> {
+    return this.getUser(id).pipe(
+      map((resp) => resp.body.name),
+      catchError(() => `User ${id} not found`)
     );
   }
 }

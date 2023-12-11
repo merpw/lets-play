@@ -21,7 +21,7 @@
       </mat-form-field>
       <app-image-upload
         (upload)="onImageUpload($event)"
-        (delete)="onImageDelete()"
+        (delete)="onImageDelete($event)"
       ></app-image-upload>
     </div>
   </form>

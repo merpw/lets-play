@@ -10,9 +10,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class NavbarComponent {
   constructor(public authService: AuthService, private router: Router) {}
   logout() {
-    this.authService.authenticated = false;
-    localStorage.removeItem('userId');
-    localStorage.removeItem('token');
+    this.authService.logout();
     this.router.navigateByUrl('/login');
   }
 }

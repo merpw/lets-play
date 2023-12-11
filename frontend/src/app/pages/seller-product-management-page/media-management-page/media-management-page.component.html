@@ -20,9 +20,9 @@
         <input matInput formControlName="quantity" />
       </mat-form-field>
       <app-image-upload
-        [imageId]="data.product.image"
+        [images]="data.product.images"
         (upload)="onImageUpload($event)"
-        (delete)="onImageDelete()"
+        (delete)="onImageDelete($event)"
       ></app-image-upload>
     </div>
   </form>

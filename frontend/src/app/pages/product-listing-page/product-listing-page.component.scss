@@ -3,3 +3,14 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+tr[mat-row] {
+  transition: 0.1s;
+  &:hover {
+    background-color: rgb(23, 23, 23);
+    cursor: pointer;
+  }
+  &:active {
+    background-color: rgb(57, 57, 57);
+  }
+}

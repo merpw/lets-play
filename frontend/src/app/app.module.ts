@@ -31,6 +31,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgOptimizedImage } from '@angular/common';
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +51,7 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     MessageBoxComponent,
     ConfirmComponent,
     ImageUploadComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,7 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     MatCardModule,
     MatTooltipModule,
     NgOptimizedImage,
+    LayoutModule,
   ],
   providers: [
     {

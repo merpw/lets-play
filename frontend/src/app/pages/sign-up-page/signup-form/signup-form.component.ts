@@ -22,34 +22,20 @@ export class SignupFormComponent {
     password: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     role: new FormControl('', Validators.required),
-    avatar: new FormControl(''),
+    image: new FormControl(''),
   });
 
   public roles = ['USER', 'SELLER'];
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  // onAvatarUpload(files: FileList | null) {
-  //   const file = files?.item(0);
-  //   const validAvatarUpload =
-  //     this.formValidationService.validateImageUpload(file);
-  //   if (!validAvatarUpload) {
-  //     this.hasError.emit(validAvatarUpload);
-  //     return;
-  //   }
-
-  //   this.mediaService
-  //     .uploadMedia(<File>file)
-  //     .subscribe((resp) => console.log(resp));
-  // }
-
   onImageUpload(imageId: string) {
     console.log(imageId);
-    this.form.controls['avatar'].setValue(imageId);
+    this.form.controls['image'].setValue(imageId);
   }
 
   onImageDelete() {
-    this.form.controls['avatar'].setValue('');
+    this.form.controls['image'].setValue('');
   }
 
   submit() {

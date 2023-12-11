@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { map } from 'rxjs';
+import { firstValueFrom, map } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Result } from 'src/app/shared/models/result.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
+import { ProductDetailsComponent } from 'src/app/components/product-details/product-details.component';
+import { Product } from 'src/app/shared/models/product.model';
 
 @Component({
   selector: 'app-product-listing-page',
@@ -17,7 +20,7 @@ export class ProductListingPageComponent implements OnInit {
 
   public displayedColumns = [
     // 'id', // not showing product id to user
-    'image',
+    'images',
     'name',
     'description',
     'price',
@@ -31,6 +34,8 @@ export class ProductListingPageComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public authService: AuthService,
+    public userService: UserService,
+    public screenSizeService: ScreenSizeService,
     private productService: ProductService
   ) {}
 
@@ -39,23 +44,36 @@ export class ProductListingPageComponent implements OnInit {
     this.fetchProducts(false);
   }
 
+  openProductDetailsDialog(product: Product) {
+    console.log(product);
+    const dialogRef = this.dialog.open(ProductDetailsComponent, {
+      data: { product },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+  }
+
   fetchProducts(clearCache?: boolean) {
     this.productService
       .getProducts(clearCache)
-      .pipe(
-        map(async (resp) => {
-          // FIXME: GET /api/users/{id} is returning 401
-          // const usernames = await firstValueFrom(
-          //   this.userService.getUsers(resp.body.map((data: any) => data.userId))
-          // );
-          return resp.body;
-        })
-      )
+      .pipe(map((resp) => resp.body))
       .subscribe({
-        next: async (products) => {
-          const data: Array<any> = await products;
-          this.dataSource = data.slice().reverse();
-          if (data.length === 0) {
+        next: async (products: Array<any>) => {
+          const owners = await firstValueFrom(
+            this.userService.getUsers(
+              products.map((product: any) => product.userId)
+            )
+          );
+          products.map((product, i) => {
+            product['owner'] = owners[i].name;
+            return product;
+          });
+          console.log(products);
+          this.dataSource = products.slice().reverse();
+          if (products.length === 0) {
             this.result = {
               type: 'info',
               message: 'The product list is currently empty.',

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, mergeMap, of, switchMap, tap } from 'rxjs';
-import { Profile } from 'src/app/shared/models/profile';
+import { Profile } from 'src/app/shared/models/profile.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({

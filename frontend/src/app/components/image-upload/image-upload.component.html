@@ -5,7 +5,11 @@
     color="primary"
     (click)="avatarInput.click()"
   >
-    {{ imageName || "Upload image" }}
+    {{
+      imageUploaded.length
+        ? imageUploaded.length + " images uploaded"
+        : "Upload image"
+    }}
   </button>
   <input
     hidden
@@ -13,14 +17,14 @@
     type="file"
     (change)="onImageUpload(avatarInput.files)"
   />
-  <div class="image-preview" *ngIf="imagePreviewSrc">
+  <div class="image-preview" *ngFor="let image of imageUploaded">
     <img
-      [ngSrc]="imagePreviewSrc"
+      [ngSrc]="mediaService.mediaApiBaseURL + '/' + image.id"
       alt="Product image"
       width="100"
       height="100"
     />
-    <button mat-button color="warn" (click)="openConfirmDialog(imageName)">
+    <button mat-button color="warn" (click)="openConfirmDialog(image)">
       Delete
     </button>
   </div>

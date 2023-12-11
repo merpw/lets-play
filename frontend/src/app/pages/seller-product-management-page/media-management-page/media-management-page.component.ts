@@ -25,6 +25,7 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
   public isLoading = false;
 
   private destroy$ = new Subject<void>();
+  private imagesUploaded: any[] = [];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -38,7 +39,7 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
       description: [data.product.description, Validators.required],
       price: [data.product.price, Validators.required],
       quantity: [data.product.quantity, Validators.required],
-      image: [data.product.image],
+      images: [],
     });
   }
 
@@ -46,6 +47,7 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     this.form.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => (this.invalidForm = false));
+    this.imagesUploaded = this.data.product.images;
   }
 
   ngOnDestroy(): void {
@@ -58,12 +60,13 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
   }
 
   onImageUpload(imageId: string) {
-    console.log(imageId);
-    this.form.controls['image'].setValue(imageId);
+    this.imagesUploaded.push(imageId);
   }
 
-  onImageDelete() {
-    this.form.controls['image'].setValue('');
+  onImageDelete(imageId: string) {
+    this.imagesUploaded = this.imagesUploaded.filter(
+      (image) => image !== imageId
+    );
   }
 
   openConfirmDialog(product: any): void {
@@ -112,6 +115,7 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     }
     // post request to update product here
     console.log('updating product with the following values');
+    this.form.controls['images'].setValue(this.imagesUploaded);
     console.log(this.form.value);
     this.productService
       .updateProduct(this.data.product.id, this.form.value)
