@@ -19,6 +19,8 @@ public class TestProductFactory {
         String description;
         Double price;
 
+        Number quantity;
+
         List<String> images;
 
         public ValidatableResponse requestAdd(String token) {
@@ -37,7 +39,8 @@ public class TestProductFactory {
                     .then().statusCode(HTTP_OK)
                     .body("name", is(name),
                             "description", is(description),
-                            "price", is(price.floatValue())
+                            "price", is(price.floatValue()),
+                            "quantity", is(quantity)
                     );
 
             if (images != null) {
@@ -49,6 +52,7 @@ public class TestProductFactory {
             this.name = "Test product" + System.currentTimeMillis();
             this.description = "Test description" + System.currentTimeMillis();
             this.price = Math.random() * 100;
+            this.quantity = (int) (Math.random() * 100);
         }
     }
 }

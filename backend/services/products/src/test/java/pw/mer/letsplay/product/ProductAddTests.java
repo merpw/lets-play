@@ -95,6 +95,19 @@ class ProductAddTests extends AbstractControllerTests {
     }
 
     @Test
+    void addProductInvalidQuantity() {
+        String sellerToken = getSellerToken();
+
+        var testProduct = new TestProductFactory.TestProduct();
+
+        testProduct.quantity = null;
+        checkInvalidProduct(testProduct, sellerToken, "quantity");
+
+        testProduct.quantity = -1;
+        checkInvalidProduct(testProduct, sellerToken, "quantity");
+    }
+
+    @Test
     void NotFound() {
         String sellerToken = getSellerToken();
 

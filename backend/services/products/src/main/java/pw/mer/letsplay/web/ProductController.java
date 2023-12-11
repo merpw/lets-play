@@ -64,13 +64,18 @@ public class ProductController {
 
         @JsonProperty("images")
         private List<String> images = List.of();
+
+        @JsonProperty("quantity")
+        @NotNull(message = "Quantity is mandatory")
+        @PositiveOrZero(message = "Quantity can not be negative")
+        private Integer quantity;
     }
 
 
     @PostMapping("/add")
     @SecurityRequirement(name = "Authentication", scopes = {"products:admin", "products:write"})
     public String add(@Valid @RequestBody AddProductRequest request, Authentication authentication) {
-        var product = new Product(request.name, request.description, request.price, authentication.getName(), request.images);
+        var product = new Product(request.name, request.description, request.price, authentication.getName(), request.images, request.quantity);
         productRepo.save(product);
         return product.getId();
     }
@@ -102,6 +107,11 @@ public class ProductController {
 
         @JsonProperty("images")
         private Optional<List<String>> images = Optional.empty();
+
+        @JsonProperty("quantity")
+        private Optional
+                <@PositiveOrZero(message = "Quantity can not be negative")
+                        Integer> quantity = Optional.empty();
     }
 
     @PutMapping("/{id}")
@@ -113,6 +123,7 @@ public class ProductController {
         request.description.ifPresent(product::setDescription);
         request.price.ifPresent(product::setPrice);
         request.images.ifPresent(product::setImages);
+        request.quantity.ifPresent(product::setQuantity);
 
         productRepo.save(product);
 

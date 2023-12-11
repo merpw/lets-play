@@ -59,6 +59,14 @@ class ProductUpdateTests extends AbstractControllerTests {
         testProduct.price = 100.0;
 
         testProduct.requestCheck(sellerToken, productId);
+
+        updateProductRequestValid(sellerToken, productId,
+                objectMapper.createObjectNode().put("quantity", 100)
+        );
+
+        testProduct.quantity = 100;
+
+        testProduct.requestCheck(sellerToken, productId);
     }
 
     static void updateProductRequestInvalid(String adminToken, String productId, Object body, String errorShouldContain) {
@@ -127,7 +135,20 @@ class ProductUpdateTests extends AbstractControllerTests {
         updateProductRequestValid(sellerToken, productId, node);
 
         testProduct.requestCheck(sellerToken, productId);
+    }
 
+    @Test
+    void updateProductInvalidQuantity() {
+        String sellerToken = getSellerToken();
 
+        var testProduct = new TestProductFactory.TestProduct();
+
+        String productId = testProduct.requestAdd(sellerToken).statusCode(HTTP_OK).extract().asString();
+
+        var objectMapper = new ObjectMapper();
+
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("quantity", -1), "quantity");
+
+        updateProductRequestInvalid(sellerToken, productId, objectMapper.createObjectNode().put("quantity", "wonderful..."), "");
     }
 }

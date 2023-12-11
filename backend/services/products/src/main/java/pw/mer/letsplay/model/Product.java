@@ -36,11 +36,16 @@ public class Product {
     @Setter
     private List<String> images;
 
-    public Product(String name, String description, Double price, String userId, List<String> images) {
+    @JsonProperty("quantity")
+    @Setter
+    private Integer quantity;
+
+    public Product(String name, String description, Double price, String userId, List<String> images, Integer quantity) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.userId = userId;
         this.images = images;
+        this.quantity = quantity;
     }
 }
