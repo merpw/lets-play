@@ -34,8 +34,9 @@
       >
     </mat-form-field>
     <app-image-upload
+      [images]="[imageUploaded]"
       (upload)="onImageUpload($event)"
-      (delete)="onImageDelete()"
+      (delete)="onImageDelete($event)"
     ></app-image-upload>
     <hr />
     <button mat-raised-button (click)="submit()">Submit</button>

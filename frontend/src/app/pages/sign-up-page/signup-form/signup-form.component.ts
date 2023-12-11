@@ -16,6 +16,7 @@ export class SignupFormComponent {
   @Output() hasError = new EventEmitter<string>();
 
   private signUpURL = '/api/auth/register';
+  public imageUploaded = '';
 
   public form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -30,14 +31,12 @@ export class SignupFormComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   onImageUpload(imageId: string) {
-    console.log(imageId);
-    this.form.controls['image'].setValue(imageId);
+    this.imageUploaded = imageId;
   }
 
-  onImageDelete() {
-    this.form.controls['image'].setValue('');
+  onImageDelete(imageId: string) {
+    this.imageUploaded = '';
   }
-
   submit() {
     console.log(this.form.value);
     // just for testing the nginx server
@@ -51,7 +50,7 @@ export class SignupFormComponent {
       this.isLoading.emit(false);
       return;
     }
-
+    this.form.controls['image'].setValue(this.imageUploaded);
     this.http
       .post(this.signUpURL, this.form.value, {
         observe: 'response',
