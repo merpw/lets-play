@@ -31,7 +31,7 @@ public class WebSecurityConfig {
 
                         .requestMatchers("/users/**").hasAuthority("SCOPE_users:admin")
 
-                        .requestMatchers("/swagger-ui.html").authenticated()
+                        .requestMatchers("/swagger-ui.html").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/v3/api-docs/**").permitAll()
 

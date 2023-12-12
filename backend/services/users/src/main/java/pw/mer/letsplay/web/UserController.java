@@ -54,7 +54,7 @@ public class UserController {
             return user;
         }
 
-        if (user.getRole() != ERole.SELLER) {
+        if (user.getRole() == ERole.USER) {
             throw new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE);
         }
         return user;
