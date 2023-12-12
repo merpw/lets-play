@@ -62,23 +62,23 @@ export class ProductListingPageComponent implements OnInit {
       .pipe(map((resp) => resp.body))
       .subscribe({
         next: async (products: Array<any>) => {
+          if (products.length === 0) {
+            this.result = {
+              type: 'info',
+              message: 'The product list is currently empty.',
+            };
+            return;
+          }
           const owners = await firstValueFrom(
             this.userService.getUsers(
               products.map((product: any) => product.userId)
             )
           );
           products.map((product, i) => {
-            product['owner'] = owners[i].name;
+            product['owner'] = owners[i]?.name || 'NotFound';
             return product;
           });
-          console.log(products);
           this.dataSource = products.slice().reverse();
-          if (products.length === 0) {
-            this.result = {
-              type: 'info',
-              message: 'The product list is currently empty.',
-            };
-          }
         },
         error: (error) => {
           const errorMessage =

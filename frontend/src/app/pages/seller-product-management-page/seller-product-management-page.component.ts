@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { map, of } from 'rxjs';
 import { ProductDetailsComponent } from 'src/app/components/product-details/product-details.component';
 import { Product } from 'src/app/shared/models/product.model';
 import { Result } from 'src/app/shared/models/result.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
+import { AddProductModalComponent } from '../product-listing-page/add-product-modal/add-product-modal.component';
 import { MediaManagementPageComponent } from './media-management-page/media-management-page.component';
 
 @Component({
@@ -27,11 +30,12 @@ export class SellerProductManagementPageComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public screenSizeService: ScreenSizeService,
+    public authService: AuthService,
     private productService: ProductService
   ) {}
 
   ngOnInit(): void {
-    this.fetchProductsFilteredByUserId(localStorage.getItem('userId') || '');
+    this.fetchProductsSellerManagement(localStorage.getItem('userId') || '');
   }
 
   openProductDetailsDialog(product: Product) {
@@ -46,27 +50,39 @@ export class SellerProductManagementPageComponent implements OnInit {
     });
   }
 
-  fetchProductsFilteredByUserId(userId: string, clearCache?: boolean) {
-    this.productService
-      .getProductsFilteredByUserId(userId, clearCache)
-      .subscribe({
-        next: (products) => {
-          this.dataSource = products.slice().reverse();
-          if (products.length === 0) {
-            this.result = {
-              type: 'info',
-              message: 'The product list is currently empty.',
-            };
-          }
-        },
-        error: (err) => {
-          console.log(err);
+  fetchProductsSellerManagement(userId: string, clearCache?: boolean) {
+    let fetchProducts$;
+    if (this.authService.profile?.role === 'admin') {
+      fetchProducts$ = this.productService
+        .getProducts(clearCache)
+        .pipe(map((resp) => resp.body));
+    } else if (this.authService.profile?.role === 'seller') {
+      fetchProducts$ = this.productService.getProductsFilteredByUserId(
+        userId,
+        clearCache
+      );
+    } else {
+      fetchProducts$ = of([]);
+    }
+    fetchProducts$.subscribe({
+      next: (products) => {
+        if (products.length === 0) {
           this.result = {
-            type: 'error',
-            message: 'Error in fetching your products',
+            type: 'info',
+            message: 'The product list is currently empty.',
           };
-        },
-      });
+          return;
+        }
+        this.dataSource = products.slice().reverse();
+      },
+      error: (err) => {
+        console.log(err);
+        this.result = {
+          type: 'error',
+          message: 'Error in fetching your products',
+        };
+      },
+    });
   }
 
   openManageDialog(product: any): void {
@@ -79,7 +95,23 @@ export class SellerProductManagementPageComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result);
       this.result = result;
-      this.fetchProductsFilteredByUserId(
+      this.fetchProductsSellerManagement(
+        localStorage.getItem('userId') || '',
+        true
+      );
+    });
+  }
+
+  openAddProductDialog(): void {
+    this.result = null;
+
+    const dialogRef = this.dialog.open(AddProductModalComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      this.result = result;
+      this.fetchProductsSellerManagement(
         localStorage.getItem('userId') || '',
         true
       );

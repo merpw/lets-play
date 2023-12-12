@@ -21,6 +21,7 @@ export class ImageUploadComponent implements OnInit {
   @Input() images: any[] = [];
   @Output() upload = new EventEmitter<string>();
   @Output() delete = new EventEmitter<string>();
+  @Output() newImagesOrder = new EventEmitter<string[]>();
   @ViewChild('avatarInput') avatarInput!: ElementRef;
 
   public uploadImageError = '';
@@ -58,6 +59,24 @@ export class ImageUploadComponent implements OnInit {
       console.log(result);
       if (result) {
         this.onDelete(image);
+      }
+    });
+  }
+
+  setMainImage(image: any) {
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: { message: "Make this your product's main image?" },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The confirm dialog was closed');
+      console.log(result);
+      if (result) {
+        this.imageUploaded = [
+          image,
+          ...this.imageUploaded.filter((val) => val.id !== image.id),
+        ];
+        this.newImagesOrder.emit(this.imageUploaded.map((image) => image.id));
       }
     });
   }

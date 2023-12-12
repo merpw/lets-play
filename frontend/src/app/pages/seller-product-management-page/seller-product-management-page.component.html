@@ -1,4 +1,13 @@
-<h2>Seller Product Management</h2>
+<div class="seller-product-management-page-header">
+  <h2>Seller Product Management</h2>
+  <button
+    *ngIf="authService.hasSellerRight()"
+    mat-raised-button
+    (click)="openAddProductDialog()"
+  >
+    Add Product
+  </button>
+</div>
 <app-message-box
   *ngIf="result"
   [message]="result.message"
@@ -76,5 +85,4 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let product; columns: displayedColumns"></tr>
-  <!-- (click)="openProductDetailsDialog(product)" -->
 </table>

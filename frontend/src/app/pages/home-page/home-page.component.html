@@ -5,7 +5,11 @@
     <mat-card-header>
       <div mat-card-avatar class="user-avatar">
         <img
-          ngSrc="assets/avatar/placeholder.png"
+          ngSrc="{{
+            profile.image
+              ? mediaService.mediaApiBaseURL + '/' + profile.image
+              : 'assets/avatar/placeholder.png'
+          }}"
           alt="Avatar"
           width="40"
           height="40"
@@ -31,7 +35,7 @@
         mat-raised-button
         routerLink="/seller-product-management"
       >
-        Manage your products
+        Manage products
       </button>
     </mat-card-actions>
   </mat-card>

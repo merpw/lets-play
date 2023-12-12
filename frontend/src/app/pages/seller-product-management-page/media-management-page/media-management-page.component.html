@@ -1,6 +1,7 @@
 <h1 mat-dialog-title>Media Management</h1>
 <div mat-dialog-content>
-  <p>You are managing: {{ data.product.name }}</p>
+  <h2>You are managing: {{ data.product.name }}</h2>
+  <h3>Owned by {{ ownerName }}</h3>
   <form [formGroup]="form">
     <div class="media-management-form-container">
       <mat-form-field>
@@ -23,6 +24,7 @@
         [images]="data.product.images"
         (upload)="onImageUpload($event)"
         (delete)="onImageDelete($event)"
+        (newImagesOrder)="onRefreshImagesOrder($event)"
       ></app-image-upload>
     </div>
   </form>

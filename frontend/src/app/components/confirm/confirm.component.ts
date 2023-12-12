@@ -17,8 +17,8 @@ export class ConfirmComponent {
     this.dialogRef.close(false);
   }
 
-  onDelete() {
-    console.log('deleting');
+  onConfirm() {
+    console.log('Confirmed');
     this.dialogRef.close(true);
   }
 }

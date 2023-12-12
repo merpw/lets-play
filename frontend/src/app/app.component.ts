@@ -11,9 +11,12 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'buy-01-frontend';
 
+  public isInitialized = false;
+
   constructor(public authService: AuthService) {}
   ngOnInit(): void {
     this.authService.getAuthenticationStatus().subscribe(() => {
+      this.isInitialized = true;
       console.log('auth status: ' + this.authService.isAuthenticated);
     });
   }

@@ -4,3 +4,9 @@ tr[mat-row] {
     background-color: rgb(60, 60, 60);
     }
 }
+
+.seller-product-management-page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }

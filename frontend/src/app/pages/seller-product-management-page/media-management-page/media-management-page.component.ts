@@ -10,9 +10,11 @@ import {
   MatDialogRef,
   MatDialog,
 } from '@angular/material/dialog';
-import { finalize, Subject, takeUntil } from 'rxjs';
+import { finalize, firstValueFrom, Subject, takeUntil } from 'rxjs';
 import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-media-management-page',
@@ -23,6 +25,7 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
   public form!: FormGroup;
   public invalidForm = false;
   public isLoading = false;
+  public ownerName = '';
 
   private destroy$ = new Subject<void>();
   private imagesUploaded: any[] = [];
@@ -32,7 +35,9 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<MediaManagementPageComponent>,
     private productService: ProductService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private userService: UserService
   ) {
     this.form = this.formBuilder.group({
       name: [data.product.name, Validators.required],
@@ -43,11 +48,18 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.form.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => (this.invalidForm = false));
     this.imagesUploaded = this.data.product.images;
+    if (this.authService.profile?.role === 'admin') {
+      this.ownerName = await firstValueFrom(
+        this.userService.getUserNameById(this.data.product.userId)
+      );
+    } else {
+      this.ownerName = 'You';
+    }
   }
 
   ngOnDestroy(): void {
@@ -67,6 +79,10 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     this.imagesUploaded = this.imagesUploaded.filter(
       (image) => image !== imageId
     );
+  }
+
+  onRefreshImagesOrder(imageIds: string[]) {
+    this.imagesUploaded = imageIds;
   }
 
   openConfirmDialog(product: any): void {

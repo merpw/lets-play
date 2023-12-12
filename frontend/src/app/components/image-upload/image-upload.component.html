@@ -17,12 +17,14 @@
     type="file"
     (change)="onImageUpload(avatarInput.files)"
   />
-  <div class="image-preview" *ngFor="let image of imageUploaded">
+  <div class="image-preview-container" *ngFor="let image of imageUploaded">
     <img
       [ngSrc]="mediaService.mediaApiBaseURL + '/' + image.id"
       alt="Product image"
       width="100"
       height="100"
+      (click)="setMainImage(image)"
+      class="image-preview"
     />
     <button mat-button color="warn" (click)="openConfirmDialog(image)">
       Delete

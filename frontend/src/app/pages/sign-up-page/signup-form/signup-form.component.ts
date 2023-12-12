@@ -50,7 +50,7 @@ export class SignupFormComponent {
       this.isLoading.emit(false);
       return;
     }
-    this.form.controls['image'].setValue(this.imageUploaded);
+    this.form.controls['image'].setValue(this.imageUploaded || undefined);
     this.http
       .post(this.signUpURL, this.form.value, {
         observe: 'response',

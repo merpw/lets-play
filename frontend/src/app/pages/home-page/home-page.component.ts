@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { catchError, mergeMap, of, switchMap, tap } from 'rxjs';
 import { Profile } from 'src/app/shared/models/profile.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { MediaService } from 'src/app/shared/services/media.service';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +14,10 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class HomePageComponent implements OnInit {
   public profile!: Profile;
 
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    public mediaService: MediaService
+  ) {}
 
   ngOnInit(): void {
     this.authService.getAuthenticationStatus().subscribe((profile) => {
