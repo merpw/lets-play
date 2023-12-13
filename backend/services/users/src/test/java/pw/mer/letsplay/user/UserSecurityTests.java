@@ -9,6 +9,7 @@ import static io.restassured.RestAssured.when;
 import static java.net.HttpURLConnection.*;
 import static org.hamcrest.Matchers.is;
 import static pw.mer.shared.RequestHelpers.authRequest;
+import static pw.mer.shared.RequestHelpers.jsonBodyRequest;
 
 class UserSecurityTests extends AbstractControllerTests {
     @Test
@@ -43,23 +44,21 @@ class UserSecurityTests extends AbstractControllerTests {
 
         String token = getAccessToken(testUser.email, testUser.password);
 
-        var req = given().auth().oauth2(token).when();
-
-        req.post("/users/add")
+        authRequest(token).post("/users/add")
                 .then()
                 .statusCode(HTTP_FORBIDDEN);
 
         var basicUser = new AuthFactory.TestUser();
         var basicUserId = basicUser.register().statusCode(HTTP_OK).extract().asString();
 
-        req.put("/users/" + basicUserId)
+        jsonBodyRequest(token, "{\"name\": \"new name\"}")
+                .put("/users/" + basicUserId)
                 .then()
                 .statusCode(HTTP_FORBIDDEN);
 
-        req.delete("/users/" + basicUserId)
+        authRequest(token).delete("/users/" + basicUserId)
                 .then()
                 .statusCode(HTTP_FORBIDDEN);
-
     }
 
     @Test

@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.PUT;
 
 /**
  * @see <a href=https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html>JWT and Spring Security</a>
@@ -28,6 +29,8 @@ public class WebSecurityConfig {
                         .requestMatchers(GET, "/users").hasAuthority("SCOPE_users:admin")
 
                         .requestMatchers(GET, "/users/**").permitAll()
+
+                        .requestMatchers(PUT, "/users/**").authenticated()
 
                         .requestMatchers("/users/**").hasAuthority("SCOPE_users:admin")
 

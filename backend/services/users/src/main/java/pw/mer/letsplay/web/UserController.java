@@ -20,8 +20,7 @@ import pw.mer.letsplay.repository.UserRepo;
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/users")
@@ -47,10 +46,7 @@ public class UserController {
         var user = userRepo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
 
-        if (authentication != null && authentication
-                .getAuthorities()
-                .contains(new SimpleGrantedAuthority("SCOPE_users:admin"))
-        ) {
+        if (isAdmin(authentication)) {
             return user;
         }
 
@@ -102,9 +98,13 @@ public class UserController {
 
     @SecurityRequirement(name = "Authentication", scopes = {"users:admin"})
     @PutMapping("/{id}")
-    public void updateById(@PathVariable String id, @Valid @RequestBody UpdateUserRequest request) {
+    public void updateById(@PathVariable String id, @Valid @RequestBody UpdateUserRequest request, Authentication authentication) {
         var user = userRepo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(NOT_FOUND, NOT_FOUND_MESSAGE));
+
+        if (!isAdmin(authentication) && !authentication.getName().equals(user.getId())) {
+            throw new ResponseStatusException(FORBIDDEN);
+        }
 
         request.email.ifPresent(email -> {
             if (!email.equals(user.getEmail()) && !userRepo.findByEmail(email).isEmpty()) {
@@ -179,5 +179,11 @@ public class UserController {
         userRepo.save(user);
 
         return user.getId();
+    }
+
+    boolean isAdmin(Authentication authentication) {
+        return authentication != null && authentication
+                .getAuthorities()
+                .contains(new SimpleGrantedAuthority("SCOPE_users:admin"));
     }
 }
