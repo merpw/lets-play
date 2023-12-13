@@ -5,7 +5,7 @@ import pw.mer.letsplay.AbstractControllerTests;
 import pw.mer.shared.SharedAuthFactory;
 
 import static io.restassured.RestAssured.given;
-import static org.apache.http.HttpStatus.SC_FORBIDDEN;
+import static org.apache.http.HttpStatus.SC_CREATED;
 import static pw.mer.shared.RequestHelpers.authRequest;
 
 class MediaSecurityTests extends AbstractControllerTests {
@@ -22,18 +22,23 @@ class MediaSecurityTests extends AbstractControllerTests {
     }
 
     @Test
-    void unauthorized() {
+    void unauthorizedCanUpload() {
         var mediaData = TestMediaFactory.generateRandomData(1024);
 
-        given()
+        var testMedia = new TestMediaFactory.TestMedia(mediaData, "image/png");
+
+        var mediaId = given()
                 .multiPart("file", "file",
                         mediaData, "image/png")
                 .post("/media/upload")
-                .then().statusCode(SC_FORBIDDEN);
+                .then().statusCode(SC_CREATED)
+                .extract().body().asString();
+
+        testMedia.requestCheck(mediaId);
     }
 
     @Test
-    void nonAdmin() {
+    void nonAdminCanUpload() {
         var mediaData = TestMediaFactory.generateRandomData(1024);
 
         var token = getAccessToken(new SharedAuthFactory.TestUser());
@@ -42,6 +47,6 @@ class MediaSecurityTests extends AbstractControllerTests {
                 .multiPart("file", "file",
                         mediaData, "image/png")
                 .post("/media/upload")
-                .then().statusCode(SC_FORBIDDEN);
+                .then().statusCode(SC_CREATED);
     }
 }

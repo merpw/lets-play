@@ -3,6 +3,7 @@ package pw.mer.letsplay.user;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import pw.mer.letsplay.AbstractControllerTests;
+import pw.mer.letsplay.AuthFactory;
 
 import java.util.UUID;
 
@@ -197,5 +198,17 @@ class UserUpdateTests extends AbstractControllerTests {
         testUser.image = newImage;
 
         testUser.requestCheck(adminToken, testUserId);
+    }
+
+    @Test
+    void basicUserCanUpdateSelf() {
+        var testUser = new AuthFactory.TestUser();
+
+        String testUserId = testUser.register().statusCode(HTTP_OK).extract().asString();
+
+        String token = getAccessToken(testUser.email, testUser.password);
+
+        jsonBodyRequest(token, "{\"name\": \"new name\"}")
+                .put("/users/" + testUserId).then().statusCode(HTTP_OK);
     }
 }
