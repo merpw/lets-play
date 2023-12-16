@@ -1,8 +1,10 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
+import { Profile } from 'src/app/shared/models/profile.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { FormValidationService } from 'src/app/shared/services/form-validation.service';
 import { MediaService } from 'src/app/shared/services/media.service';
 
@@ -11,24 +13,52 @@ import { MediaService } from 'src/app/shared/services/media.service';
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.scss'],
 })
-export class SignupFormComponent {
+export class SignupFormComponent implements OnInit {
   @Output() isLoading = new EventEmitter<boolean>();
   @Output() hasError = new EventEmitter<string>();
+  @Output() userdetails = new EventEmitter<any>();
 
-  private signUpURL = '/api/auth/register';
+  @Input() profile?: Profile | null;
+
   public imageUploaded = '';
 
   public form: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.min(3),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.min(8),
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.maxLength(320),
+      Validators.minLength(3),
+    ]),
     role: new FormControl('', Validators.required),
     image: new FormControl(''),
   });
 
-  public roles = ['USER', 'SELLER'];
+  public roles = ['user', 'seller'];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    public authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    console.log(this.profile);
+    if (this.profile) {
+      this.form.patchValue(this.profile);
+      this.imageUploaded = this.profile.image;
+      this.form.removeControl('password');
+    }
+  }
 
   onImageUpload(imageId: string) {
     this.imageUploaded = imageId;
@@ -51,27 +81,6 @@ export class SignupFormComponent {
       return;
     }
     this.form.controls['image'].setValue(this.imageUploaded || undefined);
-    this.http
-      .post(this.signUpURL, this.form.value, {
-        observe: 'response',
-        responseType: 'text',
-      })
-      .pipe(finalize(() => this.isLoading.emit(false)))
-      .subscribe({
-        next: (resp: HttpResponse<any>) => {
-          console.log(resp.body);
-          localStorage.setItem('userId', resp.body);
-          this.router.navigate(['/login'], {
-            state: { email: this.form.controls['email'].value },
-          });
-        },
-        error: (error) => {
-          const errorMessage =
-            JSON.parse(error.error)?.detail ??
-            'Sign up went wrong. Please try again.';
-          console.log(errorMessage);
-          this.hasError.emit(errorMessage);
-        },
-      });
+    this.userdetails.emit(this.form.value);
   }
 }

@@ -1,3 +1,4 @@
+<h2>Home</h2>
 <ng-container
   *ngIf="profile && authService.isAuthenticated; else notAuthenticatedMessage"
 >
@@ -5,14 +6,12 @@
     <mat-card-header>
       <div mat-card-avatar class="user-avatar">
         <img
-          ngSrc="{{
+          src="{{
             profile.image
               ? mediaService.mediaApiBaseURL + '/' + profile.image
               : 'assets/avatar/placeholder.png'
           }}"
           alt="Avatar"
-          width="40"
-          height="40"
         />
       </div>
       <mat-card-title class="welcome-header"
@@ -22,7 +21,7 @@
         >You are currently logged in as a
         {{ profile.role | uppercase }}</mat-card-subtitle
       >
-      <mat-card-subtitle>Your user ID is {{ profile.id }}</mat-card-subtitle>
+      <!-- <mat-card-subtitle>Your user ID is {{ profile.id }}</mat-card-subtitle> -->
     </mat-card-header>
 
     <mat-card-actions align="end">

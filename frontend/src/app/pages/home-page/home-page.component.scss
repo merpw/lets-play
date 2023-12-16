@@ -5,6 +5,10 @@
 .user-avatar {
   img {
     border-radius: 25%;
+    height: 40px;
+    overflow: auto;
+    object-fit: contain;
+    max-width: 40px;
   }
 }
 

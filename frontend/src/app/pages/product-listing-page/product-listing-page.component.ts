@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
 import { ProductDetailsComponent } from 'src/app/components/product-details/product-details.component';
 import { Product } from 'src/app/shared/models/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-listing-page',
@@ -31,6 +32,16 @@ export class ProductListingPageComponent implements OnInit {
   public dataSource: any;
   public isLoading = false;
 
+  // private mockProducts = {
+  //   images: [],
+  //   name: 'mock',
+  //   description: 'mock descrip',
+  //   price: 12,
+  //   quantity: 5,
+  //   id: 999999,
+  //   owner: 'mock owner',
+  // };
+
   constructor(
     public dialog: MatDialog,
     public authService: AuthService,
@@ -44,17 +55,18 @@ export class ProductListingPageComponent implements OnInit {
     this.fetchProducts(false);
   }
 
-  openProductDetailsDialog(product: Product) {
-    console.log(product);
-    const dialogRef = this.dialog.open(ProductDetailsComponent, {
-      data: { product },
-    });
+  // openProductDetails(product: Product) {
+  //   console.log(product);
+  //   this.
+  // const dialogRef = this.dialog.open(ProductDetailsComponent, {
+  //   data: { product },
+  // });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
-    });
-  }
+  // dialogRef.afterClosed().subscribe((result) => {
+  //   console.log('The dialog was closed');
+  //   console.log(result);
+  // });
+  // }
 
   fetchProducts(clearCache?: boolean) {
     this.productService
@@ -62,6 +74,10 @@ export class ProductListingPageComponent implements OnInit {
       .pipe(map((resp) => resp.body))
       .subscribe({
         next: async (products: Array<any>) => {
+          // mock
+          // this.dataSource = new Array(5).fill(this.mockProducts);
+          // return;
+          // mock
           if (products.length === 0) {
             this.result = {
               type: 'info',

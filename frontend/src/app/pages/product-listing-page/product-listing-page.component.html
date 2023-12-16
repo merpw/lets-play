@@ -1,18 +1,14 @@
 <div class="product-listing-page-header">
   <h2>Product listing</h2>
-  <button
+  <!-- <button
     *ngIf="authService.hasSellerRight()"
     mat-raised-button
     (click)="openAddProductDialog()"
   >
     Add Product
-  </button>
+  </button> -->
 </div>
-<app-message-box
-  *ngIf="result"
-  [message]="result.message"
-  [type]="result.type"
-></app-message-box>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -90,6 +86,13 @@
   <tr
     mat-row
     *matRowDef="let product; columns: displayedColumns"
-    (click)="openProductDetailsDialog(product)"
+    [routerLink]="['/product', product.id]"
   ></tr>
+  <!-- (click)="openProductDetails(product)" -->
 </table>
+<hr />
+<app-message-box
+  *ngIf="result"
+  [message]="result.message"
+  [type]="result.type"
+></app-message-box>

@@ -6,6 +6,8 @@ import { ProductListingPageComponent } from './pages/product-listing-page/produc
 import { SellerProductManagementPageComponent } from './pages/seller-product-management-page/seller-product-management-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthGuardService } from './shared/services/auth-guard.service';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,11 @@ const routes: Routes = [
     component: SignUpPageComponent,
   },
   {
+    path: 'edit-profile',
+    title: 'Edit profile',
+    component: EditProfilePageComponent,
+  },
+  {
     path: 'product-listing',
     title: 'Product Listing',
     component: ProductListingPageComponent,
@@ -34,6 +41,11 @@ const routes: Routes = [
     title: 'Seller Product Management',
     component: SellerProductManagementPageComponent,
     canActivate: [AuthGuardService],
+  },
+  {
+    path: 'product/:id',
+    title: 'Product detail',
+    component: ProductDetailsComponent,
   },
   {
     path: '**',

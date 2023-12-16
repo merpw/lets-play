@@ -19,10 +19,10 @@ import { ConfirmComponent } from '../confirm/confirm.component';
 })
 export class ImageUploadComponent implements OnInit {
   @Input() images: any[] = [];
+  @Input() onlyOne = false;
   @Output() upload = new EventEmitter<string>();
   @Output() delete = new EventEmitter<string>();
   @Output() newImagesOrder = new EventEmitter<string[]>();
-  @ViewChild('avatarInput') avatarInput!: ElementRef;
 
   public uploadImageError = '';
   public imageUploaded: any[] = [];
@@ -101,6 +101,9 @@ export class ImageUploadComponent implements OnInit {
       this.mediaService.uploadMedia(<File>files.item(i)).subscribe({
         next: (resp) => {
           const imageId = resp.body;
+          if (this.onlyOne) {
+            this.imageUploaded = [];
+          }
           this.imageUploaded.push({
             id: imageId,
             name: files.item(i)?.name || 'unnamed image',

@@ -1,9 +1,9 @@
 <div class="image-upload-container">
   <button
-    mat-flat-button
+    mat-raised-button
     type="button"
-    color="primary"
-    (click)="avatarInput.click()"
+    color="cresent"
+    (click)="imageInput.click()"
   >
     {{
       imageUploaded.length
@@ -13,16 +13,14 @@
   </button>
   <input
     hidden
-    #avatarInput
+    #imageInput
     type="file"
-    (change)="onImageUpload(avatarInput.files)"
+    (change)="onImageUpload(imageInput.files)"
   />
   <div class="image-preview-container" *ngFor="let image of imageUploaded">
     <img
-      [ngSrc]="mediaService.mediaApiBaseURL + '/' + image.id"
+      [src]="mediaService.mediaApiBaseURL + '/' + image.id"
       alt="Product image"
-      width="100"
-      height="100"
       (click)="setMainImage(image)"
       class="image-preview"
     />

@@ -4,25 +4,25 @@
       <mat-label>name</mat-label>
       <input matInput formControlName="name" />
       <mat-error *ngIf="form.controls['name'].invalid"
-        >Name is required.</mat-error
+        >Name must be between 3 to 50 characters.</mat-error
       >
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="!profile">
       <mat-label>password</mat-label>
       <input matInput formControlName="password" type="password" />
       <mat-error *ngIf="form.controls['password'].invalid"
-        >Password is required.</mat-error
+        >Password must be between 8 to 50 characters.</mat-error
       >
     </mat-form-field>
     <mat-form-field>
       <mat-label>email</mat-label>
       <input matInput formControlName="email" />
       <mat-error *ngIf="form.controls['email'].invalid"
-        >Email is required.</mat-error
+        >Invalid email.</mat-error
       >
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field *ngIf="authService.profile?.role !== 'admin'">
       <mat-label>role</mat-label>
       <mat-select formControlName="role">
         <mat-option *ngFor="let role of roles" [value]="role">{{
@@ -35,10 +35,11 @@
     </mat-form-field>
     <app-image-upload
       [images]="imageUploaded ? [imageUploaded] : []"
+      [onlyOne]="true"
       (upload)="onImageUpload($event)"
       (delete)="onImageDelete($event)"
     ></app-image-upload>
-    <hr />
-    <button mat-raised-button (click)="submit()">Submit</button>
+    <br />
+    <button mat-raised-button (click)="submit()" type="submit">Submit</button>
   </div>
 </form>

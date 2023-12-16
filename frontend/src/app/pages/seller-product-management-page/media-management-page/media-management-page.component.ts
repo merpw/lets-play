@@ -40,10 +40,30 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     private userService: UserService
   ) {
     this.form = this.formBuilder.group({
-      name: [data.product.name, Validators.required],
-      description: [data.product.description, Validators.required],
-      price: [data.product.price, Validators.required],
-      quantity: [data.product.quantity, Validators.required],
+      name: [
+        data.product.name,
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50),
+        ],
+      ],
+      description: [
+        data.product.description,
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(1000),
+        ],
+      ],
+      price: [
+        data.product.price,
+        [Validators.required, Validators.pattern(/^\d+$/)],
+      ],
+      quantity: [
+        data.product.quantity,
+        [Validators.required, Validators.pattern(/^\d+$/)],
+      ],
       images: [],
     });
   }

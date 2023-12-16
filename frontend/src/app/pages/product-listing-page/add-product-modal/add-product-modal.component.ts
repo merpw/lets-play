@@ -29,12 +29,26 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required],
-      userId: [localStorage.getItem('userId'), Validators.required],
-      quantity: ['', Validators.required],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50),
+        ],
+      ],
+      description: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(1000),
+        ],
+      ],
+      price: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      quantity: ['', [Validators.required, , Validators.pattern(/^\d+$/)]],
       images: [[]],
+      userId: [localStorage.getItem('userId'), Validators.required],
     });
   }
 

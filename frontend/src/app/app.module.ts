@@ -33,7 +33,7 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-
+import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +52,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ConfirmComponent,
     ImageUploadComponent,
     ProductDetailsComponent,
+    EditProfilePageComponent,
   ],
   imports: [
     BrowserModule,

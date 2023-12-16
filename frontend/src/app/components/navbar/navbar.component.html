@@ -1,16 +1,39 @@
 <div class="navbar-container">
   <div class="navbar">
-    <a routerLink="/home">Home</a>
-    <a routerLink="/product-listing">Product Listing</a>
-    <ng-container *ngIf="authService.isAuthenticated; else unauthenticated">
-      <ng-container *ngIf="authService.hasSellerRight()">
-        <a routerLink="/seller-product-management">Seller Product Management</a>
+    <div class="buttons-container">
+      <a routerLink="/home" matTooltip="Home">
+        <img src="assets/icons/home.svg" alt="" />
+      </a>
+      <a routerLink="/product-listing" matTooltip="Product listing">
+        <img src="assets/icons/storefront.svg" alt="" />
+      </a>
+      <ng-container *ngIf="authService.isAuthenticated"> </ng-container>
+    </div>
+
+    <div class="buttons-container action-buttons">
+      <ng-container *ngIf="authService.isAuthenticated; else unauthenticated">
+        <a
+          routerLink="/seller-product-management"
+          matTooltip="Seller product management"
+          *ngIf="authService.hasSellerRight()"
+        >
+          <img src="assets/icons/add-business.svg" alt="" />
+        </a>
+        <a routerLink="/edit-profile" matTooltip="Edit profile">
+          <img src="assets/icons/manage-account.svg" alt="" />
+        </a>
+        <a routerLink="/home" matTooltip="Logout" (click)="logout()">
+          <img src="assets/icons/logout.svg" alt="" />
+        </a>
       </ng-container>
-      <a routerLink="/home" (click)="logout()">Logout</a>
-    </ng-container>
-    <ng-template #unauthenticated>
-      <a routerLink="/login">Login</a>
-      <a routerLink="/sign-up">Sign up</a>
-    </ng-template>
+      <ng-template #unauthenticated>
+        <a routerLink="/login" matTooltip="Login">
+          <img src="assets/icons/login.svg" alt="" />
+        </a>
+        <a routerLink="/sign-up" matTooltip="Sign up">
+          <img src="assets/icons/register.svg" alt="" />
+        </a>
+      </ng-template>
+    </div>
   </div>
 </div>

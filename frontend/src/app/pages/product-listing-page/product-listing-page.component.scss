@@ -14,3 +14,10 @@ tr[mat-row] {
     background-color: rgb(57, 57, 57);
   }
 }
+
+img {
+  height: 40px;
+  overflow: auto;
+  object-fit: contain;
+  max-width: 40px;
+}
