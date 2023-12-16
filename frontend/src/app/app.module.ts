@@ -13,13 +13,27 @@ import { ProductListingPageComponent } from './pages/product-listing-page/produc
 import { MediaManagementPageComponent } from './pages/seller-product-management-page/media-management-page/media-management-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './pages/login-page/login-form/login-form.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { SignupFormComponent } from './pages/sign-up-page/signup-form/signup-form.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { AddProductModalComponent } from './pages/product-listing-page/add-product-modal/add-product-modal.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MessageBoxComponent } from './components/message-box/message-box.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgOptimizedImage } from '@angular/common';
+import { ConfirmComponent } from './components/confirm/confirm.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +46,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     LoginFormComponent,
     SignupFormComponent,
     HomePageComponent,
+    AddProductModalComponent,
+    SpinnerComponent,
+    MessageBoxComponent,
+    ConfirmComponent,
+    ImageUploadComponent,
+    ProductDetailsComponent,
+    EditProfilePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +66,20 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatTableModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatCardModule,
+    MatTooltipModule,
+    NgOptimizedImage,
+    LayoutModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

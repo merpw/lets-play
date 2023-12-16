@@ -1,0 +1,33 @@
+<div class="image-upload-container">
+  <button
+    mat-raised-button
+    type="button"
+    color="cresent"
+    (click)="imageInput.click()"
+  >
+    {{
+      imageUploaded.length
+        ? imageUploaded.length + " images uploaded"
+        : "Upload image"
+    }}
+  </button>
+  <input
+    hidden
+    #imageInput
+    type="file"
+    (change)="onImageUpload(imageInput.files)"
+  />
+  <div class="image-preview-container" *ngFor="let imageId of imageUploaded">
+    <button (click)="setMainImage(imageId)" class="image-preview-button">
+      <img
+        [src]="mediaService.mediaApiBaseURL + '/' + imageId"
+        alt="Product image"
+        class="image-preview"
+      />
+    </button>
+    <button mat-button color="warn" (click)="openConfirmDialog(imageId)">
+      Delete
+    </button>
+  </div>
+  <mat-error *ngIf="uploadImageError">{{ uploadImageError }}</mat-error>
+</div>

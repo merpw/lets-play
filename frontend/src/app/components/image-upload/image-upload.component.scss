@@ -1,0 +1,26 @@
+.image-upload-container {
+  display: flex;
+  flex-direction: column;
+  .image-preview-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    .image-preview-button {
+      background-color: transparent;
+      border: none;
+    }
+
+    .image-preview {
+      cursor: pointer;
+      min-height: 100px;
+      max-width: 50vw;
+      height: 15vh;
+      object-fit: contain;
+      overflow: auto;
+    }
+  }
+}

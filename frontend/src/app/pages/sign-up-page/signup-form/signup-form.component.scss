@@ -1,4 +1,8 @@
 .signup-form-container {
   display: flex;
   flex-direction: column;
+
+  button[type="submit"] {
+    margin-top: 1rem;
+  }
 }

@@ -1,0 +1,21 @@
+.welcome-header {
+  color: white;
+}
+
+.user-avatar {
+  img {
+    border-radius: 25%;
+    height: 40px;
+    overflow: auto;
+    object-fit: contain;
+    max-width: 40px;
+  }
+}
+
+mat-card-actions {
+  gap: 1rem;
+}
+
+mat-card {
+  gap: 1rem;
+}
