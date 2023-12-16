@@ -2,16 +2,37 @@
   display: flex;
   align-items: center;
   height: 80px;
-  padding-left: 10%;
-  padding-right: 10%;
-}
+  padding-left: 1rem;
+  padding-right: 1rem;
 
-.navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  > * {
-    padding: 0.5rem;
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      padding: 0.5rem;
+      border-radius: 20%;
+      &:hover {
+        box-shadow: 0px 2px 5px grey;
+      }
+      &:active {
+        box-shadow: 0px 1px 2px grey;
+      }
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 2rem;
+
+      &.authenticated {
+        justify-content: flex-end;
+      }
+
+      &.unauthenticated {
+        justify-content: flex-start;
+      }
+    }
   }
 }

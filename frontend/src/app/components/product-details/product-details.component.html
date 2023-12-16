@@ -1,0 +1,51 @@
+<div class="product-details-container" *ngIf="productLoaded; else spinner">
+  <h2>Product details: {{ product.name }}</h2>
+  <div class="image-container">
+    <ng-container *ngIf="product.images?.length; else noImage">
+      <button class="image-navigation-container" (click)="previousImage()">
+        <img class="navigation" src="assets/icons/navigate-before.svg" alt="" />
+      </button>
+      <img
+        [src]="'api/media/' + product.images[imageIndex]"
+        alt="Product image"
+        class="preview"
+      />
+      <button class="image-navigation-container" (click)="nextImage()">
+        <img class="navigation" src="assets/icons/navigate-next.svg" alt="" />
+      </button>
+    </ng-container>
+    <ng-template #noImage>
+      <div class="no-image-container">
+        <img
+          src="assets/product-placeholder/question-mark.png"
+          alt="Product image"
+          class="preview"
+        />
+      </div>
+    </ng-template>
+  </div>
+  <p class="image-index" *ngIf="product.images.length">
+    {{ imageIndex + 1 + " / " + product.images.length }}
+  </p>
+  <br />
+  <div class="product-info">
+    <h2>
+      {{ product.name }}
+      <h3>by {{ owner }}</h3>
+    </h2>
+    <p>{{ product.description }}</p>
+    <br />
+    <p>Price: {{ product.price | currency : "EUR" }}</p>
+    <p>{{ product.quantity }} in stock</p>
+  </div>
+</div>
+
+<app-message-box
+  *ngIf="result"
+  [message]="result.message"
+  [type]="result.type"
+></app-message-box>
+
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>

@@ -1,36 +1,66 @@
-<h1 mat-dialog-title>Media Management</h1>
-<div mat-dialog-content>
-  <p>You are managing: {{ data.product.name }}</p>
-  <form [formGroup]="form">
-    <div class="media-management-form-container">
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="name" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input matInput formControlName="description" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Price</mat-label>
-        <input matInput formControlName="price" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Quantity</mat-label>
-        <input matInput formControlName="quantity" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Image</mat-label>
-        <input matInput formControlName="image" />
-      </mat-form-field>
-    </div>
-  </form>
-  <mat-error *ngIf="invalidForm">All fields are required.</mat-error>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onUpdate()" cdkFocusInitial>
-    <!-- [mat-dialog-close]="form.value" -->
-    Update
-  </button>
+<div class="overlay-modal">
+  <h1 mat-dialog-title>Media Management</h1>
+  <div mat-dialog-content>
+    <h2>You are managing: {{ data.product.name }}</h2>
+    <h3>Owned by {{ ownerName }}</h3>
+    <form [formGroup]="form">
+      <div class="media-management-form-container">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error *ngIf="form.controls['name'].invalid"
+            >Name length must be between 3 to 50 characters..</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" />
+          <mat-error *ngIf="form.controls['description'].invalid"
+            >Description length must be between 3 to 1000
+            characters..</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" />
+          <mat-error *ngIf="form.controls['price'].invalid"
+            >Invalid price.</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Quantity</mat-label>
+          <input matInput formControlName="quantity" />
+          <mat-error *ngIf="form.controls['quantity'].invalid"
+            >Invalid quantity.</mat-error
+          >
+        </mat-form-field>
+        <app-image-upload
+          [images]="data.product.images"
+          (upload)="onImageUpload($event)"
+          (delete)="onImageDelete($event)"
+          (newImagesOrder)="onRefreshImagesOrder($event)"
+        ></app-image-upload>
+      </div>
+    </form>
+    <mat-error *ngIf="invalidForm">
+      <br />
+      Please validate your product details.</mat-error
+    >
+  </div>
+  <div mat-dialog-actions align="center">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="onUpdate()"
+      cdkFocusInitial
+      type="submit"
+    >
+      Update
+    </button>
+    <button mat-button color="warn" (click)="openConfirmDialog(data.product)">
+      Delete
+    </button>
+    <button mat-button (click)="onCancel()">Cancel</button>
+  </div>
+  <app-spinner *ngIf="isLoading"></app-spinner>
 </div>

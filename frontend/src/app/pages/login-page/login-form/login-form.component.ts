@@ -1,7 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject, takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
+import { Subject, finalize, takeUntil } from 'rxjs';
+import { Result } from 'src/app/shared/models/result.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -9,21 +18,28 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
+  @Output() isLoading = new EventEmitter<boolean>();
+  @Output() hasError = new EventEmitter<Result | null>();
+
   public form: FormGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
-  public invalidLogin = false;
-
   private destroy$ = new Subject<void>();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.form.valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(() => (this.invalidLogin = false));
+    this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      if (this.form.dirty) {
+        this.hasError.emit(null);
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -33,11 +49,26 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   login() {
     if (this.form.invalid) {
-      this.invalidLogin = true;
+      this.hasError.emit({ type: 'error', message: 'Login form is invalid.' });
       return;
     }
-    this.http.get('/api/login', this.form.value).subscribe((resp) => {
-      console.log(resp);
-    });
+    this.isLoading.emit(true);
+
+    this.authService
+      .login(this.form.value)
+      .pipe(finalize(() => this.isLoading.emit(false)))
+      .subscribe({
+        next: (resp: any) => {
+          localStorage.setItem('token', resp.body);
+          this.authService.authenticated = true;
+          this.router.navigateByUrl('/home');
+        },
+        error: (error) => {
+          const errorMessage =
+            JSON.parse(error.error)?.detail ??
+            'Log in went wrong. Please try again.';
+          this.hasError.emit({ type: 'error', message: errorMessage });
+        },
+      });
   }
 }

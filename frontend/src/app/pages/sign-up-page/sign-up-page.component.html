@@ -1,2 +1,13 @@
 <h2>Please sign up here!</h2>
-<app-signup-form> </app-signup-form>
+<app-signup-form
+  (isLoading)="showSpinner($event)"
+  (hasError)="showError($event)"
+  (userdetails)="submitSignup($event)"
+>
+</app-signup-form>
+<app-message-box
+  *ngIf="error.message"
+  [message]="error.message"
+  [type]="error.type"
+></app-message-box>
+<app-spinner *ngIf="isLoading"></app-spinner>

@@ -1,0 +1,14 @@
+<h2>Edit your profile here</h2>
+<app-signup-form
+  (isLoading)="showSpinner($event)"
+  (hasError)="showError($event)"
+  (userdetails)="updateProfile($event)"
+  [profile]="authService.profile"
+>
+</app-signup-form>
+<app-message-box
+  *ngIf="result"
+  [message]="result.message"
+  [type]="result.type"
+></app-message-box>
+<app-spinner *ngIf="isLoading"></app-spinner>

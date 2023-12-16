@@ -5,12 +5,16 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { ProductListingPageComponent } from './pages/product-listing-page/product-listing-page.component';
 import { SellerProductManagementPageComponent } from './pages/seller-product-management-page/seller-product-management-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AuthGuardService } from './shared/services/auth-guard.service';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     title: 'Welcome! :)',
     component: HomePageComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'login',
@@ -23,18 +27,31 @@ const routes: Routes = [
     component: SignUpPageComponent,
   },
   {
+    path: 'edit-profile',
+    title: 'Edit profile',
+    component: EditProfilePageComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
     path: 'product-listing',
     title: 'Product Listing',
     component: ProductListingPageComponent,
+    // canActivate: [AuthGuardService], // can everyone see product listing or only registered users?
   },
   {
     path: 'seller-product-management',
     title: 'Seller Product Management',
     component: SellerProductManagementPageComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'product/:id',
+    title: 'Product detail',
+    component: ProductDetailsComponent,
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'product-listing',
     pathMatch: 'full',
   },
 ];

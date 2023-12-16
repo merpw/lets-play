@@ -1,13 +1,27 @@
-<h2>Seller Product Management</h2>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>ID</th>
-    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-  </ng-container>
+<div class="seller-product-management-page-header">
+  <h2>Product management</h2>
+  <button
+    *ngIf="authService.hasSellerRight()"
+    mat-raised-button
+    (click)="openAddProductDialog()"
+  >
+    Add product
+  </button>
+</div>
 
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef>Image</th>
-    <td mat-cell *matCellDef="let element">{{ element.image }}</td>
+    <td mat-cell *matCellDef="let element">
+      <img
+        src="{{
+          element.images?.length
+            ? 'api/media/' + element.images[0]
+            : 'assets/avatar/placeholder.png'
+        }}"
+        alt="Avatar"
+      />
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
@@ -16,29 +30,75 @@
   </ng-container>
 
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Description</th>
-    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      [hidden]="screenSizeService.currentScreenSize === 'XS'"
+    >
+      Description
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [hidden]="screenSizeService.currentScreenSize === 'XS'"
+    >
+      {{ element.description }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="price">
     <th mat-header-cell *matHeaderCellDef>Price</th>
-    <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [ngStyle]="{
+        'word-break': element.price?.toString().length > 6 ? 'break-all' : ''
+      }"
+    >
+      {{ element.price | currency : "EUR" }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="quantity">
-    <th mat-header-cell *matHeaderCellDef>Quantity</th>
-    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      [hidden]="screenSizeService.currentScreenSize === 'XS'"
+    >
+      Quantity
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [hidden]="screenSizeService.currentScreenSize === 'XS'"
+    >
+      {{ element.quantity }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="manage">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
-      <button mat-icon-button (click)="openManageDialog(element)">
+      <button
+        mat-icon-button
+        (click)="$event.stopPropagation(); openManageDialog(element)"
+        matTooltip="Edit product"
+      >
         <mat-icon>more_vert</mat-icon>
       </button>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let product; columns: displayedColumns"
+    [routerLink]="['/product', product.id]"
+  ></tr>
 </table>
+<hr />
+<app-message-box
+  *ngIf="result"
+  [message]="result.message"
+  [type]="result.type"
+></app-message-box>

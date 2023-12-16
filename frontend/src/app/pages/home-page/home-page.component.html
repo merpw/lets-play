@@ -1,70 +1,47 @@
-<p>
-  Very Long Home Page for Testing -------------- Please click and go to other
-  tabs -------------- Very Long Home Page for Testing -------------- Please
-  click and go to other tabs -------------- Very Long Home Page for Testing
-  -------------- Please click and go to other tabs -------------- Very Long Home
-  Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs -------------- Very Long Home Page for
-  Testing -------------- Please click and go to other tabs -------------- Very
-  Long Home Page for Testing -------------- Please click and go to other tabs
-  -------------- Very Long Home Page for Testing -------------- Please click and
-  go to other tabs -------------- Very Long Home Page for Testing --------------
-  Please click and go to other tabs --------------
-</p>
+<h2>Welcome to buy-01!</h2>
+<ng-container
+  *ngIf="profile && authService.isAuthenticated; else notAuthenticatedMessage"
+>
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="user-avatar">
+        <img
+          src="{{
+            profile.image
+              ? mediaService.mediaApiBaseURL + '/' + profile.image
+              : 'assets/avatar/placeholder.png'
+          }}"
+          alt="Avatar"
+        />
+      </div>
+      <mat-card-title class="welcome-header"
+        >Welcome, {{ profile.name }}</mat-card-title
+      >
+      <mat-card-subtitle
+        >You are currently logged in as a
+        {{ profile.role | uppercase }}</mat-card-subtitle
+      >
+    </mat-card-header>
+
+    <mat-card-actions align="end">
+      <button mat-button mat-raised-button routerLink="/product-listing">
+        View products
+      </button>
+      <button
+        *ngIf="profile.role === 'seller' || profile.role === 'admin'"
+        mat-button
+        mat-raised-button
+        routerLink="/seller-product-management"
+      >
+        Manage products
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+
+<ng-template #notAuthenticatedMessage>
+  <app-message-box
+    message="Please log in or sign up."
+    type="info"
+  ></app-message-box>
+</ng-template>

@@ -1,14 +1,46 @@
 <form [formGroup]="form">
   <div class="signup-form-container">
     <mat-form-field>
-      <input matInput placeholder="username" formControlName="username" />
+      <mat-label>name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="form.controls['name'].invalid"
+        >Name must be between 3 to 50 characters.</mat-error
+      >
     </mat-form-field>
+
     <mat-form-field>
-      <input matInput placeholder="password" formControlName="password" />
+      <mat-label>email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="form.controls['email'].invalid"
+        >Invalid email.</mat-error
+      >
     </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="email" formControlName="email" />
+
+    <mat-form-field *ngIf="!profile">
+      <mat-label>password</mat-label>
+      <input matInput formControlName="password" type="password" />
+      <mat-error *ngIf="form.controls['password'].invalid"
+        >Password must be between 8 to 50 characters.</mat-error
+      >
     </mat-form-field>
-    <button mat-raised-button (click)="submit()">Submit</button>
+    <mat-form-field *ngIf="!profile">
+      <mat-label>role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let role of roles" [value]="role">{{
+          role
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.controls['role'].invalid"
+        >Role is required.</mat-error
+      >
+    </mat-form-field>
+    <app-image-upload
+      [images]="imageUploaded ? [imageUploaded] : []"
+      [onlyOne]="true"
+      (upload)="onImageUpload($event)"
+      (delete)="onImageDelete()"
+    ></app-image-upload>
+    <br />
+    <button mat-raised-button (click)="submit()" type="submit">Submit</button>
   </div>
 </form>
