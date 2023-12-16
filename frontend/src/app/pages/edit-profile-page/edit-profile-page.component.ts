@@ -53,11 +53,11 @@ export class EditProfilePageComponent {
             type: 'success',
             message: 'Your profile is updated successfully.',
           };
+          this.authService.getAuthenticationStatus().subscribe();
         },
         error: (error) => {
           const errorMessage =
-            JSON.parse(error.error)?.detail ??
-            'Edit profile went wrong. Please try again.';
+            error.error?.detail || 'Edit profile went wrong. Please try again.';
           this.result = {
             type: 'error',
             message: errorMessage,

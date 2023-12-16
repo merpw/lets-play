@@ -30,6 +30,7 @@ const routes: Routes = [
     path: 'edit-profile',
     title: 'Edit profile',
     component: EditProfilePageComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'product-listing',
