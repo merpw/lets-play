@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./message-box.component.scss'],
 })
 export class MessageBoxComponent {
-  @Input() message: string = '';
-  @Input() type: string = '';
+  @Input() message = '';
+  @Input() type = '';
 }

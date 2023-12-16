@@ -1,12 +1,8 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { finalize } from 'rxjs';
 import { Profile } from 'src/app/shared/models/profile.model';
+import { UserDetails } from 'src/app/shared/models/user-details.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { FormValidationService } from 'src/app/shared/services/form-validation.service';
-import { MediaService } from 'src/app/shared/services/media.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -16,7 +12,7 @@ import { MediaService } from 'src/app/shared/services/media.service';
 export class SignupFormComponent implements OnInit {
   @Output() isLoading = new EventEmitter<boolean>();
   @Output() hasError = new EventEmitter<string>();
-  @Output() userdetails = new EventEmitter<any>();
+  @Output() userdetails = new EventEmitter<UserDetails>();
 
   @Input() profile?: Profile | null;
 
@@ -45,18 +41,14 @@ export class SignupFormComponent implements OnInit {
 
   public roles = ['user', 'seller'];
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    public authService: AuthService
-  ) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
-    console.log(this.profile);
     if (this.profile) {
       this.form.patchValue(this.profile);
-      this.imageUploaded = this.profile.image;
+      this.imageUploaded = this.profile.image || '';
       this.form.removeControl('password');
+      this.form.removeControl('role');
     }
   }
 
@@ -64,12 +56,10 @@ export class SignupFormComponent implements OnInit {
     this.imageUploaded = imageId;
   }
 
-  onImageDelete(imageId: string) {
+  onImageDelete() {
     this.imageUploaded = '';
   }
   submit() {
-    console.log(this.form.value);
-    // just for testing the nginx server
     this.isLoading.emit(true);
     this.hasError.emit('');
 

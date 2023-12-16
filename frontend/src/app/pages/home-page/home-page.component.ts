@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { catchError, mergeMap, of, switchMap, tap } from 'rxjs';
 import { Profile } from 'src/app/shared/models/profile.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MediaService } from 'src/app/shared/services/media.service';
@@ -20,12 +17,14 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authService.getAuthenticationStatus().subscribe((profile) => {
-      if (!profile) {
-        console.log('user is not logged in');
-        return;
-      }
-      this.profile = profile;
-    });
+    this.authService
+      .getAuthenticationStatus()
+      .subscribe((profile: Profile | null) => {
+        if (!profile) {
+          console.log('user is not logged in');
+          return;
+        }
+        this.profile = profile;
+      });
   }
 }

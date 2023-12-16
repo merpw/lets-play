@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -12,7 +12,7 @@ export class MediaService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  uploadMedia(file: File): Observable<any> {
+  uploadMedia(file: File): Observable<HttpResponse<string>> {
     const formData = new FormData();
     formData.append('file', file);
 

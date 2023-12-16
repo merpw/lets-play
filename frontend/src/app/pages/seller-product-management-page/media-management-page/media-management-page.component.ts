@@ -1,10 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
   MatDialogRef,
@@ -12,6 +7,7 @@ import {
 } from '@angular/material/dialog';
 import { finalize, firstValueFrom, Subject, takeUntil } from 'rxjs';
 import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
+import { Product } from 'src/app/shared/models/product.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -28,10 +24,10 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
   public ownerName = '';
 
   private destroy$ = new Subject<void>();
-  private imagesUploaded: any[] = [];
+  private imagesUploaded: string[] = [];
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: { product: Product },
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<MediaManagementPageComponent>,
     private productService: ProductService,
@@ -58,7 +54,7 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
       ],
       price: [
         data.product.price,
-        [Validators.required, Validators.pattern(/^\d+$/)],
+        [Validators.required, Validators.pattern(/^\d+[.]{0,1}\d{0,2}$/)],
       ],
       quantity: [
         data.product.quantity,
@@ -105,14 +101,12 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
     this.imagesUploaded = imageIds;
   }
 
-  openConfirmDialog(product: any): void {
+  openConfirmDialog(product: Product): void {
     const dialogRef = this.dialog.open(ConfirmComponent, {
       data: { message: 'You are deleting: ' + product.name },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The confirm dialog was closed');
-      console.log(result);
       if (result) {
         this.onDelete();
       }
@@ -125,15 +119,13 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
       .deleteProduct(this.data.product.id)
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
-        next: (resp) => {
-          console.log(resp);
+        next: () => {
           this.dialogRef.close({
             type: 'success',
             message: `Product ${this.data.product.name} is deleted successfully.`,
           });
         },
-        error: (err) => {
-          console.log(err);
+        error: () => {
           this.dialogRef.close({
             type: 'error',
             message: `Error happened when deleting product ${this.data.product.name}.`,
@@ -150,22 +142,18 @@ export class MediaManagementPageComponent implements OnInit, OnDestroy {
       return;
     }
     // post request to update product here
-    console.log('updating product with the following values');
     this.form.controls['images'].setValue(this.imagesUploaded);
-    console.log(this.form.value);
     this.productService
       .updateProduct(this.data.product.id, this.form.value)
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
-        next: (resp) => {
-          console.log(resp);
+        next: () => {
           this.dialogRef.close({
             type: 'success',
             message: `Product ${this.data.product.name} is updated successfully.`,
           });
         },
-        error: (err) => {
-          console.log(err);
+        error: () => {
           this.dialogRef.close({
             type: 'error',
             message: `Error happened when updating product ${this.data.product.name}.`,

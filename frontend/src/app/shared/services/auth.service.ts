@@ -38,10 +38,10 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  getAuthenticationStatus(): Observable<any> {
+  getAuthenticationStatus(): Observable<Profile | null> {
     if (!localStorage.getItem('token')) {
       this.logout();
-      return of(false);
+      return of(null);
     }
     return this.http
       .get(this.profileUrl, {
@@ -52,17 +52,15 @@ export class AuthService {
       .pipe(
         map((resp: any) => {
           if (resp.status === HttpStatusCode.Ok) {
-            console.log('user has valid token');
-            console.log(resp.body);
             this.authenticated = true;
             localStorage.setItem('userId', resp.body.id);
             this._profile = resp.body;
             return resp.body;
           }
           this.logout();
-          return false;
+          return null;
         }),
-        catchError(() => of(false))
+        catchError(() => of(null))
       );
   }
 }

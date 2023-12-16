@@ -1,12 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormValidationService } from 'src/app/shared/services/form-validation.service';
 import { MediaService } from 'src/app/shared/services/media.service';
@@ -18,14 +10,14 @@ import { ConfirmComponent } from '../confirm/confirm.component';
   styleUrls: ['./image-upload.component.scss'],
 })
 export class ImageUploadComponent implements OnInit {
-  @Input() images: any[] = [];
+  @Input() images: string[] = [];
   @Input() onlyOne = false;
   @Output() upload = new EventEmitter<string>();
   @Output() delete = new EventEmitter<string>();
   @Output() newImagesOrder = new EventEmitter<string[]>();
 
   public uploadImageError = '';
-  public imageUploaded: any[] = [];
+  public imageUploaded: string[] = [];
 
   constructor(
     public mediaService: MediaService,
@@ -35,23 +27,20 @@ export class ImageUploadComponent implements OnInit {
 
   ngOnInit(): void {
     this.images.forEach((imageId) => {
-      this.imageUploaded.push({
-        id: imageId,
-        name: 'unnamed',
-      });
+      this.imageUploaded.push(imageId);
     });
   }
 
-  onDelete(deletedImage: any) {
+  onDelete(deletedImageId: string) {
     this.imageUploaded = this.imageUploaded.filter(
-      (image) => image.id !== deletedImage.id
+      (imageId) => imageId !== deletedImageId
     );
-    this.delete.emit(deletedImage.id);
+    this.delete.emit(deletedImageId);
   }
 
-  openConfirmDialog(image: any): void {
+  openConfirmDialog(image: string): void {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { message: 'You are deleting: ' + image.name },
+      data: { message: 'Plase confirm to delete the image.' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -63,7 +52,7 @@ export class ImageUploadComponent implements OnInit {
     });
   }
 
-  setMainImage(image: any) {
+  setMainImage(image: string) {
     const dialogRef = this.dialog.open(ConfirmComponent, {
       data: { message: "Make this your product's main image?" },
     });
@@ -74,9 +63,9 @@ export class ImageUploadComponent implements OnInit {
       if (result) {
         this.imageUploaded = [
           image,
-          ...this.imageUploaded.filter((val) => val.id !== image.id),
+          ...this.imageUploaded.filter((val) => val !== image),
         ];
-        this.newImagesOrder.emit(this.imageUploaded.map((image) => image.id));
+        this.newImagesOrder.emit(this.imageUploaded);
       }
     });
   }
@@ -100,14 +89,11 @@ export class ImageUploadComponent implements OnInit {
     for (let i = 0; i < files.length; i++) {
       this.mediaService.uploadMedia(<File>files.item(i)).subscribe({
         next: (resp) => {
-          const imageId = resp.body;
+          const imageId: string = resp.body || '';
           if (this.onlyOne) {
             this.imageUploaded = [];
           }
-          this.imageUploaded.push({
-            id: imageId,
-            name: files.item(i)?.name || 'unnamed image',
-          });
+          this.imageUploaded.push(imageId);
           this.upload.emit(imageId);
         },
         error: (err) => {

@@ -16,15 +16,12 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log('interceptted');
     if (request.withCredentials) {
       const token = localStorage.getItem('token');
       if (!token) {
         console.log('user has no valid token');
         this.router.navigateByUrl('/');
       }
-      console.log('user is trying to access with token');
-      console.log(token);
       const modifiedRequest = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + token,

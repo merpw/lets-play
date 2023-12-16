@@ -14,7 +14,6 @@ export class LoginPageComponent {
   constructor(private router: Router) {
     const state = this.router.getCurrentNavigation()?.extras?.state;
     if (state) {
-      console.log(state['email']);
       this.result = {
         type: 'success',
         message: `Welcome, ${state['email']}!`,

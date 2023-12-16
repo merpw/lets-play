@@ -12,9 +12,6 @@
     color: white;
   }
 
-  .product-info {
-  }
-
   .image-index {
     margin: auto;
   }
@@ -37,6 +34,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border: none;
+      background-color: transparent;
       &:hover {
         cursor: pointer;
       }
@@ -46,5 +45,11 @@
         transition: 0.1s;
       }
     }
+  }
+
+  .no-image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }

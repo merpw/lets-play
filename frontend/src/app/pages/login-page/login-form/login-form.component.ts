@@ -35,9 +35,11 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.form.valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(() => this.hasError.emit(null));
+    this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      if (this.form.dirty) {
+        this.hasError.emit(null);
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -60,7 +62,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       .pipe(finalize(() => this.isLoading.emit(false)))
       .subscribe({
         next: (resp: any) => {
-          console.log(resp);
           localStorage.setItem('token', resp.body);
           this.authService.authenticated = true;
           this.router.navigateByUrl('/');
@@ -69,7 +70,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
           const errorMessage =
             JSON.parse(error.error)?.detail ??
             'Log in went wrong. Please try again.';
-          console.log(errorMessage);
           this.hasError.emit({ type: 'error', message: errorMessage });
         },
       });

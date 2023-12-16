@@ -1,8 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { finalize, firstValueFrom, lastValueFrom, map, tap } from 'rxjs';
-import { AddProductModalComponent } from 'src/app/pages/product-listing-page/add-product-modal/add-product-modal.component';
+import { finalize, firstValueFrom, tap } from 'rxjs';
 import { Product } from 'src/app/shared/models/product.model';
 import { Result } from 'src/app/shared/models/result.model';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -53,7 +51,7 @@ export class ProductDetailsComponent implements OnInit {
         next: (product: Product) => {
           this.product = product;
         },
-        error: (error) => {
+        error: () => {
           this.result = {
             message: 'Product is not found.',
             type: 'error',
@@ -63,7 +61,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   nextImage() {
-    console.log('next');
     if (this.product.images.length <= 1) return;
     if (this.imageIndex === this.product.images.length - 1) {
       this.imageIndex = 0;

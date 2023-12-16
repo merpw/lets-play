@@ -24,7 +24,7 @@ export class SellerProductManagementPageComponent implements OnInit {
     'quantity',
     'manage',
   ];
-  public dataSource: any;
+  public dataSource: Product[] = [];
   public result: Result | null = null;
 
   constructor(
@@ -75,8 +75,7 @@ export class SellerProductManagementPageComponent implements OnInit {
         }
         this.dataSource = products.slice().reverse();
       },
-      error: (err) => {
-        console.log(err);
+      error: () => {
         this.result = {
           type: 'error',
           message: 'Error in fetching your products',
@@ -85,15 +84,12 @@ export class SellerProductManagementPageComponent implements OnInit {
     });
   }
 
-  openManageDialog(product: any): void {
-    console.log(product);
+  openManageDialog(product: Product): void {
     const dialogRef = this.dialog.open(MediaManagementPageComponent, {
       data: { product },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
       this.result = result;
       this.fetchProductsSellerManagement(
         localStorage.getItem('userId') || '',
@@ -108,8 +104,6 @@ export class SellerProductManagementPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddProductModalComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
       this.result = result;
       this.fetchProductsSellerManagement(
         localStorage.getItem('userId') || '',

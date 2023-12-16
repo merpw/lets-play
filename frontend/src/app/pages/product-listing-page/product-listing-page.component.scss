@@ -1,7 +1,11 @@
-.product-listing-page-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.product-listing-page {
+  overflow: auto;
+
+  .product-listing-page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 tr[mat-row] {

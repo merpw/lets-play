@@ -1,6 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter, map, Observable, of, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +34,7 @@ export class ProductService {
     );
   }
 
-  addProducts(product: any): Observable<HttpResponse<any>> {
+  addProducts(product: Product): Observable<HttpResponse<string>> {
     return this.http.post(this.addProductsUrl, product, {
       withCredentials: true,
       observe: 'response',

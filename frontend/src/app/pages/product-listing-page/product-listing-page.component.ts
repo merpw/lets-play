@@ -7,9 +7,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { Result } from 'src/app/shared/models/result.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
-import { ProductDetailsComponent } from 'src/app/components/product-details/product-details.component';
 import { Product } from 'src/app/shared/models/product.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-listing-page',
@@ -20,7 +18,6 @@ export class ProductListingPageComponent implements OnInit {
   result: Result | null = null;
 
   public displayedColumns = [
-    // 'id', // not showing product id to user
     'images',
     'name',
     'description',
@@ -29,18 +26,8 @@ export class ProductListingPageComponent implements OnInit {
     'owner',
   ];
 
-  public dataSource: any;
+  public dataSource: Product[] = [];
   public isLoading = false;
-
-  // private mockProducts = {
-  //   images: [],
-  //   name: 'mock',
-  //   description: 'mock descrip',
-  //   price: 12,
-  //   quantity: 5,
-  //   id: 999999,
-  //   owner: 'mock owner',
-  // };
 
   constructor(
     public dialog: MatDialog,
@@ -51,33 +38,15 @@ export class ProductListingPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // fetch products here
     this.fetchProducts(false);
   }
-
-  // openProductDetails(product: Product) {
-  //   console.log(product);
-  //   this.
-  // const dialogRef = this.dialog.open(ProductDetailsComponent, {
-  //   data: { product },
-  // });
-
-  // dialogRef.afterClosed().subscribe((result) => {
-  //   console.log('The dialog was closed');
-  //   console.log(result);
-  // });
-  // }
 
   fetchProducts(clearCache?: boolean) {
     this.productService
       .getProducts(clearCache)
       .pipe(map((resp) => resp.body))
       .subscribe({
-        next: async (products: Array<any>) => {
-          // mock
-          // this.dataSource = new Array(5).fill(this.mockProducts);
-          // return;
-          // mock
+        next: async (products: Array<Product>) => {
           if (products.length === 0) {
             this.result = {
               type: 'info',
@@ -87,7 +56,7 @@ export class ProductListingPageComponent implements OnInit {
           }
           const owners = await firstValueFrom(
             this.userService.getUsers(
-              products.map((product: any) => product.userId)
+              products.map((product: Product) => product.userId)
             )
           );
           products.map((product, i) => {
@@ -100,7 +69,6 @@ export class ProductListingPageComponent implements OnInit {
           const errorMessage =
             JSON.parse(error.error)?.detail ??
             'Sign up went wrong. Please try again.';
-          console.log(errorMessage);
           this.result = { type: 'error', message: errorMessage };
         },
       });
@@ -112,8 +80,6 @@ export class ProductListingPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddProductModalComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
       this.result = result;
       this.fetchProducts(true);
     });

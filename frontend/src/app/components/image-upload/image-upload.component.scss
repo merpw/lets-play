@@ -8,6 +8,12 @@
     justify-content: space-between;
     margin-top: 1rem;
     margin-bottom: 1rem;
+
+    .image-preview-button {
+      background-color: transparent;
+      border: none;
+    }
+
     .image-preview {
       cursor: pointer;
       min-height: 100px;

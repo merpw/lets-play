@@ -8,13 +8,6 @@
       >
     </mat-form-field>
 
-    <mat-form-field *ngIf="!profile">
-      <mat-label>password</mat-label>
-      <input matInput formControlName="password" type="password" />
-      <mat-error *ngIf="form.controls['password'].invalid"
-        >Password must be between 8 to 50 characters.</mat-error
-      >
-    </mat-form-field>
     <mat-form-field>
       <mat-label>email</mat-label>
       <input matInput formControlName="email" />
@@ -22,7 +15,15 @@
         >Invalid email.</mat-error
       >
     </mat-form-field>
-    <mat-form-field *ngIf="authService.profile?.role !== 'admin'">
+
+    <mat-form-field *ngIf="!profile">
+      <mat-label>password</mat-label>
+      <input matInput formControlName="password" type="password" />
+      <mat-error *ngIf="form.controls['password'].invalid"
+        >Password must be between 8 to 50 characters.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field *ngIf="!profile">
       <mat-label>role</mat-label>
       <mat-select formControlName="role">
         <mat-option *ngFor="let role of roles" [value]="role">{{
@@ -37,7 +38,7 @@
       [images]="imageUploaded ? [imageUploaded] : []"
       [onlyOne]="true"
       (upload)="onImageUpload($event)"
-      (delete)="onImageDelete($event)"
+      (delete)="onImageDelete()"
     ></app-image-upload>
     <br />
     <button mat-raised-button (click)="submit()" type="submit">Submit</button>

@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FormValidationService {
-  constructor() {}
-
   validateImageUpload(file: File | null | undefined): string {
     if (!file) {
       return 'File does not exist';

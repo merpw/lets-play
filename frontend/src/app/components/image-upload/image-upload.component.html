@@ -17,14 +17,15 @@
     type="file"
     (change)="onImageUpload(imageInput.files)"
   />
-  <div class="image-preview-container" *ngFor="let image of imageUploaded">
-    <img
-      [src]="mediaService.mediaApiBaseURL + '/' + image.id"
-      alt="Product image"
-      (click)="setMainImage(image)"
-      class="image-preview"
-    />
-    <button mat-button color="warn" (click)="openConfirmDialog(image)">
+  <div class="image-preview-container" *ngFor="let imageId of imageUploaded">
+    <button (click)="setMainImage(imageId)" class="image-preview-button">
+      <img
+        [src]="mediaService.mediaApiBaseURL + '/' + imageId"
+        alt="Product image"
+        class="image-preview"
+      />
+    </button>
+    <button mat-button color="warn" (click)="openConfirmDialog(imageId)">
       Delete
     </button>
   </div>

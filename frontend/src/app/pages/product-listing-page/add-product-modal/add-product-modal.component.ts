@@ -1,9 +1,7 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Subject, finalize, takeUntil } from 'rxjs';
-import { FormValidationService } from 'src/app/shared/services/form-validation.service';
-import { MediaService } from 'src/app/shared/services/media.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
@@ -16,17 +14,14 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
   public form!: FormGroup;
   public invalidForm = false;
   public uploadAvatarError = '';
-  private imagesUploaded: any[] = [];
+  private imagesUploaded: string[] = [];
 
   private destroy$ = new Subject<void>();
 
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private mediaService: MediaService,
-    private formValidationService: FormValidationService,
-    public dialogRef: MatDialogRef<AddProductModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    public dialogRef: MatDialogRef<AddProductModalComponent>
   ) {
     this.form = this.formBuilder.group({
       name: [
@@ -45,8 +40,11 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
           Validators.maxLength(1000),
         ],
       ],
-      price: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-      quantity: ['', [Validators.required, , Validators.pattern(/^\d+$/)]],
+      price: [
+        '',
+        [Validators.required, Validators.pattern(/^\d+[.]{0,1}\d{0,2}$/)],
+      ],
+      quantity: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       images: [[]],
       userId: [localStorage.getItem('userId'), Validators.required],
     });
@@ -84,15 +82,12 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
     }
 
     this.isLoading = true;
-    console.log('updating product with the following values');
     this.form.controls['images'].setValue(this.imagesUploaded);
-    console.log(this.form.value);
     this.productService
       .addProducts(this.form.value)
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
-        next: (resp) => {
-          console.log(resp);
+        next: () => {
           this.dialogRef.close({
             type: 'success',
             message: `${this.form.controls['name'].value} has been added.`,
@@ -102,7 +97,6 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
           const errorMessage =
             JSON.parse(error.error)?.detail ??
             'Add product went wrong. Please try again.';
-          console.log(errorMessage);
           this.dialogRef.close({ type: 'error', message: errorMessage });
         },
       });
