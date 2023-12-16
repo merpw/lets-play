@@ -1,0 +1,20 @@
+name: Build Nginx Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "nginx/**" ]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "nginx/**" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/docker
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          context: nginx
+          image-name: nginx
