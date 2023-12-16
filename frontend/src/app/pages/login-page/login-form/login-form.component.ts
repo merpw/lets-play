@@ -54,17 +54,14 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     }
     this.isLoading.emit(true);
 
-    this.http
-      .post('/api/auth/login', this.form.value, {
-        observe: 'response',
-        responseType: 'text',
-      })
+    this.authService
+      .login(this.form.value)
       .pipe(finalize(() => this.isLoading.emit(false)))
       .subscribe({
         next: (resp: any) => {
           localStorage.setItem('token', resp.body);
           this.authService.authenticated = true;
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/home');
         },
         error: (error) => {
           const errorMessage =

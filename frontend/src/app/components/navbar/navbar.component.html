@@ -1,13 +1,14 @@
 <div class="navbar-container">
   <div class="navbar">
     <div class="buttons-container">
-      <a routerLink="/home" matTooltip="Home">
-        <img src="assets/icons/home.svg" alt="" />
-      </a>
+      <ng-container *ngIf="authService.isAuthenticated">
+        <a routerLink="/home" matTooltip="Home">
+          <img src="assets/icons/home.svg" alt="" />
+        </a>
+      </ng-container>
       <a routerLink="/product-listing" matTooltip="Product listing">
         <img src="assets/icons/storefront.svg" alt="" />
       </a>
-      <ng-container *ngIf="authService.isAuthenticated"> </ng-container>
     </div>
 
     <div class="buttons-container action-buttons">

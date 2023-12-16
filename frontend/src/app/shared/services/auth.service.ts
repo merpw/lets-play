@@ -2,12 +2,14 @@ import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
 import { Profile } from '../models/profile.model';
+import { UserDetails } from '../models/user-details.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private profileUrl = 'api/auth/profile';
+  private loginUrl = '/api/auth/login';
 
   private _isAuthenticated = false;
   private _profile: Profile | null = null;
@@ -36,6 +38,13 @@ export class AuthService {
     this.authenticated = false;
     localStorage.removeItem('userId');
     localStorage.removeItem('token');
+  }
+
+  login(userDetails: UserDetails): Observable<any> {
+    return this.http.post(this.loginUrl, userDetails, {
+      observe: 'response',
+      responseType: 'text',
+    });
   }
 
   getAuthenticationStatus(): Observable<Profile | null> {

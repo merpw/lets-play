@@ -14,6 +14,7 @@ const routes: Routes = [
     path: 'home',
     title: 'Welcome! :)',
     component: HomePageComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'login',
@@ -49,7 +50,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'product-listing',
     pathMatch: 'full',
   },
 ];
