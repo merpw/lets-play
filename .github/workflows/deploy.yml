@@ -1,16 +1,42 @@
 name: Deploy
 
 on:
-  push:
-    branches: [ "main" ]
+  workflow_call:
+
+env:
+  SSH_USER: ${{ secrets.SSH_USER }}
+  SSH_HOST: ${{ secrets.SSH_HOST }}
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  DOCKER_HOST: ssh://${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+  ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+
+  SSL_CERT: ${{ secrets.SSL_CERT }}
+  SSL_KEY: ${{ secrets.SSL_KEY }}
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
+    environment:
+      name: production
+      url: ${{ steps.set-url.outputs.URL }}
+
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/docker
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          context: nginx
-          image-name: nginx
+
+      - name: Install ssh key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          ssh-keyscan -H "$SSH_HOST" > ~/.ssh/known_hosts
+
+      - name: Deploy using Docker Compose
+        run: docker compose down && docker compose up -d
+
+      - name: Set deployment URL
+        id: set-url
+        run: echo "URL=https://$SERVER_NAME" >> $GITHUB_OUTPUT
