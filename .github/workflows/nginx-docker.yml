@@ -1,12 +1,7 @@
 name: Build Nginx Docker Image
 
 on:
-  push:
-    branches: [ "main" ]
-    paths: [ "nginx/**" ]
-  pull_request:
-    branches: [ "main" ]
-    paths: [ "nginx/**" ]
+  workflow_call:
 
 jobs:
   build:

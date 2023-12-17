@@ -1,12 +1,7 @@
 name: Test and Build Backend Docker Image
 
 on:
-  push:
-    branches: [ "main" ]
-    paths: [ "backend/**" ]
-  pull_request:
-    branches: [ "main" ]
-    paths: [ "backend/**" ]
+  workflow_call:
 
 jobs:
   test-and-build:
@@ -14,10 +9,6 @@ jobs:
       matrix:
         services: [ users, products, media ]
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/gradle-test
