@@ -34,6 +34,8 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { ShoppingCartPageComponent } from './pages/shopping-cart-page/shopping-cart-page.component';
+import { ConfirmOrderComponent } from './pages/shopping-cart-page/confirm-order/confirm-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,8 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
     ImageUploadComponent,
     ProductDetailsComponent,
     EditProfilePageComponent,
+    ShoppingCartPageComponent,
+    ConfirmOrderComponent,
   ],
   imports: [
     BrowserModule,

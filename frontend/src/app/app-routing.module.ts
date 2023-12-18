@@ -8,6 +8,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { ShoppingCartPageComponent } from './pages/shopping-cart-page/shopping-cart-page.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,12 @@ const routes: Routes = [
     path: 'edit-profile',
     title: 'Edit profile',
     component: EditProfilePageComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'shopping-cart',
+    title: 'Shopping cart',
+    component: ShoppingCartPageComponent,
     canActivate: [AuthGuardService],
   },
   {

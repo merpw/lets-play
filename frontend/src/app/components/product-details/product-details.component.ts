@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { finalize, firstValueFrom, tap } from 'rxjs';
 import { Product } from 'src/app/shared/models/product.model';
 import { Result } from 'src/app/shared/models/result.model';
+import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item.model';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -17,6 +19,10 @@ export class ProductDetailsComponent implements OnInit {
   public result: Result | null = null;
   public productLoaded = false;
   public owner = 'Not found';
+
+  public form: FormGroup = new FormGroup({
+    quantity: new FormControl(0),
+  });
 
   private id: string | undefined;
 
@@ -75,6 +81,27 @@ export class ProductDetailsComponent implements OnInit {
       this.imageIndex = this.product.images.length - 1;
     } else {
       this.imageIndex--;
+    }
+  }
+
+  addToCart(product: Product) {
+    if (this.form.invalid) return;
+    const item: ShoppingCartItem = {
+      product,
+      quantity: this.form.controls['quantity'].value,
+    };
+    if (this.productService.addProductToCart(item)) {
+      this.result = {
+        message: `${item.product.name} x ${item.quantity} is added to your shopping cart.`,
+        type: 'success',
+      };
+      this.form.controls['quantity'].reset();
+    } else {
+      this.result = {
+        message:
+          'Your shopping cart contains an error. Your shopping cart is now empty. Please try again.',
+        type: 'error',
+      };
     }
   }
 }
