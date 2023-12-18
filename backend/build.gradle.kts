@@ -33,6 +33,9 @@ allprojects {
     // always generate jacoco coverage report after running tests
     tasks.test {
         finalizedBy(tasks.jacocoTestReport)
+        reports {
+            junitXml.required = true
+        }
     }
     tasks.jacocoTestReport {
         dependsOn(tasks.test)
