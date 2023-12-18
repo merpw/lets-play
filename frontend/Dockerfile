@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
 
-RUN npx ngcc --properties es2023 browser module main --first-only --create-ivy-entry-points
+RUN npm install
 
 COPY . .
 
