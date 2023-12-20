@@ -7,6 +7,7 @@ import { Result } from 'src/app/shared/models/result.model';
 import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item.model';
 import { ShoppingCart } from 'src/app/shared/models/shopping-cart.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { OrderService } from 'src/app/shared/services/order.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -34,7 +35,8 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
     public authService: AuthService,
     public userService: UserService,
     public screenSizeService: ScreenSizeService,
-    private productService: ProductService
+    private productService: ProductService,
+    private orderService: OrderService
   ) {}
 
   ngOnInit(): void {
@@ -127,6 +129,7 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
       this.isLoading = false;
       return;
     }
+
     const shoppingCart = this.loadShoppingCartFromStorage();
     console.log(shoppingCart);
 
@@ -137,6 +140,8 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed().subscribe((result) => {
       if (!result) return;
       this.isLoading = true;
+
+      // this.orderService.createOrder(shoppingCart)
       of(true)
         .pipe(
           delay(1000),

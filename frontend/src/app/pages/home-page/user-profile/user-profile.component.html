@@ -1,0 +1,49 @@
+<ng-container
+  class="user-profile-container"
+  *ngIf="totalMoneySpentSubject$ | async as element"
+>
+  <h2>You have spent in total {{ element | currency : "EUR" }}</h2>
+</ng-container>
+
+<ng-container
+  class="user-profile-container"
+  *ngIf="mostOrderedProductSubject$ | async as element"
+>
+  <h3>Hey user, your favourite product is {{ element.product.name }}:</h3>
+  <div class="product-image-container">
+    <img
+      mat-card-xl-image
+      [src]="
+        element.product.images[0]
+          ? 'api/media/' + element.product.images[0]
+          : 'assets/product-placeholder/question-mark.png'
+      "
+      alt="Large image"
+    />
+  </div>
+  <h3>You have ordered {{ element.count }} times</h3>
+</ng-container>
+<ng-container
+  class="user-profile-container"
+  *ngIf="mostMoneySpentProductSubject$ | async as element"
+>
+  <h3>You have spent most money on {{ element.product.name }}:</h3>
+  <div class="product-image-container">
+    <img
+      mat-card-xl-image
+      [src]="
+        element.product.images[0]
+          ? 'api/media/' + element.product.images[0]
+          : 'assets/product-placeholder/question-mark.png'
+      "
+      alt="Large image"
+    />
+  </div>
+  <h3>You have spent {{ element.moneySpent | currency : "EUR" }}</h3>
+</ng-container>
+
+<app-message-box
+  *ngIf="result !== null"
+  [message]="result.message"
+  [type]="result.type"
+></app-message-box>

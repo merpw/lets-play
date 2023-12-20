@@ -36,6 +36,10 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 import { ShoppingCartPageComponent } from './pages/shopping-cart-page/shopping-cart-page.component';
 import { ConfirmOrderComponent } from './pages/shopping-cart-page/confirm-order/confirm-order.component';
+import { UserProfileComponent } from './pages/home-page/user-profile/user-profile.component';
+import { SellerProfileComponent } from './pages/home-page/seller-profile/seller-profile.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { ConfirmOrderModifyComponent } from './components/confirm-order-modify/confirm-order-modify.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +61,10 @@ import { ConfirmOrderComponent } from './pages/shopping-cart-page/confirm-order/
     EditProfilePageComponent,
     ShoppingCartPageComponent,
     ConfirmOrderComponent,
+    UserProfileComponent,
+    SellerProfileComponent,
+    OrderHistoryComponent,
+    ConfirmOrderModifyComponent,
   ],
   imports: [
     BrowserModule,
