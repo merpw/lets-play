@@ -23,7 +23,15 @@ public class TestOrderFactory {
         String seller;
         Double totalPrice;
 
-        List<String> products;
+        @AllArgsConstructor
+        @Getter
+        public static class TestProduct {
+            String id;
+
+            Number quantity;
+        }
+
+        List<TestProduct> products;
 
         public ValidatableResponse requestAdd(String token) {
             return jsonBodyRequest(token, this).post("/orders/add").then();
@@ -45,7 +53,8 @@ public class TestOrderFactory {
                     );
 
             if (products != null) {
-                response.body("products", is(products));
+                response.body("products.size()", is(products.size()));
+                response.body("products[0].id", is(products.get(0).id));
             }
         }
 
@@ -55,7 +64,7 @@ public class TestOrderFactory {
 
             this.totalPrice = Math.random() * 100;
 
-            this.products = List.of("Test product" + System.currentTimeMillis());
+            this.products = List.of(new TestProduct(UUID.randomUUID().toString(), (int) (Math.random() * 10)));
         }
     }
 }

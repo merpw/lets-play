@@ -24,7 +24,7 @@ public class Order {
     private String seller;
 
     @JsonProperty("products")
-    private List<String> products;
+    private List<Product> products;
 
     @JsonProperty("totalPrice")
     private Double totalPrice;
@@ -33,11 +33,16 @@ public class Order {
     @Setter
     private EStatus status;
 
-    public Order(String buyer, String seller, List<String> products, Double totalPrice) {
+    @JsonProperty("createdAt")
+    private Long createdAt;
+
+    public Order(String buyer, String seller, List<Product> products, Double totalPrice) {
         this.buyer = buyer;
         this.seller = seller;
         this.products = products;
         this.totalPrice = totalPrice;
         this.status = EStatus.PENDING;
+
+        this.createdAt = System.currentTimeMillis();
     }
 }

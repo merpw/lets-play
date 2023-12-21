@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import pw.mer.letsplay.model.EStatus;
 import pw.mer.letsplay.model.Order;
+import pw.mer.letsplay.model.Product;
 import pw.mer.letsplay.repository.OrdersRepo;
 
 import java.util.List;
@@ -72,7 +73,7 @@ public class OrdersController {
     public static class AddOrderRequest {
         @JsonProperty("products")
         @NotEmpty(message = "Products is mandatory")
-        List<String> products;
+        List<Product> products;
 
         @JsonProperty("totalPrice")
         @NotNull(message = "Total price is mandatory")
