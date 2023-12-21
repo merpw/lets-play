@@ -6,7 +6,7 @@
 
 ### Native
 
-JRE 17, Gradle and MongoDB is required.
+JRE 17, Gradle 8 and MongoDB is required.
 
 > You can use dockerized MongoDB by calling `docker compose up db`
 

@@ -1,0 +1,24 @@
+name: After Merge
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-backend:
+    uses: ./.github/workflows/backend-docker.yml
+
+  build-frontend:
+    uses: ./.github/workflows/frontend-docker.yml
+
+  build-nginx:
+    uses: ./.github/workflows/nginx-docker.yml
+
+  deploy:
+    needs: [ build-backend, build-frontend, build-nginx ]
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

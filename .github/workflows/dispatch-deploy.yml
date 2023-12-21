@@ -1,0 +1,17 @@
+name: Manual Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      revision:
+        description: 'Revision to deploy'
+        required: true
+        default: 'main'
+
+env:
+  REVISION: ${{ github.event.inputs.revision }}
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

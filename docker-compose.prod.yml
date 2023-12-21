@@ -1,0 +1,15 @@
+services:
+  nginx:
+    image: ghcr.io/merpw/lets-play-nginx:latest
+
+  users:
+    image: ghcr.io/merpw/lets-play-users-service:latest
+
+  products:
+    image: ghcr.io/merpw/lets-play-products-service:latest
+
+  media:
+    image: ghcr.io/merpw/lets-play-media-service:latest
+
+  frontend:
+    image: ghcr.io/merpw/lets-play-frontend:latest
