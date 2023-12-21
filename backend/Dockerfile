@@ -1,4 +1,4 @@
-FROM gradle:latest AS builder
+FROM gradle:8.5-jdk17 AS builder
 
 ARG SERVICE_NAME
 
