@@ -1,12 +1,10 @@
-FROM node:16.15.0-alpine AS build
+FROM node:18.13-alpine AS build
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
-
-RUN npm install
+RUN npm ci
 
 COPY . .
 
