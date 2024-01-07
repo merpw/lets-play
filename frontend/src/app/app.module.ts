@@ -40,6 +40,10 @@ import { UserProfileComponent } from './pages/home-page/user-profile/user-profil
 import { SellerProfileComponent } from './pages/home-page/seller-profile/seller-profile.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { ConfirmOrderModifyComponent } from './components/confirm-order-modify/confirm-order-modify.component';
+import { SearchContainerComponent } from './components/search-container/search-container.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +69,7 @@ import { ConfirmOrderModifyComponent } from './components/confirm-order-modify/c
     SellerProfileComponent,
     OrderHistoryComponent,
     ConfirmOrderModifyComponent,
+    SearchContainerComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +87,8 @@ import { ConfirmOrderModifyComponent } from './components/confirm-order-modify/c
     MatSelectModule,
     MatCardModule,
     MatTooltipModule,
+    MatExpansionModule,
+    MatCheckboxModule,
     NgOptimizedImage,
     LayoutModule,
   ],
