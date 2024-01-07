@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { finalize, firstValueFrom, tap } from 'rxjs';
 import { Product } from 'src/app/shared/models/product.model';
@@ -56,6 +56,13 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe({
         next: (product: Product) => {
           this.product = product;
+          if (this.product.quantity === 0) {
+            this.handleUnavailableProduct();
+          } else {
+            this.form.controls['quantity'].addValidators(
+              Validators.max(this.product.quantity)
+            );
+          }
         },
         error: () => {
           this.result = {
@@ -64,6 +71,10 @@ export class ProductDetailsComponent implements OnInit {
           };
         },
       });
+  }
+
+  handleUnavailableProduct(): void {
+    this.form.controls['quantity'].disable();
   }
 
   nextImage() {

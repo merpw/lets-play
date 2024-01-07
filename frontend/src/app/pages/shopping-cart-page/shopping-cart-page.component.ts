@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { delay, finalize, of, Subject, takeUntil } from 'rxjs';
+import { finalize, Subject, takeUntil } from 'rxjs';
 import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
 import { Result } from 'src/app/shared/models/result.model';
 import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item.model';
@@ -62,7 +62,10 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
     }
     this.form = new FormGroup({});
     shoppingCart.items.forEach((item) => {
-      const control = new FormControl(item.quantity);
+      const control = new FormControl(
+        item.quantity,
+        Validators.max(item.product.quantity)
+      );
       this.form.addControl(item.product.id, control);
       control.valueChanges
         .pipe(takeUntil(this.destroy$))
@@ -131,29 +134,19 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
     }
 
     const shoppingCart = this.loadShoppingCartFromStorage();
-    console.log(shoppingCart);
 
     const dialogRef = this.dialog.open(ConfirmOrderComponent, {
       data: shoppingCart,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (!result) return;
+      if (!result || !shoppingCart) return;
       this.isLoading = true;
-
-      // this.orderService.createOrder(shoppingCart)
-      of(true)
-        .pipe(
-          delay(1000),
-          finalize(() => (this.isLoading = false))
-        )
+      this.orderService
+        .createOrder(shoppingCart)
+        .pipe(finalize(() => (this.isLoading = false)))
         .subscribe({
           next: (resp) => {
-            shoppingCart?.items.forEach((item) => {
-              console.log(
-                `You have ordered ${item.product.name} x ${item.quantity}`
-              );
-            });
             this.showOrderSuccessMessage();
             if (this.productService.shoppingCartKey) {
               localStorage.removeItem(this.productService.shoppingCartKey);
@@ -161,7 +154,6 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
             this.dataSource = [];
           },
           error: (error) => {
-            console.log(error);
             this.showOrderFailMessage();
           },
         });

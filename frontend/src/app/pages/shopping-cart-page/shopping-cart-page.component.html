@@ -68,6 +68,9 @@
               min="1"
               max="99"
             />
+            <mat-error *ngIf="form.controls[element.product.id].invalid"
+              >Max: {{ element.product.quantity }}</mat-error
+            >
           </mat-form-field>
         </form>
       </td>
@@ -82,7 +85,10 @@
           'word-break': 'break-all'
         }"
       >
-        {{ element.product.price * element.quantity | currency : "EUR" }}
+        {{
+          element.product.price * form.controls[element.product.id].value
+            | currency : "EUR"
+        }}
       </td>
     </ng-container>
 
@@ -105,12 +111,18 @@
     ></tr>
   </table>
   <br />
+  <app-message-box
+    *ngIf="form.invalid"
+    message="Quantity exceeds its availablity."
+    type="error"
+  ></app-message-box>
   <div class="submit-button-container">
     <button
       mat-raised-button
       color="primary"
       (click)="submitOrder()"
       *ngIf="dataSource.length"
+      [disabled]="form.invalid"
     >
       Submit order
     </button>
