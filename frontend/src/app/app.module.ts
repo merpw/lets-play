@@ -34,6 +34,17 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { ShoppingCartPageComponent } from './pages/shopping-cart-page/shopping-cart-page.component';
+import { ConfirmOrderComponent } from './pages/shopping-cart-page/confirm-order/confirm-order.component';
+import { UserProfileComponent } from './pages/home-page/user-profile/user-profile.component';
+import { SellerProfileComponent } from './pages/home-page/seller-profile/seller-profile.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { ConfirmOrderModifyComponent } from './components/confirm-order-modify/confirm-order-modify.component';
+import { SearchContainerComponent } from './components/search-container/search-container.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +64,13 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
     ImageUploadComponent,
     ProductDetailsComponent,
     EditProfilePageComponent,
+    ShoppingCartPageComponent,
+    ConfirmOrderComponent,
+    UserProfileComponent,
+    SellerProfileComponent,
+    OrderHistoryComponent,
+    ConfirmOrderModifyComponent,
+    SearchContainerComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +88,9 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
     MatSelectModule,
     MatCardModule,
     MatTooltipModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatMenuModule,
     NgOptimizedImage,
     LayoutModule,
   ],

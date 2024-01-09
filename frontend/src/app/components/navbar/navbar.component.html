@@ -13,6 +13,16 @@
 
     <div class="buttons-container action-buttons">
       <ng-container *ngIf="authService.isAuthenticated; else unauthenticated">
+        <a routerLink="/order-history" matTooltip="Order history">
+          <img src="assets/icons/orders.svg" alt="" />
+        </a>
+        <a
+          routerLink="/shopping-cart"
+          matTooltip="Shopping Cart"
+          *ngIf="authService.isUser()"
+        >
+          <img src="assets/icons/shopping-cart.svg" alt="" />
+        </a>
         <a
           routerLink="/seller-product-management"
           matTooltip="Seller product management"

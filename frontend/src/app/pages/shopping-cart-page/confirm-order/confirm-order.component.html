@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Confirm your order</h1>
+<div mat-dialog-content>
+  <div *ngFor="let item of data.items" class="product-summary-container">
+    <h3>
+      {{ item.product.name }}
+    </h3>
+    <p>x{{ item.quantity }}</p>
+  </div>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" (click)="onConfirm()" type="submit">
+    Confirm and pay on delivery
+  </button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</div>

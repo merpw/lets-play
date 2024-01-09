@@ -1,0 +1,11 @@
+h2 {
+    color: white;    
+}
+
+h3 > b {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    &::before {
+        content: ':'
+    }
+}

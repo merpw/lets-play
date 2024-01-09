@@ -19,3 +19,14 @@ mat-card-actions {
 mat-card {
   gap: 1rem;
 }
+
+.product-image-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+h3 {
+  color: whitesmoke;
+}

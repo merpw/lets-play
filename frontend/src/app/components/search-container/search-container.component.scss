@@ -1,0 +1,27 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+
+    mat-form-field{
+        width: 100%
+    }
+
+    .price-filter-container {
+
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .available-only-checkbox {
+        display: flex;
+        width: auto;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-bottom: 1rem;
+    }
+}
+
+.search-icon {
+    padding-right: 1rem;
+}

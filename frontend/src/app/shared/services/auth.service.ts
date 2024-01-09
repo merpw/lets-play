@@ -34,6 +34,10 @@ export class AuthService {
     return this._profile?.role === 'admin' || this._profile?.role === 'seller';
   }
 
+  isUser(): boolean {
+    return this._profile?.role === 'user';
+  }
+
   logout() {
     this.authenticated = false;
     localStorage.removeItem('userId');

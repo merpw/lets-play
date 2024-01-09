@@ -1,0 +1,56 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <img src="assets/icons/search.svg" alt="Search" class="search-icon" />
+        Search and filter products
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="form" class="search-container">
+      <div
+        [ngClass]="{
+          'two-columns': screenSizeService.currentScreenSize !== 'XS'
+        }"
+      >
+        <mat-form-field>
+          <mat-label>Keyword</mat-label>
+          <input type="text" matInput formControlName="searchKeyword" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Seller</mat-label>
+          <mat-select formControlName="seller">
+            <mat-option *ngFor="let seller of sellers" [value]="seller">{{
+              seller
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div
+        [ngClass]="{
+          'two-columns': screenSizeService.currentScreenSize !== 'XS'
+        }"
+      >
+        <div class="price-filter-container">
+          <mat-form-field>
+            <mat-label>Min price</mat-label>
+            <input type="number" matInput formControlName="minPrice" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Max price</mat-label>
+            <input type="number" matInput formControlName="maxPrice" />
+          </mat-form-field>
+        </div>
+        <div class="available-only-checkbox">
+          <mat-checkbox formControlName="onlyAvailable"
+            >Available only</mat-checkbox
+          >
+          <button mat-raised-button color="accent" (click)="resetSearchForm()">
+            Reset
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-expansion-panel>
+</mat-accordion>
+<hr />

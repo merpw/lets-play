@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { firstValueFrom, map } from 'rxjs';
+import { finalize, firstValueFrom, map } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Result } from 'src/app/shared/models/result.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -26,8 +26,9 @@ export class ProductListingPageComponent implements OnInit {
     'owner',
   ];
 
+  public products: Product[] = [];
   public dataSource: Product[] = [];
-  public isLoading = false;
+  public isLoading = true;
 
   constructor(
     public dialog: MatDialog,
@@ -44,7 +45,10 @@ export class ProductListingPageComponent implements OnInit {
   fetchProducts(clearCache?: boolean) {
     this.productService
       .getProducts(clearCache)
-      .pipe(map((resp) => resp.body))
+      .pipe(
+        map((resp) => resp.body),
+        finalize(() => (this.isLoading = false))
+      )
       .subscribe({
         next: async (products: Array<Product>) => {
           if (products.length === 0) {
@@ -63,6 +67,7 @@ export class ProductListingPageComponent implements OnInit {
             product['owner'] = owners[i]?.name || 'NotFound';
             return product;
           });
+          this.products = products.slice().reverse();
           this.dataSource = products.slice().reverse();
         },
         error: (error) => {
@@ -83,5 +88,9 @@ export class ProductListingPageComponent implements OnInit {
       this.result = result;
       this.fetchProducts(true);
     });
+  }
+
+  updateSearch(products: Product[]): void {
+    this.dataSource = products;
   }
 }

@@ -40,12 +40,10 @@ export class ImageUploadComponent implements OnInit {
 
   openConfirmDialog(image: string): void {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { message: 'Plase confirm to delete the image.' },
+      data: { message: 'Please confirm to delete the image.' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The confirm dialog was closed');
-      console.log(result);
       if (result) {
         this.onDelete(image);
       }
@@ -58,8 +56,6 @@ export class ImageUploadComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The confirm dialog was closed');
-      console.log(result);
       if (result) {
         this.imageUploaded = [
           image,
