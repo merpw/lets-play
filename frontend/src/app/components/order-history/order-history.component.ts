@@ -8,8 +8,10 @@ import {
   map,
   mergeMap,
   forkJoin,
+  of,
+  tap,
 } from 'rxjs';
-import { Order } from 'src/app/shared/models/order';
+import { Order, OrderStatus } from 'src/app/shared/models/order';
 import { Product } from 'src/app/shared/models/product.model';
 import { Result } from 'src/app/shared/models/result.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -17,7 +19,6 @@ import { OrderService } from 'src/app/shared/services/order.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
 import { UserService } from 'src/app/shared/services/user.service';
-import { ConfirmOrderModifyComponent } from '../confirm-order-modify/confirm-order-modify.component';
 import { ConfirmComponent } from '../confirm/confirm.component';
 
 @Component({
@@ -28,18 +29,13 @@ import { ConfirmComponent } from '../confirm/confirm.component';
 export class OrderHistoryComponent implements OnInit, OnDestroy {
   result: Result | null = null;
 
-  public displayedColumns = [
-    'image',
-    'name',
-    'quantity',
-    'price',
-    'status',
-    'action',
-  ];
+  public displayedColumns = ['image', 'name', 'quantity'];
 
-  public dataSource: { order: Order; product: Product }[] = [];
+  public orders: Order[] = [];
+  public dataSource: Order[] = [];
   public isLoading = false;
   public fetchingOrderHistory = true;
+  public role: string | undefined = '';
 
   private destroy$ = new Subject<void>();
 
@@ -54,6 +50,7 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchOrderHistory();
+    this.role = this.authService.profile?.role;
   }
 
   ngOnDestroy(): void {
@@ -64,30 +61,46 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
   fetchOrderHistory() {
     this.fetchingOrderHistory = true;
     this.result = null;
-
     this.orderService
       .getOrderHistory()
       .pipe(
-        mergeMap((orders: Order[]) =>
-          forkJoin(
-            orders.map((order) =>
-              this.productService.getProductById(order.productId)
+        map((resp) => resp.body),
+        tap((orders) => (this.orders = orders.reverse())),
+        mergeMap((orders: Order[]) => {
+          if (!orders.length) return of([]);
+          return forkJoin(
+            orders.map((order: Order) =>
+              forkJoin(
+                order.products.map((product) =>
+                  this.productService.getProductById(product.id).pipe(
+                    map((productInfo: Product) => {
+                      product.info = productInfo;
+                      return order;
+                    })
+                  )
+                )
+              )
             )
           ).pipe(
-            map((products: Product[]) =>
-              products.map((product, i) => {
-                return { product: product, order: orders[i] };
+            map((orders) => orders.flat()),
+            map((orders) =>
+              orders.map((order) => {
+                order.buyerName = this.userService.getUserNameById(order.buyer);
+                order.sellerName = this.userService.getUserNameById(
+                  order.seller
+                );
+                return order;
               })
             )
-          )
-        ),
+          );
+        }),
         finalize(() => (this.fetchingOrderHistory = false)),
         catchError(() => {
           this.showOrderHistoryErrorMessage();
           return EMPTY;
         })
       )
-      .subscribe((orders) => {
+      .subscribe((orders: Order[]) => {
         if (!orders || orders.length === 0) {
           this.showOrderHistoryEmptyMessage();
         }
@@ -95,42 +108,55 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
       });
   }
 
-  deleteOrder(order: Order) {
+  onDelete(id: string) {
     const dialogRef = this.dialog.open(ConfirmComponent, {
       data: {
-        message: `Do you want to delete order?`,
+        message: `Do you want to delete the order?`,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (!result) return;
-      this.orderService
-        .deleteOrder(order.id)
-        .pipe(
-          catchError(() => {
-            this.showOrderFailMessage();
-            return EMPTY;
-          })
-        )
-        .subscribe(() => {
+      if (!result || this.role !== 'admin') return;
+      this.orderService.deleteOrder(id).subscribe({
+        next: () => {
           this.fetchOrderHistory();
-          this.showOrderSuccessMessage('Your order is deleted successfully');
-        });
+          this.showOrderSuccessMessage(
+            `Order ID ${id} is deleted successfully.`
+          );
+        },
+        error: () => {
+          this.fetchOrderHistory();
+          this.showOrderFailMessage();
+        },
+      });
     });
   }
 
-  updateOrder(order: Order) {
-    const dialogRef = this.dialog.open(ConfirmOrderModifyComponent, {
+  onAction(action: string, id: string) {
+    const dialogRef = this.dialog.open(ConfirmComponent, {
       data: {
-        message: `Do you want to confirm or cancel the order?`,
+        message: `Do you want to ${action} the order?`,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (!result) return;
-
+      let status: OrderStatus;
+      switch (action) {
+        case 'accept':
+          status = OrderStatus.CONFIRMED;
+          break;
+        case 'cancel':
+          status = OrderStatus.CANCELLED;
+          break;
+        case 'complete':
+          status = OrderStatus.COMPLETED;
+          break;
+        default:
+          status = OrderStatus.PENDING;
+      }
       this.orderService
-        .updateOrderStatus(order.id, result)
+        .updateOrderStatus(id, status)
         .pipe(
           catchError(() => {
             this.showOrderFailMessage();
@@ -139,17 +165,11 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
         )
         .subscribe(() => {
           this.fetchOrderHistory();
-          this.showOrderSuccessMessage(`Your order is ${result} successfully`);
+          this.showOrderSuccessMessage(
+            `Order ID ${id} is now ${status} successfully`
+          );
         });
     });
-  }
-
-  onAction(order: Order) {
-    if (this.authService.profile?.role === 'user') {
-      this.deleteOrder(order);
-    } else {
-      this.updateOrder(order);
-    }
   }
 
   private showOrderHistoryErrorMessage() {

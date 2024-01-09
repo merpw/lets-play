@@ -34,7 +34,7 @@ export class SellerProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderService
-      .getSellingHistory()
+      .getOrderHistory()
       .pipe(
         catchError(() => {
           this.result = {
@@ -45,8 +45,7 @@ export class SellerProfileComponent implements OnInit {
         })
       )
       .subscribe((resp) => {
-        console.log(resp);
-        this.sellingHistory = resp;
+        this.sellingHistory = resp.body;
         if (this.sellingHistory.length === 0) {
           this.result = {
             type: 'info',
@@ -69,11 +68,13 @@ export class SellerProfileComponent implements OnInit {
   getMostSoldProduct() {
     const orderCount: { [productId: string]: number } = {};
     this.sellingHistory.forEach((order) => {
-      if (orderCount[order.productId]) {
-        orderCount[order.productId] += order.quantity;
-      } else {
-        orderCount[order.productId] = order.quantity;
-      }
+      order.products.forEach((product) => {
+        if (orderCount[product.id]) {
+          orderCount[product.id] += product.quantity;
+        } else {
+          orderCount[product.id] = product.quantity;
+        }
+      });
     });
     let mostCount = 0;
     let mostSoldProductId = '';
@@ -98,13 +99,14 @@ export class SellerProfileComponent implements OnInit {
   getMostRevenueProduct() {
     const orderMoneySpent: { [productId: string]: number } = {};
     this.sellingHistory.forEach((order) => {
-      if (orderMoneySpent[order.productId]) {
-        orderMoneySpent[order.productId] += order.totalPrice;
-      } else {
-        orderMoneySpent[order.productId] = order.totalPrice;
-      }
+      order.products.forEach((product) => {
+        if (orderMoneySpent[product.id]) {
+          orderMoneySpent[product.id] += order.totalPrice;
+        } else {
+          orderMoneySpent[product.id] = order.totalPrice;
+        }
+      });
     });
-
     let mostSpent = 0;
     let mostSpentProductId = '';
     for (const [productId, spent] of Object.entries(orderMoneySpent)) {

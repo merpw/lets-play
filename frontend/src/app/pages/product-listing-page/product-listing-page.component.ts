@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { finalize, firstValueFrom, map, timeout } from 'rxjs';
+import { finalize, firstValueFrom, map } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Result } from 'src/app/shared/models/result.model';
 import { AuthService } from 'src/app/shared/services/auth.service';

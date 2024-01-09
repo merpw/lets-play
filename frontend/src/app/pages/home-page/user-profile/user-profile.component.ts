@@ -45,7 +45,7 @@ export class UserProfileComponent implements OnInit {
         })
       )
       .subscribe((resp) => {
-        this.orderHistory = resp;
+        this.orderHistory = resp.body;
         if (this.orderHistory.length === 0) {
           this.result = {
             type: 'info',
@@ -68,11 +68,13 @@ export class UserProfileComponent implements OnInit {
   getMostOrderedProduct() {
     const orderCount: { [productId: string]: number } = {};
     this.orderHistory.forEach((order) => {
-      if (orderCount[order.productId]) {
-        orderCount[order.productId] += 1;
-      } else {
-        orderCount[order.productId] = 1;
-      }
+      order.products.forEach((product) => {
+        if (orderCount[product.id]) {
+          orderCount[product.id] += 1;
+        } else {
+          orderCount[product.id] = 1;
+        }
+      });
     });
     let mostCount = 0;
     let mostOrderedProductId = '';
@@ -97,13 +99,14 @@ export class UserProfileComponent implements OnInit {
   getMostMoneySpentProduct() {
     const orderMoneySpent: { [productId: string]: number } = {};
     this.orderHistory.forEach((order) => {
-      if (orderMoneySpent[order.productId]) {
-        orderMoneySpent[order.productId] += order.totalPrice;
-      } else {
-        orderMoneySpent[order.productId] = order.totalPrice;
-      }
+      order.products.forEach((product) => {
+        if (orderMoneySpent[product.id]) {
+          orderMoneySpent[product.id] += order.totalPrice;
+        } else {
+          orderMoneySpent[product.id] = order.totalPrice;
+        }
+      });
     });
-
     let mostSpent = 0;
     let mostSpentProductId = '';
     for (const [productId, spent] of Object.entries(orderMoneySpent)) {

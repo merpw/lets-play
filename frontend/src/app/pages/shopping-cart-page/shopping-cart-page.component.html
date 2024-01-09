@@ -129,7 +129,7 @@
   </div>
   <hr />
   <app-message-box
-    *ngIf="result"
+    *ngFor="let result of results"
     [message]="result.message"
     [type]="result.type"
   ></app-message-box>

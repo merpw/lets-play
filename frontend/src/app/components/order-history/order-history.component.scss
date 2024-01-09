@@ -8,6 +8,11 @@
     }
   }
 
+  .order-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .order-status {
     font-size: 0.7rem;
   }

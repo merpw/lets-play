@@ -9,7 +9,12 @@
   class="user-profile-container"
   *ngIf="mostOrderedProductSubject$ | async as element"
 >
-  <h3>Hey user, your favourite product is {{ element.product.name }}:</h3>
+  <h3>
+    Hey user, your favourite product is
+    <b>
+      {{ element.product.name }}
+    </b>
+  </h3>
   <div class="product-image-container">
     <img
       mat-card-xl-image
@@ -21,13 +26,21 @@
       alt="Large image"
     />
   </div>
-  <h3>You have ordered {{ element.count }} times</h3>
+  <h3>
+    You have ordered
+    <b> {{ element.product.name }} {{ element.count }} times</b>
+  </h3>
 </ng-container>
 <ng-container
   class="user-profile-container"
   *ngIf="mostMoneySpentProductSubject$ | async as element"
 >
-  <h3>You have spent most money on {{ element.product.name }}:</h3>
+  <h3>
+    You have spent most money on
+    <b>
+      {{ element.product.name }}
+    </b>
+  </h3>
   <div class="product-image-container">
     <img
       mat-card-xl-image
@@ -39,7 +52,12 @@
       alt="Large image"
     />
   </div>
-  <h3>You have spent {{ element.moneySpent | currency : "EUR" }}</h3>
+  <h3>
+    You have spent
+    <b>
+      {{ element.moneySpent | currency : "EUR" }}
+    </b>
+  </h3>
 </ng-container>
 
 <app-message-box

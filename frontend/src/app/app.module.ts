@@ -43,6 +43,7 @@ import { ConfirmOrderModifyComponent } from './components/confirm-order-modify/c
 import { SearchContainerComponent } from './components/search-container/search-container.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatTooltipModule,
     MatExpansionModule,
     MatCheckboxModule,
+    MatMenuModule,
     NgOptimizedImage,
     LayoutModule,
   ],

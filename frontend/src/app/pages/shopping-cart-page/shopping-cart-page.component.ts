@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,7 +20,7 @@ import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
   styleUrls: ['./shopping-cart-page.component.scss'],
 })
 export class ShoppingCartPageComponent implements OnInit, OnDestroy {
-  result: Result | null = null;
+  results: Result[] = [];
 
   public displayedColumns = ['image', 'name', 'quantity', 'price', 'delete'];
 
@@ -50,7 +51,7 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
 
   fetchShoppingCart() {
     this.fetchingShoppingCart = true;
-    this.result = null;
+    this.results = [];
 
     const shoppingCart: ShoppingCart | null =
       this.loadShoppingCartFromStorage();
@@ -146,8 +147,10 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
         .createOrder(shoppingCart)
         .pipe(finalize(() => (this.isLoading = false)))
         .subscribe({
-          next: (resp) => {
-            this.showOrderSuccessMessage();
+          next: (responses: HttpResponse<string>[]) => {
+            responses.forEach((resp) =>
+              this.showOrderSuccessMessage(resp.body as string)
+            );
             if (this.productService.shoppingCartKey) {
               localStorage.removeItem(this.productService.shoppingCartKey);
             }
@@ -181,30 +184,30 @@ export class ShoppingCartPageComponent implements OnInit, OnDestroy {
   }
 
   private showShoppingCartErrorMessage() {
-    this.result = {
+    this.results.push({
       type: 'error',
       message: 'Your shopping cart contains an error.',
-    };
+    });
   }
 
   private showShoppingCartEmptyMessage() {
-    this.result = {
+    this.results.push({
       type: 'info',
       message: 'Your shopping cart is empty.',
-    };
+    });
   }
 
-  private showOrderSuccessMessage() {
-    this.result = {
+  private showOrderSuccessMessage(id: string) {
+    this.results.push({
       type: 'success',
-      message: 'Your order is submitted successfully.',
-    };
+      message: 'Your order is submitted successfully. Order ID: ' + id,
+    });
   }
 
   private showOrderFailMessage() {
-    this.result = {
+    this.results.push({
       type: 'error',
       message: 'Error happen in order submission Please try again.',
-    };
+    });
   }
 }

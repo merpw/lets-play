@@ -1,70 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, map, Observable, of } from 'rxjs';
-import { Order, OrderStatus } from '../models/order';
+import { forkJoin, map, mergeMap, Observable } from 'rxjs';
+import { OrderStatus } from '../models/order';
 import { Product } from '../models/product.model';
+import { ShoppingCartItem } from '../models/shopping-cart-item.model';
 import { ShoppingCart } from '../models/shopping-cart.model';
-import { AuthService } from './auth.service';
 import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
-  private orderApiBaseUrl = '';
-
-  private mockOrderHistory: Order[] = [
-    {
-      id: 'string',
-      productId: '6580a2f40b516b610252dcad',
-      userId: 'string',
-      sellerId: 'string',
-      quantity: 1,
-      totalPrice: 1,
-      orderStatus: OrderStatus.CONFIRMED,
-      timeStamp: 'string',
-    },
-    {
-      id: 'string',
-      productId: '6580a2f40b516b610252dcad',
-      userId: 'string',
-      sellerId: 'string',
-      quantity: 1,
-      totalPrice: 1,
-      orderStatus: OrderStatus.CONFIRMED,
-      timeStamp: 'string',
-    },
-    {
-      id: 'string',
-      productId: '658086190b516b610252dcac',
-      userId: 'string',
-      sellerId: 'string',
-      quantity: 4,
-      totalPrice: 60,
-      orderStatus: OrderStatus.CONFIRMED,
-      timeStamp: 'string',
-    },
-    {
-      id: 'string',
-      productId: '65834f365454055ac6d4ba65',
-      userId: 'string',
-      sellerId: 'string',
-      quantity: 4,
-      totalPrice: 60,
-      orderStatus: OrderStatus.CONFIRMED,
-      timeStamp: 'string',
-    },
-  ];
+  private orderApiBaseUrl = 'api/orders';
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService,
     private productService: ProductService
   ) {}
 
-  getOrderTotalPrice(shoppingCart: ShoppingCart): Observable<number> {
+  getOrderTotalPrice(shoppingCartItem: ShoppingCartItem[]): Observable<number> {
     return forkJoin(
-      shoppingCart.items.map((item) =>
+      shoppingCartItem.map((item) =>
         this.productService
           .getProductById(item.product.id)
           .pipe(map((product: Product) => product.price * item.quantity))
@@ -73,31 +29,48 @@ export class OrderService {
   }
 
   createOrder(shoppingCart: ShoppingCart): Observable<any> {
-    return this.getOrderTotalPrice(shoppingCart).pipe(
-      map((totalPrice) => {
-        console.log(totalPrice);
-        return this.http.post(this.orderApiBaseUrl, shoppingCart, {
-          withCredentials: true,
-          responseType: 'json',
-          observe: 'response',
-        });
+    const ordersList: {
+      [sellerId: string]: ShoppingCartItem[];
+    } = {};
+    shoppingCart.items.forEach((item) => {
+      if (ordersList[item.product.userId]) {
+        ordersList[item.product.userId].push(item);
+      } else {
+        ordersList[item.product.userId] = [item];
+      }
+    });
+
+    return forkJoin(
+      Object.entries(ordersList).map(([sellerId, shoppingCartItems]) => {
+        return this.getOrderTotalPrice(shoppingCartItems).pipe(
+          mergeMap((totalPrice) => {
+            console.log(totalPrice);
+            const payload = {
+              products: shoppingCartItems.map((item) => {
+                return {
+                  id: item.product.id,
+                  quantity: item.quantity,
+                };
+              }),
+              totalPrice: totalPrice,
+              seller: sellerId,
+            };
+            return this.http.post(this.orderApiBaseUrl + '/add', payload, {
+              withCredentials: true,
+              responseType: 'text',
+              observe: 'response',
+            });
+          })
+        );
       })
     );
   }
 
-  updateOrder(shoppingCart: ShoppingCart): Observable<any> {
-    return this.http.put(this.orderApiBaseUrl, shoppingCart, {
-      withCredentials: true,
-      responseType: 'json',
-      observe: 'response',
-    });
-  }
-
+  // TODO:
   updateOrderStatus(orderId: string, status: OrderStatus): Observable<any> {
-    return of(false);
     return this.http.put(
-      this.orderApiBaseUrl,
-      { orderId, status },
+      this.orderApiBaseUrl + '/' + orderId,
+      { status: status },
       {
         withCredentials: true,
         responseType: 'json',
@@ -106,8 +79,9 @@ export class OrderService {
     );
   }
 
+  // TODO:
   deleteOrder(orderId: string): Observable<any> {
-    return this.http.put(this.orderApiBaseUrl, orderId, {
+    return this.http.delete(this.orderApiBaseUrl + '/' + orderId, {
       withCredentials: true,
       responseType: 'json',
       observe: 'response',
@@ -115,16 +89,6 @@ export class OrderService {
   }
 
   getOrderHistory(): Observable<any> {
-    return of(this.mockOrderHistory);
-    return this.http.get(this.orderApiBaseUrl, {
-      withCredentials: true,
-      responseType: 'json',
-      observe: 'response',
-    });
-  }
-
-  getSellingHistory(): Observable<any> {
-    return of(this.mockOrderHistory);
     return this.http.get(this.orderApiBaseUrl, {
       withCredentials: true,
       responseType: 'json',

@@ -1,16 +1,26 @@
+import { Observable } from 'rxjs';
+import { Product } from './product.model';
+
 export enum OrderStatus {
-  PENDING = 'Pending',
-  CONFIRMED = 'Confirmed',
-  CANCELLED = 'Cancelled',
+  PENDING = 'pending',
+  CONFIRMED = 'confirmed',
+  COMPLETED = 'completed',
+  CANCELLED = 'canceled',
 }
 
 export interface Order {
   id: string;
-  productId: string;
-  userId: string;
-  sellerId: string;
-  quantity: number;
+  products: {
+    id: string;
+    quantity: number;
+    info: Product;
+  }[];
+  buyer: string;
+  seller: string;
   totalPrice: number;
-  orderStatus: OrderStatus;
-  timeStamp: string;
+  status: OrderStatus;
+  createdAt: Date;
+  orderHistoryName: string;
+  buyerName: Observable<string>;
+  sellerName: Observable<string>;
 }
