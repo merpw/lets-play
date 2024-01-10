@@ -3,7 +3,18 @@ FROM gradle:8.5-jdk17 AS builder
 ARG SERVICE_NAME
 
 WORKDIR /usr/app/
-COPY .. .
+
+# Install dependencies
+COPY build.gradle.kts settings.gradle.kts ./
+
+COPY ./services/${SERVICE_NAME}/build.gradle.kts ./services/${SERVICE_NAME}/
+
+COPY ./shared/build.gradle.kts ./shared/
+
+RUN gradle services:${SERVICE_NAME}:dependencies --no-daemon
+
+# Build the application
+COPY . .
 RUN gradle services:${SERVICE_NAME}:build --no-daemon -x test
 
 FROM amazoncorretto:17-alpine3.18-jdk
