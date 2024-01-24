@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  docker:
+    image: docker:dind
+    privileged: true
+    volumes:
+      - jenkins-docker-certs:/certs/client
+    ports:
+      - "80:80"
+      - "443:443"
+  jenkins:
+    build:
+      context: jenkins
+    container_name: jenkins
+    volumes:
+      - jenkins-docker-certs:/certs/client
+      - jenkins_home:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    environment:
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_TLS_VERIFY=1
+      - MONGO_HOST=docker # Test DB is running in docker
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+volumes:
+  jenkins-docker-certs:
+  jenkins_home:
