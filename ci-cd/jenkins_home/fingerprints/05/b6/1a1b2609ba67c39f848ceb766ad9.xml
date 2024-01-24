@@ -1,0 +1,13 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2023-12-18 12:15:43.695 UTC</timestamp>
+  <md5sum>05b61a1b2609ba67c39f848ceb766ad9</md5sum>
+  <fileName>Credential id=github-ssh name=jenkins</fileName>
+  <usages>
+    <entry>
+      <string>mr-jenk</string>
+      <ranges>4-7,9-18,20-22,24</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

@@ -1,0 +1,73 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1385.vb_58b_86ea_fff1">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2151.ve32c9d209a_3f"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2151.ve32c9d209a_3f">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers/>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@3826.v3b_5707fe44da_">
+    <script>pipeline {
+    agent any
+
+    tools {
+        gradle 8.5
+    }
+
+    stages {
+        stage(&apos;Checkout GitHub&apos;) {
+            steps {
+                git credentialsId: &apos;github-ssh&apos;, url: &apos;git@github.com:maximihajlov/test.git&apos;, branch: &apos;main&apos;
+            }
+        }
+        stage(&apos;Run tests&apos;) {
+            steps {
+                dir(&apos;backend&apos;) {
+                    sh &apos;gradle test&apos;
+                }
+            }
+            post {
+                always {
+                    junit &apos;**/test-results/test/TEST-*.xml&apos;
+                }
+            }
+        }
+
+        stage(&apos;Build&apos;) {
+            steps {
+                sh &apos;docker compose build&apos;
+            }
+        }
+        
+        stage(&apos;Deploy&apos;) {
+            steps {
+                sh &apos;docker compose down &amp;&amp; docker compose up -d&apos;
+            }
+        }
+    }
+    post {
+        failure {
+            emailext(
+                subject: &quot;Failed Pipeline: ${currentBuild.fullDisplayName}&quot;,
+                body: &quot;Something is wrong with ${env.BUILD_URL}&quot;,
+                recipientProviders: [[$class: &apos;DevelopersRecipientProvider&apos;]]
+            )
+        }
+    }
+}
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

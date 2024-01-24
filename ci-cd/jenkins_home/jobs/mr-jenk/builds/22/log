@@ -1,0 +1,774 @@
+Started by user [8mha:////4EWY0N0SauZZK+jAuehLpivg8zKJxnTZ0nfiDC349QyUAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[8mha:////4AqPU9Y3dTpMoMcw+k+IDK1m9RYsWJdKzcsGS+Vh5jAxAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4Foeyao4P3ChSYv7rQh5fCygkdyKUdg+be5UNhUUMfy9AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4LMpTs/kkKdhGR+HIzxPcZm1BiEa5TPTfh/xFL4SzJPpAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/workspace/mr-jenk
+[8mha:////4DSkBVFNNtsLdX38nUuifgyas154+szNt59dhXdHAOwXAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4BRUEOmD916COix6t3gMyQtfemX2HwqVPnqndC2psHv8AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4BiFR23c46BC2O3cr+OwNPsT7riNDdrqohxyaSbrnNU+AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Declarative: Tool Install)
+[8mha:////4DQB2uiSnOe4XI7Ek7rALJqWnBXx2OLWg2iPHNkSMAmBAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaWGsbAmNJ0AWEZb8zwLrbuWJvJp3kLiJlZNMMm+a93rDOic4UbLcG+wdZu14DKOti0+U+lugiXu6ck2YKRguzSSpM+cFJRUDS1gDKwEbgzpQdmgLbIVXD9UGhba9lFS/o4DGdQM8gYlqLiqVL8wJdvexy4Q/z18BzLEA29ce4gfg7KmOvAAAAA==[0m[Pipeline] tool
+[8mha:////4HYuFyBdhS0eIs5g2LcvzJHgvAOwGXYdwfZLkiKtN4JvAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbGRNjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI4F2L72ED8v8DEJvAAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4HUOzD8Sqo0qv1Izd8c6zSARDQAs3OHX87j4Qu5bYnwqAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbmRhjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j/zqggXvAAAAA==[0m[Pipeline] }
+[8mha:////4CQxz2nSAd7IjJsJ4CKO1eE5/+WdOB5zoCLLY1/FLejVAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiJoYeVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfId1tBtv8AExtCpb0AAAA=[0m[Pipeline] // stage
+[8mha:////4JNXhylpfIvBmBiwTfThYIKJR6+DhM2ti+4ZF1GmF0xnAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BKWgpeYSjSHSIitZywwtMbIwT6y7YF5KKF/E1/oAhEhVb7ay0mucLqhThQNGJzmLvMbVeDGF0uYmJYn8JNImOzqIlTBSsUHZSZOxxQUVsYUlRwkrC2mIbKHl0DBvZ6buug0ZXnzjmbS+h9OYGDyhkNrOO/IU5wvY6mkT48/wVwDwwFDuGsmk+x+oNEzd2msEAAAA=[0m[Pipeline] withEnv
+[8mha:////4PJaxyCyiCjAz0L+KAckmNsHVmyp7YRhdm3O7rL2VjDoAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] {
+[8mha:////4K37NgB4mPNlOq3hLcpKOLaUR8qPndO9oEQXVDjK1msMAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLdfrbD/Cw+y7kUycIAAAA=[0m[Pipeline] stage
+[8mha:////4GXhZPc/92gfZiZI76e8JflfMHAT3gP9VzKYJP8mHfocAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAbNWnxXCAAAA[0m[Pipeline] { (Checkout GitHub)
+[8mha:////4PcyiELfmLqDeyqNmoygSeal/69L3zYnFLUn3N1IjfG1AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN8W7Eii+AAAA[0m[Pipeline] tool
+[8mha:////4DUaBRANDqr5z9NN1vadwnW+SSJpNY42TFaRxbO+qEwTAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJESDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEG6D8DvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4C6N2HuZ4oRpBUBBwR7KvgF/HMwScOvtVejF3b7KdWSwAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUSEgMiKlrlIUThCaEtNH/5SelnTgRV+MOtFRiwoNlW7Le6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gOeMTC6wgAAAA==[0m[Pipeline] withEnv
+[8mha:////4I886kPvz/jhn5Jfx0m6ePzlNq7n26o5JIQIlZ1es8xdAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] {
+[8mha:////4MQdW7PP1ZWAyGoFa8ieEy077GUdLD45mIER8mq6cvq3AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiOhCiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBr2eB0O+AAAA[0m[Pipeline] git
+The recommended git tool is: NONE
+using credential github-ssh
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/mr-jenk/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:maximihajlov/test.git # timeout=10
+Fetching upstream changes from git@github.com:maximihajlov/test.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_SSH to set credentials 
+ > git fetch --tags --force --progress -- git@github.com:maximihajlov/test.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 94d36cdff638bdd0de0ff0d92a1986ba69785a03 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 94d36cdff638bdd0de0ff0d92a1986ba69785a03 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main 94d36cdff638bdd0de0ff0d92a1986ba69785a03 # timeout=10
+Commit message: "Add Deploy workflow"
+ > git rev-list --no-walk f59ab039775aba3959a2749ecb3c976c5f8cd109 # timeout=10
+[8mha:////4D7Rmr23DPiv1D8bHz6RY1KPCQxTA8bvZEWAaEcfAYbIAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICVEgoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcr9Ntfu8AEWNdkpvgAAAA==[0m[Pipeline] }
+[8mha:////4Jo60DTh4zCn66HTT/KHi38OhpF/dkzokzZ2wy1F6ms9AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKi0FAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3da768AEi+zpyvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4Lxw/cYOzn3jTVNdkm3FES2RbsXBj5X9va2jzHeqoarsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRER2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGVd59ofPjbYp22+AAAA[0m[Pipeline] }
+[8mha:////4DGOHbtEtqTcOH+ZjFE5p9z/C1B8KLf77LQyBkdEdLjYAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiSImo0lppeIGJjXFi3RnbIal4EV/jD1hEomKL1c4283rDOgY4cTDYaxosxc6id6PJCycOw9XxhD1fsGOK7DS2empZ6WbBlpOGJUUJKwEbTZ3jaMkk2IpePmTlJJnqnEL+jgJKq+7whEJkc5IhfWEOsLuNKjL9PH8FMHufoDzUufb1BzCenzi+AAAA[0m[Pipeline] // stage
+[8mha:////4NDg4Vyr8Hd0nxlvqTyifWbIBwEms3Jh7NJ5Twzyz6NUAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUVGyIqWuUhROEJIS00f8lSWknTsTVuAOBSkx4sGxL1nu+oIoBjhQs6wz2DqNybPCjzYlNFPqLp4l1dGaKMJI3TJhJkDbtUgUlA4uKElYc1gaVp+jQJtjwTt5l7SXa+pRC3g4cSqdv8ICCZ3KSIX3LHGB7HXUk/HH+AmAeEpS7Jluz/zyrN+6T+eXCAAAA[0m[Pipeline] stage
+[8mha:////4MIcKJ/1J0sdmxdUKmEXNzJ2xAjuQYizewYial6tfHKEAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQjAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD/hYjrHCAAAA[0m[Pipeline] { (Run tests)
+[8mha:////4DSGmhQjXneQAQfblfsdLPpYV8hj7kghz1uwFNv5yFC1AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIUGDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEIWoEpvgAAAA==[0m[Pipeline] tool
+[8mha:////4N+USOrfXEr6vWBvuua2Q8onr3ZdLkexO1FrI9ZxrGgHAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiISEKRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q1Ja5owvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4H0KkB2jUBnK66Qn4Uwl11vWK6N0Y7ckrHY69JHeaMD9AAAAqB+LCAAAAAAAAP9tjUEKwjAURH8rXbh16SFSEARBXHUbsvEEsYkxbfi//qS2K0/k1byDrQVXzmKYGRje6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gPmlJ7MwgAAAA==[0m[Pipeline] withEnv
+[8mha:////4Ir2McoI7yeXGyCD3oAyBdOqnXIJeakgMB/j+u+4UPWFAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYgIhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0QKVszCAAAA[0m[Pipeline] {
+[8mha:////4MvzXaD+aFtRkXDNLEYGkVdorgm0ZoL2rAkJVAKuMS0eAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUwYRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3+2y7zedZvQH4j6CMwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/mr-jenk/backend
+[8mha:////4GCWP9a8Ih130nb9Bh3MlvqIMWfvk9ZqU1X9n9YOTq5iAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUxIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLDbrb9/Cw+ty4Up8IAAAA=[0m[Pipeline] {
+[8mha:////4PTUZbZ4wPW8mfIzzWinHtF5OzTaqM8vy9dTKVzp6r3KAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioERUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud9+ahfettHKdL4AAAA=[0m[Pipeline] sh
++ gradle test
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :generateEffectiveLombokConfig UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :jacocoTestReport SKIPPED
+> Task :services:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileJava NO-SOURCE
+> Task :services:processResources NO-SOURCE
+> Task :services:classes UP-TO-DATE
+> Task :services:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileTestJava NO-SOURCE
+> Task :services:processTestResources NO-SOURCE
+> Task :services:testClasses UP-TO-DATE
+> Task :services:test NO-SOURCE
+> Task :services:jacocoTestReport SKIPPED
+> Task :shared:generateEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileJava UP-TO-DATE
+> Task :shared:processResources NO-SOURCE
+> Task :shared:classes UP-TO-DATE
+> Task :shared:jar UP-TO-DATE
+> Task :shared:generateTestFixturesEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestFixturesJava UP-TO-DATE
+> Task :shared:processTestFixturesResources NO-SOURCE
+> Task :shared:testFixturesClasses UP-TO-DATE
+> Task :shared:testFixturesJar UP-TO-DATE
+> Task :shared:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestJava NO-SOURCE
+> Task :shared:processTestResources NO-SOURCE
+> Task :shared:testClasses UP-TO-DATE
+> Task :shared:test NO-SOURCE
+> Task :shared:jacocoTestReport SKIPPED
+> Task :services:media:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileJava UP-TO-DATE
+> Task :services:media:processResources UP-TO-DATE
+> Task :services:media:classes UP-TO-DATE
+> Task :services:media:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileTestJava UP-TO-DATE
+> Task :services:media:processTestResources UP-TO-DATE
+> Task :services:media:testClasses UP-TO-DATE
+> Task :services:media:test UP-TO-DATE
+> Task :services:media:jacocoTestReport UP-TO-DATE
+> Task :services:products:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileJava UP-TO-DATE
+> Task :services:products:processResources UP-TO-DATE
+> Task :services:products:classes UP-TO-DATE
+> Task :services:products:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileTestJava UP-TO-DATE
+> Task :services:products:processTestResources NO-SOURCE
+> Task :services:products:testClasses UP-TO-DATE
+> Task :services:products:test UP-TO-DATE
+> Task :services:products:jacocoTestReport UP-TO-DATE
+> Task :services:users:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileJava UP-TO-DATE
+> Task :services:users:processResources UP-TO-DATE
+> Task :services:users:classes UP-TO-DATE
+> Task :services:users:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileTestJava UP-TO-DATE
+> Task :services:users:processTestResources NO-SOURCE
+> Task :services:users:testClasses UP-TO-DATE
+> Task :services:users:test UP-TO-DATE
+> Task :services:users:jacocoTestReport UP-TO-DATE
+
+BUILD SUCCESSFUL in 8s
+33 actionable tasks: 33 up-to-date
+[8mha:////4F1w7qRmMCbO4v4l1okFNuyDyBHAPLt3+yHIISg2FrgbAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIilBJR0VppeIFJjLFj3Tm2g1PxIr7GHwhEomKL1c4283zBOgY4ctBoFfWGYmvQu1HPCzOH/uo4o+ULtkyRncJG5YY7dVqw4aRgSVHCSsBGUes4GtIJtsLKu6ycJF2dU5i/g4DSdAM8oBCzOcmQvjAF2N3GLjL9PH8FMHmfoKzrT+3fKpbQQr4AAAA=[0m[Pipeline] }
+[8mha:////4EQd6/2MJ8s5yjgb+gcG9WkIWfogy1uwRc5dt9+jLqs/AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7BgSW0ii+AAAA[0m[Pipeline] // dir
+Post stage
+[8mha:////4CNHWdL/aaHYktqsNTjDzdDLzoSElZPvLlb7uNDV75o7AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigSgQSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANEcrtIdduP3wAiAnOxL4AAAA=[0m[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[8mha:////4NvG75DtLmk4QvQhN0fS1wbXLC/Ge7ZN4eFZTPkyW33rAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigYSEUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKUu32u7eED6r7dBb4AAAA=[0m[Pipeline] }
+[8mha:////4PPu2RJN48mll5/xxe7I2QeNXlEXVCcgdtTPejL4d706AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiQQESSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryt8+1PXwA2V2Gub4AAAA=[0m[Pipeline] // withEnv
+[8mha:////4MQMSW55Ananw5mI1QR+2o8nNKgXgluZ7uUy/eZTVmPkAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigZCQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKUu0Ou7f4DsZNhNr4AAAA=[0m[Pipeline] }
+[8mha:////4LIQgIUkCZl4yuvBlksCTSUlBR/7OsuO8L7SwNrWIArjAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAQ1CqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDuDrm2+w+CcDqKvgAAAA==[0m[Pipeline] // stage
+[8mha:////4NAEm14EL1afd9RDZG5HuKQgLpYd7G6NCnOCZLULQYCMAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUEBvqxBp14QShCSFp9H9JUtKJE3E17kCgEhMeLNuS9Z4vqIKHhrxmVmFvMHSGDW7UObFEvr84SszSmXWEgZxirUotSXWca0tRwayihAWHpcLOUTCoI6y4FXdRO4G6PkWftwOH0sgbPKDgmRyFj98yeVhfRxkIf5y/AJiGCOV2l22/+TyrN8LkuB3CAAAA[0m[Pipeline] stage
+[8mha:////4MaASUxexdV6uIrTOl6tX3aGU3ODClKUy+Ji18Dd1NpQAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUJDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAbb5KxbCAAAA[0m[Pipeline] { (Build)
+[8mha:////4BZMk4oAMV5eT+kiUj6QS3kFP4LU+DM2+XCLoX/fmdCVAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiEB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBirOQHu+AAAA[0m[Pipeline] tool
+[8mha:////4HnX74AeVUDRVW95SnB40K1EHfXoUzte1wrJWLtFDMCkAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiBB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBmv/W2K+AAAA[0m[Pipeline] envVarsForTool
+[8mha:////4LOHcgy7CDmPJfnRKf1z1YdrljG1WMuNTidKnAFOjOyRAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycohUSN0QE2vUhROEJoSk0f9tkpJOnIircQdaKjHhwbItWe/1hjIGOFEw3GnsLMbW8t6PZk48U+hunjJ3dOUtYSSveaNzQ0qf19pQ0rCqYLARsNXYeooWTYKdcPIhKy/RVJcU5u0ogFk1wBMKMZOTDOlbpgD7+6gi4Y/zFwBTn4DVh8Xq5Vl+AMW3aIfCAAAA[0m[Pipeline] withEnv
+[8mha:////4M4zoE4qhAbRtUNgDcl3X5Y+JgN3ihPYyz0jw+YYZ4LJAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0KRNiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPIshjPcIAAAA=[0m[Pipeline] {
+[8mha:////4IVF6K+mELFvbZKvdqswTR60WnhEn87QM1Y6BrawzsIwAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSAA2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBj0vY+u+AAAA[0m[Pipeline] sh
++ docker compose build
+time="2023-12-21T13:52:58Z" level=warning msg="The \"SSL_CERT\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:52:58Z" level=warning msg="The \"SSL_KEY\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:52:58Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:52:58Z" level=warning msg="The \"ADMIN_EMAIL\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:52:58Z" level=warning msg="The \"ADMIN_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:52:58Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:52:58Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+#0 building with "default" instance using docker driver
+
+#1 [products internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [users internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [products internal] load build definition from Dockerfile
+#3 transferring dockerfile: 383B done
+#3 DONE 0.0s
+
+#4 [users internal] load build definition from Dockerfile
+#4 transferring dockerfile: 383B done
+#4 DONE 0.0s
+
+#5 [media internal] load build definition from Dockerfile
+#5 transferring dockerfile: 383B done
+#5 DONE 0.0s
+
+#6 [media internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 371B done
+#7 DONE 0.0s
+
+#8 [frontend internal] load build definition from Dockerfile
+#8 transferring dockerfile: 286B done
+#8 DONE 0.0s
+
+#9 [media internal] load metadata for docker.io/library/gradle:8.5-jdk17
+#9 DONE 1.1s
+
+#10 [media internal] load metadata for docker.io/library/amazoncorretto:17-alpine3.18-jdk
+#10 DONE 1.3s
+
+#11 [media builder 1/4] FROM docker.io/library/gradle:8.5-jdk17@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#11 DONE 0.0s
+
+#12 [users stage-1 1/3] FROM docker.io/library/amazoncorretto:17-alpine3.18-jdk@sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3
+#12 DONE 0.0s
+
+#13 [products internal] load build context
+#13 transferring context: 64.84kB 0.0s done
+#13 DONE 0.1s
+
+#14 [users internal] load build context
+#14 transferring context: 64.84kB 0.0s done
+#14 DONE 0.1s
+
+#15 [media internal] load build context
+#15 transferring context: 64.84kB 0.0s done
+#15 DONE 0.1s
+
+#16 [users builder 2/4] WORKDIR /usr/app/
+#16 CACHED
+
+#17 [products builder 3/4] COPY .. .
+#17 DONE 0.2s
+
+#18 [users builder 3/4] COPY .. .
+#18 CACHED
+
+#19 [media builder 3/4] COPY .. .
+#19 CACHED
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 ...
+
+#21 [frontend internal] load metadata for docker.io/library/node:18.13-alpine
+#21 DONE 1.6s
+
+#22 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#22 DONE 1.7s
+
+#23 [frontend internal] load build context
+#23 transferring context: 608.72kB 0.0s done
+#23 DONE 0.0s
+
+#24 [frontend build 1/6] FROM docker.io/library/node:18.13-alpine@sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827
+#24 resolve docker.io/library/node:18.13-alpine@sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827 0.0s done
+#24 sha256:8921db27df2831fa6eaa85321205a2470c669b855f3ec95d5a3c2b46de0442c9 0B / 3.37MB 0.1s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 0B / 46.93MB 0.1s
+#24 sha256:092122bdc81dfcba73d372e7bee1790d1b350c13ecbeef6f80d16f3351d12cc8 0B / 2.35MB 0.1s
+#24 sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827 1.43kB / 1.43kB done
+#24 sha256:09faa7dabeae557cb6baff17be5b216fc4e3c9608aa04fe71695aad3d229a9c7 1.16kB / 1.16kB done
+#24 sha256:264f8646c2a67d53f10446331ede8afc486055ecbac157e4613afe22d6325e06 6.44kB / 6.44kB done
+#24 sha256:8921db27df2831fa6eaa85321205a2470c669b855f3ec95d5a3c2b46de0442c9 3.37MB / 3.37MB 0.3s done
+#24 extracting sha256:8921db27df2831fa6eaa85321205a2470c669b855f3ec95d5a3c2b46de0442c9
+#24 sha256:bb654436a2bdf119a00dccfd2b2c4c8f6dd0a6fffb1139aea778bd98ebd86b95 0B / 450B 0.3s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 5.24MB / 46.93MB 0.5s
+#24 extracting sha256:8921db27df2831fa6eaa85321205a2470c669b855f3ec95d5a3c2b46de0442c9 0.1s done
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 8.39MB / 46.93MB 0.6s
+#24 sha256:bb654436a2bdf119a00dccfd2b2c4c8f6dd0a6fffb1139aea778bd98ebd86b95 450B / 450B 0.5s done
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 12.58MB / 46.93MB 0.8s
+#24 sha256:092122bdc81dfcba73d372e7bee1790d1b350c13ecbeef6f80d16f3351d12cc8 1.05MB / 2.35MB 1.0s
+#24 sha256:092122bdc81dfcba73d372e7bee1790d1b350c13ecbeef6f80d16f3351d12cc8 2.35MB / 2.35MB 1.0s done
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 15.73MB / 46.93MB 1.7s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 18.87MB / 46.93MB 2.3s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 22.02MB / 46.93MB 2.7s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 25.17MB / 46.93MB 3.2s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 28.31MB / 46.93MB 3.6s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 31.46MB / 46.93MB 4.0s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 35.65MB / 46.93MB 4.3s
+#24 ...
+
+#25 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:ba48c86adff12f1849920b6175c328b58b589f68feb082de8677309718945a56
+#25 resolve docker.io/library/nginx:alpine@sha256:ba48c86adff12f1849920b6175c328b58b589f68feb082de8677309718945a56 0.0s done
+#25 sha256:529b5644c430c06553d2e8082c6713fe19a4169c9dc2369cbb960081f52924ff 11.72kB / 11.72kB done
+#25 sha256:2d2a2257c6e9d2e5b50d4fbeb436d8d2b55631c2a89935a425b417eb95212686 2.19kB / 2.19kB done
+#25 sha256:ba48c86adff12f1849920b6175c328b58b589f68feb082de8677309718945a56 5.98kB / 5.98kB done
+#25 sha256:fed54a1dc458a7f591fa1c986669998655ad54d260d53691c8ef4841185883d4 1.90MB / 1.90MB 1.3s done
+#25 sha256:d4735778d47c0be8db66c446904aa2ba47f3e7509c0c9c3985ecb3b96bb7179f 629B / 629B 1.2s done
+#25 extracting sha256:fed54a1dc458a7f591fa1c986669998655ad54d260d53691c8ef4841185883d4 0.3s done
+#25 sha256:dffa16519b51a7abc6df8837b2ceffb699eedd09394ecfeff363ae5321cb7ad2 366B / 366B 1.5s done
+#25 sha256:8695c106552e600555fefc1bc2b299b420c52583bbf537e6c0468bc7821a3f7b 955B / 955B 1.4s done
+#25 sha256:9e50a0e580b1e5240c8bf21f791b11fb7a8f3c04249f5db56f1bc72f2fa73929 1.21kB / 1.21kB 1.5s done
+#25 sha256:5ddd532e9cec09472cd07e594cb6dce78c43ba5248310263f8f766c74b9fb6ae 1.40kB / 1.40kB 1.6s done
+#25 sha256:fe117667dcd024947ead1f25ad99a5e522efcf3b7dbd0752b6fb5e73feffb407 12.65MB / 12.65MB 3.8s done
+#25 extracting sha256:d4735778d47c0be8db66c446904aa2ba47f3e7509c0c9c3985ecb3b96bb7179f done
+#25 extracting sha256:8695c106552e600555fefc1bc2b299b420c52583bbf537e6c0468bc7821a3f7b done
+#25 extracting sha256:dffa16519b51a7abc6df8837b2ceffb699eedd09394ecfeff363ae5321cb7ad2 done
+#25 extracting sha256:9e50a0e580b1e5240c8bf21f791b11fb7a8f3c04249f5db56f1bc72f2fa73929 done
+#25 extracting sha256:5ddd532e9cec09472cd07e594cb6dce78c43ba5248310263f8f766c74b9fb6ae done
+#25 extracting sha256:fe117667dcd024947ead1f25ad99a5e522efcf3b7dbd0752b6fb5e73feffb407 0.5s done
+#25 DONE 4.5s
+
+#24 [frontend build 1/6] FROM docker.io/library/node:18.13-alpine@sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 38.80MB / 46.93MB 4.6s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 42.99MB / 46.93MB 5.0s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 46.14MB / 46.93MB 5.2s
+#24 sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 46.93MB / 46.93MB 5.3s done
+#24 extracting sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 0.1s
+#24 ...
+
+#26 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#26 2.881 
+#26 2.882 Welcome to Gradle 8.5!
+#26 2.882 
+#26 2.883 Here are the highlights of this release:
+#26 2.883  - Support for running on Java 21
+#26 2.883  - Faster first use with Kotlin DSL
+#26 2.883  - Improved error and warning messages
+#26 2.883 
+#26 2.883 For more details see https://docs.gradle.org/8.5/release-notes.html
+#26 2.883 
+#26 3.174 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#26 8.480 Daemon will be stopped at the end of the build 
+#26 ...
+
+#27 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#27 2.877 
+#27 2.877 Welcome to Gradle 8.5!
+#27 2.877 
+#27 2.878 Here are the highlights of this release:
+#27 2.878  - Support for running on Java 21
+#27 2.878  - Faster first use with Kotlin DSL
+#27 2.878  - Improved error and warning messages
+#27 2.878 
+#27 2.878 For more details see https://docs.gradle.org/8.5/release-notes.html
+#27 2.879 
+#27 3.173 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#27 8.383 Daemon will be stopped at the end of the build 
+#27 ...
+
+#24 [frontend build 1/6] FROM docker.io/library/node:18.13-alpine@sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827
+#24 extracting sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 5.2s
+#24 extracting sha256:0fa3bdf9cc11f3055e37f15ba4f29101e45a6266a6e7eee26ab92183908b19b4 6.7s done
+#24 extracting sha256:092122bdc81dfcba73d372e7bee1790d1b350c13ecbeef6f80d16f3351d12cc8
+#24 extracting sha256:092122bdc81dfcba73d372e7bee1790d1b350c13ecbeef6f80d16f3351d12cc8 0.2s done
+#24 extracting sha256:bb654436a2bdf119a00dccfd2b2c4c8f6dd0a6fffb1139aea778bd98ebd86b95 done
+#24 DONE 12.7s
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 2.881 
+#20 2.881 Welcome to Gradle 8.5!
+#20 2.881 
+#20 2.881 Here are the highlights of this release:
+#20 2.881  - Support for running on Java 21
+#20 2.882  - Faster first use with Kotlin DSL
+#20 2.882  - Improved error and warning messages
+#20 2.882 
+#20 2.882 For more details see https://docs.gradle.org/8.5/release-notes.html
+#20 2.882 
+#20 3.174 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#20 8.378 Daemon will be stopped at the end of the build 
+#20 ...
+
+#28 [frontend build 2/6] WORKDIR /app
+#28 DONE 0.1s
+
+#29 [frontend build 3/6] COPY package*.json ./
+#29 DONE 0.0s
+
+#30 [frontend build 4/6] RUN npm ci
+#30 34.59 npm WARN deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#30 83.97 
+#30 83.97 added 1203 packages, and audited 1204 packages in 1m
+#30 83.97 
+#30 83.97 147 packages are looking for funding
+#30 83.97   run `npm fund` for details
+#30 83.99 
+#30 83.99 4 moderate severity vulnerabilities
+#30 83.99 
+#30 83.99 To address all issues (including breaking changes), run:
+#30 83.99   npm audit fix --force
+#30 83.99 
+#30 83.99 Run `npm audit` for details.
+#30 83.99 npm notice 
+#30 83.99 npm notice New major version of npm available! 8.19.3 -> 10.2.5
+#30 83.99 npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.2.5>
+#30 83.99 npm notice Run `npm install -g npm@10.2.5` to update!
+#30 83.99 npm notice 
+#30 DONE 85.0s
+
+#31 [frontend build 5/6] COPY . .
+#31 DONE 0.5s
+
+#32 [frontend build 6/6] RUN npm run build
+#32 2.704 
+#32 2.704 > buy-01-frontend@0.0.0 build
+#32 2.704 > ng build --configuration production
+#32 2.704 
+#32 10.28 - Generating browser application bundles (phase: setup)...
+#32 ...
+
+#26 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#26 171.8 > Task :shared:processResources NO-SOURCE
+#26 173.2 > Task :shared:generateEffectiveLombokConfig
+#26 ...
+
+#27 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#27 172.3 > Task :shared:processResources NO-SOURCE
+#27 176.7 > Task :services:media:processResources
+#27 176.7 > Task :services:media:check
+#27 176.8 > Task :shared:generateEffectiveLombokConfig
+#27 ...
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 173.6 > Task :shared:processResources NO-SOURCE
+#20 175.7 > Task :services:users:processResources
+#20 175.9 > Task :services:users:check
+#20 176.1 > Task :shared:generateEffectiveLombokConfig
+#20 ...
+
+#26 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#26 201.7 > Task :services:products:generateEffectiveLombokConfig
+#26 203.2 > Task :shared:compileJava
+#26 ...
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 203.4 > Task :services:users:generateEffectiveLombokConfig
+#20 206.1 > Task :shared:compileJava
+#20 ...
+
+#27 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#27 202.5 > Task :services:media:generateEffectiveLombokConfig
+#27 206.8 > Task :shared:compileJava
+#27 226.7 > Task :shared:classes
+#27 226.9 > Task :shared:jar
+#27 ...
+
+#26 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#26 227.2 > Task :shared:classes
+#26 227.5 > Task :shared:jar
+#26 227.5 > Task :services:products:processResources
+#26 ...
+
+#27 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#27 234.6 > Task :services:media:compileJava
+#27 234.6 > Task :services:media:classes
+#27 234.9 > Task :services:media:resolveMainClassName
+#27 ...
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 228.2 > Task :shared:classes
+#20 228.5 > Task :shared:jar
+#20 ...
+
+#27 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#27 240.3 > Task :services:media:bootJar
+#27 240.4 > Task :services:media:jar
+#27 240.4 > Task :services:media:assemble
+#27 240.4 > Task :services:media:build
+#27 240.6 
+#27 240.6 BUILD SUCCESSFUL in 3m 59s
+#27 240.6 9 actionable tasks: 9 executed
+#27 DONE 242.0s
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 ...
+
+#33 [media stage-1 2/3] WORKDIR /usr/app/
+#33 CACHED
+
+#33 [users stage-1 2/3] WORKDIR /usr/app/
+#33 CACHED
+
+#34 [media stage-1 3/3] COPY --from=builder /usr/app/services/media/build/libs/*-SNAPSHOT.jar ./app.jar
+#34 DONE 0.2s
+
+#35 [media] exporting to image
+#35 exporting layers 0.1s done
+#35 writing image sha256:2615ef76eb22f465aaf655a36e641d08a3ec3dfb582800ecd5f1eef24bde2c7e done
+#35 naming to ghcr.io/merpw/lets-play-media-service:main done
+#35 DONE 0.1s
+
+#26 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#26 246.5 > Task :services:products:compileJava
+#26 246.5 > Task :services:products:classes
+#26 246.7 > Task :services:products:resolveMainClassName
+#26 249.9 > Task :services:products:bootJar
+#26 250.0 > Task :services:products:jar
+#26 250.0 > Task :services:products:assemble
+#26 250.0 > Task :services:products:check
+#26 250.0 > Task :services:products:build
+#26 250.0 
+#26 250.0 BUILD SUCCESSFUL in 4m 9s
+#26 250.0 9 actionable tasks: 9 executed
+#26 DONE 251.1s
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 247.6 > Task :services:users:compileJava
+#20 247.6 > Task :services:users:classes
+#20 247.8 > Task :services:users:resolveMainClassName
+#20 251.7 > Task :services:users:bootJar
+#20 251.8 > Task :services:users:jar
+#20 251.8 > Task :services:users:assemble
+#20 251.8 > Task :services:users:build
+#20 251.9 
+#20 251.9 BUILD SUCCESSFUL in 4m 11s
+#20 251.9 9 actionable tasks: 9 executed
+#20 ...
+
+#36 [products stage-1 3/3] COPY --from=builder /usr/app/services/products/build/libs/*-SNAPSHOT.jar ./app.jar
+#36 DONE 0.2s
+
+#37 [products] exporting to image
+#37 exporting layers 0.1s done
+#37 writing image sha256:fc0bedad9f449609cd7d72d4076e46b47566ebaba1390be68d051762158a1a58 done
+#37 naming to ghcr.io/merpw/lets-play-products-service:main done
+#37 DONE 0.1s
+
+#32 [frontend build 6/6] RUN npm run build
+#32 153.5 ✔ Browser application bundle generation complete.
+#32 ...
+
+#20 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#20 DONE 252.6s
+
+#32 [frontend build 6/6] RUN npm run build
+#32 ...
+
+#38 [users stage-1 3/3] COPY --from=builder /usr/app/services/users/build/libs/*-SNAPSHOT.jar ./app.jar
+#38 DONE 0.1s
+
+#39 [users] exporting to image
+#39 exporting layers 0.1s done
+#39 writing image sha256:49f613f5b71841f322b9ea34b299a2d35ee3bbb612c832b2a39ceb934f81f198 done
+#39 naming to ghcr.io/merpw/lets-play-users-service:main done
+#39 DONE 0.1s
+
+#32 [frontend build 6/6] RUN npm run build
+#32 157.9 ✔ Browser application bundle generation complete.
+#32 157.9 - Copying assets...
+#32 158.0 ✔ Copying assets complete.
+#32 158.0 - Generating index html...
+#32 158.5 ✔ Index html generation complete.
+#32 158.5 
+#32 158.5 Initial Chunk Files           | Names         |  Raw Size | Estimated Transfer Size
+#32 158.5 main.f6000bd4dd89d2eb.js      | main          | 754.44 kB |               159.29 kB
+#32 158.5 styles.0f01e494845538ad.css   | styles        |  82.96 kB |                 8.17 kB
+#32 158.5 polyfills.231fe202247f5523.js | polyfills     |  32.97 kB |                10.65 kB
+#32 158.5 runtime.c8dacce463c5bf16.js   | runtime       | 908 bytes |               515 bytes
+#32 158.5 
+#32 158.5 | Initial Total | 871.26 kB |               178.62 kB
+#32 158.5 
+#32 158.5 Build at: 2023-12-21T13:57:17.638Z - Hash: 4cc2187af4be0e4b - Time: 147252ms
+#32 158.5 
+#32 158.5 Warning: bundle initial exceeded maximum budget. Budget 500.00 kB was not met by 371.26 kB with a total of 871.26 kB.
+#32 158.5 
+#32 158.5 
+#32 DONE 158.9s
+
+#40 [frontend stage-1 2/3] COPY --from=build /app/dist/buy-01-frontend/ /usr/share/nginx/html
+#40 DONE 0.0s
+
+#41 [frontend stage-1 3/3] COPY nginx.conf /etc/nginx/nginx.conf
+#41 DONE 0.0s
+
+#42 [frontend] exporting to image
+#42 exporting layers 0.0s done
+#42 writing image sha256:7b1c71fa9d7d5d29a144b541bdadc9390d010774591f37b82fbc9e1b4c5f5574 done
+#42 naming to ghcr.io/merpw/lets-play-frontend:main done
+#42 DONE 0.0s
+
+#43 [nginx internal] load .dockerignore
+#43 transferring context: 2B done
+#43 DONE 0.0s
+
+#44 [nginx internal] load build definition from Dockerfile
+#44 transferring dockerfile: 151B done
+#44 DONE 0.0s
+
+#45 [nginx internal] load metadata for docker.io/library/nginx:1.25.3
+#45 DONE 1.2s
+
+#46 [nginx internal] load build context
+#46 transferring context: 2.71kB done
+#46 DONE 0.0s
+
+#47 [nginx 1/3] FROM docker.io/library/nginx:1.25.3@sha256:bd30b8d47b230de52431cc71c5cce149b8d5d4c87c204902acf2504435d4b4c9
+#47 resolve docker.io/library/nginx:1.25.3@sha256:bd30b8d47b230de52431cc71c5cce149b8d5d4c87c204902acf2504435d4b4c9 0.0s done
+#47 sha256:bd30b8d47b230de52431cc71c5cce149b8d5d4c87c204902acf2504435d4b4c9 6.87kB / 6.87kB done
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 0B / 29.13MB 0.2s
+#47 sha256:8c37d2ff6efa0a08f83056109a47aa0caf2cc82136d926d1176cd451f7fbb245 628B / 628B 0.2s done
+#47 sha256:9784f7985f6fba493ba30fb68419f50484fee8faaf677216cb95826f8491d2e9 1.99kB / 1.99kB done
+#47 sha256:d453dd892d9357f3559b967478ae9cbc417b52de66b53142f6c16c8a275486b9 7.02kB / 7.02kB done
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 0B / 41.37MB 0.2s
+#47 sha256:51d6357098de68f5fc2e50afdaa73fc4fcbdeed2161adc9f14d1d8dae9d94d36 0B / 955B 0.2s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 2.10MB / 29.13MB 0.4s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 3.15MB / 41.37MB 0.4s
+#47 sha256:51d6357098de68f5fc2e50afdaa73fc4fcbdeed2161adc9f14d1d8dae9d94d36 955B / 955B 0.4s done
+#47 sha256:782f1ecce57d1fa61421872a16b979ad92057db19841b5811616a749705214f4 0B / 365B 0.4s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 5.24MB / 29.13MB 0.6s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 7.34MB / 41.37MB 0.6s
+#47 sha256:782f1ecce57d1fa61421872a16b979ad92057db19841b5811616a749705214f4 365B / 365B 0.6s done
+#47 sha256:5e99d351b073fec15b9817dc5234f32433ef0404849cc66857be2eca5192ccf8 0B / 1.21kB 0.6s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 8.39MB / 29.13MB 0.9s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 10.49MB / 29.13MB 1.1s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 12.58MB / 29.13MB 1.3s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 9.44MB / 41.37MB 1.3s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 15.73MB / 29.13MB 1.7s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 17.83MB / 29.13MB 1.9s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 11.53MB / 41.37MB 1.9s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 19.92MB / 29.13MB 2.1s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 23.07MB / 29.13MB 2.5s
+#47 sha256:5e99d351b073fec15b9817dc5234f32433ef0404849cc66857be2eca5192ccf8 1.21kB / 1.21kB 2.4s done
+#47 sha256:7b73345df136081ef2e60fd5cb875771c02c5ecb76015292babbc4711d195a31 0B / 1.40kB 2.5s
+#47 sha256:7b73345df136081ef2e60fd5cb875771c02c5ecb76015292babbc4711d195a31 1.40kB / 1.40kB 2.6s done
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 25.17MB / 29.13MB 2.7s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 13.63MB / 41.37MB 2.7s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 27.26MB / 29.13MB 3.0s
+#47 sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 29.13MB / 29.13MB 3.1s done
+#47 extracting sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 15.73MB / 41.37MB 3.5s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 17.83MB / 41.37MB 4.0s
+#47 extracting sha256:af107e978371b6cd6339127a05502c5eacd1e6b0e9eb7b2f4aa7b6fc87e2dd81 1.1s done
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 22.02MB / 41.37MB 4.4s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 25.17MB / 41.37MB 4.6s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 29.36MB / 41.37MB 4.8s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 32.51MB / 41.37MB 5.1s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 34.60MB / 41.37MB 5.2s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 37.75MB / 41.37MB 5.5s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 39.85MB / 41.37MB 5.7s
+#47 sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 41.37MB / 41.37MB 5.8s done
+#47 extracting sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263
+#47 extracting sha256:336ba1f05c3ede29f0a73d3f88b39a14f6abdc57fafedf3891fd793504440263 0.9s done
+#47 extracting sha256:8c37d2ff6efa0a08f83056109a47aa0caf2cc82136d926d1176cd451f7fbb245
+#47 extracting sha256:8c37d2ff6efa0a08f83056109a47aa0caf2cc82136d926d1176cd451f7fbb245 done
+#47 extracting sha256:51d6357098de68f5fc2e50afdaa73fc4fcbdeed2161adc9f14d1d8dae9d94d36 done
+#47 extracting sha256:782f1ecce57d1fa61421872a16b979ad92057db19841b5811616a749705214f4 done
+#47 extracting sha256:5e99d351b073fec15b9817dc5234f32433ef0404849cc66857be2eca5192ccf8 done
+#47 extracting sha256:7b73345df136081ef2e60fd5cb875771c02c5ecb76015292babbc4711d195a31 done
+#47 DONE 6.8s
+
+#48 [nginx 2/3] COPY *.conf /etc/nginx/
+#48 DONE 0.2s
+
+#49 [nginx 3/3] COPY init.sh /app/init.sh
+#49 DONE 0.0s
+
+#50 [nginx] exporting to image
+#50 exporting layers 0.0s done
+#50 writing image sha256:27456638e072055538d163e601f81bbd7f9d82780211b9925314403330f406e9 done
+#50 naming to ghcr.io/merpw/lets-play-nginx:main done
+#50 DONE 0.0s
+[8mha:////4PgEN3iRpZslzVFrnBQ7lrj3/Ku2JLrmnxRkKzrPAKCJAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSgCgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrt/lO7N2y4ylS+AAAA[0m[Pipeline] }
+[8mha:////4EHPXlI0PdxqxUcakULtDeXHlBrT4tPoJyMjI7tpgtRnAAAApB+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSpHDGsbJlaDwBJogQ5n8CRFJ5Iq/mHUQzY+UWO/u2ec8XrGOAIwXNrMLBYOwM827SZbFMYbg6yszShXWEkZxiQmVBvTotKCgpWFLVsOKwUdg5igZ1gi238i4bJ1E35xTKd+BQm36EB1S8mJMM6QtzgN1t6iPhz/NXALP3Cep2/6n2DS86m9K+AAAA[0m[Pipeline] // withEnv
+[8mha:////4B5ZBRuKsESk3cOrP4cj7jNsxTYbYhUsB6HErAv3K4ccAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJBqEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgEFHa1pvgAAAA==[0m[Pipeline] }
+[8mha:////4C9LyNbXqL+rDMY/KdixnzW7zSmbnkjzn9yFetkO6WumAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKSAipEldZKwwtMbIwT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYPBXtNgKXYWvRtNXjhxGK6OJ+z5gh1TZKex1VPLSjcLtpw0LClKWAnYaOocR0smwVb08iErJ8lU5xTydxRQWnWHJxQim5MM6QtzgN1tVJHp5/krgNn7BOWhzrWvP+930p++AAAA[0m[Pipeline] // stage
+[8mha:////4A98sQvUuCxEzHicyHw/LFGelMSsuhw/nQMnOu8T6BziAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohURWJCTF2jLpwgNCEkjf4vSUo6cSKuxh0IVGLCg2Vbst7zBVXwcCSvmVU4GAy9YaObdE4skR8ujhKzdGY9YSCnWKdSR1K1S+0oKlhUlLDisFbYOwoGdYQNt+IuaidQ16fo83bgUBp5gwcUPJOj8PFbZg/b6yQD4Y/zFwDzGKFsdtn2zedZvQHTPJNwwgAAAA==[0m[Pipeline] stage
+[8mha:////4Fm/qAEQNq7vSY7suYKdpiooKgzaMAaUqJLSjMw/8gPKAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUIDEhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYL8sJttPz+LDwMT42zCAAAA[0m[Pipeline] { (Deploy)
+[8mha:////4IOA+gGBGIwnGsVyFc9K58Ekc/OevN21CsbuagRpbmPsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigagQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO63n9qFN1+P256+AAAA[0m[Pipeline] tool
+[8mha:////4Ocbktf97spWNLJ0WAIcmm5CFukOcGa04MyuqNPufpmfAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIagQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO63n9qFN5gZmtG+AAAA[0m[Pipeline] envVarsForTool
+[8mha:////4M46TISn0Z0mOeLDHh+S4e1LTb1M1eF4bttGuH3enNDXAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycohUQuqEmFijLpwgNCEkjf5vk5R04kRcjTvQUokJD5ZtyXqvN5QxwImC4U5jZzG2lvd+NHPimUJ385S5oytvCSN5zRudG1L6vNaGkoZVBYONgK3G1lO0aBLshJMPWXmJprqkMG9HAcyqAZ5QiJmcZEjfMgXY30cVCX+cvwCY+gSsPixWL8/yA7pFBOjCAAAA[0m[Pipeline] withEnv
+[8mha:////4NTsV/ZdDxrHB2tS6vANx0A5H0vjJvTFlb7ngWsmBykmAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0KgtiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPlyKrR8IAAAA=[0m[Pipeline] {
+[8mha:////4K+nz5Z1no/NRFWDu05dIxq4CftHFobZrciLPBhR3T1XAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSAQWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBkhu+A6+AAAA[0m[Pipeline] sh
++ docker compose down
+time="2023-12-21T13:57:27Z" level=warning msg="The \"SSL_CERT\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"SSL_KEY\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"ADMIN_EMAIL\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"ADMIN_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
++ docker compose up -d
+time="2023-12-21T13:57:27Z" level=warning msg="The \"SSL_CERT\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"SSL_KEY\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"ADMIN_EMAIL\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"ADMIN_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:57:27Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+ swagger-ui Pulling 
+ 2c03dbb20264 Already exists 
+ 9250f75ee527 Already exists 
+ 29521ceb8583 Already exists 
+ c14709558ecd Already exists 
+ 58a34759c9b7 Already exists 
+ 480fb4b12f42 Already exists 
+ 379d33e27177 Already exists 
+ 2a615eae1986 Already exists 
+ f601220011a7 Pulling fs layer 
+ bd6b0ccdaf84 Pulling fs layer 
+ cb16b2547703 Pulling fs layer 
+ 9681cd1bc402 Pulling fs layer 
+ 7addcfa59ae3 Pulling fs layer 
+ 77e2562977de Pulling fs layer 
+ 9681cd1bc402 Waiting 
+ 7addcfa59ae3 Waiting 
+ 77e2562977de Waiting 
+ bd6b0ccdaf84 Downloading [=========================================>         ]     721B/876B
+ bd6b0ccdaf84 Downloading [==================================================>]     876B/876B
+ bd6b0ccdaf84 Verifying Checksum 
+ bd6b0ccdaf84 Download complete 
+ cb16b2547703 Downloading [>                                                  ]  30.12kB/2.929MB
+ f601220011a7 Downloading [>                                                  ]  200.8kB/19.83MB
+ cb16b2547703 Downloading [===================>                               ]  1.121MB/2.929MB
+ f601220011a7 Downloading [=====>                                             ]  2.095MB/19.83MB
+ cb16b2547703 Downloading [=================================================> ]  2.906MB/2.929MB
+ cb16b2547703 Verifying Checksum 
+ cb16b2547703 Download complete 
+ f601220011a7 Downloading [=========>                                         ]  3.795MB/19.83MB
+ f601220011a7 Downloading [==============>                                    ]  5.905MB/19.83MB
+ f601220011a7 Downloading [===================>                               ]  7.777MB/19.83MB
+ f601220011a7 Downloading [==========================>                        ]  10.32MB/19.83MB
+ 9681cd1bc402 Downloading [=================================================> ]     721B/731B
+ 9681cd1bc402 Downloading [==================================================>]     731B/731B
+ 9681cd1bc402 Verifying Checksum 
+ 9681cd1bc402 Download complete 
+ f601220011a7 Downloading [================================>                  ]  13.06MB/19.83MB
+ 7addcfa59ae3 Downloading [===========>                                       ]     721B/3.214kB
+ f601220011a7 Downloading [=====================================>             ]  14.75MB/19.83MB
+ f601220011a7 Downloading [========================================>          ]  16.01MB/19.83MB
+ 7addcfa59ae3 Downloading [==================================================>]  3.214kB/3.214kB
+ 7addcfa59ae3 Verifying Checksum 
+ 7addcfa59ae3 Download complete 
+ f601220011a7 Downloading [============================================>      ]   17.5MB/19.83MB
+ f601220011a7 Downloading [===============================================>   ]  18.77MB/19.83MB
+ f601220011a7 Verifying Checksum 
+ f601220011a7 Download complete 
+ f601220011a7 Extracting [>                                                  ]  229.4kB/19.83MB
+ f601220011a7 Extracting [==========>                                        ]  4.129MB/19.83MB
+ 77e2562977de Downloading [===============================================>   ]     721B/761B
+ 77e2562977de Downloading [==================================================>]     761B/761B
+ 77e2562977de Download complete 
+ f601220011a7 Extracting [===============================>                   ]  12.39MB/19.83MB
+ f601220011a7 Extracting [=============================================>     ]  17.89MB/19.83MB
+ f601220011a7 Extracting [==================================================>]  19.83MB/19.83MB
+ f601220011a7 Pull complete 
+ bd6b0ccdaf84 Extracting [==================================================>]     876B/876B
+ bd6b0ccdaf84 Extracting [==================================================>]     876B/876B
+ bd6b0ccdaf84 Pull complete 
+ cb16b2547703 Extracting [>                                                  ]  32.77kB/2.929MB
+ cb16b2547703 Extracting [==================================================>]  2.929MB/2.929MB
+ cb16b2547703 Pull complete 
+ 9681cd1bc402 Extracting [==================================================>]     731B/731B
+ 9681cd1bc402 Extracting [==================================================>]     731B/731B
+ 9681cd1bc402 Pull complete 
+ 7addcfa59ae3 Extracting [==================================================>]  3.214kB/3.214kB
+ 7addcfa59ae3 Extracting [==================================================>]  3.214kB/3.214kB
+ 7addcfa59ae3 Pull complete 
+ 77e2562977de Extracting [==================================================>]     761B/761B
+ 77e2562977de Extracting [==================================================>]     761B/761B
+ 77e2562977de Pull complete 
+ swagger-ui Pulled 
+ Network mr-jenk_default  Creating
+ Network mr-jenk_default  Created
+ Volume "mr-jenk_lets-play-db"  Creating
+ Volume "mr-jenk_lets-play-db"  Created
+ Volume "mr-jenk_lets-play-media"  Creating
+ Volume "mr-jenk_lets-play-media"  Created
+ Container mr-jenk-db-1  Creating
+ Container mr-jenk-swagger-ui-1  Creating
+ Container mr-jenk-media-1  Creating
+ Container mr-jenk-frontend-1  Creating
+ Container mr-jenk-media-1  Created
+ Container mr-jenk-frontend-1  Created
+ Container mr-jenk-swagger-ui-1  Created
+ Container mr-jenk-db-1  Created
+ Container mr-jenk-products-1  Creating
+ Container mr-jenk-users-1  Creating
+ Container mr-jenk-products-1  Created
+ Container mr-jenk-users-1  Created
+ Container mr-jenk-nginx-1  Creating
+ Container mr-jenk-nginx-1  Created
+ Container mr-jenk-db-1  Starting
+ Container mr-jenk-media-1  Starting
+ Container mr-jenk-frontend-1  Starting
+ Container mr-jenk-swagger-ui-1  Starting
+ Container mr-jenk-db-1  Started
+ Container mr-jenk-products-1  Starting
+ Container mr-jenk-users-1  Starting
+ Container mr-jenk-frontend-1  Started
+ Container mr-jenk-media-1  Started
+ Container mr-jenk-swagger-ui-1  Started
+ Container mr-jenk-products-1  Started
+ Container mr-jenk-users-1  Started
+ Container mr-jenk-nginx-1  Starting
+ Container mr-jenk-nginx-1  Started
+[8mha:////4FrK4PAQVxXzeVl6yZlgn3JLHuZXPUQcca30ZRBa5IVLAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgZAQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrt/lO7N/Zh+YO+AAAA[0m[Pipeline] }
+[8mha:////4KMCqMt8AC49p/NhgRZmgk0AHyZfMFO+TcT/o/YqfGexAAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaeghSpXAcK1uGxhNggghh/idAJJUn8mreQTQzVm6xs2+b93zBOgY4UtDMKhwMxs4w7yZdFssUhqujzCxdWEcYySkmVBbUq9OCgpKCJVUNKw4bhZ2jaFAn2HIr77JxEnVzTqF8Bw616Ud4QMWLOcmQvjAH2N2mPhL+PH8FMHufoG73n2rf6eOs0b4AAAA=[0m[Pipeline] // withEnv
+[8mha:////4JTwG4O7TS0dcAqfnyUo00isAwDhV9jWsGKiBnID321rAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCkKBBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFAetrn2uw8fPS9ZvgAAAA==[0m[Pipeline] }
+[8mha:////4HphTe1no0evPC4+a/ecORMdbj/rjmakB+Pb5Ka/JRK/AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiFNAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygPda59/QEAv3oLvgAAAA==[0m[Pipeline] // stage
+[8mha:////4Gdr+shQ8U4wbhBw1/uuMCSNqLYAXU3s+YukZyi8hlGtAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRKWgQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJygPda59/QEQWYtwvgAAAA==[0m[Pipeline] }
+[8mha:////4HVDDeiTzzQqYp4j2gOKp+Is944nLWGObtNFKxdcXaxSAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiCIkGUaW10vACExvjxLoztkNS8SK+xh+wiETFFqudbeb1hnUMcOJgsNc0WIqdRe9GkxdOHIar4wl7vmDHFNlpbPXUstLNgi0nDUuKElYCNpo6x9GSSbAVvXzIykky1TmF/B0FlFbd4QmFyOYkQ/rCHGB3G1Vk+nn+CmD2PkF52Oeq6w8P294ivgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4O4DND3O3tOHDXuSRe1GSIxKDZClQygvxphOc6QdMge3AAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiI0jI1jZZuh8QQRYgxkdjFZhMoTeTXvICMzVv7qv9e81xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9b0g35eCrPwA/b3AOr0AAAA=[0m[Pipeline] }
+[8mha:////4CufmMN+PUIWMO3ELQNFxqCSmotfzb8Achw+IalzmTeoAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpEDSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfL8TZNsP7gHEmb0AAAA=[0m[Pipeline] // node
+[8mha:////4N+54Fu5j7S7F/oET9v9NaalLrhID6NRGxbb9sEKbymsAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkDizGybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqe8FeVkKsv0HqEtjqb0AAAA=[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

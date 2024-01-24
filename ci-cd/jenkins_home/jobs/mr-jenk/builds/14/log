@@ -1,0 +1,637 @@
+Started by user [8mha:////4EWY0N0SauZZK+jAuehLpivg8zKJxnTZ0nfiDC349QyUAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[8mha:////4AqPU9Y3dTpMoMcw+k+IDK1m9RYsWJdKzcsGS+Vh5jAxAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4Foeyao4P3ChSYv7rQh5fCygkdyKUdg+be5UNhUUMfy9AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4LMpTs/kkKdhGR+HIzxPcZm1BiEa5TPTfh/xFL4SzJPpAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/workspace/mr-jenk
+[8mha:////4DSkBVFNNtsLdX38nUuifgyas154+szNt59dhXdHAOwXAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4BRUEOmD916COix6t3gMyQtfemX2HwqVPnqndC2psHv8AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4BiFR23c46BC2O3cr+OwNPsT7riNDdrqohxyaSbrnNU+AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Declarative: Tool Install)
+[8mha:////4DQB2uiSnOe4XI7Ek7rALJqWnBXx2OLWg2iPHNkSMAmBAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaWGsbAmNJ0AWEZb8zwLrbuWJvJp3kLiJlZNMMm+a93rDOic4UbLcG+wdZu14DKOti0+U+lugiXu6ck2YKRguzSSpM+cFJRUDS1gDKwEbgzpQdmgLbIVXD9UGhba9lFS/o4DGdQM8gYlqLiqVL8wJdvexy4Q/z18BzLEA29ce4gfg7KmOvAAAAA==[0m[Pipeline] tool
+[8mha:////4HYuFyBdhS0eIs5g2LcvzJHgvAOwGXYdwfZLkiKtN4JvAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbGRNjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI4F2L72ED8v8DEJvAAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4HUOzD8Sqo0qv1Izd8c6zSARDQAs3OHX87j4Qu5bYnwqAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbmRhjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j/zqggXvAAAAA==[0m[Pipeline] }
+[8mha:////4CQxz2nSAd7IjJsJ4CKO1eE5/+WdOB5zoCLLY1/FLejVAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiJoYeVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfId1tBtv8AExtCpb0AAAA=[0m[Pipeline] // stage
+[8mha:////4JNXhylpfIvBmBiwTfThYIKJR6+DhM2ti+4ZF1GmF0xnAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BKWgpeYSjSHSIitZywwtMbIwT6y7YF5KKF/E1/oAhEhVb7ay0mucLqhThQNGJzmLvMbVeDGF0uYmJYn8JNImOzqIlTBSsUHZSZOxxQUVsYUlRwkrC2mIbKHl0DBvZ6buug0ZXnzjmbS+h9OYGDyhkNrOO/IU5wvY6mkT48/wVwDwwFDuGsmk+x+oNEzd2msEAAAA=[0m[Pipeline] withEnv
+[8mha:////4PJaxyCyiCjAz0L+KAckmNsHVmyp7YRhdm3O7rL2VjDoAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] {
+[8mha:////4K37NgB4mPNlOq3hLcpKOLaUR8qPndO9oEQXVDjK1msMAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLdfrbD/Cw+y7kUycIAAAA=[0m[Pipeline] stage
+[8mha:////4GXhZPc/92gfZiZI76e8JflfMHAT3gP9VzKYJP8mHfocAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAbNWnxXCAAAA[0m[Pipeline] { (Checkout GitHub)
+[8mha:////4PcyiELfmLqDeyqNmoygSeal/69L3zYnFLUn3N1IjfG1AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN8W7Eii+AAAA[0m[Pipeline] tool
+[8mha:////4DUaBRANDqr5z9NN1vadwnW+SSJpNY42TFaRxbO+qEwTAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJESDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEG6D8DvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4C6N2HuZ4oRpBUBBwR7KvgF/HMwScOvtVejF3b7KdWSwAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUSEgMiKlrlIUThCaEtNH/5SelnTgRV+MOtFRiwoNlW7Le6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gOeMTC6wgAAAA==[0m[Pipeline] withEnv
+[8mha:////4I886kPvz/jhn5Jfx0m6ePzlNq7n26o5JIQIlZ1es8xdAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] {
+[8mha:////4MQdW7PP1ZWAyGoFa8ieEy077GUdLD45mIER8mq6cvq3AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiOhCiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBr2eB0O+AAAA[0m[Pipeline] git
+The recommended git tool is: NONE
+using credential github-ssh
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/mr-jenk/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:maximihajlov/test.git # timeout=10
+Fetching upstream changes from git@github.com:maximihajlov/test.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_SSH to set credentials 
+ > git fetch --tags --force --progress -- git@github.com:maximihajlov/test.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision f59ab039775aba3959a2749ecb3c976c5f8cd109 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f59ab039775aba3959a2749ecb3c976c5f8cd109 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main f59ab039775aba3959a2749ecb3c976c5f8cd109 # timeout=10
+Commit message: "Enable junitXml"
+ > git rev-list --no-walk 0ddc3e2782ed90f2e3e934e15ad9c8690204f2be # timeout=10
+[8mha:////4D7Rmr23DPiv1D8bHz6RY1KPCQxTA8bvZEWAaEcfAYbIAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICVEgoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcr9Ntfu8AEWNdkpvgAAAA==[0m[Pipeline] }
+[8mha:////4Jo60DTh4zCn66HTT/KHi38OhpF/dkzokzZ2wy1F6ms9AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKi0FAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3da768AEi+zpyvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4Lxw/cYOzn3jTVNdkm3FES2RbsXBj5X9va2jzHeqoarsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRER2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGVd59ofPjbYp22+AAAA[0m[Pipeline] }
+[8mha:////4DGOHbtEtqTcOH+ZjFE5p9z/C1B8KLf77LQyBkdEdLjYAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiSImo0lppeIGJjXFi3RnbIal4EV/jD1hEomKL1c4283rDOgY4cTDYaxosxc6id6PJCycOw9XxhD1fsGOK7DS2empZ6WbBlpOGJUUJKwEbTZ3jaMkk2IpePmTlJJnqnEL+jgJKq+7whEJkc5IhfWEOsLuNKjL9PH8FMHufoDzUufb1BzCenzi+AAAA[0m[Pipeline] // stage
+[8mha:////4NDg4Vyr8Hd0nxlvqTyifWbIBwEms3Jh7NJ5Twzyz6NUAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUVGyIqWuUhROEJIS00f8lSWknTsTVuAOBSkx4sGxL1nu+oIoBjhQs6wz2DqNybPCjzYlNFPqLp4l1dGaKMJI3TJhJkDbtUgUlA4uKElYc1gaVp+jQJtjwTt5l7SXa+pRC3g4cSqdv8ICCZ3KSIX3LHGB7HXUk/HH+AmAeEpS7Jluz/zyrN+6T+eXCAAAA[0m[Pipeline] stage
+[8mha:////4MIcKJ/1J0sdmxdUKmEXNzJ2xAjuQYizewYial6tfHKEAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQjAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD/hYjrHCAAAA[0m[Pipeline] { (Run tests)
+[8mha:////4DSGmhQjXneQAQfblfsdLPpYV8hj7kghz1uwFNv5yFC1AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIUGDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEIWoEpvgAAAA==[0m[Pipeline] tool
+[8mha:////4N+USOrfXEr6vWBvuua2Q8onr3ZdLkexO1FrI9ZxrGgHAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiISEKRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q1Ja5owvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4H0KkB2jUBnK66Qn4Uwl11vWK6N0Y7ckrHY69JHeaMD9AAAAqB+LCAAAAAAAAP9tjUEKwjAURH8rXbh16SFSEARBXHUbsvEEsYkxbfi//qS2K0/k1byDrQVXzmKYGRje6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gPmlJ7MwgAAAA==[0m[Pipeline] withEnv
+[8mha:////4Ir2McoI7yeXGyCD3oAyBdOqnXIJeakgMB/j+u+4UPWFAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYgIhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0QKVszCAAAA[0m[Pipeline] {
+[8mha:////4MvzXaD+aFtRkXDNLEYGkVdorgm0ZoL2rAkJVAKuMS0eAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUwYRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3+2y7zedZvQH4j6CMwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/mr-jenk/backend
+[8mha:////4GCWP9a8Ih130nb9Bh3MlvqIMWfvk9ZqU1X9n9YOTq5iAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUxIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLDbrb9/Cw+ty4Up8IAAAA=[0m[Pipeline] {
+[8mha:////4PTUZbZ4wPW8mfIzzWinHtF5OzTaqM8vy9dTKVzp6r3KAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioERUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud9+ahfettHKdL4AAAA=[0m[Pipeline] sh
++ gradle test
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :generateEffectiveLombokConfig UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :jacocoTestReport SKIPPED
+> Task :services:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileJava NO-SOURCE
+> Task :services:processResources NO-SOURCE
+> Task :services:classes UP-TO-DATE
+> Task :services:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileTestJava NO-SOURCE
+> Task :services:processTestResources NO-SOURCE
+> Task :services:testClasses UP-TO-DATE
+> Task :services:test NO-SOURCE
+> Task :services:jacocoTestReport SKIPPED
+> Task :shared:generateEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileJava UP-TO-DATE
+> Task :shared:processResources NO-SOURCE
+> Task :shared:classes UP-TO-DATE
+> Task :shared:jar UP-TO-DATE
+> Task :shared:generateTestFixturesEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestFixturesJava UP-TO-DATE
+> Task :shared:processTestFixturesResources NO-SOURCE
+> Task :shared:testFixturesClasses UP-TO-DATE
+> Task :shared:testFixturesJar UP-TO-DATE
+> Task :shared:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestJava NO-SOURCE
+> Task :shared:processTestResources NO-SOURCE
+> Task :shared:testClasses UP-TO-DATE
+> Task :shared:test NO-SOURCE
+> Task :shared:jacocoTestReport SKIPPED
+> Task :services:media:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileJava UP-TO-DATE
+> Task :services:media:processResources UP-TO-DATE
+> Task :services:media:classes UP-TO-DATE
+> Task :services:media:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileTestJava UP-TO-DATE
+> Task :services:media:processTestResources UP-TO-DATE
+> Task :services:media:testClasses UP-TO-DATE
+> Task :services:media:test UP-TO-DATE
+> Task :services:media:jacocoTestReport UP-TO-DATE
+> Task :services:products:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileJava UP-TO-DATE
+> Task :services:products:processResources UP-TO-DATE
+> Task :services:products:classes UP-TO-DATE
+> Task :services:products:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileTestJava UP-TO-DATE
+> Task :services:products:processTestResources NO-SOURCE
+> Task :services:products:testClasses UP-TO-DATE
+> Task :services:products:test UP-TO-DATE
+> Task :services:products:jacocoTestReport UP-TO-DATE
+> Task :services:users:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileJava UP-TO-DATE
+> Task :services:users:processResources UP-TO-DATE
+> Task :services:users:classes UP-TO-DATE
+> Task :services:users:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileTestJava UP-TO-DATE
+> Task :services:users:processTestResources NO-SOURCE
+> Task :services:users:testClasses UP-TO-DATE
+> Task :services:users:test UP-TO-DATE
+> Task :services:users:jacocoTestReport UP-TO-DATE
+
+BUILD SUCCESSFUL in 17s
+33 actionable tasks: 33 up-to-date
+[8mha:////4F1w7qRmMCbO4v4l1okFNuyDyBHAPLt3+yHIISg2FrgbAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIilBJR0VppeIFJjLFj3Tm2g1PxIr7GHwhEomKL1c4283zBOgY4ctBoFfWGYmvQu1HPCzOH/uo4o+ULtkyRncJG5YY7dVqw4aRgSVHCSsBGUes4GtIJtsLKu6ycJF2dU5i/g4DSdAM8oBCzOcmQvjAF2N3GLjL9PH8FMHmfoKzrT+3fKpbQQr4AAAA=[0m[Pipeline] }
+[8mha:////4EQd6/2MJ8s5yjgb+gcG9WkIWfogy1uwRc5dt9+jLqs/AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7BgSW0ii+AAAA[0m[Pipeline] // dir
+[8mha:////4OumgkCFm+/XHNrZRmDArUJ4UnoKfO7v+MZEW0zkq8wIAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigSgQSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryt8+1PXwARMxJg74AAAA=[0m[Pipeline] }
+[8mha:////4Esh7McK/7jr+Npw4MDfSU763IewuAwklqsy21dFUs07AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigYSQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKUu32u7eEDfI7acr4AAAA=[0m[Pipeline] // withEnv
+[8mha:////4OZs7qiJkHKmf6L0i8opG+HbG4HokPZ0lksKq0GVYSHqAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigRAFSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8AZCE3x74AAAA=[0m[Pipeline] }
+[8mha:////4HFxpPy//43pASseKe9Oo+nBMjubjB5oDLtny6Ugr5eTAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAQUSSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8AJ6NmQb4AAAA=[0m[Pipeline] // stage
+[8mha:////4FMPvtA3TRFn2tTWsPrPrfp3Rl2yibcSRxE+S3yzc/4aAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCg322y7/edZvQGEixD/wgAAAA==[0m[Pipeline] stage
+[8mha:////4PKh7+nKDKFldO1gq+wyfKtmw5z6KtazR9VWHmq75SY1AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUCRaEOrFGXThBaEJIGv1fkpR04kRcjTsQqMSEB8u2ZL3nC6rgoSGvmVXYGwydYYMbdU4ske8vjhKzdGYdYSCnWKtSS1Id59pSVDCrKGHBYamwcxQM6ggrbsVd1E6grk/R5+3AoTTyBg8oeCZH4eO3TB7W11EGwh/nLwCmIUK53WfbbT7P6g0Z/aLSwgAAAA==[0m[Pipeline] { (Build)
+[8mha:////4CpuBli6PQu5jsWRLc/NB4zfaDNkwwCR2eJa7NzGjbYsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICEh2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBl2WGva+AAAA[0m[Pipeline] tool
+[8mha:////4FyTOerZVfbLR5pUeXiIUpTtDaLybKDboVUTjpP+Z0xhAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCEB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBp7FN92+AAAA[0m[Pipeline] envVarsForTool
+[8mha:////4I/fXlmw0kxAThkSbmWry6OHwTtl6tODceeBDS3FRRJYAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUCTbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAb1Y41vCAAAA[0m[Pipeline] withEnv
+[8mha:////4HtSj7iDHMMzPWOJ30uWjGF/7i/ScxFMOGnsVMUYgtyiAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycoh0oBtiYo26cILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMYAJwqGO42dxdha3vvRzIlnCt3NU+aOrrwljOQ1b3RuSOnzWhtKGlYVDDYCthpbT9GiSbATTj5k5SWa6pLCvB0FMKsGeEIhZnKSIX3LFGB/H1Uk/HH+AmDqE7D6sFi9PMsPBA4E38IAAAA=[0m[Pipeline] {
+[8mha:////4PkPeTHXJUr74Wu5uNblNhNWiFVDB6BLPVm+CqY3wiI6AAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSxMqxsmVoPAEmiBDmfwJEUnkir+YdRDNj5RY7+7Z5zxesY4AjBc2swsFg7AzzbtJlsUxhuDrKzNKFdYSRnGJCZUG9Oi0oKClYUtWw4rBR2DmKBnWCLbfyLhsnUTfnFMp34FCbfoQHVLyYkwzpC3OA3W3qI+HP81cAs09Qt+2n9v4NSnc5Zr4AAAA=[0m[Pipeline] sh
++ docker compose build
+#0 building with "default" instance using docker driver
+
+#1 [users internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [users internal] load build definition from Dockerfile
+#2 transferring dockerfile: 380B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 DONE 0.0s
+
+#4 [frontend internal] load .dockerignore
+#4 transferring context: 371B done
+#4 DONE 0.0s
+
+#5 [products internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [products internal] load build definition from Dockerfile
+#6 transferring dockerfile: 380B done
+#6 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 386B done
+#3 DONE 0.0s
+
+#7 [media internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [media internal] load build definition from Dockerfile
+#8 transferring dockerfile: 380B done
+#8 DONE 0.0s
+
+#9 [media internal] load metadata for docker.io/library/amazoncorretto:17-alpine3.18-jdk
+#9 ...
+
+#10 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#10 DONE 1.9s
+
+#11 [media internal] load metadata for docker.io/library/gradle:latest
+#11 DONE 2.2s
+
+#12 [media internal] load build context
+#12 DONE 0.0s
+
+#13 [products internal] load build context
+#13 DONE 0.0s
+
+#9 [products internal] load metadata for docker.io/library/amazoncorretto:17-alpine3.18-jdk
+#9 DONE 2.2s
+
+#14 [users internal] load build context
+#14 DONE 0.0s
+
+#15 [media builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 resolve docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 ...
+
+#12 [media internal] load build context
+#12 transferring context: 85.53kB 0.1s done
+#12 DONE 0.1s
+
+#13 [products internal] load build context
+#13 transferring context: 85.53kB 0.1s done
+#13 DONE 0.1s
+
+#14 [users internal] load build context
+#14 transferring context: 85.53kB 0.1s done
+#14 DONE 0.1s
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 resolve docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6 0.0s done
+#15 sha256:f6fd9b4045fc312ad2957a6c80eaf3dd3fe3e8ba164bb06edd2f76dc51324150 10.44kB / 10.44kB done
+#15 sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6 1.21kB / 1.21kB done
+#15 sha256:da29f6b96fac50651d23aa947c3b9aa12fb9781139d71da29698c96334a7929b 2.21kB / 2.21kB done
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 0B / 18.86MB 0.2s
+#15 ...
+
+#16 [frontend internal] load metadata for docker.io/library/node:16.15.0-alpine
+#16 DONE 2.4s
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 ...
+
+#17 [frontend internal] load build context
+#17 transferring context: 602.53kB 0.0s done
+#17 DONE 0.1s
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 2.10MB / 18.86MB 0.4s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 0B / 143.69MB 0.4s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 4.19MB / 18.86MB 0.6s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 6.29MB / 18.86MB 0.7s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 7.34MB / 18.86MB 0.9s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 8.39MB / 18.86MB 1.1s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 9.44MB / 18.86MB 1.3s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 10.49MB / 18.86MB 1.6s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 11.53MB / 18.86MB 1.8s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 12.58MB / 18.86MB 2.1s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 13.63MB / 18.86MB 2.3s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 14.68MB / 18.86MB 2.7s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 15.73MB / 18.86MB 2.8s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 16.78MB / 18.86MB 3.1s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 17.83MB / 18.86MB 3.5s
+#15 sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 18.86MB / 18.86MB 3.7s done
+#15 sha256:03f2fa14f4805735a9d1e1b884eda352e03676558d0f2e0996834d6cb4cff183 0B / 172B 3.7s
+#15 extracting sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267
+#15 sha256:0e98cf43616eaebfc59eefccdf7ec64fb8e4e5e2b68612018cd202774d7e4d26 0B / 734B 3.9s
+#15 sha256:03f2fa14f4805735a9d1e1b884eda352e03676558d0f2e0996834d6cb4cff183 172B / 172B 3.8s done
+#15 sha256:0e98cf43616eaebfc59eefccdf7ec64fb8e4e5e2b68612018cd202774d7e4d26 734B / 734B 4.8s done
+#15 sha256:32424ff17b28af1f765a79be6b7007ddd479be42308ab4f24baf4c2010f857d0 0B / 4.37kB 4.9s
+#15 sha256:32424ff17b28af1f765a79be6b7007ddd479be42308ab4f24baf4c2010f857d0 4.37kB / 4.37kB 5.0s done
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 0B / 51.12MB 5.0s
+#15 extracting sha256:a83d9c33e24ca521e40939a701f20c41285b4488136968b6007b00f5ea0e1267 1.6s done
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 2.10MB / 143.69MB 5.5s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 3.15MB / 51.12MB 6.7s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 6.29MB / 51.12MB 8.0s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 9.44MB / 143.69MB 9.0s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 9.44MB / 51.12MB 9.4s
+#15 ...
+
+#18 [media stage-1 1/3] FROM docker.io/library/amazoncorretto:17-alpine3.18-jdk@sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3
+#18 resolve docker.io/library/amazoncorretto:17-alpine3.18-jdk@sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3 done
+#18 sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3 547B / 547B done
+#18 sha256:77133e85578e287190f991a7ecb7357fb9df6dd27d03d43a9f2cb05b8688f5ca 741B / 741B done
+#18 sha256:439116aa67f8f9e06521b0999e31c04cf566c7fc71b1153087949c5c078c4517 3.40kB / 3.40kB done
+#18 sha256:2c03dbb20264f09924f9eab176da44e5421e74a78b09531d3c63448a7baa7c59 3.33MB / 3.33MB 0.3s done
+#18 sha256:c7959a0748edc5c4e60be561f317589456f47dd903864e189ba8059bff388bdf 79.69MB / 144.01MB 10.0s
+#18 extracting sha256:2c03dbb20264f09924f9eab176da44e5421e74a78b09531d3c63448a7baa7c59 0.2s done
+#18 ...
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 ...
+
+#19 [frontend build 1/7] FROM docker.io/library/node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10
+#19 resolve docker.io/library/node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 0.1s done
+#19 sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 1.43kB / 1.43kB done
+#19 sha256:12a4da68317b5b2bbc3b85a50aa2a11e2b78b80445280530e278ae10dc3eb6aa 1.16kB / 1.16kB done
+#19 sha256:230f2ea7123d9c9792d510c04d27a65ac9f1ef0e88de307ba58bf1467472d27e 6.59kB / 6.59kB done
+#19 ...
+
+#20 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:3923f8de8d2214b9490e68fd6ae63ea604deddd166df2755b788bef04848b9bc
+#20 resolve docker.io/library/nginx:alpine@sha256:3923f8de8d2214b9490e68fd6ae63ea604deddd166df2755b788bef04848b9bc 0.1s done
+#20 extracting sha256:2c03dbb20264f09924f9eab176da44e5421e74a78b09531d3c63448a7baa7c59 0.2s done
+#20 sha256:3923f8de8d2214b9490e68fd6ae63ea604deddd166df2755b788bef04848b9bc 1.65kB / 1.65kB done
+#20 sha256:18d2bb20c22e511b92a3ec81f553edfcaeeb74fd1c96a92c56a6c4252c75eec7 1.99kB / 1.99kB done
+#20 sha256:f09fc93534f6a80e1cb9ad70fe8c697b1596faa9f1b50895f203bc02feb9ebb8 16.71kB / 16.71kB done
+#20 sha256:2c03dbb20264f09924f9eab176da44e5421e74a78b09531d3c63448a7baa7c59 3.33MB / 3.33MB done
+#20 ...
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 12.42MB / 51.12MB 10.6s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 16.78MB / 143.69MB 11.9s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 15.73MB / 51.12MB 12.1s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 18.87MB / 51.12MB 13.9s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 24.12MB / 143.69MB 14.5s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 22.02MB / 51.12MB 15.4s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 25.17MB / 51.12MB 16.8s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 31.46MB / 143.69MB 17.5s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 28.31MB / 51.12MB 18.7s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 0B / 132.54MB 19.2s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 38.80MB / 143.69MB 19.4s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 31.46MB / 51.12MB 19.4s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 34.60MB / 51.12MB 20.2s
+#15 ...
+
+#18 [media stage-1 1/3] FROM docker.io/library/amazoncorretto:17-alpine3.18-jdk@sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3
+#18 sha256:c7959a0748edc5c4e60be561f317589456f47dd903864e189ba8059bff388bdf 144.01MB / 144.01MB 19.1s done
+#18 extracting sha256:c7959a0748edc5c4e60be561f317589456f47dd903864e189ba8059bff388bdf 0.9s
+#18 ...
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 7.34MB / 132.54MB 20.9s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 37.75MB / 51.12MB 21.0s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 46.14MB / 143.69MB 21.6s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 40.89MB / 51.12MB 22.1s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 14.68MB / 132.54MB 22.2s
+#15 ...
+
+#18 [users stage-1 1/3] FROM docker.io/library/amazoncorretto:17-alpine3.18-jdk@sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3
+#18 extracting sha256:c7959a0748edc5c4e60be561f317589456f47dd903864e189ba8059bff388bdf 3.2s done
+#18 DONE 22.5s
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 ...
+
+#21 [users stage-1 2/3] WORKDIR /usr/app/
+#21 DONE 0.5s
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 44.04MB / 51.12MB 23.2s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 53.48MB / 143.69MB 23.3s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 22.02MB / 132.54MB 23.8s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 47.19MB / 51.12MB 24.3s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 50.33MB / 51.12MB 25.0s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 60.82MB / 143.69MB 25.2s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 51.12MB / 51.12MB 25.3s done
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 29.36MB / 132.54MB 25.4s
+#15 sha256:d3dfa5dda018b8cd9f7f52cf764a292b3e42be93bcbf8132c39173cc5ef7c0ef 0B / 169B 25.4s
+#15 sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 51.12MB / 51.12MB 25.3s done
+#15 sha256:d3dfa5dda018b8cd9f7f52cf764a292b3e42be93bcbf8132c39173cc5ef7c0ef 169B / 169B 25.8s done
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 68.16MB / 143.69MB 26.7s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 36.70MB / 132.54MB 26.9s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 44.04MB / 132.54MB 28.1s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 75.50MB / 143.69MB 29.2s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 51.38MB / 132.54MB 29.3s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 58.72MB / 132.54MB 30.6s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 66.06MB / 132.54MB 31.8s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 82.84MB / 143.69MB 32.0s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 74.45MB / 132.54MB 33.1s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 81.79MB / 132.54MB 34.4s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 90.18MB / 143.69MB 34.9s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 89.13MB / 132.54MB 35.5s
+#15 ...
+
+#19 [frontend build 1/7] FROM docker.io/library/node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10
+#19 sha256:9981e73032c8833e387a8f96986e560edbed12c38119e0edb0439c9c2234eac9 2.72MB / 2.72MB 26.4s done
+#19 extracting sha256:9981e73032c8833e387a8f96986e560edbed12c38119e0edb0439c9c2234eac9 0.1s done
+#19 sha256:9484ce114abeca9d81b4da2cc9b34c825b54512bb33e2eec0f4c02caf3cd1b06 28.31MB / 35.48MB 35.5s
+#19 ...
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 96.47MB / 132.54MB 36.5s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 103.81MB / 132.54MB 37.5s
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 97.52MB / 143.69MB 37.9s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 112.20MB / 132.54MB 38.6s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 119.54MB / 132.54MB 39.4s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 126.88MB / 132.54MB 40.2s
+#15 sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 132.54MB / 132.54MB 40.8s done
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 104.86MB / 143.69MB 41.2s
+#15 ...
+
+#19 [frontend build 1/7] FROM docker.io/library/node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10
+#19 sha256:9484ce114abeca9d81b4da2cc9b34c825b54512bb33e2eec0f4c02caf3cd1b06 35.48MB / 35.48MB 39.2s done
+#19 sha256:1f85af78b77a7135a76c4104f78a51bf1444f4cbc1075ba76e005f02cf443b1c 2.42MB / 2.42MB 41.0s done
+#19 extracting sha256:9484ce114abeca9d81b4da2cc9b34c825b54512bb33e2eec0f4c02caf3cd1b06 1.7s done
+#19 sha256:de925dc94a688bf7a9de290a682549618de354c8bdd07e874f56ff151bf554fe 451B / 451B 40.7s done
+#19 extracting sha256:1f85af78b77a7135a76c4104f78a51bf1444f4cbc1075ba76e005f02cf443b1c 0.1s done
+#19 extracting sha256:de925dc94a688bf7a9de290a682549618de354c8bdd07e874f56ff151bf554fe done
+#19 DONE 41.3s
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 ...
+
+#20 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:3923f8de8d2214b9490e68fd6ae63ea604deddd166df2755b788bef04848b9bc
+#20 sha256:9250f75ee52732272e435604d91fd0e52ed39048684882ae9ee2afe08b3407aa 0B / 1.93MB 41.1s
+#20 sha256:29521ceb85835c4e79cd486b7edbac4207eba87eea02727da8ae31b60efb2a8f 0B / 628B 41.1s
+#20 sha256:9250f75ee52732272e435604d91fd0e52ed39048684882ae9ee2afe08b3407aa 1.05MB / 1.93MB 41.2s
+#20 ...
+
+#22 [frontend build 2/7] WORKDIR /app
+#22 DONE 0.2s
+
+#23 [frontend build 3/7] COPY package*.json ./
+#23 DONE 0.0s
+
+#20 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:3923f8de8d2214b9490e68fd6ae63ea604deddd166df2755b788bef04848b9bc
+#20 sha256:29521ceb85835c4e79cd486b7edbac4207eba87eea02727da8ae31b60efb2a8f 628B / 628B 41.3s done
+#20 sha256:c14709558ecd5271929fb3ff65f5d996d4e17f01cba4e15c4e85e7fe15e7fe0c 0B / 959B 41.4s
+#20 sha256:c14709558ecd5271929fb3ff65f5d996d4e17f01cba4e15c4e85e7fe15e7fe0c 959B / 959B 41.5s done
+#20 sha256:58a34759c9b72ea8cf13d1cdcf7fc5b7a94f27a5b5bd006ab70f0dfe1df76d95 0B / 372B 41.5s
+#20 sha256:58a34759c9b72ea8cf13d1cdcf7fc5b7a94f27a5b5bd006ab70f0dfe1df76d95 372B / 372B 41.6s done
+#20 sha256:480fb4b12f42c6d0f93a92c89f8a91e2ec48c5259ec23621835c11d5a20b7482 0B / 1.22kB 41.7s
+#20 extracting sha256:9250f75ee52732272e435604d91fd0e52ed39048684882ae9ee2afe08b3407aa
+#20 sha256:9250f75ee52732272e435604d91fd0e52ed39048684882ae9ee2afe08b3407aa 1.93MB / 1.93MB 41.8s done
+#20 sha256:379d33e271779a2d32a714570b48ecf9d87bae31a4c8adc8dca4df6109383b11 0B / 1.40kB 41.9s
+#20 extracting sha256:9250f75ee52732272e435604d91fd0e52ed39048684882ae9ee2afe08b3407aa 0.3s done
+#20 extracting sha256:29521ceb85835c4e79cd486b7edbac4207eba87eea02727da8ae31b60efb2a8f done
+#20 extracting sha256:c14709558ecd5271929fb3ff65f5d996d4e17f01cba4e15c4e85e7fe15e7fe0c done
+#20 extracting sha256:58a34759c9b72ea8cf13d1cdcf7fc5b7a94f27a5b5bd006ab70f0dfe1df76d95 done
+#20 extracting sha256:480fb4b12f42c6d0f93a92c89f8a91e2ec48c5259ec23621835c11d5a20b7482 done
+#20 sha256:480fb4b12f42c6d0f93a92c89f8a91e2ec48c5259ec23621835c11d5a20b7482 1.22kB / 1.22kB 42.3s done
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 0B / 12.32MB 42.4s
+#20 extracting sha256:379d33e271779a2d32a714570b48ecf9d87bae31a4c8adc8dca4df6109383b11 done
+#20 sha256:379d33e271779a2d32a714570b48ecf9d87bae31a4c8adc8dca4df6109383b11 1.40kB / 1.40kB 42.5s done
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 1.05MB / 12.32MB 42.7s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 2.10MB / 12.32MB 42.9s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 3.15MB / 12.32MB 43.3s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 4.19MB / 12.32MB 43.4s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 5.24MB / 12.32MB 43.6s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 6.29MB / 12.32MB 43.9s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 7.34MB / 12.32MB 44.0s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 8.39MB / 12.32MB 44.2s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 9.44MB / 12.32MB 44.4s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 10.49MB / 12.32MB 44.6s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 11.53MB / 12.32MB 44.8s
+#20 sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 12.32MB / 12.32MB 45.0s done
+#20 extracting sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31
+#20 extracting sha256:2a615eae198637c72dc028f545ef6312130d8abdb8de8762ec10cc69b74ece31 1.0s done
+#20 DONE 46.3s
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 143.69MB / 143.69MB 45.7s done
+#15 extracting sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 0.7s
+#15 extracting sha256:1131d73756e1c836e01620978c9eeebcfc2f552228c5dde2c2d621399e6c7794 4.1s done
+#15 extracting sha256:03f2fa14f4805735a9d1e1b884eda352e03676558d0f2e0996834d6cb4cff183 done
+#15 extracting sha256:03f2fa14f4805735a9d1e1b884eda352e03676558d0f2e0996834d6cb4cff183 done
+#15 extracting sha256:0e98cf43616eaebfc59eefccdf7ec64fb8e4e5e2b68612018cd202774d7e4d26 done
+#15 extracting sha256:32424ff17b28af1f765a79be6b7007ddd479be42308ab4f24baf4c2010f857d0 done
+#15 extracting sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d
+#15 ...
+
+#24 [frontend build 4/7] RUN npm install
+#24 9.162 npm WARN deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+#24 ...
+
+#15 [products builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#15 extracting sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 3.4s done
+#15 extracting sha256:c969ec0ead0eccf5fd78d267f894819318b689b8d4ecd0f3450bc849ffd2733d 3.4s done
+#15 extracting sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b
+#15 extracting sha256:e2ad9a3948b23c93bf768cbacd8574b020bd7e3cd077e46d84d1f7cebded836b 1.8s done
+#15 extracting sha256:d3dfa5dda018b8cd9f7f52cf764a292b3e42be93bcbf8132c39173cc5ef7c0ef done
+#15 DONE 55.8s
+
+#25 [products builder 2/4] WORKDIR /usr/app/
+#25 DONE 0.8s
+
+#26 [users builder 3/4] COPY .. .
+#26 DONE 0.5s
+
+#27 [media builder 3/4] COPY .. .
+#27 CACHED
+
+#28 [products builder 3/4] COPY .. .
+#28 CACHED
+
+#29 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#29 1.652 
+#29 1.652 Welcome to Gradle 8.5!
+#29 1.652 
+#29 1.652 Here are the highlights of this release:
+#29 1.652  - Support for running on Java 21
+#29 1.653  - Faster first use with Kotlin DSL
+#29 1.653  - Improved error and warning messages
+#29 1.653 
+#29 1.653 For more details see https://docs.gradle.org/8.5/release-notes.html
+#29 1.654 
+#29 1.911 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#29 4.821 Daemon will be stopped at the end of the build 
+#29 ...
+
+#24 [frontend build 4/7] RUN npm install
+#24 12.32 npm WARN deprecated domexception@2.0.1: Use your platform's native DOMException instead
+#24 13.45 npm WARN deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#24 14.39 npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+#24 15.82 npm WARN deprecated @babel/plugin-proposal-unicode-property-regex@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.
+#24 15.98 npm WARN deprecated @babel/plugin-proposal-async-generator-functions@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.
+#24 20.15 npm WARN deprecated @wessberg/ts-evaluator@0.0.27: this package has been renamed to ts-evaluator. Please install ts-evaluator instead
+#24 ...
+
+#30 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#30 1.566 
+#30 1.568 Welcome to Gradle 8.5!
+#30 1.572 
+#30 1.572 Here are the highlights of this release:
+#30 1.573  - Support for running on Java 21
+#30 1.573  - Faster first use with Kotlin DSL
+#30 1.573  - Improved error and warning messages
+#30 1.573 
+#30 1.573 For more details see https://docs.gradle.org/8.5/release-notes.html
+#30 1.573 
+#30 1.947 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#30 4.843 Daemon will be stopped at the end of the build 
+#30 ...
+
+#31 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#31 1.644 
+#31 1.645 Welcome to Gradle 8.5!
+#31 1.646 
+#31 1.647 Here are the highlights of this release:
+#31 1.647  - Support for running on Java 21
+#31 1.647  - Faster first use with Kotlin DSL
+#31 1.647  - Improved error and warning messages
+#31 1.647 
+#31 1.647 For more details see https://docs.gradle.org/8.5/release-notes.html
+#31 1.647 
+#31 1.879 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#31 4.873 Daemon will be stopped at the end of the build 
+#31 ...
+
+#24 [frontend build 4/7] RUN npm install
+#24 52.54 npm notice 
+#24 52.54 npm notice New major version of npm available! 8.5.5 -> 10.2.5
+#24 52.54 npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.2.5>
+#24 52.54 npm notice Run `npm install -g npm@10.2.5` to update!
+#24 52.54 npm notice 
+#24 52.55 npm ERR! code 1
+#24 52.55 npm ERR! path /app/node_modules/@parcel/watcher
+#24 52.56 npm ERR! command failed
+#24 52.56 npm ERR! command sh -c node-gyp-build
+#24 52.56 npm ERR! gyp info it worked if it ends with ok
+#24 52.56 npm ERR! gyp info using node-gyp@9.4.1
+#24 52.56 npm ERR! gyp info using node@16.15.0 | linux | arm64
+#24 52.56 npm ERR! gyp ERR! find Python 
+#24 52.56 npm ERR! gyp ERR! find Python Python is not set from command line or npm configuration
+#24 52.56 npm ERR! gyp ERR! find Python Python is not set from environment variable PYTHON
+#24 52.56 npm ERR! gyp ERR! find Python checking if "python3" can be used
+#24 52.56 npm ERR! gyp ERR! find Python - "python3" is not in PATH or produced an error
+#24 52.56 npm ERR! gyp ERR! find Python checking if "python" can be used
+#24 52.56 npm ERR! gyp ERR! find Python - "python" is not in PATH or produced an error
+#24 52.56 npm ERR! gyp ERR! find Python 
+#24 52.56 npm ERR! gyp ERR! find Python **********************************************************
+#24 52.56 npm ERR! gyp ERR! find Python You need to install the latest version of Python.
+#24 52.56 npm ERR! gyp ERR! find Python Node-gyp should be able to find and use Python. If not,
+#24 52.56 npm ERR! gyp ERR! find Python you can try one of the following options:
+#24 52.56 npm ERR! gyp ERR! find Python - Use the switch --python="/path/to/pythonexecutable"
+#24 52.56 npm ERR! gyp ERR! find Python   (accepted by both node-gyp and npm)
+#24 52.56 npm ERR! gyp ERR! find Python - Set the environment variable PYTHON
+#24 52.56 npm ERR! gyp ERR! find Python - Set the npm configuration variable python:
+#24 52.56 npm ERR! gyp ERR! find Python   npm config set python "/path/to/pythonexecutable"
+#24 52.56 npm ERR! gyp ERR! find Python For more information consult the documentation at:
+#24 52.56 npm ERR! gyp ERR! find Python https://github.com/nodejs/node-gyp#installation
+#24 52.56 npm ERR! gyp ERR! find Python **********************************************************
+#24 52.56 npm ERR! gyp ERR! find Python 
+#24 52.56 npm ERR! gyp ERR! configure error 
+#24 52.56 npm ERR! gyp ERR! stack Error: Could not find any Python installation to use
+#24 52.56 npm ERR! gyp ERR! stack     at PythonFinder.fail (/app/node_modules/node-gyp/lib/find-python.js:330:47)
+#24 52.56 npm ERR! gyp ERR! stack     at PythonFinder.runChecks (/app/node_modules/node-gyp/lib/find-python.js:159:21)
+#24 52.56 npm ERR! gyp ERR! stack     at PythonFinder.<anonymous> (/app/node_modules/node-gyp/lib/find-python.js:202:16)
+#24 52.56 npm ERR! gyp ERR! stack     at PythonFinder.execFileCallback (/app/node_modules/node-gyp/lib/find-python.js:294:16)
+#24 52.56 npm ERR! gyp ERR! stack     at exithandler (node:child_process:406:5)
+#24 52.56 npm ERR! gyp ERR! stack     at ChildProcess.errorhandler (node:child_process:418:5)
+#24 52.56 npm ERR! gyp ERR! stack     at ChildProcess.emit (node:events:527:28)
+#24 52.56 npm ERR! gyp ERR! stack     at Process.ChildProcess._handle.onexit (node:internal/child_process:289:12)
+#24 52.56 npm ERR! gyp ERR! stack     at onErrorNT (node:internal/child_process:478:16)
+#24 52.56 npm ERR! gyp ERR! stack     at processTicksAndRejections (node:internal/process/task_queues:83:21)
+#24 52.56 npm ERR! gyp ERR! System Linux 6.5.11-linuxkit
+#24 52.56 npm ERR! gyp ERR! command "/usr/local/bin/node" "/app/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+#24 52.56 npm ERR! gyp ERR! cwd /app/node_modules/@parcel/watcher
+#24 52.56 npm ERR! gyp ERR! node -v v16.15.0
+#24 52.56 npm ERR! gyp ERR! node-gyp -v v9.4.1
+#24 52.56 npm ERR! gyp ERR! not ok
+#24 52.56 
+#24 52.57 npm ERR! A complete log of this run can be found in:
+#24 52.57 npm ERR!     /root/.npm/_logs/2023-12-18T15_55_17_904Z-debug-0.log
+#24 ERROR: process "/bin/sh -c npm install" did not complete successfully: exit code: 1
+
+#30 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#30 CANCELED
+
+#29 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#29 CANCELED
+
+#31 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#31 CANCELED
+------
+ > [frontend build 4/7] RUN npm install:
+52.56 npm ERR! gyp ERR! stack     at processTicksAndRejections (node:internal/process/task_queues:83:21)
+52.56 npm ERR! gyp ERR! System Linux 6.5.11-linuxkit
+52.56 npm ERR! gyp ERR! command "/usr/local/bin/node" "/app/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+52.56 npm ERR! gyp ERR! cwd /app/node_modules/@parcel/watcher
+52.56 npm ERR! gyp ERR! node -v v16.15.0
+52.56 npm ERR! gyp ERR! node-gyp -v v9.4.1
+52.56 npm ERR! gyp ERR! not ok
+52.56 
+52.57 npm ERR! A complete log of this run can be found in:
+52.57 npm ERR!     /root/.npm/_logs/2023-12-18T15_55_17_904Z-debug-0.log
+------
+failed to solve: process "/bin/sh -c npm install" did not complete successfully: exit code: 1
+[8mha:////4BeE/azVRjHWomtWAyn0kT6bF0ClaUo0qIFgrLfZci9JAAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSZGwcK1uGxhNggghh/idAJJUn8mreQTQzVm6xs2+b93zBOgY4UtDMKhwMxs4w7yZdFssUhqujzCxdWEcYySkmVBbUq9OCgpKCJVUNKw4bhZ2jaFAn2HIr77JxEnVzTqF8Bw616Ud4QMWLOcmQvjAH2N2mPhL+PH8FMHufoG73n2rfX1uR6L4AAAA=[0m[Pipeline] }
+[8mha:////4LM321yXHS/n3Y9rgGbodBmw1XtrX3IX8jDLYEJ5rVWQAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgESBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgFZHam9vgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4JFyZlbUqdICJUD4RJovtD2hrUXxFBT6XKuy7o7He0ZlAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCQYGEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgE2/vbVvgAAAA==[0m[Pipeline] }
+[8mha:////4OSHofL/djrU1R2ErnQTx5dFeZ/vCHtxp7mUg5h3l+zAAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSQBMhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygPda59/QHwAzcovgAAAA==[0m[Pipeline] // stage
+[8mha:////4Gbl8Os6xqNDzxmVlEmdIvbQ+qfj3ibbPsZhc1neeBAbAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUkJhQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3u2z7zedZvQF278+7wgAAAA==[0m[Pipeline] stage
+[8mha:////4PluUkstVQPzbHz/3j9lgdhK3RjuBjV1OrOlHzAA5C1KAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUBibE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAW2++SvCAAAA[0m[Pipeline] { (Declarative: Post Actions)
+[8mha:////4NgQMmmP9Fs28+NMJOr8DFY6Bm1FlpfXb/aEROQtcR9tAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIikKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO63n9qFN4OkKLa+AAAA[0m[Pipeline] junit
+Recording test results
+No test report files were found. Configuration error?
+Error when executing always post condition:
+Also:   org.jenkinsci.plugins.workflow.actions.ErrorAction$ErrorId: 2e1c8418-3f19-471b-b005-11524617add5
+hudson.AbortException: No test report files were found. Configuration error?
+	at hudson.tasks.junit.JUnitParser$ParseResultCallable.invoke(JUnitParser.java:188)
+	at hudson.FilePath.act(FilePath.java:1198)
+	at hudson.FilePath.act(FilePath.java:1181)
+	at hudson.tasks.junit.JUnitParser.parseResult(JUnitParser.java:120)
+	at hudson.tasks.junit.JUnitResultArchiver.parse(JUnitResultArchiver.java:160)
+	at hudson.tasks.junit.JUnitResultArchiver.parseAndSummarize(JUnitResultArchiver.java:254)
+	at hudson.tasks.junit.pipeline.JUnitResultsStepExecution.run(JUnitResultsStepExecution.java:63)
+	at hudson.tasks.junit.pipeline.JUnitResultsStepExecution.run(JUnitResultsStepExecution.java:29)
+	at org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:47)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[8mha:////4I4VfGoTHkBOW9uJBLXHll7UneoWQ9SuYfPX4JHuTqnJAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIihKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcr97lPbN5YEWne+AAAA[0m[Pipeline] }
+[8mha:////4J6dYGyaBBTB34IF9l+7aCLxJ0XDdX/WUct1Y0OTTnMaAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCARWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nffWr7BrgEWB2+AAAA[0m[Pipeline] // stage
+[8mha:////4NiH+99q/eiilEKQnj1m7SbM0X39WxRZAo32XtmR3rCXAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIikFIhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyjrOtf+8AE1c2ZcvgAAAA==[0m[Pipeline] }
+[8mha:////4EMVtypkD74ENpwFzh5PYwwHmkJin/DgpJoj0iAqikEyAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiFNAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3h1x1/QEhUPtDvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4IISJB7dOcnkuR+gM/qze1cUpnYFPyurCN4kxTVO3+G2AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJpQBSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLcXZNsPg7X0+70AAAA=[0m[Pipeline] }
+[8mha:////4FxLYhR0GAu6kSwjg1LN6G0WAa7h1ZLZ1/+Ar/4Uc4F6AAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpEBISoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/tBdn2A/G3wOe9AAAA[0m[Pipeline] // node
+[8mha:////4B680QpnycjpZxPl6QIXEhATk2xG2J/eqASMsoJ1r3jnAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRkCgQoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/tBdn2A9eup629AAAA[0m[Pipeline] End of Pipeline
+ERROR: script returned exit code 17
+Finished: FAILURE

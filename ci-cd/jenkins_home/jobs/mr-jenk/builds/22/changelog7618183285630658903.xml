@@ -1,0 +1,235 @@
+commit 94d36cdff638bdd0de0ff0d92a1986ba69785a03
+tree 64cdde941bc28e8a868076aa336d4ce1ef224041
+parent 2bcd171d3419f511cf85a8b69f82debd3c950814
+author Maxim Mikhailov <dev@maxim.ax> 2023-12-17 15:12:00 +0200
+committer Maxim Mikhailov <dev@maxim.ax> 2023-12-21 15:47:39 +0200
+
+    Add Deploy workflow
+
+
+:000000 100644 0000000000000000000000000000000000000000 593bbdfc7af46822ba40125362142feff2edbd1d A	.github/workflows/after-merge.yml
+:100644 100644 df04928f0f71af818486c248ce64d2cba3fa073b 61ab3cc71ce4d6037115e0df121b2487afbf88b1 M	.github/workflows/deploy.yml
+:000000 100644 0000000000000000000000000000000000000000 4d0f94e0287f351ad2dd892c51199f5acb1401b0 A	.github/workflows/dispatch-deploy.yml
+commit 2bcd171d3419f511cf85a8b69f82debd3c950814
+tree 1c5bf09e4e1f4e33680de704ac208da44fd74761
+parent 9bebc0de9a3cc906ed77a23e9f27d27a41ee0838
+author Maxim Mikhailov <dev@maxim.ax> 2023-12-17 14:11:05 +0200
+committer Maxim Mikhailov <dev@maxim.ax> 2023-12-21 15:47:38 +0200
+
+    Improve CI/CD
+
+
+:100644 100644 87f93be5155ffc6f1f8819c71b1bfec1e92bfa9b a8370e818018f10f8ec60f1bc80eee537d232c0a M	.github/workflows/backend-docker.yml
+:000000 100644 0000000000000000000000000000000000000000 df04928f0f71af818486c248ce64d2cba3fa073b A	.github/workflows/deploy.yml
+:100644 100644 96b62a706be67d30baa968857f770a6c3e6c87fb 59c143a8043efe3fffcba99996844c70c90c1273 M	.github/workflows/frontend-docker.yml
+:100644 100644 376397bcdd7bac54550a032e826c185e70a51371 7418763a1d1ffe05208ea6a610772ddd848e0e26 M	.github/workflows/nginx-docker.yml
+:000000 100644 0000000000000000000000000000000000000000 cf901a42f3f49f0c7600440495d9d872a60d5e2f A	.github/workflows/pull-request.yml
+commit 9bebc0de9a3cc906ed77a23e9f27d27a41ee0838
+tree c2ed147e0798291c37a66c9d833f015e36cc14ab
+parent cf65fe2a17939b45cca454cbe64723a81a77c8a2
+author Maxim Mikhailov <dev@maxim.ax> 2023-12-16 22:12:23 +0200
+committer Maxim Mikhailov <dev@maxim.ax> 2023-12-21 15:47:38 +0200
+
+    Prepare buy-01 for production
+    
+    Replace nginx.conf with a custom nginx Docker image
+    
+    Remove a separate production configuration, use docker-compose.prod.yml instead
+    
+    Fix bug when nginx and frontend start before the backend
+    
+    Add GitHub action workflow to build custom nginx image
+    
+    Update README
+
+
+:000000 100644 0000000000000000000000000000000000000000 376397bcdd7bac54550a032e826c185e70a51371 A	.github/workflows/nginx-docker.yml
+:100644 100644 9494280109edf28511e2b0063390ed49dac91450 659154a92eb65b69f468e42a0872f2a787f6e1d5 M	README.md
+:000000 100644 0000000000000000000000000000000000000000 6d5b2e30a3eafb2ba4cb514e567b166f97606eeb A	docker-compose.prod.yml
+:100644 100644 f3373b5c10c3aaaa8b44a15d361e6a8f51407195 ae398ce0c3708e01b7f7064b1d20d9379d191229 M	docker-compose.yml
+:100755 100755 ceeb25f0090681dbacc0b6d33eab7c14af14fe1b 28fbfa88fce311584bcc546f9e2f5aff680c0e47 R050	prod/gen_env.sh	gen_env.sh
+:100644 000000 04009397410e0f5277890c0a6403cf76152adc51 0000000000000000000000000000000000000000 D	nginx.conf
+:000000 100644 0000000000000000000000000000000000000000 367f4f94bbf053d85c7abf4dea63b99fb0166499 A	nginx/Dockerfile
+:000000 100644 0000000000000000000000000000000000000000 3592de9c8a873a461ce903c3814cb2600c5b9c5b A	nginx/common.conf
+:000000 100644 0000000000000000000000000000000000000000 7d3fdd30e0da864065c28d605bf2447dd4541586 A	nginx/http.conf
+:000000 100644 0000000000000000000000000000000000000000 f90477ed262010f4892a9efdc827df6a830c2399 A	nginx/https.conf
+:000000 100755 0000000000000000000000000000000000000000 5d17985828fe2cf7e2015ca1dd3a47382a874b10 A	nginx/init.sh
+:100644 000000 4a8e5cc8cc8e92b71c2b3dd20662b333db7a1731 0000000000000000000000000000000000000000 D	prod/docker-compose.yml
+:100644 000000 f02b2d3f771916355cfc9e0a34363cafadced521 0000000000000000000000000000000000000000 D	prod/nginx.conf
+commit cf65fe2a17939b45cca454cbe64723a81a77c8a2
+tree 21df324ca5e77322e676488853cf58450cbf2baa
+parent f434b99f311aa71d02d20f825e3d9666825ca33d
+author Maxim Mikhailov <dev@maxim.ax> 2023-12-21 12:58:51 +0200
+committer Maxim Mikhailov <dev@maxim.ax> 2023-12-21 15:45:13 +0200
+
+    Specify gradle version
+    
+    Gradle 8 is required to run the project,
+    Add it to README and Dockerfile
+
+
+:100644 100644 5a5ebadc613e05e58b3fa08121046b5eecc2e358 42335968396b768fad533380a0b5e4b79abc9ae3 M	backend/Dockerfile
+:100644 100644 e2c5a36dcca8c6d506cbd53bb86ca65f0ee2f378 c46cc778b56344aa25fa3faa378402a1a50ec78b M	backend/README.md
+commit f434b99f311aa71d02d20f825e3d9666825ca33d
+tree f6f280264d8a2ced8ea9edb6e82ce284b346f123
+parent 0ab18ad0490dd7c3ac7486550c457f10c55d3e45
+author Maxim Mikhailov <dev@maxim.ax> 2023-12-18 17:53:55 +0200
+committer Maxim Mikhailov <dev@maxim.ax> 2023-12-21 15:45:13 +0200
+
+    Enable junitXml
+
+
+:100644 100644 96724dd4952ee74f234ff9ffb6cb3e28d8f8a476 78e28fccf7c2f0126d811e585b4398a7c3d0247a M	backend/build.gradle.kts
+commit 0ab18ad0490dd7c3ac7486550c457f10c55d3e45
+tree 0905da62e695db5b55f028115a5417528ab175f1
+parent 8cfb56951349a5f5060653e78400669679610e04
+author Adrian Lui <113538395+adrian-lui@users.noreply.github.com> 2023-12-16 19:45:18 +0200
+committer Maxim Mikhailov <dev@maxim.ax> 2023-12-21 15:18:49 +0200
+
+    Add frontend for buy-01 (#30) and (#42)
+    
+    Squashed with Fix frontend dependencies (#42) to be able to upload it to Gitea
+    
+    * added authguard, login, signup, add products api to frontend
+    
+    * added message to user for error and success from action. added product listing. added product service
+    
+    * added seller sign up, fixed message box, fixed profile page
+    
+    * added seller product management frontend, products put and delete request, authority control to show pages and buttons
+    
+    added seller product management frontend, products put and delete request, authority control to show pages and buttons
+    
+    * Added media upload to add/put product and user registration (scope error expected)
+    
+    * fixed product images upload and delete frontend
+    
+    * added sign up form image upload frontend
+    
+    * fixed sign up image upload bug frontend
+    
+    * added user sign up image upload, add product main image setting
+    
+    * added UI experience, improved error handling, added edit profile, added product details page
+    
+    * added eslint to frontend, fixed all eslint errors, fixed async product exception, quantity can now be Float, added no-image product placeholder
+    
+    * fixed some wordings, fixed home page for logged in user only, fixed login redirect
+    
+    * added auth guard to edit-profile page, handled edit-profile error
+    
+    Fix frontend dependencies (#42)
+    
+    * Fix frontend dependencies
+    
+    Reinstall everything from scratch using `ng new`
+    
+    * Fix Dockerfile
+    
+    Use node v18 instead of a deprecated v16
+    
+    Remove unnecessary python installation
+    
+    Change `npm install` to `npm ci`
+    
+    ---------
+    
+    Co-authored-by: Maxim Mikhailov <dev@maxim.ax>
+
+
+:000000 100644 0000000000000000000000000000000000000000 db226e9d7c413133d9c3fe7892251a9b4c2bf80c A	frontend/.eslintrc.json
+:100644 100644 e89fa1e736ef39c0a342b742d054d00c316382c3 5fd2288cc51df3e3779bb10c20741c224799824c M	frontend/Dockerfile
+:100644 100644 1d9d4eddb9936afe5301a3e47f4246e45c395054 c6b1b61044440b81cc81e2c0837c7cfafb4ff69f M	frontend/angular.json
+:100644 100644 653ae692356a5bb33469e5759067204e5a0c76d4 5bb60505711960524d2b1dfad490b1a1069ae7f5 M	frontend/package-lock.json
+:100644 100644 76a84f73f63b0d46cbc24c83bc1fead48bf9c666 a75f2361bfe4ec0304c224b4aee2ca735f69de71 M	frontend/package.json
+:100644 100644 4edaa354efad141ca0b92289ddd4e09a49e396f0 7f4b8ad1731510e85a29b738964b6f9d0c89dab0 M	frontend/src/app/app-routing.module.ts
+:100644 100644 869aa2e2ea47d6f3925f04ef21e3c9e30d2414c8 0e1696d08774d55b9a1cb3d70cea2c1ab24b3892 M	frontend/src/app/app.component.html
+:100644 100644 3d56b54cb0e202c6c3880d2f1ddda305e4973037 602c33bb25c46ec8a7d4283e815b30e16f2b7a5a M	frontend/src/app/app.component.scss
+:100644 100644 924d96284d371536d930fbbcdce4f23500588e23 5bca7c55751487f950c957b91dacd2895f710bc2 M	frontend/src/app/app.component.ts
+:100644 100644 4f05dcd9535e0d1e7309306e4952f69692dbb5b0 2e16619a1b5671a9d7785f0ca7c000183c845c59 M	frontend/src/app/app.module.ts
+:000000 100644 0000000000000000000000000000000000000000 a0e54d395d3e5651dd2b9ca9f5d53f1f5561257b A	frontend/src/app/components/confirm/confirm.component.html
+:000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A	frontend/src/app/components/confirm/confirm.component.scss
+:000000 100644 0000000000000000000000000000000000000000 3e3e9c003d19474b373da4f64bcaebde22e0c48d A	frontend/src/app/components/confirm/confirm.component.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 1cc61015423a0520762072ca75e6092892ed0726 A	frontend/src/app/components/confirm/confirm.component.ts
+:000000 100644 0000000000000000000000000000000000000000 8943b685422fdf6c3f9c0b20331f01757eb041ee A	frontend/src/app/components/image-upload/image-upload.component.html
+:000000 100644 0000000000000000000000000000000000000000 b770fea236c9e702a82dbdda8397971a063e7536 A	frontend/src/app/components/image-upload/image-upload.component.scss
+:000000 100644 0000000000000000000000000000000000000000 e449ed7c0e6a7cf3f9b020567bc88d35d7eccf97 A	frontend/src/app/components/image-upload/image-upload.component.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 0e0943c3840c0561824468d0a63fec4cffd8d05d A	frontend/src/app/components/image-upload/image-upload.component.ts
+:000000 100644 0000000000000000000000000000000000000000 ce61a5acdda7f518edb95892c61ba174256e7bf9 A	frontend/src/app/components/message-box/message-box.component.html
+:000000 100644 0000000000000000000000000000000000000000 c1701481bcd76eb87368c9e431a0901d46095f40 A	frontend/src/app/components/message-box/message-box.component.scss
+:000000 100644 0000000000000000000000000000000000000000 0e8bd28853c76feea7dc7eb0759c28bf75aa3c39 A	frontend/src/app/components/message-box/message-box.component.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 0f3ad4d630438b77be610a5e58f7e6c7dd0e8ca5 A	frontend/src/app/components/message-box/message-box.component.ts
+:100644 100644 29fb8a6b4ba41057ddd96d8c3678e92ebef5e856 c7d422a65ecc0e80b36a869dbee568466bf6fe92 M	frontend/src/app/components/navbar/navbar.component.html
+:100644 100644 4c79889052d986975b508ed7a37677f4ee4691be de88aedb8473fcdeb3b683a727fc562e7c204a6f M	frontend/src/app/components/navbar/navbar.component.scss
+:100644 100644 01e4face4ce788057d8d66a955b576f3bd1e33ad 936db88807e007d8ff950461ba690216fee675f4 M	frontend/src/app/components/navbar/navbar.component.ts
+:000000 100644 0000000000000000000000000000000000000000 88bb5dcc50ed80f176c30650562f0a312269dd8e A	frontend/src/app/components/product-details/product-details.component.html
+:000000 100644 0000000000000000000000000000000000000000 bc60d26018307b4060bb6cb7f6d07a93b348ea14 A	frontend/src/app/components/product-details/product-details.component.scss
+:000000 100644 0000000000000000000000000000000000000000 b04cd8d3cd2f571777919918bf843e294c6a9bee A	frontend/src/app/components/product-details/product-details.component.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 e7bd4cc3378f29330dfc596fdda9785f6c5ba435 A	frontend/src/app/components/product-details/product-details.component.ts
+:000000 100644 0000000000000000000000000000000000000000 b478afcfbc1c643dbc3201316ba0c6aebdad5895 A	frontend/src/app/components/spinner/spinner.component.html
+:000000 100644 0000000000000000000000000000000000000000 9fdbf22c003b0031c6a06027e04fb7124a7f7d46 A	frontend/src/app/components/spinner/spinner.component.scss
+:000000 100644 0000000000000000000000000000000000000000 27592786c6202fd2766d36b71687f23d886f000e A	frontend/src/app/components/spinner/spinner.component.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 323d6740bc09a9b09716e321b855f3edd2526fd4 A	frontend/src/app/components/spinner/spinner.component.ts
+:000000 100644 0000000000000000000000000000000000000000 9acbd9a13c5f7937cb86362b7ffb163c0f9d1fdb A	frontend/src/app/pages/edit-profile-page/edit-profile-page.component.html
+:000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A	frontend/src/app/pages/edit-profile-page/edit-profile-page.component.scss
+:000000 100644 0000000000000000000000000000000000000000 ab1b23ffb6b258394c88c317618f68af1875d65d A	frontend/src/app/pages/edit-profile-page/edit-profile-page.component.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 cd53d53e08a882fc8f5a363ce3abda2d6a038a27 A	frontend/src/app/pages/edit-profile-page/edit-profile-page.component.ts
+:100644 100644 4843e8ae90a6fdd03f79223a23be64954c48e38d 4c5c0317b32c1129ad04f7bf1ffb6e22c94bfa23 M	frontend/src/app/pages/home-page/home-page.component.html
+:100644 100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 b8b4aa10b4cf6843ef8ed27563779b469a24aa14 M	frontend/src/app/pages/home-page/home-page.component.scss
+:100644 100644 248c98fb5088b3d322f32ccfe4d1e61cb9f3c062 9596d68e9b91c29fbf5bf6032f0dc9c6a9d53936 M	frontend/src/app/pages/home-page/home-page.component.ts
+:100644 100644 642bb24881a8d4fda902b84624e25a87c761056c 77fdf069cc03ae0a5e05d521523bc784769c0bca M	frontend/src/app/pages/login-page/login-form/login-form.component.html
+:100644 100644 68b98f69fa8868eebedfcd93830dcd3507747a85 45d2aedb31057d213ab9e016dc9aa9b8c23a78e1 M	frontend/src/app/pages/login-page/login-form/login-form.component.ts
+:100644 100644 17e23333cf2e8d70830efd656f74a3f16917a66d 65fe9d4d15f01244fb10350a0b24a6feeb72c0e4 M	frontend/src/app/pages/login-page/login-page.component.html
+:100644 100644 77eef84f8a4f00f5f42fd732ba16b015dfed93e7 5681c9f2f6c20dd2a8d464a5b2b3417668c1066a M	frontend/src/app/pages/login-page/login-page.component.ts
+:000000 100644 0000000000000000000000000000000000000000 fe87812eaee64025083c22fb79a75e47dd4fab60 A	frontend/src/app/pages/product-listing-page/add-product-modal/add-product-modal.component.html
+:000000 100644 0000000000000000000000000000000000000000 b0a369ea2e68cb9f762536c2952fa7d6f0ebcc6f A	frontend/src/app/pages/product-listing-page/add-product-modal/add-product-modal.component.scss
+:000000 100644 0000000000000000000000000000000000000000 1b8b3c9127dab6fb0a6ddf54fb27f5dfe77ecc1f A	frontend/src/app/pages/product-listing-page/add-product-modal/add-product-modal.component.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 70413ad5a5790f63da95507614b5290c2d7d38d1 A	frontend/src/app/pages/product-listing-page/add-product-modal/add-product-modal.component.ts
+:100644 100644 ce5520dcca6b66fec004bfb381e23992e30eb9b3 00af93e5a8a7c4036d388b3ea0186bc029605e24 M	frontend/src/app/pages/product-listing-page/product-listing-page.component.html
+:100644 100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 1202eb4eefb9a3b43d6d38cf2f58348f3c3ca4c0 M	frontend/src/app/pages/product-listing-page/product-listing-page.component.scss
+:100644 100644 47abdc4bd9b6d8588fa46bb5ece5b3a7c9bbdb24 98043add97555c85bc04f9a70079bfe8eada3b0b M	frontend/src/app/pages/product-listing-page/product-listing-page.component.ts
+:100644 100644 a1702694b8681832dc8611537f12b936154312b8 a526f9ce3c628a1425e2f669343e7e9b117b58a9 M	frontend/src/app/pages/seller-product-management-page/media-management-page/media-management-page.component.html
+:100644 100644 f2bd77748ee04dd47ffb91feb0938826d83f625c d05d3900910c1fb04f6cad6d08a5245e6aa351e3 M	frontend/src/app/pages/seller-product-management-page/media-management-page/media-management-page.component.ts
+:100644 100644 8514a15850e471c5d5e4129ab59457908ce2e35f f9b64b1fcaabd2f1b93ae2eb1b0b80e7545368eb M	frontend/src/app/pages/seller-product-management-page/seller-product-management-page.component.html
+:100644 100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 d21d14d4969f2cf68f4bae98d86d1045ddd2b556 M	frontend/src/app/pages/seller-product-management-page/seller-product-management-page.component.scss
+:100644 100644 980e30e029d776bb5ba5d695f33e98eb90a0f66d 73cb1753a6d31922c23288b1d4f057f29cbe4a1f M	frontend/src/app/pages/seller-product-management-page/seller-product-management-page.component.ts
+:100644 100644 6c4c99f7cf20dc36b77d4e0dcd86eac3c6b9c295 56fb0674c0d74501238c11f800fa867e1a02a5c4 M	frontend/src/app/pages/sign-up-page/sign-up-page.component.html
+:100644 100644 d9292ce30871840a72b89386633a43e388e29570 d2ccea23518d5a8460a4f508985d5bad22a9542e M	frontend/src/app/pages/sign-up-page/sign-up-page.component.ts
+:100644 100644 cd31dd0d4ee29d68f0a916a8fe272375555a7a10 695f94286b2a87a4e3d9212e65871d483b5a8f80 M	frontend/src/app/pages/sign-up-page/signup-form/signup-form.component.html
+:100644 100644 830f442cf0dead70778c32cade494074e556f13f a05488107991182e88313564a05a812d9f72ade6 M	frontend/src/app/pages/sign-up-page/signup-form/signup-form.component.scss
+:100644 100644 548de87a9a8f98c4aae9ab05c1abf74878a670bc e737f14ecd446c7aca01d5baf02988b71066dc01 M	frontend/src/app/pages/sign-up-page/signup-form/signup-form.component.ts
+:000000 100644 0000000000000000000000000000000000000000 894b88a1cc566529b98664b5214058a6513c7a4d A	frontend/src/app/shared/interceptors/auth.interceptor.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 47c95af363ecb79fb65861be456bfc87d8b8ba46 A	frontend/src/app/shared/interceptors/auth.interceptor.ts
+:000000 100644 0000000000000000000000000000000000000000 b970eebb75d4ff73f5e12aead4e8d26461ed16d7 A	frontend/src/app/shared/models/product.model.ts
+:000000 100644 0000000000000000000000000000000000000000 4f221845f2d3de1160427c698af0373b3cd083f7 A	frontend/src/app/shared/models/profile.model.ts
+:000000 100644 0000000000000000000000000000000000000000 6b059c9ff2d4a09af37d74eba2f71f68f29fe657 A	frontend/src/app/shared/models/result.model.ts
+:000000 100644 0000000000000000000000000000000000000000 6f022c556797e981aac9ce1b07486a6396d395b8 A	frontend/src/app/shared/models/user-details.model.ts
+:000000 100644 0000000000000000000000000000000000000000 35afd377556f035e07c7f3ea6b1a558e72e325b5 A	frontend/src/app/shared/services/auth-guard.service.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 370b2a004aed37b33c0e5dec145862ee20bb41e9 A	frontend/src/app/shared/services/auth-guard.service.ts
+:000000 100644 0000000000000000000000000000000000000000 f1251cacf9dda3b3bd9dc5222583fafa110ffe8f A	frontend/src/app/shared/services/auth.service.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 358e32a041513beebd5181858a9884be62f43480 A	frontend/src/app/shared/services/auth.service.ts
+:000000 100644 0000000000000000000000000000000000000000 d10689fab6ab321c767e15058e10cce263448e40 A	frontend/src/app/shared/services/form-validation.service.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 d99a222ba9cb8d29ef2f48999479965f4a758876 A	frontend/src/app/shared/services/form-validation.service.ts
+:000000 100644 0000000000000000000000000000000000000000 cae0d66b0ad51c2c2473df495e6d33a2b3811739 A	frontend/src/app/shared/services/media.service.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 4e24f68f3d00d1916c18f6fce1c6250691796106 A	frontend/src/app/shared/services/media.service.ts
+:000000 100644 0000000000000000000000000000000000000000 7902ebf6e8a36241183775d58ff8191dada45d11 A	frontend/src/app/shared/services/product.service.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 34c84223a39221c87cc47eda3f24e0e5fb6c2529 A	frontend/src/app/shared/services/product.service.ts
+:000000 100644 0000000000000000000000000000000000000000 969f4626d612cdf4ad56c4ab83ee7eb00d256fbe A	frontend/src/app/shared/services/screen-size.service.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 b3cc5b8fd0d95429442f4143cec9f34dfc22c93b A	frontend/src/app/shared/services/screen-size.service.ts
+:000000 100644 0000000000000000000000000000000000000000 3f804c9fda82e0654f5cf7fd60a806fcdfcb6498 A	frontend/src/app/shared/services/user.service.spec.ts
+:000000 100644 0000000000000000000000000000000000000000 4444605da836d265889f3939d3edf4693c152103 A	frontend/src/app/shared/services/user.service.ts
+:000000 100644 0000000000000000000000000000000000000000 d516a660da721e52c460368b017661923dcc4cdc A	frontend/src/assets/avatar/placeholder.png
+:000000 100644 0000000000000000000000000000000000000000 b427f764006859db0e98b5d768ff96e871a9ddc0 A	frontend/src/assets/icons/add-business.svg
+:000000 100644 0000000000000000000000000000000000000000 d700ddea7baf8a9b2e227a109f9098aa18804d2a A	frontend/src/assets/icons/home.svg
+:000000 100644 0000000000000000000000000000000000000000 49c0f547e94aec95af7ed2b90242346e590e56c3 A	frontend/src/assets/icons/login.svg
+:000000 100644 0000000000000000000000000000000000000000 4881453501600fc325d8bf8f75a56df196dac2fe A	frontend/src/assets/icons/logout.svg
+:000000 100644 0000000000000000000000000000000000000000 6cdc1eafa6f431609ddb1d0b953bf037d434407b A	frontend/src/assets/icons/manage-account.svg
+:000000 100644 0000000000000000000000000000000000000000 74eb33b786825f8d19c17ed39af8fb698eb068c0 A	frontend/src/assets/icons/navigate-before.svg
+:000000 100644 0000000000000000000000000000000000000000 870b09a3f9da51a44a62541021c47408b61211e6 A	frontend/src/assets/icons/navigate-next.svg
+:000000 100644 0000000000000000000000000000000000000000 39b592bf04edea2e84bcd49eae2828e739cb3883 A	frontend/src/assets/icons/register.svg
+:000000 100644 0000000000000000000000000000000000000000 0d15522aabef9282aab5548e809a696ed15c8776 A	frontend/src/assets/icons/registration.svg
+:000000 100644 0000000000000000000000000000000000000000 817c782f0591e478421a5d83f17c3ba07b3532f7 A	frontend/src/assets/icons/settings.svg
+:000000 100644 0000000000000000000000000000000000000000 5f2182a5f7c07faf40db2cb5602e161d9c93bb8b A	frontend/src/assets/icons/storefront.svg
+:000000 100644 0000000000000000000000000000000000000000 8bff278f9b90bfaf01887843a199926ea2aa6962 A	frontend/src/assets/icons/view-list.svg
+:000000 100644 0000000000000000000000000000000000000000 f3a4e6c0fb02cf9f51dc03dce576f6e6e0a6d330 A	frontend/src/assets/product-placeholder/question-mark.png
+:100644 100644 7e7239a2eeea2a25f548d2e04302921d28c2a27e 7c6a5ed06393b8762eb4b1a45777188784c18501 M	frontend/src/styles.scss

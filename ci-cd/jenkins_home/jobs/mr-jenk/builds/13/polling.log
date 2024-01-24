@@ -1,0 +1,13 @@
+Started on Dec 18, 2023, 3:27:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision 380045831b2369862b0f37a5f13b978c98a81264 (refs/remotes/origin/main)
+The recommended git tool is: NONE
+using credential github-ssh
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_SSH to set credentials 
+ > git ls-remote -h -- git@github.com:maximihajlov/test.git # timeout=10
+Found 2 remote heads on git@github.com:maximihajlov/test.git
+[poll] Latest remote head revision on refs/heads/main is: 0ddc3e2782ed90f2e3e934e15ad9c8690204f2be
+Done. Took 1.5 sec
+Changes found

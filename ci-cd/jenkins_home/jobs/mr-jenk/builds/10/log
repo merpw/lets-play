@@ -1,0 +1,478 @@
+Started by user [8mha:////4EWY0N0SauZZK+jAuehLpivg8zKJxnTZ0nfiDC349QyUAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[8mha:////4AqPU9Y3dTpMoMcw+k+IDK1m9RYsWJdKzcsGS+Vh5jAxAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4Foeyao4P3ChSYv7rQh5fCygkdyKUdg+be5UNhUUMfy9AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4LMpTs/kkKdhGR+HIzxPcZm1BiEa5TPTfh/xFL4SzJPpAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/workspace/mr-jenk
+[8mha:////4DSkBVFNNtsLdX38nUuifgyas154+szNt59dhXdHAOwXAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4BRUEOmD916COix6t3gMyQtfemX2HwqVPnqndC2psHv8AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4BiFR23c46BC2O3cr+OwNPsT7riNDdrqohxyaSbrnNU+AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Declarative: Tool Install)
+[8mha:////4DQB2uiSnOe4XI7Ek7rALJqWnBXx2OLWg2iPHNkSMAmBAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaWGsbAmNJ0AWEZb8zwLrbuWJvJp3kLiJlZNMMm+a93rDOic4UbLcG+wdZu14DKOti0+U+lugiXu6ck2YKRguzSSpM+cFJRUDS1gDKwEbgzpQdmgLbIVXD9UGhba9lFS/o4DGdQM8gYlqLiqVL8wJdvexy4Q/z18BzLEA29ce4gfg7KmOvAAAAA==[0m[Pipeline] tool
+[8mha:////4HYuFyBdhS0eIs5g2LcvzJHgvAOwGXYdwfZLkiKtN4JvAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbGRNjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI4F2L72ED8v8DEJvAAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4HUOzD8Sqo0qv1Izd8c6zSARDQAs3OHX87j4Qu5bYnwqAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbmRhjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j/zqggXvAAAAA==[0m[Pipeline] }
+[8mha:////4CQxz2nSAd7IjJsJ4CKO1eE5/+WdOB5zoCLLY1/FLejVAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiJoYeVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfId1tBtv8AExtCpb0AAAA=[0m[Pipeline] // stage
+[8mha:////4JNXhylpfIvBmBiwTfThYIKJR6+DhM2ti+4ZF1GmF0xnAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BKWgpeYSjSHSIitZywwtMbIwT6y7YF5KKF/E1/oAhEhVb7ay0mucLqhThQNGJzmLvMbVeDGF0uYmJYn8JNImOzqIlTBSsUHZSZOxxQUVsYUlRwkrC2mIbKHl0DBvZ6buug0ZXnzjmbS+h9OYGDyhkNrOO/IU5wvY6mkT48/wVwDwwFDuGsmk+x+oNEzd2msEAAAA=[0m[Pipeline] withEnv
+[8mha:////4PJaxyCyiCjAz0L+KAckmNsHVmyp7YRhdm3O7rL2VjDoAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] {
+[8mha:////4K37NgB4mPNlOq3hLcpKOLaUR8qPndO9oEQXVDjK1msMAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLdfrbD/Cw+y7kUycIAAAA=[0m[Pipeline] stage
+[8mha:////4GXhZPc/92gfZiZI76e8JflfMHAT3gP9VzKYJP8mHfocAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAbNWnxXCAAAA[0m[Pipeline] { (Checkout GitHub)
+[8mha:////4PcyiELfmLqDeyqNmoygSeal/69L3zYnFLUn3N1IjfG1AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN8W7Eii+AAAA[0m[Pipeline] tool
+[8mha:////4DUaBRANDqr5z9NN1vadwnW+SSJpNY42TFaRxbO+qEwTAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJESDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEG6D8DvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4C6N2HuZ4oRpBUBBwR7KvgF/HMwScOvtVejF3b7KdWSwAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUSEgMiKlrlIUThCaEtNH/5SelnTgRV+MOtFRiwoNlW7Le6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gOeMTC6wgAAAA==[0m[Pipeline] withEnv
+[8mha:////4I886kPvz/jhn5Jfx0m6ePzlNq7n26o5JIQIlZ1es8xdAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] {
+[8mha:////4MQdW7PP1ZWAyGoFa8ieEy077GUdLD45mIER8mq6cvq3AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiOhCiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBr2eB0O+AAAA[0m[Pipeline] git
+The recommended git tool is: NONE
+using credential github-ssh
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/mr-jenk/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:maximihajlov/test.git # timeout=10
+Fetching upstream changes from git@github.com:maximihajlov/test.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_SSH to set credentials 
+ > git fetch --tags --force --progress -- git@github.com:maximihajlov/test.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 380045831b2369862b0f37a5f13b978c98a81264 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 380045831b2369862b0f37a5f13b978c98a81264 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main 380045831b2369862b0f37a5f13b978c98a81264 # timeout=10
+Commit message: "Add Deploy workflow"
+ > git rev-list --no-walk 380045831b2369862b0f37a5f13b978c98a81264 # timeout=10
+[8mha:////4D7Rmr23DPiv1D8bHz6RY1KPCQxTA8bvZEWAaEcfAYbIAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICVEgoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcr9Ntfu8AEWNdkpvgAAAA==[0m[Pipeline] }
+[8mha:////4Jo60DTh4zCn66HTT/KHi38OhpF/dkzokzZ2wy1F6ms9AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKi0FAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3da768AEi+zpyvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4Lxw/cYOzn3jTVNdkm3FES2RbsXBj5X9va2jzHeqoarsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRER2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGVd59ofPjbYp22+AAAA[0m[Pipeline] }
+[8mha:////4DGOHbtEtqTcOH+ZjFE5p9z/C1B8KLf77LQyBkdEdLjYAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiSImo0lppeIGJjXFi3RnbIal4EV/jD1hEomKL1c4283rDOgY4cTDYaxosxc6id6PJCycOw9XxhD1fsGOK7DS2empZ6WbBlpOGJUUJKwEbTZ3jaMkk2IpePmTlJJnqnEL+jgJKq+7whEJkc5IhfWEOsLuNKjL9PH8FMHufoDzUufb1BzCenzi+AAAA[0m[Pipeline] // stage
+[8mha:////4NDg4Vyr8Hd0nxlvqTyifWbIBwEms3Jh7NJ5Twzyz6NUAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUVGyIqWuUhROEJIS00f8lSWknTsTVuAOBSkx4sGxL1nu+oIoBjhQs6wz2DqNybPCjzYlNFPqLp4l1dGaKMJI3TJhJkDbtUgUlA4uKElYc1gaVp+jQJtjwTt5l7SXa+pRC3g4cSqdv8ICCZ3KSIX3LHGB7HXUk/HH+AmAeEpS7Jluz/zyrN+6T+eXCAAAA[0m[Pipeline] stage
+[8mha:////4MIcKJ/1J0sdmxdUKmEXNzJ2xAjuQYizewYial6tfHKEAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQjAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD/hYjrHCAAAA[0m[Pipeline] { (Run tests)
+[8mha:////4DSGmhQjXneQAQfblfsdLPpYV8hj7kghz1uwFNv5yFC1AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIUGDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEIWoEpvgAAAA==[0m[Pipeline] tool
+[8mha:////4N+USOrfXEr6vWBvuua2Q8onr3ZdLkexO1FrI9ZxrGgHAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiISEKRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q1Ja5owvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4H0KkB2jUBnK66Qn4Uwl11vWK6N0Y7ckrHY69JHeaMD9AAAAqB+LCAAAAAAAAP9tjUEKwjAURH8rXbh16SFSEARBXHUbsvEEsYkxbfi//qS2K0/k1byDrQVXzmKYGRje6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gPmlJ7MwgAAAA==[0m[Pipeline] withEnv
+[8mha:////4Ir2McoI7yeXGyCD3oAyBdOqnXIJeakgMB/j+u+4UPWFAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYgIhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0QKVszCAAAA[0m[Pipeline] {
+[8mha:////4MvzXaD+aFtRkXDNLEYGkVdorgm0ZoL2rAkJVAKuMS0eAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUwYRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3+2y7zedZvQH4j6CMwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/mr-jenk/backend
+[8mha:////4GCWP9a8Ih130nb9Bh3MlvqIMWfvk9ZqU1X9n9YOTq5iAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUxIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLDbrb9/Cw+ty4Up8IAAAA=[0m[Pipeline] {
+[8mha:////4PTUZbZ4wPW8mfIzzWinHtF5OzTaqM8vy9dTKVzp6r3KAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioERUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud9+ahfettHKdL4AAAA=[0m[Pipeline] sh
++ gradle test
+Starting a Gradle Daemon, 1 busy and 1 stopped Daemons could not be reused, use --status for details
+> Task :generateEffectiveLombokConfig UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :jacocoTestReport SKIPPED
+> Task :services:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileJava NO-SOURCE
+> Task :services:processResources NO-SOURCE
+> Task :services:classes UP-TO-DATE
+> Task :services:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileTestJava NO-SOURCE
+> Task :services:processTestResources NO-SOURCE
+> Task :services:testClasses UP-TO-DATE
+> Task :services:test NO-SOURCE
+> Task :services:jacocoTestReport SKIPPED
+> Task :shared:generateEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileJava UP-TO-DATE
+> Task :shared:processResources NO-SOURCE
+> Task :shared:classes UP-TO-DATE
+> Task :shared:jar UP-TO-DATE
+> Task :shared:generateTestFixturesEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestFixturesJava UP-TO-DATE
+> Task :shared:processTestFixturesResources NO-SOURCE
+> Task :shared:testFixturesClasses UP-TO-DATE
+> Task :shared:testFixturesJar UP-TO-DATE
+> Task :shared:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestJava NO-SOURCE
+> Task :shared:processTestResources NO-SOURCE
+> Task :shared:testClasses UP-TO-DATE
+> Task :shared:test NO-SOURCE
+> Task :shared:jacocoTestReport SKIPPED
+> Task :services:media:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileJava UP-TO-DATE
+> Task :services:media:processResources UP-TO-DATE
+> Task :services:media:classes UP-TO-DATE
+> Task :services:media:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileTestJava UP-TO-DATE
+> Task :services:media:processTestResources UP-TO-DATE
+> Task :services:media:testClasses UP-TO-DATE
+> Task :services:media:test UP-TO-DATE
+> Task :services:media:jacocoTestReport UP-TO-DATE
+> Task :services:products:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileJava UP-TO-DATE
+> Task :services:products:processResources UP-TO-DATE
+> Task :services:products:classes UP-TO-DATE
+> Task :services:products:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileTestJava UP-TO-DATE
+> Task :services:products:processTestResources NO-SOURCE
+> Task :services:products:testClasses UP-TO-DATE
+> Task :services:products:test UP-TO-DATE
+> Task :services:products:jacocoTestReport UP-TO-DATE
+> Task :services:users:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileJava UP-TO-DATE
+> Task :services:users:processResources UP-TO-DATE
+> Task :services:users:classes UP-TO-DATE
+> Task :services:users:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileTestJava UP-TO-DATE
+> Task :services:users:processTestResources NO-SOURCE
+> Task :services:users:testClasses UP-TO-DATE
+> Task :services:users:test UP-TO-DATE
+> Task :services:users:jacocoTestReport UP-TO-DATE
+
+BUILD SUCCESSFUL in 6s
+33 actionable tasks: 33 up-to-date
+[8mha:////4F1w7qRmMCbO4v4l1okFNuyDyBHAPLt3+yHIISg2FrgbAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIilBJR0VppeIFJjLFj3Tm2g1PxIr7GHwhEomKL1c4283zBOgY4ctBoFfWGYmvQu1HPCzOH/uo4o+ULtkyRncJG5YY7dVqw4aRgSVHCSsBGUes4GtIJtsLKu6ycJF2dU5i/g4DSdAM8oBCzOcmQvjAF2N3GLjL9PH8FMHmfoKzrT+3fKpbQQr4AAAA=[0m[Pipeline] }
+[8mha:////4EQd6/2MJ8s5yjgb+gcG9WkIWfogy1uwRc5dt9+jLqs/AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7BgSW0ii+AAAA[0m[Pipeline] // dir
+[8mha:////4OumgkCFm+/XHNrZRmDArUJ4UnoKfO7v+MZEW0zkq8wIAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigSgQSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryt8+1PXwARMxJg74AAAA=[0m[Pipeline] }
+[8mha:////4Esh7McK/7jr+Npw4MDfSU763IewuAwklqsy21dFUs07AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigYSQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKUu32u7eEDfI7acr4AAAA=[0m[Pipeline] // withEnv
+[8mha:////4OZs7qiJkHKmf6L0i8opG+HbG4HokPZ0lksKq0GVYSHqAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigRAFSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8AZCE3x74AAAA=[0m[Pipeline] }
+[8mha:////4HFxpPy//43pASseKe9Oo+nBMjubjB5oDLtny6Ugr5eTAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAQUSSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8AJ6NmQb4AAAA=[0m[Pipeline] // stage
+[8mha:////4FMPvtA3TRFn2tTWsPrPrfp3Rl2yibcSRxE+S3yzc/4aAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCg322y7/edZvQGEixD/wgAAAA==[0m[Pipeline] stage
+[8mha:////4PKh7+nKDKFldO1gq+wyfKtmw5z6KtazR9VWHmq75SY1AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUCRaEOrFGXThBaEJIGv1fkpR04kRcjTsQqMSEB8u2ZL3nC6rgoSGvmVXYGwydYYMbdU4ske8vjhKzdGYdYSCnWKtSS1Id59pSVDCrKGHBYamwcxQM6ggrbsVd1E6grk/R5+3AoTTyBg8oeCZH4eO3TB7W11EGwh/nLwCmIUK53WfbbT7P6g0Z/aLSwgAAAA==[0m[Pipeline] { (Build)
+[8mha:////4CpuBli6PQu5jsWRLc/NB4zfaDNkwwCR2eJa7NzGjbYsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICEh2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBl2WGva+AAAA[0m[Pipeline] tool
+[8mha:////4FyTOerZVfbLR5pUeXiIUpTtDaLybKDboVUTjpP+Z0xhAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCEB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBp7FN92+AAAA[0m[Pipeline] envVarsForTool
+[8mha:////4I/fXlmw0kxAThkSbmWry6OHwTtl6tODceeBDS3FRRJYAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUCTbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAb1Y41vCAAAA[0m[Pipeline] withEnv
+[8mha:////4HtSj7iDHMMzPWOJ30uWjGF/7i/ScxFMOGnsVMUYgtyiAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycoh0oBtiYo26cILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMYAJwqGO42dxdha3vvRzIlnCt3NU+aOrrwljOQ1b3RuSOnzWhtKGlYVDDYCthpbT9GiSbATTj5k5SWa6pLCvB0FMKsGeEIhZnKSIX3LFGB/H1Uk/HH+AmDqE7D6sFi9PMsPBA4E38IAAAA=[0m[Pipeline] {
+[8mha:////4PkPeTHXJUr74Wu5uNblNhNWiFVDB6BLPVm+CqY3wiI6AAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSxMqxsmVoPAEmiBDmfwJEUnkir+YdRDNj5RY7+7Z5zxesY4AjBc2swsFg7AzzbtJlsUxhuDrKzNKFdYSRnGJCZUG9Oi0oKClYUtWw4rBR2DmKBnWCLbfyLhsnUTfnFMp34FCbfoQHVLyYkwzpC3OA3W3qI+HP81cAs09Qt+2n9v4NSnc5Zr4AAAA=[0m[Pipeline] sh
++ docker compose build
+time="2023-12-18T13:40:10Z" level=warning msg="The \"SSL_CERT\" variable is not set. Defaulting to a blank string."
+time="2023-12-18T13:40:10Z" level=warning msg="The \"SSL_KEY\" variable is not set. Defaulting to a blank string."
+time="2023-12-18T13:40:10Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-18T13:40:10Z" level=warning msg="The \"ADMIN_EMAIL\" variable is not set. Defaulting to a blank string."
+time="2023-12-18T13:40:10Z" level=warning msg="The \"ADMIN_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2023-12-18T13:40:10Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-18T13:40:10Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+#0 building with "default" instance using docker driver
+
+#1 [frontend internal] load build definition from Dockerfile
+#1 transferring dockerfile: 386B done
+#1 DONE 0.0s
+
+#2 [frontend internal] load .dockerignore
+#2 transferring context: 371B done
+#2 DONE 0.0s
+
+#3 [users internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [users internal] load build definition from Dockerfile
+#4 transferring dockerfile: 380B done
+#4 DONE 0.0s
+
+#5 [products internal] load build definition from Dockerfile
+#5 transferring dockerfile: 380B done
+#5 DONE 0.0s
+
+#6 [products internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [media internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [media internal] load build definition from Dockerfile
+#8 transferring dockerfile: 380B done
+#8 DONE 0.0s
+
+#9 [media internal] load metadata for docker.io/library/gradle:latest
+#9 DONE 0.8s
+
+#10 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#10 DONE 0.9s
+
+#11 [media internal] load metadata for docker.io/library/amazoncorretto:17-alpine3.18-jdk
+#11 DONE 0.8s
+
+#12 [frontend internal] load metadata for docker.io/library/node:16.15.0-alpine
+#12 DONE 0.9s
+
+#13 [media stage-1 1/3] FROM docker.io/library/amazoncorretto:17-alpine3.18-jdk@sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3
+#13 DONE 0.0s
+
+#14 [users builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#14 DONE 0.0s
+
+#15 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:3923f8de8d2214b9490e68fd6ae63ea604deddd166df2755b788bef04848b9bc
+#15 DONE 0.0s
+
+#16 [frontend build 1/7] FROM docker.io/library/node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10
+#16 DONE 0.0s
+
+#17 [users internal] load build context
+#17 transferring context: 62.42kB 0.0s done
+#17 DONE 0.1s
+
+#18 [frontend internal] load build context
+#18 transferring context: 9.61kB 0.0s done
+#18 DONE 0.0s
+
+#19 [frontend build 2/7] WORKDIR /app
+#19 CACHED
+
+#20 [frontend build 5/7] RUN npx ngcc --properties es2023 browser module main --first-only --create-ivy-entry-points
+#20 CACHED
+
+#21 [frontend stage-1 2/3] COPY --from=build /app/dist/buy-01-frontend/ /usr/share/nginx/html
+#21 CACHED
+
+#22 [frontend build 7/7] RUN npm run build
+#22 CACHED
+
+#23 [frontend build 6/7] COPY . .
+#23 CACHED
+
+#24 [frontend build 3/7] COPY package*.json ./
+#24 CACHED
+
+#25 [frontend build 4/7] RUN npm install
+#25 CACHED
+
+#26 [frontend stage-1 3/3] COPY nginx.conf /etc/nginx/nginx.conf
+#26 CACHED
+
+#27 [frontend] exporting to image
+#27 exporting layers done
+#27 writing image sha256:62f3830110dc274a775270eee46f1858d0381e3dbf9140df78386e887e8375c5 done
+#27 naming to ghcr.io/merpw/lets-play-frontend:main done
+#27 DONE 0.0s
+
+#28 [products internal] load build context
+#28 transferring context: 62.42kB 0.0s done
+#28 DONE 0.1s
+
+#29 [media builder 2/4] WORKDIR /usr/app/
+#29 CACHED
+
+#30 [media internal] load build context
+#30 transferring context: 62.42kB 0.0s done
+#30 DONE 0.1s
+
+#31 [products builder 3/4] COPY .. .
+#31 DONE 0.1s
+
+#32 [users builder 3/4] COPY .. .
+#32 CACHED
+
+#33 [media builder 3/4] COPY .. .
+#33 CACHED
+
+#34 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#34 2.514 
+#34 2.516 Welcome to Gradle 8.5!
+#34 2.516 
+#34 2.516 Here are the highlights of this release:
+#34 2.516  - Support for running on Java 21
+#34 2.516  - Faster first use with Kotlin DSL
+#34 2.516  - Improved error and warning messages
+#34 2.516 
+#34 2.516 For more details see https://docs.gradle.org/8.5/release-notes.html
+#34 2.516 
+#34 2.792 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#34 6.192 Daemon will be stopped at the end of the build 
+#34 ...
+
+#35 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#35 2.686 
+#35 2.686 Welcome to Gradle 8.5!
+#35 2.686 
+#35 2.686 Here are the highlights of this release:
+#35 2.687  - Support for running on Java 21
+#35 2.687  - Faster first use with Kotlin DSL
+#35 2.687  - Improved error and warning messages
+#35 2.687 
+#35 2.687 For more details see https://docs.gradle.org/8.5/release-notes.html
+#35 2.687 
+#35 2.862 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#35 6.464 Daemon will be stopped at the end of the build 
+#35 ...
+
+#36 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#36 2.591 
+#36 2.591 Welcome to Gradle 8.5!
+#36 2.591 
+#36 2.591 Here are the highlights of this release:
+#36 2.591  - Support for running on Java 21
+#36 2.592  - Faster first use with Kotlin DSL
+#36 2.592  - Improved error and warning messages
+#36 2.592 
+#36 2.592 For more details see https://docs.gradle.org/8.5/release-notes.html
+#36 2.592 
+#36 2.793 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#36 6.292 Daemon will be stopped at the end of the build 
+#36 ...
+
+#35 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#35 88.59 > Task :shared:processResources NO-SOURCE
+#35 89.36 > Task :shared:generateEffectiveLombokConfig
+#35 ...
+
+#36 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#36 90.62 > Task :shared:processResources NO-SOURCE
+#36 91.39 > Task :services:products:processResources
+#36 91.39 > Task :services:products:check
+#36 91.39 > Task :shared:generateEffectiveLombokConfig
+#36 ...
+
+#34 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#34 88.82 > Task :shared:processResources NO-SOURCE
+#34 89.69 > Task :services:media:processResources
+#34 89.79 > Task :shared:generateEffectiveLombokConfig
+#34 ...
+
+#35 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#35 110.8 > Task :shared:compileJava
+#35 110.8 > Task :shared:classes
+#35 111.0 > Task :shared:jar
+#35 111.0 > Task :services:users:processResources
+#35 111.0 > Task :services:users:check
+#35 111.0 > Task :services:users:generateEffectiveLombokConfig
+#35 ...
+
+#34 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#34 116.0 > Task :shared:compileJava
+#34 116.0 > Task :shared:classes
+#34 116.2 > Task :shared:jar
+#34 116.2 > Task :services:media:check
+#34 116.2 > Task :services:media:generateEffectiveLombokConfig
+#34 122.0 > Task :services:media:compileJava
+#34 122.0 > Task :services:media:classes
+#34 122.1 > Task :services:media:resolveMainClassName
+#34 ...
+
+#35 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#35 120.9 > Task :services:users:compileJava
+#35 120.9 > Task :services:users:classes
+#35 121.0 > Task :services:users:resolveMainClassName
+#35 124.1 > Task :services:users:bootJar
+#35 124.2 > Task :services:users:jar
+#35 124.2 > Task :services:users:assemble
+#35 124.2 > Task :services:users:build
+#35 124.2 
+#35 124.2 BUILD SUCCESSFUL in 2m 3s
+#35 124.2 9 actionable tasks: 9 executed
+#35 DONE 125.1s
+
+#34 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#34 124.6 > Task :services:media:bootJar
+#34 124.6 > Task :services:media:jar
+#34 124.6 > Task :services:media:assemble
+#34 124.6 > Task :services:media:build
+#34 124.7 
+#34 124.7 BUILD SUCCESSFUL in 2m 3s
+#34 124.7 9 actionable tasks: 9 executed
+#34 DONE 125.3s
+
+#36 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#36 117.0 > Task :shared:compileJava
+#36 117.0 > Task :shared:classes
+#36 117.2 > Task :shared:jar
+#36 117.2 > Task :services:products:generateEffectiveLombokConfig
+#36 ...
+
+#37 [products stage-1 2/3] WORKDIR /usr/app/
+#37 CACHED
+
+#38 [users stage-1 3/3] COPY --from=builder /usr/app/services/users/build/libs/*-SNAPSHOT.jar ./app.jar
+#38 DONE 0.1s
+
+#39 [media stage-1 3/3] COPY --from=builder /usr/app/services/media/build/libs/*-SNAPSHOT.jar ./app.jar
+#39 DONE 0.1s
+
+#40 [users] exporting to image
+#40 exporting layers
+#40 exporting layers 0.1s done
+#40 writing image sha256:ad81ec7827898f46f26a6ddc807549b0a0727f13c4e6db1c71c11b8fc35fb2ec done
+#40 naming to ghcr.io/merpw/lets-play-users-service:main done
+#40 DONE 0.1s
+
+#41 [media] exporting to image
+#41 exporting layers 0.1s done
+#41 writing image sha256:c6026ea1eefe24f5b17653e2f5192d7eff44147c15fbfbb280043e062f5a457a done
+#41 naming to ghcr.io/merpw/lets-play-media-service:main done
+#41 DONE 0.1s
+
+#36 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#36 126.8 > Task :services:products:compileJava
+#36 126.8 > Task :services:products:classes
+#36 126.9 > Task :services:products:resolveMainClassName
+#36 129.0 > Task :services:products:bootJar
+#36 129.1 > Task :services:products:jar
+#36 129.1 > Task :services:products:assemble
+#36 129.1 > Task :services:products:build
+#36 129.2 
+#36 129.2 BUILD SUCCESSFUL in 2m 8s
+#36 129.2 9 actionable tasks: 9 executed
+#36 DONE 129.7s
+
+#42 [products stage-1 3/3] COPY --from=builder /usr/app/services/products/build/libs/*-SNAPSHOT.jar ./app.jar
+#42 DONE 0.1s
+
+#43 [products] exporting to image
+#43 exporting layers 0.1s done
+#43 writing image sha256:2e34b2d1f9dd46261664e22cad5645210f20d82fa9c17eafd1716a3d25bd10e7 done
+#43 naming to ghcr.io/merpw/lets-play-products-service:main done
+#43 DONE 0.1s
+
+#44 [nginx internal] load .dockerignore
+#44 transferring context: 2B done
+#44 DONE 0.0s
+
+#45 [nginx internal] load build definition from Dockerfile
+#45 transferring dockerfile: 151B done
+#45 DONE 0.0s
+
+#46 [nginx internal] load metadata for docker.io/library/nginx:1.25.3
+#46 DONE 0.5s
+
+#47 [nginx 1/3] FROM docker.io/library/nginx:1.25.3@sha256:10d1f5b58f74683ad34eb29287e07dab1e90f10af243f151bb50aa5dbb4d62ee
+#47 DONE 0.0s
+
+#48 [nginx internal] load build context
+#48 transferring context: 119B done
+#48 DONE 0.0s
+
+#49 [nginx 2/3] COPY *.conf /etc/nginx/
+#49 CACHED
+
+#50 [nginx 3/3] COPY init.sh /app/init.sh
+#50 CACHED
+
+#51 [nginx] exporting to image
+#51 exporting layers done
+#51 writing image sha256:8bd523b05ab04f6d3138d623529bc67a46544bbd88516b924603e6fc60dc0ea0 done
+#51 naming to ghcr.io/merpw/lets-play-nginx:main done
+#51 DONE 0.0s
+[8mha:////4BeE/azVRjHWomtWAyn0kT6bF0ClaUo0qIFgrLfZci9JAAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSZGwcK1uGxhNggghh/idAJJUn8mreQTQzVm6xs2+b93zBOgY4UtDMKhwMxs4w7yZdFssUhqujzCxdWEcYySkmVBbUq9OCgpKCJVUNKw4bhZ2jaFAn2HIr77JxEnVzTqF8Bw616Ud4QMWLOcmQvjAH2N2mPhL+PH8FMHufoG73n2rfX1uR6L4AAAA=[0m[Pipeline] }
+[8mha:////4LM321yXHS/n3Y9rgGbodBmw1XtrX3IX8jDLYEJ5rVWQAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgESBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgFZHam9vgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4JFyZlbUqdICJUD4RJovtD2hrUXxFBT6XKuy7o7He0ZlAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCQYGEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgE2/vbVvgAAAA==[0m[Pipeline] }
+[8mha:////4OSHofL/djrU1R2ErnQTx5dFeZ/vCHtxp7mUg5h3l+zAAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSQBMhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygPda59/QHwAzcovgAAAA==[0m[Pipeline] // stage
+[8mha:////4Gbl8Os6xqNDzxmVlEmdIvbQ+qfj3ibbPsZhc1neeBAbAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUkJhQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3u2z7zedZvQF278+7wgAAAA==[0m[Pipeline] stage
+[8mha:////4PluUkstVQPzbHz/3j9lgdhK3RjuBjV1OrOlHzAA5C1KAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUBibE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAW2++SvCAAAA[0m[Pipeline] { (Declarative: Post Actions)
+[8mha:////4NgQMmmP9Fs28+NMJOr8DFY6Bm1FlpfXb/aEROQtcR9tAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIikKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO63n9qFN4OkKLa+AAAA[0m[Pipeline] archiveArtifacts
+Archiving artifacts
+‘build/libs/**/*.jar’ doesn’t match anything, but ‘**/*.jar’ does. Perhaps that’s what you mean?
+Error when executing always post condition:
+Also:   org.jenkinsci.plugins.workflow.actions.ErrorAction$ErrorId: 9dfa12b7-94d9-4637-9058-dac7ac5ae59f
+hudson.AbortException: No artifacts found that match the file pattern "build/libs/**/*.jar". Configuration error?
+	at hudson.tasks.ArtifactArchiver.perform(ArtifactArchiver.java:283)
+	at org.jenkinsci.plugins.workflow.steps.CoreStep$Execution.run(CoreStep.java:101)
+	at org.jenkinsci.plugins.workflow.steps.CoreStep$Execution.run(CoreStep.java:71)
+	at org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:47)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[8mha:////4I4VfGoTHkBOW9uJBLXHll7UneoWQ9SuYfPX4JHuTqnJAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIihKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcr97lPbN5YEWne+AAAA[0m[Pipeline] }
+[8mha:////4J6dYGyaBBTB34IF9l+7aCLxJ0XDdX/WUct1Y0OTTnMaAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCARWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nffWr7BrgEWB2+AAAA[0m[Pipeline] // stage
+[8mha:////4NiH+99q/eiilEKQnj1m7SbM0X39WxRZAo32XtmR3rCXAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIikFIhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyjrOtf+8AE1c2ZcvgAAAA==[0m[Pipeline] }
+[8mha:////4EMVtypkD74ENpwFzh5PYwwHmkJin/DgpJoj0iAqikEyAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiFNAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3h1x1/QEhUPtDvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4IISJB7dOcnkuR+gM/qze1cUpnYFPyurCN4kxTVO3+G2AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJpQBSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLcXZNsPg7X0+70AAAA=[0m[Pipeline] }
+[8mha:////4FxLYhR0GAu6kSwjg1LN6G0WAa7h1ZLZ1/+Ar/4Uc4F6AAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpEBISoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/tBdn2A/G3wOe9AAAA[0m[Pipeline] // node
+[8mha:////4B680QpnycjpZxPl6QIXEhATk2xG2J/eqASMsoJ1r3jnAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRkCgQoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/tBdn2A9eup629AAAA[0m[Pipeline] End of Pipeline
+ERROR: No artifacts found that match the file pattern "build/libs/**/*.jar". Configuration error?
+Finished: FAILURE

@@ -1,0 +1,122 @@
+Started by user [8mha:////4EWY0N0SauZZK+jAuehLpivg8zKJxnTZ0nfiDC349QyUAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Restarted from build #22, stage Deploy
+[8mha:////4AqPU9Y3dTpMoMcw+k+IDK1m9RYsWJdKzcsGS+Vh5jAxAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4Foeyao4P3ChSYv7rQh5fCygkdyKUdg+be5UNhUUMfy9AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4LMpTs/kkKdhGR+HIzxPcZm1BiEa5TPTfh/xFL4SzJPpAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/workspace/mr-jenk
+[8mha:////4DSkBVFNNtsLdX38nUuifgyas154+szNt59dhXdHAOwXAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4BRUEOmD916COix6t3gMyQtfemX2HwqVPnqndC2psHv8AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4BiFR23c46BC2O3cr+OwNPsT7riNDdrqohxyaSbrnNU+AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Declarative: Tool Install)
+[8mha:////4DQB2uiSnOe4XI7Ek7rALJqWnBXx2OLWg2iPHNkSMAmBAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaWGsbAmNJ0AWEZb8zwLrbuWJvJp3kLiJlZNMMm+a93rDOic4UbLcG+wdZu14DKOti0+U+lugiXu6ck2YKRguzSSpM+cFJRUDS1gDKwEbgzpQdmgLbIVXD9UGhba9lFS/o4DGdQM8gYlqLiqVL8wJdvexy4Q/z18BzLEA29ce4gfg7KmOvAAAAA==[0m[Pipeline] tool
+[8mha:////4HYuFyBdhS0eIs5g2LcvzJHgvAOwGXYdwfZLkiKtN4JvAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbGRNjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI4F2L72ED8v8DEJvAAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4HUOzD8Sqo0qv1Izd8c6zSARDQAs3OHX87j4Qu5bYnwqAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbmRhjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j/zqggXvAAAAA==[0m[Pipeline] }
+[8mha:////4CQxz2nSAd7IjJsJ4CKO1eE5/+WdOB5zoCLLY1/FLejVAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiJoYeVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfId1tBtv8AExtCpb0AAAA=[0m[Pipeline] // stage
+[8mha:////4JNXhylpfIvBmBiwTfThYIKJR6+DhM2ti+4ZF1GmF0xnAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BKWgpeYSjSHSIitZywwtMbIwT6y7YF5KKF/E1/oAhEhVb7ay0mucLqhThQNGJzmLvMbVeDGF0uYmJYn8JNImOzqIlTBSsUHZSZOxxQUVsYUlRwkrC2mIbKHl0DBvZ6buug0ZXnzjmbS+h9OYGDyhkNrOO/IU5wvY6mkT48/wVwDwwFDuGsmk+x+oNEzd2msEAAAA=[0m[Pipeline] withEnv
+[8mha:////4PJaxyCyiCjAz0L+KAckmNsHVmyp7YRhdm3O7rL2VjDoAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] {
+[8mha:////4K37NgB4mPNlOq3hLcpKOLaUR8qPndO9oEQXVDjK1msMAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLdfrbD/Cw+y7kUycIAAAA=[0m[Pipeline] stage
+[8mha:////4GXhZPc/92gfZiZI76e8JflfMHAT3gP9VzKYJP8mHfocAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAbNWnxXCAAAA[0m[Pipeline] { (Checkout GitHub)
+Stage "Checkout GitHub" skipped due to this build restarting at stage "Deploy"
+[8mha:////4LANguqKvwrBDN6J0lR9EnS8O3ds4SgdTWPRNbX/ZVy3AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrt/lO7NxPySkG+AAAA[0m[Pipeline] }
+[8mha:////4LFIEkR1Kg9fraxlW+5krQVmU5RsmXPGG5lkqqKaJAEnAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIihESDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFBu95/avQEeFbpZvgAAAA==[0m[Pipeline] // stage
+[8mha:////4N94h4fLzaP6U+83SnPsJ3M999xQa5Y4OoIDuk7HrbKtAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUsDAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD937hVLCAAAA[0m[Pipeline] stage
+[8mha:////4I886kPvz/jhn5Jfx0m6ePzlNq7n26o5JIQIlZ1es8xdAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] { (Run tests)
+Stage "Run tests" skipped due to this build restarting at stage "Deploy"
+[8mha:////4LNexqv5zOW4ieKZ2UvwEUIMqRlg7jgfz8qRPa85nCDHAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiOhCiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7ndf2r3BkN+Pj++AAAA[0m[Pipeline] }
+[8mha:////4DsJ4CbAbW9MpW5Pa8eCMK7tDfIkwaUwOo9OufsBK0TVAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICNBQoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcr9Ntfu8AGHKGa5vgAAAA==[0m[Pipeline] // stage
+[8mha:////4Dp8M2b1UqUoEmi7LfJJenPub0CG7fw5lQ9ckxrU6tUVAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycohU7YqYWKMunCCkISSN/m+TlHbiRFyNOxCoxIQHy7ZkvecLyhjgSMFwp7G3GJXlg59MTnym0F89zdzRhSvCSF7zVs8tdfq01paShlUFg42ArUblKVo0CXbCybusvERTnVPI20EAs90IDyhEJicZ0rcsAfa3qYuEP85fACxDAlY32Zr68yzfXQI0tcIAAAA=[0m[Pipeline] stage
+[8mha:////4CpjOLHS+c0Ds7UEdJZf/0oAzzEiOs74GrhraPkztpijAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycohUdEVMrFEXThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbyhjgRMFwp7GzGFvLez+aOfFMobt5ytzRlbeEkbzmjc4NKX1ea0NJw6qCwUbAVmPrKVo0CXbCyYesvERTXVKYt6MAZtUATyjETE4ypG+ZAuzvo4qEP85fAEx9AlYfFquXZ/kBAsTc3cIAAAA=[0m[Pipeline] { (Build)
+Stage "Build" skipped due to this build restarting at stage "Deploy"
+[8mha:////4Gixe0rCkH2nkZ6y46Uex9+yLSfCwAq5rXbU4salRYwqAAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaeggyE0vHypah8QSYIEKY/wkQSeWJvJp3EM2MlVvs7NvmPV+wjgGOFDSzCgeDsTPMu0mXxTKF4eooM0sX1hFGcooJlQX16rSgoKRgSVXDisNGYecoGtQJttzKu2ycRN2cUyjfgUNt+hEeUPFiTjKkL8wBdrepj4Q/z18BzN4nqNv9p9o3Zf21ZL4AAAA=[0m[Pipeline] }
+[8mha:////4K2TRf5fNT6roOdq0dexhlkDIY7E7qXmC7ZD6m2GzB9AAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiEB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7BmecueC+AAAA[0m[Pipeline] // stage
+[8mha:////4LTZ8tATpxyOL5gTjjroAME4FEomwkiupvmWuXuutU2+AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUVGJCTF2jLJwgJCGkjf4vSUo7cSKuxh0IVGLCg2Vbst7zBVUMcKRgWWewdxiVY4MfbU5sotBfPE2sozNThJG8YcJMgrRplyooGVhUlLDisDaoPEWHNsGGd/Iuay/R1qcU8nbgUDp9gwcUPJOTDOlb5gDb66gj4Y/zFwDzkKDcNdma/edZvQFLQKUuwgAAAA==[0m[Pipeline] stage
+[8mha:////4JlceiEq+sGZcH5z5i5VnJVIDS3jd+EK6BnkqzUO+4sLAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQoIFMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfACW9ZT2wgAAAA==[0m[Pipeline] { (Deploy)
+[8mha:////4NUJVfb4ZdWEcimADDfkVKcalmryQGMCWqhG+kyQFHVAAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUUCBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAHUcXIBvgAAAA==[0m[Pipeline] tool
+[8mha:////4Au5FFLTaWsGXPPQSzjHoB19KbYBIh2ZV/YMqJzbIEQSAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUSAkRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q0bbeqGvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4Mo/Z54AyJN/XlphcqiSZJdeu58LBxFiDcWPkGMnHxsbAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYkBCiKlrlIUThCaEtNH/5SelnTgRV+MOtFRiwoNlW7Le6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gNCISCewgAAAA==[0m[Pipeline] withEnv
+[8mha:////4MvzXaD+aFtRkXDNLEYGkVdorgm0ZoL2rAkJVAKuMS0eAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUwYRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3+2y7zedZvQH4j6CMwgAAAA==[0m[Pipeline] {
+[8mha:////4AGGhKoAtic7PGckBYXoZQBSkKOBendgd0qgzYqKOyoJAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICokRUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud9+ahfewYmQ+b4AAAA=[0m[Pipeline] sh
++ docker compose down
+time="2023-12-21T13:59:20Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"SSL_CERT\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"SSL_KEY\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"ADMIN_EMAIL\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"ADMIN_PASSWORD\" variable is not set. Defaulting to a blank string."
+ Container mr-jenk-nginx-1  Stopping
+ Container mr-jenk-nginx-1  Stopped
+ Container mr-jenk-nginx-1  Removing
+ Container mr-jenk-nginx-1  Removed
+ Container mr-jenk-users-1  Stopping
+ Container mr-jenk-frontend-1  Stopping
+ Container mr-jenk-products-1  Stopping
+ Container mr-jenk-media-1  Stopping
+ Container mr-jenk-swagger-ui-1  Stopping
+ Container mr-jenk-users-1  Stopped
+ Container mr-jenk-users-1  Removing
+ Container mr-jenk-products-1  Stopped
+ Container mr-jenk-products-1  Removing
+ Container mr-jenk-frontend-1  Stopped
+ Container mr-jenk-frontend-1  Removing
+ Container mr-jenk-media-1  Stopped
+ Container mr-jenk-media-1  Removing
+ Container mr-jenk-swagger-ui-1  Stopped
+ Container mr-jenk-swagger-ui-1  Removing
+ Container mr-jenk-users-1  Removed
+ Container mr-jenk-products-1  Removed
+ Container mr-jenk-db-1  Stopping
+ Container mr-jenk-frontend-1  Removed
+ Container mr-jenk-swagger-ui-1  Removed
+ Container mr-jenk-db-1  Stopped
+ Container mr-jenk-db-1  Removing
+ Container mr-jenk-media-1  Removed
+ Container mr-jenk-db-1  Removed
+ Network mr-jenk_default  Removing
+ Network mr-jenk_default  Removed
++ docker compose up -d
+time="2023-12-21T13:59:20Z" level=warning msg="The \"SSL_CERT\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"SSL_KEY\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"ADMIN_EMAIL\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"ADMIN_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2023-12-21T13:59:20Z" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+ Network mr-jenk_default  Creating
+ Network mr-jenk_default  Created
+ Container mr-jenk-frontend-1  Creating
+ Container mr-jenk-media-1  Creating
+ Container mr-jenk-db-1  Creating
+ Container mr-jenk-swagger-ui-1  Creating
+ Container mr-jenk-media-1  Created
+ Container mr-jenk-frontend-1  Created
+ Container mr-jenk-swagger-ui-1  Created
+ Container mr-jenk-db-1  Created
+ Container mr-jenk-products-1  Creating
+ Container mr-jenk-users-1  Creating
+ Container mr-jenk-users-1  Created
+ Container mr-jenk-products-1  Created
+ Container mr-jenk-nginx-1  Creating
+ Container mr-jenk-nginx-1  Created
+ Container mr-jenk-swagger-ui-1  Starting
+ Container mr-jenk-media-1  Starting
+ Container mr-jenk-frontend-1  Starting
+ Container mr-jenk-db-1  Starting
+ Container mr-jenk-media-1  Started
+ Container mr-jenk-swagger-ui-1  Started
+ Container mr-jenk-db-1  Started
+ Container mr-jenk-products-1  Starting
+ Container mr-jenk-users-1  Starting
+ Container mr-jenk-frontend-1  Started
+ Container mr-jenk-products-1  Started
+ Container mr-jenk-users-1  Started
+ Container mr-jenk-nginx-1  Starting
+ Container mr-jenk-nginx-1  Started
+[8mha:////4FZjOaAN7MY2vvpJLdQEChUAwL+HdZ7mbrRCFQJNWCvoAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCoERUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFkKPe7T23fGXWL/r4AAAA=[0m[Pipeline] }
+[8mha:////4K1Fqe99wByEMdzy7eVT2dFrg29xgz0jOq1vIvzA/irRAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKRSIUQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrOtf+8AFZLxBVvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4P01wMN24DFYHChwNw7YHwEvj4dV0fN7ZEffmzL5uATzAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAaJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDu9rm2hw9wAqrYvgAAAA==[0m[Pipeline] }
+[8mha:////4CyIcsdAReyvP+0D2BDTQDDAu0vrctKkU5rggAIXPLVkAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigVIhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygPda59/QFvgP+KvgAAAA==[0m[Pipeline] // stage
+[8mha:////4Kq0SNTQ8Bg2PAEomqaz761D4KscWRbq1+dfISEPRHIDAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiQKJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDuD7m2uw+hNCK5vgAAAA==[0m[Pipeline] }
+[8mha:////4E4wd/QeStK5YOsxwp3//vX3vo+WXWTHDNQSCQdBYdf9AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiiIICUaW10vACExvjxLoztkNS8SK+xh+wiETFFqudbeb1hnUMcOJgsNc0WIqdRe9GkxdOHIar4wl7vmDHFNlpbPXUstLNgi0nDUuKElYCNpo6x9GSSbAVvXzIykky1TmF/B0FlFbd4QmFyOYkQ/rCHGB3G1Vk+nn+CmD2PkG5P+Sq6w++tnfrvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4An+5NEqnYtwT+gz9s/gItPns8SzehqxeLQitfA+n2hFAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpoEBCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5Nu9INt9AE/B/a+9AAAA[0m[Pipeline] }
+[8mha:////4CmWL8g9tvA4wie4Ixrh28x8y/P20jlfhODVA/E70h+7AAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiIUVI5jZZuh8QQRYgxkdjFZhMoTeTXvICMzVv7qv9e81xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9b0gL/eCrPwAXH35DL0AAAA=[0m[Pipeline] // node
+[8mha:////4IsTVVeizG3sHMVv3Gpm60jBdH6z272E9UF9rZFchd1NAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJBiA5R0VppeIFJjHFi3QX7QlLxIr7GH4iIRMVWO9PM641lijhydKqx1HpKlVdd6N301MCxvQYeVMMXVTElDlaVdii5tqcZSxaLeVmOhcbKUhU4eXKCtW7MwxTBkCvOEid30Mh9fccTmZ7KYqJ8YYzY3Po6Mf06fwMYu06Q77eCbPcBAx/ra70AAAA=[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

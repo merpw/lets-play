@@ -1,0 +1,389 @@
+Started by user [8mha:////4EWY0N0SauZZK+jAuehLpivg8zKJxnTZ0nfiDC349QyUAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[8mha:////4AqPU9Y3dTpMoMcw+k+IDK1m9RYsWJdKzcsGS+Vh5jAxAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4Foeyao4P3ChSYv7rQh5fCygkdyKUdg+be5UNhUUMfy9AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4LMpTs/kkKdhGR+HIzxPcZm1BiEa5TPTfh/xFL4SzJPpAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/workspace/mr-jenk
+[8mha:////4DSkBVFNNtsLdX38nUuifgyas154+szNt59dhXdHAOwXAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4BRUEOmD916COix6t3gMyQtfemX2HwqVPnqndC2psHv8AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4BiFR23c46BC2O3cr+OwNPsT7riNDdrqohxyaSbrnNU+AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Declarative: Tool Install)
+[8mha:////4DQB2uiSnOe4XI7Ek7rALJqWnBXx2OLWg2iPHNkSMAmBAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaWGsbAmNJ0AWEZb8zwLrbuWJvJp3kLiJlZNMMm+a93rDOic4UbLcG+wdZu14DKOti0+U+lugiXu6ck2YKRguzSSpM+cFJRUDS1gDKwEbgzpQdmgLbIVXD9UGhba9lFS/o4DGdQM8gYlqLiqVL8wJdvexy4Q/z18BzLEA29ce4gfg7KmOvAAAAA==[0m[Pipeline] tool
+[8mha:////4HYuFyBdhS0eIs5g2LcvzJHgvAOwGXYdwfZLkiKtN4JvAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbGRNjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI4F2L72ED8v8DEJvAAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4HUOzD8Sqo0qv1Izd8c6zSARDQAs3OHX87j4Qu5bYnwqAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbmRhjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j/zqggXvAAAAA==[0m[Pipeline] }
+[8mha:////4CQxz2nSAd7IjJsJ4CKO1eE5/+WdOB5zoCLLY1/FLejVAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiJoYeVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfId1tBtv8AExtCpb0AAAA=[0m[Pipeline] // stage
+[8mha:////4JNXhylpfIvBmBiwTfThYIKJR6+DhM2ti+4ZF1GmF0xnAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BKWgpeYSjSHSIitZywwtMbIwT6y7YF5KKF/E1/oAhEhVb7ay0mucLqhThQNGJzmLvMbVeDGF0uYmJYn8JNImOzqIlTBSsUHZSZOxxQUVsYUlRwkrC2mIbKHl0DBvZ6buug0ZXnzjmbS+h9OYGDyhkNrOO/IU5wvY6mkT48/wVwDwwFDuGsmk+x+oNEzd2msEAAAA=[0m[Pipeline] withEnv
+[8mha:////4PJaxyCyiCjAz0L+KAckmNsHVmyp7YRhdm3O7rL2VjDoAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] {
+[8mha:////4K37NgB4mPNlOq3hLcpKOLaUR8qPndO9oEQXVDjK1msMAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLdfrbD/Cw+y7kUycIAAAA=[0m[Pipeline] stage
+[8mha:////4GXhZPc/92gfZiZI76e8JflfMHAT3gP9VzKYJP8mHfocAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAbNWnxXCAAAA[0m[Pipeline] { (Checkout GitHub)
+[8mha:////4PcyiELfmLqDeyqNmoygSeal/69L3zYnFLUn3N1IjfG1AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN8W7Eii+AAAA[0m[Pipeline] tool
+[8mha:////4DUaBRANDqr5z9NN1vadwnW+SSJpNY42TFaRxbO+qEwTAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJESDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEG6D8DvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4C6N2HuZ4oRpBUBBwR7KvgF/HMwScOvtVejF3b7KdWSwAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUSEgMiKlrlIUThCaEtNH/5SelnTgRV+MOtFRiwoNlW7Le6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gOeMTC6wgAAAA==[0m[Pipeline] withEnv
+[8mha:////4I886kPvz/jhn5Jfx0m6ePzlNq7n26o5JIQIlZ1es8xdAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] {
+[8mha:////4MQdW7PP1ZWAyGoFa8ieEy077GUdLD45mIER8mq6cvq3AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiOhCiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBr2eB0O+AAAA[0m[Pipeline] git
+The recommended git tool is: NONE
+using credential github-ssh
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/mr-jenk/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:maximihajlov/test.git # timeout=10
+Fetching upstream changes from git@github.com:maximihajlov/test.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_SSH to set credentials 
+ > git fetch --tags --force --progress -- git@github.com:maximihajlov/test.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision f59ab039775aba3959a2749ecb3c976c5f8cd109 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f59ab039775aba3959a2749ecb3c976c5f8cd109 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main f59ab039775aba3959a2749ecb3c976c5f8cd109 # timeout=10
+Commit message: "Enable junitXml"
+ > git rev-list --no-walk f59ab039775aba3959a2749ecb3c976c5f8cd109 # timeout=10
+[8mha:////4D7Rmr23DPiv1D8bHz6RY1KPCQxTA8bvZEWAaEcfAYbIAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICVEgoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcr9Ntfu8AEWNdkpvgAAAA==[0m[Pipeline] }
+[8mha:////4Jo60DTh4zCn66HTT/KHi38OhpF/dkzokzZ2wy1F6ms9AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKi0FAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3da768AEi+zpyvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4Lxw/cYOzn3jTVNdkm3FES2RbsXBj5X9va2jzHeqoarsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRER2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGVd59ofPjbYp22+AAAA[0m[Pipeline] }
+[8mha:////4DGOHbtEtqTcOH+ZjFE5p9z/C1B8KLf77LQyBkdEdLjYAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiSImo0lppeIGJjXFi3RnbIal4EV/jD1hEomKL1c4283rDOgY4cTDYaxosxc6id6PJCycOw9XxhD1fsGOK7DS2empZ6WbBlpOGJUUJKwEbTZ3jaMkk2IpePmTlJJnqnEL+jgJKq+7whEJkc5IhfWEOsLuNKjL9PH8FMHufoDzUufb1BzCenzi+AAAA[0m[Pipeline] // stage
+[8mha:////4NDg4Vyr8Hd0nxlvqTyifWbIBwEms3Jh7NJ5Twzyz6NUAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUVGyIqWuUhROEJIS00f8lSWknTsTVuAOBSkx4sGxL1nu+oIoBjhQs6wz2DqNybPCjzYlNFPqLp4l1dGaKMJI3TJhJkDbtUgUlA4uKElYc1gaVp+jQJtjwTt5l7SXa+pRC3g4cSqdv8ICCZ3KSIX3LHGB7HXUk/HH+AmAeEpS7Jluz/zyrN+6T+eXCAAAA[0m[Pipeline] stage
+[8mha:////4MIcKJ/1J0sdmxdUKmEXNzJ2xAjuQYizewYial6tfHKEAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQjAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD/hYjrHCAAAA[0m[Pipeline] { (Run tests)
+[8mha:////4DSGmhQjXneQAQfblfsdLPpYV8hj7kghz1uwFNv5yFC1AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIUGDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEIWoEpvgAAAA==[0m[Pipeline] tool
+[8mha:////4N+USOrfXEr6vWBvuua2Q8onr3ZdLkexO1FrI9ZxrGgHAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiISEKRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q1Ja5owvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4H0KkB2jUBnK66Qn4Uwl11vWK6N0Y7ckrHY69JHeaMD9AAAAqB+LCAAAAAAAAP9tjUEKwjAURH8rXbh16SFSEARBXHUbsvEEsYkxbfi//qS2K0/k1byDrQVXzmKYGRje6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gPmlJ7MwgAAAA==[0m[Pipeline] withEnv
+[8mha:////4Ir2McoI7yeXGyCD3oAyBdOqnXIJeakgMB/j+u+4UPWFAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYgIhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0QKVszCAAAA[0m[Pipeline] {
+[8mha:////4MvzXaD+aFtRkXDNLEYGkVdorgm0ZoL2rAkJVAKuMS0eAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUwYRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3+2y7zedZvQH4j6CMwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/mr-jenk/backend
+[8mha:////4GCWP9a8Ih130nb9Bh3MlvqIMWfvk9ZqU1X9n9YOTq5iAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUxIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLDbrb9/Cw+ty4Up8IAAAA=[0m[Pipeline] {
+[8mha:////4PTUZbZ4wPW8mfIzzWinHtF5OzTaqM8vy9dTKVzp6r3KAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioERUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud9+ahfettHKdL4AAAA=[0m[Pipeline] sh
++ gradle test
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :generateEffectiveLombokConfig UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :jacocoTestReport SKIPPED
+> Task :services:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileJava NO-SOURCE
+> Task :services:processResources NO-SOURCE
+> Task :services:classes UP-TO-DATE
+> Task :services:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:compileTestJava NO-SOURCE
+> Task :services:processTestResources NO-SOURCE
+> Task :services:testClasses UP-TO-DATE
+> Task :services:test NO-SOURCE
+> Task :services:jacocoTestReport SKIPPED
+> Task :shared:generateEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileJava UP-TO-DATE
+> Task :shared:processResources NO-SOURCE
+> Task :shared:classes UP-TO-DATE
+> Task :shared:jar UP-TO-DATE
+> Task :shared:generateTestFixturesEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestFixturesJava UP-TO-DATE
+> Task :shared:processTestFixturesResources NO-SOURCE
+> Task :shared:testFixturesClasses UP-TO-DATE
+> Task :shared:testFixturesJar UP-TO-DATE
+> Task :shared:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :shared:compileTestJava NO-SOURCE
+> Task :shared:processTestResources NO-SOURCE
+> Task :shared:testClasses UP-TO-DATE
+> Task :shared:test NO-SOURCE
+> Task :shared:jacocoTestReport SKIPPED
+> Task :services:media:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileJava UP-TO-DATE
+> Task :services:media:processResources UP-TO-DATE
+> Task :services:media:classes UP-TO-DATE
+> Task :services:media:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:media:compileTestJava UP-TO-DATE
+> Task :services:media:processTestResources UP-TO-DATE
+> Task :services:media:testClasses UP-TO-DATE
+> Task :services:media:test UP-TO-DATE
+> Task :services:media:jacocoTestReport UP-TO-DATE
+> Task :services:products:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileJava UP-TO-DATE
+> Task :services:products:processResources UP-TO-DATE
+> Task :services:products:classes UP-TO-DATE
+> Task :services:products:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:products:compileTestJava UP-TO-DATE
+> Task :services:products:processTestResources NO-SOURCE
+> Task :services:products:testClasses UP-TO-DATE
+> Task :services:products:test UP-TO-DATE
+> Task :services:products:jacocoTestReport UP-TO-DATE
+> Task :services:users:generateEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileJava UP-TO-DATE
+> Task :services:users:processResources UP-TO-DATE
+> Task :services:users:classes UP-TO-DATE
+> Task :services:users:generateTestEffectiveLombokConfig UP-TO-DATE
+> Task :services:users:compileTestJava UP-TO-DATE
+> Task :services:users:processTestResources NO-SOURCE
+> Task :services:users:testClasses UP-TO-DATE
+> Task :services:users:test UP-TO-DATE
+> Task :services:users:jacocoTestReport UP-TO-DATE
+
+BUILD SUCCESSFUL in 9s
+33 actionable tasks: 33 up-to-date
+[8mha:////4F1w7qRmMCbO4v4l1okFNuyDyBHAPLt3+yHIISg2FrgbAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIilBJR0VppeIFJjLFj3Tm2g1PxIr7GHwhEomKL1c4283zBOgY4ctBoFfWGYmvQu1HPCzOH/uo4o+ULtkyRncJG5YY7dVqw4aRgSVHCSsBGUes4GtIJtsLKu6ycJF2dU5i/g4DSdAM8oBCzOcmQvjAF2N3GLjL9PH8FMHmfoKzrT+3fKpbQQr4AAAA=[0m[Pipeline] }
+[8mha:////4EQd6/2MJ8s5yjgb+gcG9WkIWfogy1uwRc5dt9+jLqs/AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7BgSW0ii+AAAA[0m[Pipeline] // dir
+[8mha:////4OumgkCFm+/XHNrZRmDArUJ4UnoKfO7v+MZEW0zkq8wIAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigSgQSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryt8+1PXwARMxJg74AAAA=[0m[Pipeline] }
+[8mha:////4Esh7McK/7jr+Npw4MDfSU763IewuAwklqsy21dFUs07AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigYSQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKUu32u7eEDfI7acr4AAAA=[0m[Pipeline] // withEnv
+[8mha:////4OZs7qiJkHKmf6L0i8opG+HbG4HokPZ0lksKq0GVYSHqAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigRAFSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8AZCE3x74AAAA=[0m[Pipeline] }
+[8mha:////4HFxpPy//43pASseKe9Oo+nBMjubjB5oDLtny6Ugr5eTAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAQUSSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8AJ6NmQb4AAAA=[0m[Pipeline] // stage
+[8mha:////4FMPvtA3TRFn2tTWsPrPrfp3Rl2yibcSRxE+S3yzc/4aAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCg322y7/edZvQGEixD/wgAAAA==[0m[Pipeline] stage
+[8mha:////4PKh7+nKDKFldO1gq+wyfKtmw5z6KtazR9VWHmq75SY1AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUCRaEOrFGXThBaEJIGv1fkpR04kRcjTsQqMSEB8u2ZL3nC6rgoSGvmVXYGwydYYMbdU4ske8vjhKzdGYdYSCnWKtSS1Id59pSVDCrKGHBYamwcxQM6ggrbsVd1E6grk/R5+3AoTTyBg8oeCZH4eO3TB7W11EGwh/nLwCmIUK53WfbbT7P6g0Z/aLSwgAAAA==[0m[Pipeline] { (Build)
+[8mha:////4CpuBli6PQu5jsWRLc/NB4zfaDNkwwCR2eJa7NzGjbYsAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICEh2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBl2WGva+AAAA[0m[Pipeline] tool
+[8mha:////4FyTOerZVfbLR5pUeXiIUpTtDaLybKDboVUTjpP+Z0xhAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCEB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBp7FN92+AAAA[0m[Pipeline] envVarsForTool
+[8mha:////4I/fXlmw0kxAThkSbmWry6OHwTtl6tODceeBDS3FRRJYAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUCTbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAb1Y41vCAAAA[0m[Pipeline] withEnv
+[8mha:////4HtSj7iDHMMzPWOJ30uWjGF/7i/ScxFMOGnsVMUYgtyiAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycoh0oBtiYo26cILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMYAJwqGO42dxdha3vvRzIlnCt3NU+aOrrwljOQ1b3RuSOnzWhtKGlYVDDYCthpbT9GiSbATTj5k5SWa6pLCvB0FMKsGeEIhZnKSIX3LFGB/H1Uk/HH+AmDqE7D6sFi9PMsPBA4E38IAAAA=[0m[Pipeline] {
+[8mha:////4PkPeTHXJUr74Wu5uNblNhNWiFVDB6BLPVm+CqY3wiI6AAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSxMqxsmVoPAEmiBDmfwJEUnkir+YdRDNj5RY7+7Z5zxesY4AjBc2swsFg7AzzbtJlsUxhuDrKzNKFdYSRnGJCZUG9Oi0oKClYUtWw4rBR2DmKBnWCLbfyLhsnUTfnFMp34FCbfoQHVLyYkwzpC3OA3W3qI+HP81cAs09Qt+2n9v4NSnc5Zr4AAAA=[0m[Pipeline] sh
++ docker compose build
+#0 building with "default" instance using docker driver
+
+#1 [products internal] load .dockerignore
+#1 transferring context: 2B 0.0s done
+#1 DONE 0.1s
+
+#2 [products internal] load build definition from Dockerfile
+#2 transferring dockerfile: 380B done
+#2 DONE 0.1s
+
+#3 [media internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [media internal] load build definition from Dockerfile
+#4 transferring dockerfile: 380B done
+#4 DONE 0.0s
+
+#5 [users internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [users internal] load build definition from Dockerfile
+#6 transferring dockerfile: 380B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 371B done
+#7 DONE 0.0s
+
+#8 [frontend internal] load build definition from Dockerfile
+#8 transferring dockerfile: 386B done
+#8 DONE 0.0s
+
+#9 [users internal] load metadata for docker.io/library/gradle:latest
+#9 DONE 0.6s
+
+#10 [frontend internal] load metadata for docker.io/library/node:16.15.0-alpine
+#10 DONE 0.5s
+
+#11 [users internal] load metadata for docker.io/library/amazoncorretto:17-alpine3.18-jdk
+#11 DONE 0.6s
+
+#12 [media stage-1 1/3] FROM docker.io/library/amazoncorretto:17-alpine3.18-jdk@sha256:97077b491447b095b0fe8d6d6863526dec637b3e6f8f34e50787690b529253f3
+#12 DONE 0.0s
+
+#13 [media builder 1/4] FROM docker.io/library/gradle:latest@sha256:09b8bbd1f670ce7ae85751e0b56000917aabac20927021fa3ef714c049278df6
+#13 DONE 0.0s
+
+#14 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#14 DONE 0.5s
+
+#15 [media stage-1 2/3] WORKDIR /usr/app/
+#15 CACHED
+
+#16 [frontend build 1/7] FROM docker.io/library/node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10
+#16 DONE 0.0s
+
+#17 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:3923f8de8d2214b9490e68fd6ae63ea604deddd166df2755b788bef04848b9bc
+#17 CACHED
+
+#18 [media internal] load build context
+#18 transferring context: 62.42kB 0.1s done
+#18 DONE 0.1s
+
+#19 [frontend internal] load build context
+#19 transferring context: 9.61kB 0.0s done
+#19 DONE 0.0s
+
+#20 [frontend build 2/7] WORKDIR /app
+#20 CACHED
+
+#21 [frontend build 3/7] COPY package*.json ./
+#21 CACHED
+
+#22 [products internal] load build context
+#22 transferring context: 62.42kB 0.1s done
+#22 DONE 0.1s
+
+#23 [users internal] load build context
+#23 transferring context: 62.42kB 0.1s done
+#23 DONE 0.1s
+
+#24 [media builder 2/4] WORKDIR /usr/app/
+#24 CACHED
+
+#25 [products builder 3/4] COPY .. .
+#25 DONE 0.3s
+
+#26 [media builder 3/4] COPY .. .
+#26 CACHED
+
+#27 [users builder 3/4] COPY .. .
+#27 CACHED
+
+#28 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#28 1.417 
+#28 1.420 Welcome to Gradle 8.5!
+#28 1.421 
+#28 1.422 Here are the highlights of this release:
+#28 1.427  - Support for running on Java 21
+#28 1.427  - Faster first use with Kotlin DSL
+#28 1.427  - Improved error and warning messages
+#28 1.427 
+#28 1.428 For more details see https://docs.gradle.org/8.5/release-notes.html
+#28 1.430 
+#28 1.692 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#28 6.694 Daemon will be stopped at the end of the build 
+#28 ...
+
+#29 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#29 1.291 
+#29 1.297 Welcome to Gradle 8.5!
+#29 1.302 
+#29 1.302 Here are the highlights of this release:
+#29 1.302  - Support for running on Java 21
+#29 1.303  - Faster first use with Kotlin DSL
+#29 1.303  - Improved error and warning messages
+#29 1.303 
+#29 1.303 For more details see https://docs.gradle.org/8.5/release-notes.html
+#29 1.303 
+#29 1.481 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#29 5.682 Daemon will be stopped at the end of the build 
+#29 ...
+
+#30 [frontend build 4/7] RUN npm install
+#30 ...
+
+#31 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#31 1.350 
+#31 1.350 Welcome to Gradle 8.5!
+#31 1.350 
+#31 1.353 Here are the highlights of this release:
+#31 1.353  - Support for running on Java 21
+#31 1.356  - Faster first use with Kotlin DSL
+#31 1.356  - Improved error and warning messages
+#31 1.356 
+#31 1.356 For more details see https://docs.gradle.org/8.5/release-notes.html
+#31 1.356 
+#31 1.549 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#31 5.852 Daemon will be stopped at the end of the build 
+#31 ...
+
+#30 [frontend build 4/7] RUN npm install
+#30 26.90 npm WARN deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+#30 34.95 npm WARN deprecated domexception@2.0.1: Use your platform's native DOMException instead
+#30 37.27 npm WARN deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#30 38.26 npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+#30 43.35 npm WARN deprecated @babel/plugin-proposal-async-generator-functions@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.
+#30 43.37 npm WARN deprecated @babel/plugin-proposal-unicode-property-regex@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.
+#30 44.39 npm WARN deprecated @wessberg/ts-evaluator@0.0.27: this package has been renamed to ts-evaluator. Please install ts-evaluator instead
+#30 83.67 npm notice 
+#30 83.68 npm notice New major version of npm available! 8.5.5 -> 10.2.5
+#30 83.68 npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.2.5>
+#30 83.69 npm notice Run `npm install -g npm@10.2.5` to update!
+#30 83.69 npm notice 
+#30 83.70 npm ERR! code 1
+#30 83.70 npm ERR! path /app/node_modules/@parcel/watcher
+#30 83.71 npm ERR! command failed
+#30 83.71 npm ERR! command sh -c node-gyp-build
+#30 83.71 npm ERR! gyp info it worked if it ends with ok
+#30 83.71 npm ERR! gyp info using node-gyp@9.4.1
+#30 83.71 npm ERR! gyp info using node@16.15.0 | linux | arm64
+#30 83.71 npm ERR! gyp ERR! find Python 
+#30 83.71 npm ERR! gyp ERR! find Python Python is not set from command line or npm configuration
+#30 83.71 npm ERR! gyp ERR! find Python Python is not set from environment variable PYTHON
+#30 83.71 npm ERR! gyp ERR! find Python checking if "python3" can be used
+#30 83.71 npm ERR! gyp ERR! find Python - "python3" is not in PATH or produced an error
+#30 83.71 npm ERR! gyp ERR! find Python checking if "python" can be used
+#30 83.71 npm ERR! gyp ERR! find Python - "python" is not in PATH or produced an error
+#30 83.71 npm ERR! gyp ERR! find Python 
+#30 83.72 npm ERR! gyp ERR! find Python **********************************************************
+#30 83.72 npm ERR! gyp ERR! find Python You need to install the latest version of Python.
+#30 83.72 npm ERR! gyp ERR! find Python Node-gyp should be able to find and use Python. If not,
+#30 83.72 npm ERR! gyp ERR! find Python you can try one of the following options:
+#30 83.72 npm ERR! gyp ERR! find Python - Use the switch --python="/path/to/pythonexecutable"
+#30 83.72 npm ERR! gyp ERR! find Python   (accepted by both node-gyp and npm)
+#30 83.72 npm ERR! gyp ERR! find Python - Set the environment variable PYTHON
+#30 83.72 npm ERR! gyp ERR! find Python - Set the npm configuration variable python:
+#30 83.72 npm ERR! gyp ERR! find Python   npm config set python "/path/to/pythonexecutable"
+#30 83.72 npm ERR! gyp ERR! find Python For more information consult the documentation at:
+#30 83.72 npm ERR! gyp ERR! find Python https://github.com/nodejs/node-gyp#installation
+#30 83.72 npm ERR! gyp ERR! find Python **********************************************************
+#30 83.72 npm ERR! gyp ERR! find Python 
+#30 83.72 npm ERR! gyp ERR! configure error 
+#30 83.72 npm ERR! gyp ERR! stack Error: Could not find any Python installation to use
+#30 83.72 npm ERR! gyp ERR! stack     at PythonFinder.fail (/app/node_modules/node-gyp/lib/find-python.js:330:47)
+#30 83.72 npm ERR! gyp ERR! stack     at PythonFinder.runChecks (/app/node_modules/node-gyp/lib/find-python.js:159:21)
+#30 83.72 npm ERR! gyp ERR! stack     at PythonFinder.<anonymous> (/app/node_modules/node-gyp/lib/find-python.js:202:16)
+#30 83.72 npm ERR! gyp ERR! stack     at PythonFinder.execFileCallback (/app/node_modules/node-gyp/lib/find-python.js:294:16)
+#30 83.72 npm ERR! gyp ERR! stack     at exithandler (node:child_process:406:5)
+#30 83.72 npm ERR! gyp ERR! stack     at ChildProcess.errorhandler (node:child_process:418:5)
+#30 83.72 npm ERR! gyp ERR! stack     at ChildProcess.emit (node:events:527:28)
+#30 83.72 npm ERR! gyp ERR! stack     at Process.ChildProcess._handle.onexit (node:internal/child_process:289:12)
+#30 83.72 npm ERR! gyp ERR! stack     at onErrorNT (node:internal/child_process:478:16)
+#30 83.72 npm ERR! gyp ERR! stack     at processTicksAndRejections (node:internal/process/task_queues:83:21)
+#30 83.72 npm ERR! gyp ERR! System Linux 6.5.11-linuxkit
+#30 83.72 npm ERR! gyp ERR! command "/usr/local/bin/node" "/app/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+#30 83.72 npm ERR! gyp ERR! cwd /app/node_modules/@parcel/watcher
+#30 83.72 npm ERR! gyp ERR! node -v v16.15.0
+#30 83.72 npm ERR! gyp ERR! node-gyp -v v9.4.1
+#30 83.72 npm ERR! gyp ERR! not ok
+#30 83.73 
+#30 83.73 npm ERR! A complete log of this run can be found in:
+#30 83.73 npm ERR!     /root/.npm/_logs/2023-12-18T15_58_08_839Z-debug-0.log
+#30 ERROR: process "/bin/sh -c npm install" did not complete successfully: exit code: 1
+
+#28 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#28 ...
+
+#31 [products builder 4/4] RUN gradle services:products:build --no-daemon -x test
+#31 CANCELED
+
+#28 [media builder 4/4] RUN gradle services:media:build --no-daemon -x test
+#28 CANCELED
+
+#29 [users builder 4/4] RUN gradle services:users:build --no-daemon -x test
+#29 CANCELED
+------
+ > [frontend build 4/7] RUN npm install:
+83.72 npm ERR! gyp ERR! stack     at processTicksAndRejections (node:internal/process/task_queues:83:21)
+83.72 npm ERR! gyp ERR! System Linux 6.5.11-linuxkit
+83.72 npm ERR! gyp ERR! command "/usr/local/bin/node" "/app/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+83.72 npm ERR! gyp ERR! cwd /app/node_modules/@parcel/watcher
+83.72 npm ERR! gyp ERR! node -v v16.15.0
+83.72 npm ERR! gyp ERR! node-gyp -v v9.4.1
+83.72 npm ERR! gyp ERR! not ok
+83.73 
+83.73 npm ERR! A complete log of this run can be found in:
+83.73 npm ERR!     /root/.npm/_logs/2023-12-18T15_58_08_839Z-debug-0.log
+------
+failed to solve: process "/bin/sh -c npm install" did not complete successfully: exit code: 1
+[8mha:////4BeE/azVRjHWomtWAyn0kT6bF0ClaUo0qIFgrLfZci9JAAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSZGwcK1uGxhNggghh/idAJJUn8mreQTQzVm6xs2+b93zBOgY4UtDMKhwMxs4w7yZdFssUhqujzCxdWEcYySkmVBbUq9OCgpKCJVUNKw4bhZ2jaFAn2HIr77JxEnVzTqF8Bw616Ud4QMWLOcmQvjAH2N2mPhL+PH8FMHufoG73n2rfX1uR6L4AAAA=[0m[Pipeline] }
+[8mha:////4LM321yXHS/n3Y9rgGbodBmw1XtrX3IX8jDLYEJ5rVWQAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgESBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgFZHam9vgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4JFyZlbUqdICJUD4RJovtD2hrUXxFBT6XKuy7o7He0ZlAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCQYGEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgE2/vbVvgAAAA==[0m[Pipeline] }
+[8mha:////4OSHofL/djrU1R2ErnQTx5dFeZ/vCHtxp7mUg5h3l+zAAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSQBMhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygPda59/QHwAzcovgAAAA==[0m[Pipeline] // stage
+[8mha:////4Gbl8Os6xqNDzxmVlEmdIvbQ+qfj3ibbPsZhc1neeBAbAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUkJhQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3u2z7zedZvQF278+7wgAAAA==[0m[Pipeline] stage
+[8mha:////4PluUkstVQPzbHz/3j9lgdhK3RjuBjV1OrOlHzAA5C1KAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUBibE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAW2++SvCAAAA[0m[Pipeline] { (Declarative: Post Actions)
+[8mha:////4NgQMmmP9Fs28+NMJOr8DFY6Bm1FlpfXb/aEROQtcR9tAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIikKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO63n9qFN4OkKLa+AAAA[0m[Pipeline] junit
+Recording test results
+No test report files were found. Configuration error?
+[Checks API] No suitable checks publisher found.
+[8mha:////4I4VfGoTHkBOW9uJBLXHll7UneoWQ9SuYfPX4JHuTqnJAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIihKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcr97lPbN5YEWne+AAAA[0m[Pipeline] }
+[8mha:////4J6dYGyaBBTB34IF9l+7aCLxJ0XDdX/WUct1Y0OTTnMaAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCARWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nffWr7BrgEWB2+AAAA[0m[Pipeline] // stage
+[8mha:////4NiH+99q/eiilEKQnj1m7SbM0X39WxRZAo32XtmR3rCXAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIikFIhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyjrOtf+8AE1c2ZcvgAAAA==[0m[Pipeline] }
+[8mha:////4EMVtypkD74ENpwFzh5PYwwHmkJin/DgpJoj0iAqikEyAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiFNAgqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3h1x1/QEhUPtDvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4IISJB7dOcnkuR+gM/qze1cUpnYFPyurCN4kxTVO3+G2AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJpQBSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLcXZNsPg7X0+70AAAA=[0m[Pipeline] }
+[8mha:////4FxLYhR0GAu6kSwjg1LN6G0WAa7h1ZLZ1/+Ar/4Uc4F6AAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpEBISoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/tBdn2A/G3wOe9AAAA[0m[Pipeline] // node
+[8mha:////4B680QpnycjpZxPl6QIXEhATk2xG2J/eqASMsoJ1r3jnAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRkCgQoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/tBdn2A9eup629AAAA[0m[Pipeline] End of Pipeline
+ERROR: script returned exit code 17
+Finished: FAILURE
