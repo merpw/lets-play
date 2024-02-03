@@ -1,16 +1,18 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignInPageComponent } from './login-page.component';
+import { LoginPageComponent } from './login-page.component';
 
 describe('SignInPageComponent', () => {
-  let component: SignInPageComponent;
-  let fixture: ComponentFixture<SignInPageComponent>;
+  let component: LoginPageComponent;
+  let fixture: ComponentFixture<LoginPageComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SignInPageComponent]
+      declarations: [LoginPageComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
-    fixture = TestBed.createComponent(SignInPageComponent);
+    fixture = TestBed.createComponent(LoginPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

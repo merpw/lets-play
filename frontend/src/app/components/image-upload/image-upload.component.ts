@@ -11,7 +11,7 @@ import { ConfirmComponent } from '../confirm/confirm.component';
 })
 export class ImageUploadComponent implements OnInit {
   @Input() images: string[] = [];
-  @Input() onlyOne = false;
+  @Input() singleImage = false;
   @Output() upload = new EventEmitter<string>();
   @Output() delete = new EventEmitter<string>();
   @Output() newImagesOrder = new EventEmitter<string[]>();
@@ -86,7 +86,7 @@ export class ImageUploadComponent implements OnInit {
       this.mediaService.uploadMedia(<File>files.item(i)).subscribe({
         next: (resp) => {
           const imageId: string = resp.body || '';
-          if (this.onlyOne) {
+          if (this.singleImage) {
             this.imageUploaded = [];
           }
           this.imageUploaded.push(imageId);
