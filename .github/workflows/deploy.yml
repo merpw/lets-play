@@ -23,7 +23,7 @@ jobs:
 
     environment:
       name: production
-      url: ${{ steps.set-url.outputs.URL }}
+      url: https://buy-01.mer.pw
 
     steps:
       - uses: actions/checkout@v3
@@ -32,11 +32,13 @@ jobs:
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          ssh-keyscan -H "$SSH_HOST" > ~/.ssh/known_hosts
+          ssh-keyscan -H "$SSH_HOST" > ~/.ssh/known_hosts    
 
       - name: Deploy using Docker Compose
-        run: docker compose down && docker compose up -d
-
-      - name: Set deployment URL
-        id: set-url
-        run: echo "URL=https://$SERVER_NAME" >> $GITHUB_OUTPUT
+        # Remove all existing containers and images, then start the new ones
+        run: |
+          if [ "$(docker ps -q)" ]; then
+            docker ps -aq | xargs docker rm -f
+          fi
+          docker system prune --force
+          docker compose up -d
