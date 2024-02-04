@@ -18,11 +18,27 @@ Server will be available on [localhost:80](http://localhost:80/products).
 
 ### Production
 
-- Open `./prod` directory.
-- Run `./gen_env.sh` to generate`.env` config file with ADMIN_PASSWORD and JWT_SECRET.
-- Edit `.env` and `nginx.cong` files if needed.
-- Run `docker compose up`.
+### Environment variables
 
-### Native
+| Variable       | Description     | Default value   |
+|----------------|-----------------|-----------------|
+| JWT_SECRET     | JWT secret      | secret          |
+| ADMIN_EMAIL    | Admin email     | admin@localhost |
+| ADMIN_PASSWORD | Admin password  | AdminAdmin      |
+| SERVER_NAME    | Server name     | localhost       |
+| SSL_CERT       | SSL certificate |                 |
+| SSL_KEY        | SSL key         |                 |
 
-For backend, check [./backend/README.md](./backend/README.md).
+> **Note**: run `./gen_env.sh` to generate`.env` file with strong random values.
+
+- Configure the project by editing `.env` file.
+
+- Optional: add your SSL certificate and key to `SSL_CERT` and `SSL_KEY` environment variables in `.env` file.
+
+- To run the latest stable version of the project, run:
+
+`docker compose -f docker-compose.yml -f docker-compose.prod.yml up`
+
+- The project is optimized to be deployed
+  on [remote Docker hosts](https://www.docker.com/blog/how-to-deploy-on-remote-docker-hosts-with-docker-compose/), so
+  you can specify `DOCKER_HOST` environment variable in `.env` file.

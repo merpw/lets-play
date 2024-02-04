@@ -23,6 +23,10 @@ public class SharedJwtConfig {
 
     @Bean
     SecretKey secretKey() {
+        if (secret == null || secret.isEmpty()) {
+            secret = "UnsafeSecret";
+        }
+
         byte[] encodedSecret = Base64.getEncoder().encode(secret.getBytes());
 
         if (encodedSecret.length < 32) {

@@ -1,0 +1,44 @@
+name: Deploy
+
+on:
+  workflow_call:
+
+env:
+  SSH_USER: ${{ secrets.SSH_USER }}
+  SSH_HOST: ${{ secrets.SSH_HOST }}
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  DOCKER_HOST: ssh://${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+  ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+
+  SSL_CERT: ${{ secrets.SSL_CERT }}
+  SSL_KEY: ${{ secrets.SSL_KEY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+      url: https://buy-01.mer.pw
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install ssh key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          ssh-keyscan -H "$SSH_HOST" > ~/.ssh/known_hosts    
+
+      - name: Deploy using Docker Compose
+        # Remove all existing containers and images, then start the new ones
+        run: |
+          if [ "$(docker ps -q)" ]; then
+            docker ps -aq | xargs docker rm -f
+          fi
+          docker system prune --force
+          docker compose up -d
