@@ -60,6 +60,7 @@ services:
       - lets-play-media:/app/media
   orders:
     image: ghcr.io/merpw/lets-play-orders-service:${REVISION-main}
+    platform: linux/amd64
     build:
       context: backend
       args:
