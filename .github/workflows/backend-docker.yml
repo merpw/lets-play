@@ -7,7 +7,7 @@ jobs:
   test-and-build:
     strategy:
       matrix:
-        services: [ users, products, media ]
+        services: [ users, products, media, orders ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

@@ -17,8 +17,8 @@ public enum ERole {
 
     public List<String> getScopes() {
         return switch (this) {
-            case ADMIN -> List.of("users:admin", "products:admin", "media:write");
-            case SELLER -> List.of("products:write", "media:write");
+            case ADMIN -> List.of("users:admin", "products:admin", "media:write", "orders:admin");
+            case SELLER -> List.of("products:write", "media:write", "orders:write");
             default -> List.of();
         };
     }

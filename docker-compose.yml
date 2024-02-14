@@ -58,6 +58,17 @@ services:
       - JWT_SECRET=${JWT_SECRET}
     volumes:
       - lets-play-media:/app/media
+  orders:
+    image: ghcr.io/merpw/lets-play-orders-service:${REVISION-main}
+    build:
+      context: backend
+      args:
+        - SERVICE_NAME=orders
+    environment:
+      - MONGO_HOST=db
+      - DOCS_API_URL=/api
+    depends_on:
+      - db
   frontend:
     image: ghcr.io/merpw/lets-play-frontend:${REVISION-main}
     platform: linux/amd64
@@ -73,7 +84,8 @@ services:
       URLS: "[
       {name:'Users',url:'/api/api-docs-users'},
       {name:'Products',url:'/api/api-docs-products'},
-      {name:'Media',url:'/api/api-docs-media'}
+      {name:'Media',url:'/api/api-docs-media'},
+      {name:'Orders',url:'/api/api-docs-orders'}
       ]"
       BASE_URL: /api/docs
 volumes:
