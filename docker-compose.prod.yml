@@ -11,5 +11,8 @@ services:
   media:
     image: ghcr.io/merpw/lets-play-media-service:latest
 
+  orders:
+    image: ghcr.io/merpw/lets-play-orders-service:latest
+
   frontend:
     image: ghcr.io/merpw/lets-play-frontend:latest
