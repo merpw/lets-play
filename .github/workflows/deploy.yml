@@ -41,4 +41,5 @@ jobs:
             docker ps -aq | xargs docker rm -f
           fi
           docker system prune --force
+          docker compose pull
           docker compose up -d
