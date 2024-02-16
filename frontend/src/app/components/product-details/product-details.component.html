@@ -39,7 +39,7 @@
       Price: {{ product.price | currency : "EUR" }}, {{ product.quantity }} in
       stock
     </p>
-    <form [formGroup]="form">
+    <form [formGroup]="form" *ngIf="authService.isAuthenticated">
       <div class="purchase-container">
         <mat-form-field>
           <mat-label>Quantity</mat-label>

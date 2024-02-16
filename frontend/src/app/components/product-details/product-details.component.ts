@@ -5,6 +5,7 @@ import { finalize, firstValueFrom, tap } from 'rxjs';
 import { Product } from 'src/app/shared/models/product.model';
 import { Result } from 'src/app/shared/models/result.model';
 import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -27,6 +28,7 @@ export class ProductDetailsComponent implements OnInit {
   private id: string | undefined;
 
   constructor(
+    public authService: AuthService,
     private userService: UserService,
     private route: ActivatedRoute,
     private productService: ProductService
