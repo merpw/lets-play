@@ -1,0 +1,68 @@
+<ng-container
+  class="user-profile-container"
+  *ngIf="totalRevenueSubject$ | async as element"
+>
+  <h2>You have earned in total {{ element | currency : "EUR" }}</h2>
+</ng-container>
+
+<ng-container
+  class="user-profile-container"
+  *ngIf="mostSoldProductSubject$ | async as element"
+>
+  <h3>
+    Your best selling product is
+    <b>
+      {{ element.product.name }}
+    </b>
+  </h3>
+  <div class="product-image-container">
+    <img
+      mat-card-xl-image
+      [src]="
+        element.product.images[0]
+          ? 'api/media/' + element.product.images[0]
+          : 'assets/product-placeholder/question-mark.png'
+      "
+      alt="Large image"
+    />
+  </div>
+  <h3>
+    You have sold
+    <b> {{ element.quantity }} {{ element.product.name }} </b>
+  </h3>
+</ng-container>
+<ng-container
+  class="user-profile-container"
+  *ngIf="mostRevenueProductSubject$ | async as element"
+>
+  <h3>
+    You have earned most money on
+    <b>
+      {{ element.product.name }}
+    </b>
+  </h3>
+  <div class="product-image-container">
+    <img
+      mat-card-xl-image
+      [src]="
+        element.product.images[0]
+          ? 'api/media/' + element.product.images[0]
+          : 'assets/product-placeholder/question-mark.png'
+      "
+      alt="Large image"
+    />
+  </div>
+  <h3>
+    You have earned
+    <b>
+      {{ element.revenue | currency : "EUR" }}
+    </b>
+    from it
+  </h3>
+</ng-container>
+
+<app-message-box
+  *ngIf="result !== null"
+  [message]="result.message"
+  [type]="result.type"
+></app-message-box>

@@ -1,0 +1,54 @@
+.shopping-cart-page {
+    overflow: auto;
+  
+    .shopping-cart-page-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  tr[mat-row] {
+    transition: 0.1s;
+    &:hover {
+      background-color: rgb(23, 23, 23);
+      cursor: pointer;
+    }
+    &:active {
+      background-color: rgb(57, 57, 57);
+    }
+  }
+  
+  img {
+    height: 40px;
+    overflow: auto;
+    object-fit: contain;
+    max-width: 40px;
+
+    &.delete-icon {
+        height: 25px;
+    }
+  }
+  
+  .submit-button-container {
+    display: flex;
+    justify-content: center;
+    button:disabled {
+      background-color: grey;
+    }
+  }
+
+  mat-form-field {
+    width: 70px;
+    margin-top:1rem;
+
+    &.xs-screen {
+        // width: 50px;
+    }
+  }
+
+  .product-name {
+    &.xs-screen {
+        width: 140px;
+    }
+  }

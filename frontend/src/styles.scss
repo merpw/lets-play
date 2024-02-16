@@ -13,3 +13,9 @@ body {
   width: 50vw;
   min-width: 300px;
 }
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 2%;
+}

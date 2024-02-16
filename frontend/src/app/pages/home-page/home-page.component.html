@@ -23,7 +23,17 @@
       >
     </mat-card-header>
 
+    <mat-card-content>
+      <app-user-profile *ngIf="profile.role === 'user'"></app-user-profile>
+      <app-seller-profile
+        *ngIf="profile.role === 'seller'"
+      ></app-seller-profile>
+    </mat-card-content>
+
     <mat-card-actions align="end">
+      <button mat-button mat-raised-button routerLink="/order-history">
+        Order history
+      </button>
       <button mat-button mat-raised-button routerLink="/product-listing">
         View products
       </button>

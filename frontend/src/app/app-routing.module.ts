@@ -8,6 +8,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { ShoppingCartPageComponent } from './pages/shopping-cart-page/shopping-cart-page.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 const routes: Routes = [
   {
@@ -33,10 +35,21 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
+    path: 'order-history',
+    title: 'Order history',
+    component: OrderHistoryComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'shopping-cart',
+    title: 'Shopping cart',
+    component: ShoppingCartPageComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
     path: 'product-listing',
     title: 'Product Listing',
     component: ProductListingPageComponent,
-    // canActivate: [AuthGuardService], // can everyone see product listing or only registered users?
   },
   {
     path: 'seller-product-management',

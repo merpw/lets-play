@@ -29,7 +29,7 @@ export class UserService {
   getUserNameById(id: string): Observable<any> {
     return this.getUser(id).pipe(
       map((resp) => resp.body.name),
-      catchError(() => of('NotFound'))
+      catchError(() => of(`User#${id}`))
     );
   }
 }

@@ -1,0 +1,145 @@
+<div class="order-history-page">
+  <div class="order-history-page-header">
+    <h2>Order history</h2>
+  </div>
+  <hr />
+  <app-message-box
+    *ngIf="result"
+    [message]="result.message"
+    [type]="result.type"
+  ></app-message-box>
+  <ng-container *ngFor="let order of orders">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="order.status === 'pending'">
+        <mat-expansion-panel-header>
+          <mat-panel-title> Order ID: {{ order.id }} </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="order-actions">
+          <ng-container *ngIf="role === 'seller'">
+            {{ "Buyer: " + (order.buyerName | async) }}
+          </ng-container>
+          <ng-container *ngIf="role === 'user'">
+            {{ "Seller: " + (order.sellerName | async) }}
+          </ng-container>
+          <ng-container *ngIf="role === 'admin'">
+            <p>
+              {{ "Buyer: " + (order.buyerName | async) }}
+            </p>
+            <p>
+              {{ "Seller: " + (order.sellerName | async) }}
+            </p>
+          </ng-container>
+          <ng-container *ngIf="role === 'seller' && order.status === 'pending'">
+            <button
+              mat-raised-button
+              color="accent"
+              [matMenuTriggerFor]="menu"
+              *ngIf="role === 'seller' && order.status === 'pending'"
+            >
+              Action
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="onAction('accept', order.id)">
+                Accept
+              </button>
+              <button mat-menu-item (click)="onAction('complete', order.id)">
+                Complete
+              </button>
+              <button mat-menu-item (click)="onAction('cancel', order.id)">
+                Cancel
+              </button>
+            </mat-menu>
+          </ng-container>
+          <ng-container *ngIf="role === 'admin'">
+            <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">
+              Action
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="onAction('accept', order.id)">
+                Accept
+              </button>
+              <button mat-menu-item (click)="onAction('complete', order.id)">
+                Complete
+              </button>
+              <button mat-menu-item (click)="onAction('cancel', order.id)">
+                Cancel
+              </button>
+              <button mat-menu-item (click)="onDelete(order.id)">Delete</button>
+            </mat-menu>
+          </ng-container>
+        </div>
+        <p>Order created at: {{ order.createdAt | date : "short" }}</p>
+        <span>Total price: {{ order.totalPrice | currency : "EUR" }}</span>
+
+        <app-message-box
+          *ngIf="order.status === 'completed'"
+          type="info"
+          message="Order status: completed"
+        ></app-message-box>
+        <app-message-box
+          *ngIf="order.status === 'pending'"
+          type="info"
+          message="Order status: pending"
+        ></app-message-box>
+        <app-message-box
+          *ngIf="order.status === 'canceled'"
+          type="error"
+          message="Order status: cancelled"
+        ></app-message-box>
+        <app-message-box
+          *ngIf="order.status === 'confirmed'"
+          type="success"
+          message="Order status: confirmed"
+        ></app-message-box>
+        <table
+          mat-table
+          [dataSource]="order.products"
+          class="mat-elevation-z8"
+          *ngIf="!fetchingOrderHistory"
+        >
+          <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef>Image</th>
+            <td mat-cell *matCellDef="let element">
+              <ng-container *ngIf="element.info.images?.length; else noImage">
+                <img
+                  [src]="'api/media/' + element.info.images[0]"
+                  alt="Product image"
+                />
+              </ng-container>
+              <ng-template #noImage>
+                <img
+                  src="assets/product-placeholder/question-mark.png"
+                  alt="Product image"
+                />
+              </ng-template>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.info.name }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef>Qty.</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.quantity }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let element; columns: displayedColumns"
+            [routerLink]="['/product', element.id]"
+          ></tr>
+        </table>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <hr />
+  </ng-container>
+
+  <app-spinner *ngIf="isLoading || fetchingOrderHistory"></app-spinner>
+</div>
