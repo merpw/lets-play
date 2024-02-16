@@ -60,6 +60,7 @@ services:
       - lets-play-media:/app/media
   orders:
     image: ghcr.io/merpw/lets-play-orders-service:${REVISION-main}
+    platform: linux/amd64
     build:
       context: backend
       args:
@@ -67,6 +68,7 @@ services:
     environment:
       - MONGO_HOST=db
       - DOCS_API_URL=/api
+      - JWT_SECRET=${JWT_SECRET}
     depends_on:
       - db
   frontend:
